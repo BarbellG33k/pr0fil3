@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guillermo Salas | Portfolio Ember</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "dashboard-bg": "#0a0c10",
+          "dashboard-card": "#161b22",
+          "dashboard-accent": "#e2b170",
+          "dashboard-text": "#f0f6fc",
+          "dashboard-muted": "#8b949e",
+          "dashboard-border": "#30363d",
+          "primary": "#38bdf8",
+          "on-primary": "#ffffff",
+          "surface": "#0a0c10",
+          "on-surface": "#f0f6fc"
+        },
+        fontFamily: {
+          "headline": ["Inter", "sans-serif"],
+          "body": ["Inter", "sans-serif"],
+          "mono": ["JetBrains Mono", "monospace"]
+        },
+        borderRadius: {
+          "DEFAULT": "0.375rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+      },
+    },
+  }
+</script>
+<style type="text/tailwindcss">
+  @layer base {
+    body {
+      @apply bg-dashboard-bg text-dashboard-text font-body;
+    }
+  }
+  .dashboard-grid-pattern {
+    background-image: radial-gradient(rgba(48, 54, 61, 0.4) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+  .stat-card {
+    @apply bg-dashboard-card border border-dashboard-border p-6 transition-all hover:border-dashboard-accent/50;
+  }
+  .metric-value {
+    @apply font-mono text-2xl font-bold text-dashboard-accent;
+  }
+</style>
+</head>
+<body class="selection:bg-dashboard-accent/30 selection:text-dashboard-accent">
+
+<nav class="fixed top-0 w-full z-50 border-b border-dashboard-border bg-dashboard-bg/80 backdrop-blur-md">
+<div class="flex justify-between items-center px-6 py-3 max-w-[1600px] mx-auto">
+<div class="flex items-center space-x-3">
+<div class="w-8 h-8 bg-dashboard-accent rounded flex items-center justify-center">
+<span class="material-symbols-outlined text-dashboard-bg text-xl" style="font-variation-settings: 'FILL' 1;">analytics</span>
+</div>
+<div class="text-sm font-bold tracking-tighter uppercase font-mono">GS_EMBER_v1.0</div>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#about">Overview</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#experience">Timeline</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#skills">Metrics</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#contact">Terminal</a>
+</div>
+<button class="border border-dashboard-accent text-dashboard-accent px-4 py-1.5 font-mono text-xs uppercase tracking-widest hover:bg-dashboard-accent hover:text-dashboard-bg transition-all">
+  Export_PDF
+</button>
+</div>
+</nav>
+
+<main class="pt-20 px-6 max-w-[1600px] mx-auto dashboard-grid-pattern min-h-screen">
+
+<!-- Hero -->
+<section class="py-12 grid grid-cols-1 lg:grid-cols-12 gap-6" id="about">
+<div class="lg:col-span-8 bg-dashboard-card border border-dashboard-border p-8 lg:p-12 relative overflow-hidden flex flex-col justify-center">
+<div class="absolute top-0 right-0 p-4 font-mono text-[10px] text-dashboard-muted">STATUS: OPTIMIZED</div>
+<div class="relative z-10">
+<span class="text-dashboard-accent font-mono text-xs tracking-[0.3em] uppercase mb-4 block">System Architect // Engineering Leadership</span>
+<h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
+  Guillermo Salas
+</h1>
+<p class="text-xl md:text-2xl text-dashboard-muted max-w-2xl leading-relaxed font-light">
+  VP Software Engineering &amp; Product Development at the intersection of <span class="text-dashboard-text font-medium">AI-augmented engineering</span> and <span class="text-dashboard-text font-medium">platform modernization</span>. 20+ years scaling organizations across Healthcare SaaS, fintech, and enterprise.
+</p>
+</div>
+</div>
+<div class="lg:col-span-4 bg-dashboard-card border border-dashboard-border relative overflow-hidden group">
+<img alt="Guillermo Salas" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uj4C1dBFaXL_VS1Tv-ggBNs1CNcS4q0UBRZJRpf1v6wE8RpT3XqHhEFDSxqU6EY_zrS1soLKgXT4YFbxI9sT5_q7y-dM3qZO95fUTCLPrRFL0RGUznAgnMY3z65SpxIwqj8mDH5dVLqXoa4Mk8nHFyHTUVmuPNhCO7NbzVTrY778VDL7Ygl7rkketr6PU4kgXTzURtvQSP6cgjZ39kKOe8ggk78q1BnyXIDHeFDPX-UHYiQQKFyhM_oHHsdnyzft651zuWuAXOv4w"/>
+<div class="absolute inset-0 bg-dashboard-bg/10 group-hover:bg-transparent transition-colors"></div>
+<div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-dashboard-bg/90 to-transparent">
+<div class="flex justify-between items-end">
+<div>
+  <div class="metric-value">20+</div>
+  <div class="text-[10px] uppercase tracking-tighter text-dashboard-muted font-mono">Years Exp.</div>
+</div>
+<div class="text-right">
+  <div class="text-xs font-mono text-dashboard-accent">ELM_GROVE_WI</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Experience -->
+<section class="py-12" id="experience">
+<div class="flex items-center justify-between mb-8 border-b border-dashboard-border pb-4">
+<h2 class="text-xs font-mono uppercase tracking-[0.4em] text-dashboard-muted flex items-center gap-2">
+<span class="w-2 h-2 bg-dashboard-accent rounded-full animate-pulse"></span>
+Operational Trajectory
+</h2>
+<div class="text-[10px] font-mono text-dashboard-muted uppercase">Sorting: Chronological_Desc</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-1">
+
+<!-- Experity: full width, highlighted -->
+<div class="md:col-span-2 bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all border-l-4 border-l-dashboard-accent">
+<div class="flex justify-between items-start mb-6">
+  <span class="font-mono text-[10px] text-dashboard-accent bg-dashboard-accent/10 px-2 py-1">MAR 2023 — PRESENT</span>
+  <span class="font-mono text-[10px] text-dashboard-accent">CURRENT_ROLE</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-1">Experity</h4>
+<p class="text-dashboard-accent font-mono text-xs uppercase tracking-widest mb-4">VP, Software Engineering and Product Development</p>
+<p class="text-sm text-dashboard-muted leading-relaxed mb-6">Built an AI-augmented engineering organization for a Healthcare SaaS platform serving 5,000+ urgent care providers. Defined AI governance frameworks, scaled agent-assisted workflows, and drove ~25% faster cycle time, ~30% reduction in defect rework, and ~40% improvement in MTTR. Accountable for $4.8M in strategic engineering investments within a $23M R&amp;D budget.</p>
+<div class="flex flex-wrap gap-2">
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Healthcare SaaS</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">AI Governance</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">HIPAA / FHIR</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Platform Modernization</span>
+</div>
+</div>
+
+<!-- Chronicled -->
+<div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all">
+<div class="flex justify-between items-start mb-6">
+  <span class="font-mono text-[10px] text-dashboard-muted">JUL 2022 — MAY 2023</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-1">Chronicled</h4>
+<p class="text-dashboard-muted font-mono text-xs uppercase tracking-widest mb-4">Implementation Solutions Architect &amp; Head of Customer Success</p>
+<p class="text-sm text-dashboard-muted leading-relaxed mb-6">Led enterprise blockchain solution implementations for Fortune 100 pharmaceutical customers via the MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.</p>
+<div class="flex flex-wrap gap-2">
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Blockchain</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">MediLedger</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Pharma Supply Chain</span>
+</div>
+</div>
+
+<!-- SafeNet Consulting -->
+<div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all">
+<div class="flex justify-between items-start mb-6">
+  <span class="font-mono text-[10px] text-dashboard-muted">APR 2021 — JUL 2022</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-1">SafeNet Consulting</h4>
+<p class="text-dashboard-muted font-mono text-xs uppercase tracking-widest mb-4">Director, Solutions Group</p>
+<p class="text-sm text-dashboard-muted leading-relaxed mb-6">Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure, translating emerging technology into actionable adoption strategies.</p>
+<div class="flex flex-wrap gap-2">
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Cloud Architecture</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">AWS</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Azure</span>
+</div>
+</div>
+
+<!-- SysLogic -->
+<div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all">
+<div class="flex justify-between items-start mb-6">
+  <span class="font-mono text-[10px] text-dashboard-muted">MAY 2019 — MAR 2021</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-1">SysLogic</h4>
+<p class="text-dashboard-muted font-mono text-xs uppercase tracking-widest mb-4">Cloud &amp; Enterprise Architecture Lead</p>
+<p class="text-sm text-dashboard-muted leading-relaxed mb-6">Championed cloud-first modernization across multiple enterprise engagements—governing solution design, guiding infrastructure adoption, and mentoring engineering talent through hands-on architectural leadership.</p>
+<div class="flex flex-wrap gap-2">
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Cloud-First</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Enterprise Architecture</span>
+</div>
+</div>
+
+<!-- HSA Bank Director -->
+<div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all">
+<div class="flex justify-between items-start mb-6">
+  <span class="font-mono text-[10px] text-dashboard-muted">JUN 2016 — MAY 2019</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-1">HSA Bank</h4>
+<p class="text-dashboard-muted font-mono text-xs uppercase tracking-widest mb-4">Director, Enterprise Solutions Architect</p>
+<p class="text-sm text-dashboard-muted leading-relaxed mb-6">Architected enterprise integration patterns and governed technology adoption across a regulated financial services platform. Partnered with CTO and executive leadership on critical technical strategy.</p>
+<div class="flex flex-wrap gap-2">
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">FinTech</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Integration Patterns</span>
+</div>
+</div>
+
+<!-- HSA Bank VP -->
+<div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all">
+<div class="flex justify-between items-start mb-6">
+  <span class="font-mono text-[10px] text-dashboard-muted">MAY 2014 — JUN 2016</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-1">HSA Bank</h4>
+<p class="text-dashboard-muted font-mono text-xs uppercase tracking-widest mb-4">VP, Application Development Manager</p>
+<p class="text-sm text-dashboard-muted leading-relaxed mb-6">Reduced support incident rework by 43% YoY. Built a hiring practice anchored in curiosity and continuous improvement—resulting in engineers who consistently performed in the top 10%.</p>
+<div class="flex flex-wrap gap-2">
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Team Leadership</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Process Design</span>
+</div>
+</div>
+
+<!-- CoreLogic -->
+<div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all">
+<div class="flex justify-between items-start mb-6">
+  <span class="font-mono text-[10px] text-dashboard-muted">DEC 2011 — MAY 2014</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-1">CoreLogic / Marshall Swift &amp; Boeckh</h4>
+<p class="text-dashboard-muted font-mono text-xs uppercase tracking-widest mb-4">Enterprise Application Architect</p>
+<p class="text-sm text-dashboard-muted leading-relaxed mb-6">Collaboratively defined roadmaps, annual planning, and feature sets impacting multiple platforms. Delivered comprehensive enterprise solutions with full technical specifications.</p>
+<div class="flex flex-wrap gap-2">
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Enterprise Architecture</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Roadmapping</span>
+</div>
+</div>
+
+<!-- Health Payment Systems -->
+<div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all">
+<div class="flex justify-between items-start mb-6">
+  <span class="font-mono text-[10px] text-dashboard-muted">MAY 2010 — DEC 2011</span>
+</div>
+<h4 class="text-2xl font-bold text-white mb-1">Health Payment Systems</h4>
+<p class="text-dashboard-muted font-mono text-xs uppercase tracking-widest mb-4">Application Architect</p>
+<p class="text-sm text-dashboard-muted leading-relaxed mb-6">Managed the software development team ensuring constant improvement, engagement, and productivity across delivery cycles.</p>
+<div class="flex flex-wrap gap-2">
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Engineering Management</span>
+  <span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">Software Delivery</span>
+</div>
+</div>
+
+</div>
+</section>
+
+<!-- Skills -->
+<section class="py-12" id="skills">
+<div class="flex items-center justify-between mb-8 border-b border-dashboard-border pb-4">
+<h2 class="text-xs font-mono uppercase tracking-[0.4em] text-dashboard-muted">Expertise Metrics</h2>
+<div class="text-[10px] font-mono text-dashboard-muted uppercase">Capability_Map_v2</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+
+<div class="stat-card">
+<div class="flex items-start justify-between mb-4">
+  <span class="material-symbols-outlined text-dashboard-accent" data-icon="leaderboard">leaderboard</span>
+  <div class="text-[10px] font-mono text-dashboard-accent">20+ YRS</div>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">Executive Leadership</h4>
+<p class="text-xs text-dashboard-muted leading-relaxed">Org design, budget &amp; capacity planning, and leadership development across 27-person distributed engineering organizations.</p>
+<div class="flex flex-wrap gap-1 mt-3">
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">Org Design</span>
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">Stakeholder Mgmt</span>
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">Budget Planning</span>
+</div>
+<div class="mt-4 h-1 w-full bg-dashboard-border rounded-full overflow-hidden">
+  <div class="bg-dashboard-accent h-full w-[95%]"></div>
+</div>
+</div>
+
+<div class="stat-card bg-dashboard-accent/5 border-dashboard-accent/20">
+<div class="flex items-start justify-between mb-4">
+  <span class="material-symbols-outlined text-dashboard-accent" data-icon="neurology">neurology</span>
+  <div class="text-[10px] font-mono text-dashboard-accent">GEN_AI_READY</div>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">AI-Augmented Leadership</h4>
+<p class="text-xs text-dashboard-muted leading-relaxed">Defining governance frameworks and agent-assisted workflows—~25% faster cycle time, ~40% improvement in MTTR.</p>
+<div class="flex flex-wrap gap-1 mt-3">
+  <span class="border border-dashboard-accent/20 px-2 py-0.5 text-[8px] font-mono text-dashboard-accent uppercase">AI Governance</span>
+  <span class="border border-dashboard-accent/20 px-2 py-0.5 text-[8px] font-mono text-dashboard-accent uppercase">LLM Workflows</span>
+  <span class="border border-dashboard-accent/20 px-2 py-0.5 text-[8px] font-mono text-dashboard-accent uppercase">AI-Compressed MTTR</span>
+</div>
+<div class="mt-4 h-1 w-full bg-dashboard-border rounded-full overflow-hidden">
+  <div class="bg-dashboard-accent h-full w-[92%]"></div>
+</div>
+</div>
+
+<div class="stat-card">
+<div class="flex items-start justify-between mb-4">
+  <span class="material-symbols-outlined text-dashboard-accent" data-icon="transform">transform</span>
+  <div class="text-[10px] font-mono text-dashboard-accent">CLOUD_NATIVE</div>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">Platform &amp; Architecture</h4>
+<p class="text-xs text-dashboard-muted leading-relaxed">Modernizing mission-critical distributed platforms with cloud-native patterns, CI/CD maturity, and microservices decomposition.</p>
+<div class="flex flex-wrap gap-1 mt-3">
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">Distributed Systems</span>
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">Microservices</span>
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">DDD / SOLID</span>
+</div>
+<div class="mt-4 h-1 w-full bg-dashboard-border rounded-full overflow-hidden">
+  <div class="bg-dashboard-accent h-full w-[88%]"></div>
+</div>
+</div>
+
+<div class="stat-card">
+<div class="flex items-start justify-between mb-4">
+  <span class="material-symbols-outlined text-dashboard-accent" data-icon="security">security</span>
+  <div class="text-[10px] font-mono text-dashboard-accent">HIPAA_READY</div>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">Reliability, Security &amp; Compliance</h4>
+<p class="text-xs text-dashboard-muted leading-relaxed">Regulated platform delivery across HIPAA, HL7, and FHIR with observability-driven incident response and security-first architecture.</p>
+<div class="flex flex-wrap gap-1 mt-3">
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">HIPAA / HL7 / FHIR</span>
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">Observability</span>
+</div>
+<div class="mt-4 h-1 w-full bg-dashboard-border rounded-full overflow-hidden">
+  <div class="bg-dashboard-accent h-full w-[90%]"></div>
+</div>
+</div>
+
+<div class="stat-card">
+<div class="flex items-start justify-between mb-4">
+  <span class="material-symbols-outlined text-dashboard-accent" data-icon="cloud">cloud</span>
+  <div class="text-[10px] font-mono text-dashboard-accent">AWS_PRIMARY</div>
+</div>
+<h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">Cloud, Data &amp; Delivery</h4>
+<p class="text-xs text-dashboard-muted leading-relaxed">AWS-primary operations with Kubernetes platforms, PostgreSQL optimization, and OpenAPI / OAuth 2.0 integration patterns.</p>
+<div class="flex flex-wrap gap-1 mt-3">
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">AWS</span>
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">Azure</span>
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">Kubernetes</span>
+  <span class="border border-dashboard-border/50 px-2 py-0.5 text-[8px] font-mono text-dashboard-muted uppercase">CI/CD</span>
+</div>
+<div class="mt-4 h-1 w-full bg-dashboard-border rounded-full overflow-hidden">
+  <div class="bg-dashboard-accent h-full w-[85%]"></div>
+</div>
+</div>
+
+<div class="stat-card flex flex-col justify-center items-center bg-dashboard-accent text-dashboard-bg">
+<div class="text-3xl font-black font-mono">OCI AI</div>
+<div class="text-[10px] uppercase font-bold tracking-widest mt-2">Certified 2024</div>
+<div class="text-[9px] mt-1 opacity-75 text-center font-mono">Oracle Cloud GenAI Professional</div>
+</div>
+
+</div>
+</section>
+
+<!-- Contact -->
+<section class="py-24 border-t border-dashboard-border" id="contact">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<h2 class="text-dashboard-accent font-mono text-xs uppercase tracking-[0.5em] mb-8">Establish Connection</h2>
+<h3 class="text-6xl md:text-7xl font-bold text-white leading-none mb-12 tracking-tight">
+  LET'S<br/>CONNECT
+</h3>
+<div class="space-y-4 font-mono">
+<div class="flex items-center gap-4 group">
+  <div class="w-10 h-10 border border-dashboard-border flex items-center justify-center text-dashboard-accent group-hover:bg-dashboard-accent group-hover:text-dashboard-bg transition-all">
+    <span class="material-symbols-outlined text-sm" data-icon="mail">mail</span>
+  </div>
+  <a href="mailto:gsalast@gmail.com" class="text-sm text-dashboard-muted group-hover:text-white transition-colors">gsalast@gmail.com</a>
+</div>
+<div class="flex items-center gap-4 group">
+  <div class="w-10 h-10 border border-dashboard-border flex items-center justify-center text-dashboard-accent group-hover:bg-dashboard-accent group-hover:text-dashboard-bg transition-all">
+    <span class="material-symbols-outlined text-sm" data-icon="phone">phone</span>
+  </div>
+  <a href="tel:+14148994450" class="text-sm text-dashboard-muted group-hover:text-white transition-colors">+1-414-899-4450</a>
+</div>
+<div class="flex items-center gap-4 group">
+  <div class="w-10 h-10 border border-dashboard-border flex items-center justify-center text-dashboard-accent group-hover:bg-dashboard-accent group-hover:text-dashboard-bg transition-all">
+    <span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+  </div>
+  <span class="text-sm text-dashboard-muted group-hover:text-white transition-colors">Elm Grove, Wisconsin</span>
+</div>
+<div class="flex items-center gap-4 group">
+  <div class="w-10 h-10 border border-dashboard-border flex items-center justify-center text-dashboard-accent group-hover:bg-dashboard-accent group-hover:text-dashboard-bg transition-all">
+    <span class="material-symbols-outlined text-sm" data-icon="link">link</span>
+  </div>
+  <a href="https://linkedin.com/in/guillermosalas" target="_blank" class="text-sm text-dashboard-muted group-hover:text-white transition-colors">linkedin.com/in/guillermosalas</a>
+</div>
+</div>
+</div>
+<div class="bg-dashboard-card p-10 border border-dashboard-border relative">
+<div class="absolute top-0 right-0 p-4 font-mono text-[9px] text-dashboard-accent">AUTH_REQUIRED: TRUE</div>
+<form class="space-y-6">
+<div>
+  <label class="block text-[10px] uppercase tracking-widest text-dashboard-muted font-mono mb-2">Full_Name</label>
+  <input class="w-full bg-dashboard-bg/50 border border-dashboard-border p-3 focus:border-dashboard-accent focus:ring-0 transition-colors text-white font-mono text-sm outline-none" placeholder="GUEST_USER" type="text"/>
+</div>
+<div>
+  <label class="block text-[10px] uppercase tracking-widest text-dashboard-muted font-mono mb-2">Subject_Line</label>
+  <input class="w-full bg-dashboard-bg/50 border border-dashboard-border p-3 focus:border-dashboard-accent focus:ring-0 transition-colors text-white font-mono text-sm outline-none" placeholder="INQUIRY_01" type="text"/>
+</div>
+<button class="w-full py-4 bg-dashboard-accent text-dashboard-bg font-bold uppercase tracking-[0.2em] text-xs hover:bg-white transition-colors mt-4" type="submit">
+  Push_Message
+</button>
+</form>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="bg-dashboard-bg border-t border-dashboard-border py-12 px-6">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-[1600px] mx-auto">
+<div class="text-sm font-bold text-white font-mono flex items-center gap-2">
+<span class="w-2 h-2 bg-dashboard-accent rounded-full"></span>
+GS_EMBER_SYSTEM
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-mono text-[10px] uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="https://linkedin.com/in/guillermosalas" target="_blank">LinkedIn</a>
+<a class="font-mono text-[10px] uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="mailto:gsalast@gmail.com">Email</a>
+<a class="font-mono text-[10px] uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="resume.html">Download_CV</a>
+</div>
+<div class="text-dashboard-muted font-mono text-[9px] uppercase tracking-widest opacity-60">
+  © 2025 GUILLERMO_SALAS. ALL_RIGHTS_RESERVED.
+</div>
+</div>
+</footer>
+
+</body>
+</html>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guillermo Salas - Technical Executive</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -124,6 +125,46 @@
             transform: translateY(0);
         }
 
+        .portfolio-section {
+            margin-top: 36px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .portfolio-label {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: #666;
+            margin-bottom: 14px;
+        }
+
+        .portfolio-links {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .portfolio-link {
+            display: block;
+            color: #00d4ff;
+            padding: 11px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 13px;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 212, 255, 0.25);
+        }
+
+        .portfolio-link:hover {
+            background: rgba(0, 212, 255, 0.08);
+            border-color: rgba(0, 212, 255, 0.5);
+            transform: translateY(-1px);
+        }
+
         .footer {
             margin-top: 50px;
             padding-top: 30px;
@@ -187,9 +228,25 @@
 
             <a href="resume.html" class="resume-link">View Full Resume</a>
 
+            <div class="portfolio-section">
+                <p class="portfolio-label">Portfolio Views</p>
+                <div class="portfolio-links">
+                    <a href="executive_portfolio_herald.html" class="portfolio-link">Portfolio Herald</a>
+                    <a href="executive_portfolio_cipher.html" class="portfolio-link">Portfolio Cipher</a>
+                    <a href="executive_portfolio_ember.html" class="portfolio-link">Portfolio Ember</a>
+                    <a href="portfolio-nova.html" class="portfolio-link">Portfolio Nova</a>
+                    <a href="portfolio-apex.html" class="portfolio-link">Portfolio Apex</a>
+                    <a href="resume-alt.html" class="portfolio-link">Resume Alt</a>
+                </div>
+            </div>
+
             <div class="footer">
                 <p>
                     <a href="https://www.linkedin.com/in/guillermosalas/" target="_blank">LinkedIn</a>
+                    &nbsp;·&nbsp;
+                    <a href="mailto:gsalast@gmail.com">Email</a>
+                    &nbsp;·&nbsp;
+                    <a href="tel:+14148994450">+1-414-899-4450</a>
                 </p>
             </div>
         </div>

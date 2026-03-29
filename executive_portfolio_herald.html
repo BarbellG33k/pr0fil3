@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Guillermo Salas | Portfolio Herald</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,200..800;1,6..72,200..800&amp;family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        colors: {
+          "on-background": "#1a1c1c",
+          "on-error": "#ffffff",
+          "on-surface-variant": "#444748",
+          "surface": "#faf9f8",
+          "tertiary-container": "#cca730",
+          "outline": "#747878",
+          "surface-dim": "#dadad9",
+          "surface-variant": "#e3e2e1",
+          "surface-container-high": "#e9e8e7",
+          "secondary-container": "#fed488",
+          "surface-container-low": "#f4f3f2",
+          "secondary-fixed-dim": "#e9c176",
+          "secondary-fixed": "#ffdea5",
+          "on-secondary-container": "#785a1a",
+          "primary-container": "#1c1b1b",
+          "outline-variant": "#c4c7c7",
+          "on-tertiary-container": "#4f3e00",
+          "secondary": "#775a19",
+          "on-secondary": "#ffffff",
+          "primary": "#000000",
+          "surface-container-highest": "#e3e2e1",
+          "surface-bright": "#faf9f8",
+          "primary-fixed": "#e5e2e1",
+          "inverse-surface": "#2f3130",
+          "inverse-primary": "#c8c6c5",
+          "surface-container-lowest": "#ffffff",
+          "surface-container": "#eeeeed",
+          "on-surface": "#1a1c1c",
+          "on-primary": "#ffffff",
+          "background": "#faf9f8",
+          "on-primary-container": "#858383",
+          "tertiary": "#735c00"
+        },
+        fontFamily: {
+          "headline": ["Newsreader", "serif"],
+          "body": ["Manrope", "sans-serif"],
+          "label": ["Manrope", "sans-serif"]
+        },
+        borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+      },
+    },
+  }
+</script>
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+  }
+  .editorial-shadow {
+    box-shadow: 0 32px 64px -12px rgba(26, 28, 28, 0.04);
+  }
+  .glass-nav {
+    background: rgba(250, 249, 248, 0.85);
+    backdrop-filter: blur(12px);
+  }
+  .btn-primary-gradient {
+    background: linear-gradient(45deg, #000000 0%, #1c1b1b 100%);
+  }
+</style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+
+<nav class="fixed top-0 w-full z-50 border-b border-[#747878]/20 glass-nav shadow-sm shadow-[#1a1c1c]/5">
+<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto transition-all duration-500 ease-in-out">
+<div class="text-2xl font-bold text-[#000000] font-headline tracking-tight">Portfolio Herald</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-headline text-lg tracking-tight text-[#775a19] font-semibold transition-colors duration-500" href="#about">About</a>
+<a class="font-headline text-lg tracking-tight text-[#1a1c1c] opacity-70 hover:text-[#775a19] transition-colors duration-500" href="#experience">Experience</a>
+<a class="font-headline text-lg tracking-tight text-[#1a1c1c] opacity-70 hover:text-[#775a19] transition-colors duration-500" href="#skills">Skills</a>
+<a class="font-headline text-lg tracking-tight text-[#1a1c1c] opacity-70 hover:text-[#775a19] transition-colors duration-500" href="#contact">Contact</a>
+</div>
+<button class="bg-primary text-on-primary px-6 py-2.5 font-label text-sm uppercase tracking-widest hover:opacity-90 transition-opacity btn-primary-gradient">
+  Download PDF
+</button>
+</div>
+</nav>
+
+<main class="pt-24 overflow-x-hidden">
+
+<!-- Hero -->
+<section class="min-h-[921px] flex flex-col justify-center px-8 max-w-7xl mx-auto relative mb-24" id="about">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+<div class="lg:col-span-8">
+<span class="text-secondary font-label uppercase tracking-[0.3em] text-sm block mb-6">Engineering Leadership</span>
+<h1 class="text-7xl md:text-9xl font-headline font-extrabold text-primary leading-[0.9] tracking-tighter mb-8">
+  Guillermo<br/>Salas
+</h1>
+<p class="text-xl md:text-3xl font-headline italic text-on-surface-variant max-w-2xl leading-relaxed">
+  VP Software Engineering &amp; Product Development building <span class="not-italic text-on-surface font-semibold">AI-augmented engineering organizations</span> at the intersection of platform scale and <span class="not-italic text-on-surface font-semibold">transformative technology strategy</span>.
+</p>
+</div>
+<div class="lg:col-span-4 flex justify-end relative">
+<div class="w-full aspect-[4/5] relative overflow-hidden editorial-shadow border border-outline-variant/20">
+<img src="https://lh3.googleusercontent.com/aida/ADBb0uj4C1dBFaXL_VS1Tv-ggBNs1CNcS4q0UBRZJRpf1v6wE8RpT3XqHhEFDSxqU6EY_zrS1soLKgXT4YFbxI9sT5_q7y-dM3qZO95fUTCLPrRFL0RGUznAgnMY3z65SpxIwqj8mDH5dVLqXoa4Mk8nHFyHTUVmuPNhCO7NbzVTrY778VDL7Ygl7rkketr6PU4kgXTzURtvQSP6cgjZ39kKOe8ggk78q1BnyXIDHeFDPX-UHYiQQKFyhM_oHHsdnyzft651zuWuAXOv4w" alt="Guillermo Salas" class="w-full h-full object-cover object-top"/>
+<div class="absolute top-6 left-6 w-8 h-8 border-t border-l border-outline-variant/40"></div>
+<div class="absolute bottom-6 right-6 w-8 h-8 border-b border-r border-outline-variant/40"></div>
+</div>
+<div class="absolute -bottom-12 -left-12 hidden lg:block w-48 h-48 bg-surface-container-lowest border border-outline-variant/15 p-6 editorial-shadow">
+<span class="text-4xl font-headline text-secondary">20+</span>
+<p class="text-xs uppercase tracking-widest font-label mt-2 text-on-surface-variant">Years of Global Leadership</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Experience Timeline -->
+<section class="py-32 bg-surface-container-low relative" id="experience">
+<div class="max-w-7xl mx-auto px-8">
+<div class="flex flex-col md:flex-row justify-between items-end mb-24 gap-8">
+<div class="max-w-xl">
+<h2 class="text-secondary font-label text-sm uppercase tracking-[0.4em] mb-4">Professional Narrative</h2>
+<h3 class="text-5xl font-headline text-primary leading-tight">A trajectory defined by innovation and scale.</h3>
+</div>
+<div class="h-px bg-outline-variant/30 flex-grow mx-12 hidden md:block"></div>
+</div>
+<div class="relative">
+<!-- Spine -->
+<div class="absolute left-1/2 transform -translate-x-1/2 h-full w-px bg-outline-variant/40"></div>
+
+<!-- Entry 1: Experity (Current) — text LEFT, card RIGHT -->
+<div class="relative mb-20 group">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-24 text-right mb-8 md:mb-0">
+  <span class="text-secondary font-headline text-2xl italic">Mar 2023 – Present</span>
+  <h4 class="text-3xl font-headline font-bold text-primary mt-2">Experity</h4>
+  <p class="text-on-surface-variant font-label uppercase text-xs tracking-widest mt-1">VP, Software Engineering and Product Development</p>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-secondary border-4 border-surface ring-8 ring-secondary/10"></div>
+<div class="md:w-1/2 md:pl-24">
+  <div class="bg-surface-container-lowest p-8 editorial-shadow transition-all duration-500 hover:translate-x-2">
+    <p class="text-on-surface-variant leading-relaxed mb-4">Built an AI-augmented engineering organization for a Healthcare SaaS platform serving 5,000+ urgent care providers. Defined AI governance frameworks, scaled agent-assisted workflows, and drove ~25% faster cycle time, ~30% reduction in defect rework, and ~40% improvement in MTTR. Accountable for $4.8M in strategic engineering investments within a $23M R&amp;D budget.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Healthcare SaaS</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">AI Governance</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">HIPAA / FHIR</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Platform Modernization</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Entry 2: Chronicled — card LEFT, text RIGHT -->
+<div class="relative mb-20 group">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-24 order-2 md:order-1">
+  <div class="bg-surface-container-lowest p-8 editorial-shadow transition-all duration-500 hover:-translate-x-2">
+    <p class="text-on-surface-variant leading-relaxed mb-4">Led enterprise blockchain solution implementations for Fortune 100 pharmaceutical customers via the MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements. Served as Head of Customer Success Services managing a team of Implementation Consultants.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Blockchain</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">MediLedger</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Pharma Supply Chain</span>
+    </div>
+  </div>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary-fixed border-4 border-surface transition-colors group-hover:bg-secondary"></div>
+<div class="md:w-1/2 md:pl-24 order-1 md:order-2 mb-8 md:mb-0">
+  <span class="text-on-surface-variant font-headline text-2xl italic opacity-50">Jul 2022 – May 2023</span>
+  <h4 class="text-3xl font-headline font-bold text-primary mt-2">Chronicled</h4>
+  <p class="text-on-surface-variant font-label uppercase text-xs tracking-widest mt-1">Implementation Solutions Architect &amp; Head of Customer Success</p>
+</div>
+</div>
+</div>
+
+<!-- Entry 3: SafeNet Consulting — text LEFT, card RIGHT -->
+<div class="relative mb-20 group">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-24 text-right mb-8 md:mb-0">
+  <span class="text-on-surface-variant font-headline text-2xl italic opacity-50">Apr 2021 – Jul 2022</span>
+  <h4 class="text-3xl font-headline font-bold text-primary mt-2">SafeNet Consulting</h4>
+  <p class="text-on-surface-variant font-label uppercase text-xs tracking-widest mt-1">Director, Solutions Group</p>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary-fixed border-4 border-surface transition-colors group-hover:bg-secondary"></div>
+<div class="md:w-1/2 md:pl-24">
+  <div class="bg-surface-container-lowest p-8 editorial-shadow transition-all duration-500 hover:translate-x-2">
+    <p class="text-on-surface-variant leading-relaxed mb-4">Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure, identifying emerging technology opportunities and translating them into actionable adoption strategies.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Cloud Architecture</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">AWS</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Azure</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Fortune 500</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Entry 4: SysLogic — card LEFT, text RIGHT -->
+<div class="relative mb-20 group">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-24 order-2 md:order-1">
+  <div class="bg-surface-container-lowest p-8 editorial-shadow transition-all duration-500 hover:-translate-x-2">
+    <p class="text-on-surface-variant leading-relaxed mb-4">Championed cloud-first modernization across multiple enterprise engagements—governing solution design, guiding infrastructure adoption, and mentoring engineering talent through hands-on architectural leadership.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Cloud-First</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Enterprise Architecture</span>
+    </div>
+  </div>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary-fixed border-4 border-surface transition-colors group-hover:bg-secondary"></div>
+<div class="md:w-1/2 md:pl-24 order-1 md:order-2 mb-8 md:mb-0">
+  <span class="text-on-surface-variant font-headline text-2xl italic opacity-50">May 2019 – Mar 2021</span>
+  <h4 class="text-3xl font-headline font-bold text-primary mt-2">SysLogic</h4>
+  <p class="text-on-surface-variant font-label uppercase text-xs tracking-widest mt-1">Cloud &amp; Enterprise Architecture Lead</p>
+</div>
+</div>
+</div>
+
+<!-- Entry 5: HSA Bank Director — text LEFT, card RIGHT -->
+<div class="relative mb-20 group">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-24 text-right mb-8 md:mb-0">
+  <span class="text-on-surface-variant font-headline text-2xl italic opacity-50">Jun 2016 – May 2019</span>
+  <h4 class="text-3xl font-headline font-bold text-primary mt-2">HSA Bank</h4>
+  <p class="text-on-surface-variant font-label uppercase text-xs tracking-widest mt-1">Director, Enterprise Solutions Architect</p>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary-fixed border-4 border-surface transition-colors group-hover:bg-secondary"></div>
+<div class="md:w-1/2 md:pl-24">
+  <div class="bg-surface-container-lowest p-8 editorial-shadow transition-all duration-500 hover:translate-x-2">
+    <p class="text-on-surface-variant leading-relaxed mb-4">Architected enterprise integration patterns and governed technology adoption across a regulated financial services platform. Partnered with CTO and executive leadership to communicate critical technical initiatives and scalable architectural solutions aligned to enterprise strategy.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">FinTech</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Integration Patterns</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Enterprise Architecture</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Entry 6: HSA Bank VP — card LEFT, text RIGHT -->
+<div class="relative mb-20 group">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-24 order-2 md:order-1">
+  <div class="bg-surface-container-lowest p-8 editorial-shadow transition-all duration-500 hover:-translate-x-2">
+    <p class="text-on-surface-variant leading-relaxed mb-4">Reduced support incident rework by 43% YoY by establishing an integrated intake, definition, and alignment process. Built a hiring practice anchored in curiosity and continuous improvement—resulting in engineers who consistently performed within the top 10%.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Team Leadership</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Process Design</span>
+    </div>
+  </div>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary-fixed border-4 border-surface transition-colors group-hover:bg-secondary"></div>
+<div class="md:w-1/2 md:pl-24 order-1 md:order-2 mb-8 md:mb-0">
+  <span class="text-on-surface-variant font-headline text-2xl italic opacity-50">May 2014 – Jun 2016</span>
+  <h4 class="text-3xl font-headline font-bold text-primary mt-2">HSA Bank</h4>
+  <p class="text-on-surface-variant font-label uppercase text-xs tracking-widest mt-1">VP, Application Development Manager</p>
+</div>
+</div>
+</div>
+
+<!-- Entry 7: CoreLogic — text LEFT, card RIGHT -->
+<div class="relative mb-20 group">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-24 text-right mb-8 md:mb-0">
+  <span class="text-on-surface-variant font-headline text-2xl italic opacity-50">Dec 2011 – May 2014</span>
+  <h4 class="text-3xl font-headline font-bold text-primary mt-2">CoreLogic / Marshall Swift &amp; Boeckh</h4>
+  <p class="text-on-surface-variant font-label uppercase text-xs tracking-widest mt-1">Enterprise Application Architect</p>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary-fixed border-4 border-surface transition-colors group-hover:bg-secondary"></div>
+<div class="md:w-1/2 md:pl-24">
+  <div class="bg-surface-container-lowest p-8 editorial-shadow transition-all duration-500 hover:translate-x-2">
+    <p class="text-on-surface-variant leading-relaxed mb-4">Collaboratively defined roadmaps, annual planning, and feature sets impacting multiple platforms and products. Delivered comprehensive enterprise solutions with full technical specifications, mentoring distributed remote and onsite teams.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Enterprise Architecture</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Roadmapping</span>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- Entry 8: Health Payment Systems — card LEFT, text RIGHT (last) -->
+<div class="relative group">
+<div class="flex flex-col md:flex-row items-center">
+<div class="md:w-1/2 md:pr-24 order-2 md:order-1">
+  <div class="bg-surface-container-lowest p-8 editorial-shadow transition-all duration-500 hover:-translate-x-2">
+    <p class="text-on-surface-variant leading-relaxed mb-4">Managed the software development team ensuring constant improvement, engagement, and productivity across delivery cycles.</p>
+    <div class="flex flex-wrap gap-2">
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Engineering Management</span>
+      <span class="bg-surface-container px-3 py-1 text-[10px] font-label uppercase tracking-widest text-secondary">Software Delivery</span>
+    </div>
+  </div>
+</div>
+<div class="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 rounded-full bg-primary-fixed border-4 border-surface transition-colors group-hover:bg-secondary"></div>
+<div class="md:w-1/2 md:pl-24 order-1 md:order-2 mb-8 md:mb-0">
+  <span class="text-on-surface-variant font-headline text-2xl italic opacity-50">May 2010 – Dec 2011</span>
+  <h4 class="text-3xl font-headline font-bold text-primary mt-2">Health Payment Systems</h4>
+  <p class="text-on-surface-variant font-label uppercase text-xs tracking-widest mt-1">Application Architect</p>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Skills Bento Grid -->
+<section class="py-32 bg-surface" id="skills">
+<div class="max-w-7xl mx-auto px-8">
+<div class="text-center mb-24">
+<h2 class="text-secondary font-label text-sm uppercase tracking-[0.5em] mb-4">Core Competencies</h2>
+<h3 class="text-6xl font-headline text-primary tracking-tight">Executive Expertise</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6">
+
+<!-- Card 1: Executive Leadership -->
+<div class="md:col-span-2 lg:col-span-2 bg-surface-container-lowest p-10 flex flex-col justify-between transition-all duration-500 hover:bg-surface-container-high hover:scale-[1.02] cursor-default editorial-shadow">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="leaderboard">leaderboard</span>
+<div>
+<h4 class="text-2xl font-headline font-bold mb-3">Executive Leadership</h4>
+<div class="flex flex-wrap gap-2 mt-3">
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Org Design &amp; Scaling</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Stakeholder Mgmt</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Budget &amp; Capacity</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Leadership Development</span>
+</div>
+</div>
+</div>
+
+<!-- Card 2: AI-Augmented Leadership (dark) -->
+<div class="md:col-span-1 lg:col-span-2 bg-primary text-on-primary p-10 flex flex-col justify-between transition-all duration-500 hover:scale-[1.02] cursor-default editorial-shadow">
+<span class="material-symbols-outlined text-secondary-fixed-dim text-4xl mb-6" data-icon="neurology" style="font-variation-settings: 'FILL' 1;">neurology</span>
+<div>
+<h4 class="text-2xl font-headline font-bold mb-3">AI-Augmented Leadership</h4>
+<div class="flex flex-wrap gap-2 mt-3">
+  <span class="bg-white/10 px-2 py-1 text-[9px] font-label uppercase tracking-widest text-yellow-200">AI Governance</span>
+  <span class="bg-white/10 px-2 py-1 text-[9px] font-label uppercase tracking-widest text-yellow-200">Agent Workflows</span>
+  <span class="bg-white/10 px-2 py-1 text-[9px] font-label uppercase tracking-widest text-yellow-200">LLM Enablement</span>
+  <span class="bg-white/10 px-2 py-1 text-[9px] font-label uppercase tracking-widest text-yellow-200">AI-Compressed MTTR</span>
+</div>
+</div>
+</div>
+
+<!-- Card 3: Platform & Architecture -->
+<div class="md:col-span-1 lg:col-span-2 bg-surface-container-lowest p-10 flex flex-col justify-between transition-all duration-500 hover:bg-surface-container-high hover:scale-[1.02] cursor-default editorial-shadow">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="transform">transform</span>
+<div>
+<h4 class="text-2xl font-headline font-bold mb-3">Platform &amp; Architecture</h4>
+<div class="flex flex-wrap gap-2 mt-3">
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Distributed Systems</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Cloud-Native</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Microservices</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">DDD / SOLID</span>
+</div>
+</div>
+</div>
+
+<!-- Card 4: Reliability, Security & Compliance -->
+<div class="md:col-span-2 lg:col-span-3 bg-surface-container-lowest p-10 flex flex-col justify-between transition-all duration-500 hover:bg-surface-container-high hover:scale-[1.02] cursor-default editorial-shadow">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="security">security</span>
+<div>
+<h4 class="text-2xl font-headline font-bold mb-3">Reliability, Security &amp; Compliance</h4>
+<div class="flex flex-wrap gap-2 mt-3">
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Security-First Architecture</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Observability &amp; Incident Leadership</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">HIPAA / HL7 / FHIR</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Regulated Platform Delivery</span>
+</div>
+</div>
+</div>
+
+<!-- Card 5: Cloud, Data & Delivery -->
+<div class="md:col-span-1 lg:col-span-3 bg-surface-container-lowest p-10 flex flex-col justify-between transition-all duration-500 hover:bg-surface-container-high hover:scale-[1.02] cursor-default editorial-shadow">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6" data-icon="cloud">cloud</span>
+<div>
+<h4 class="text-2xl font-headline font-bold mb-3">Cloud, Data &amp; Delivery</h4>
+<div class="flex flex-wrap gap-2 mt-3">
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">AWS (Primary)</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Azure</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">Kubernetes</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">CI/CD Maturity</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">PostgreSQL</span>
+  <span class="bg-surface-container px-2 py-1 text-[9px] font-label uppercase tracking-widest text-secondary">OpenAPI / OAuth 2.0</span>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- Contact -->
+<section class="py-40 bg-primary-container text-on-primary overflow-hidden relative" id="contact">
+<div class="max-w-7xl mx-auto px-8 relative z-10">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<div class="lg:col-span-7">
+<h2 class="text-secondary-fixed-dim font-label text-sm uppercase tracking-[0.5em] mb-8">Ready for the next challenge</h2>
+<h3 class="text-7xl md:text-9xl font-headline font-extrabold text-white leading-none mb-12">
+  LET'S<br/>CONNECT
+</h3>
+<div class="space-y-6">
+<div class="flex items-center gap-6 group">
+  <div class="w-12 h-12 rounded-full border border-outline/30 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
+    <span class="material-symbols-outlined" data-icon="mail">mail</span>
+  </div>
+  <a href="mailto:gsalast@gmail.com" class="text-xl font-headline text-surface-variant hover:text-white transition-colors">gsalast@gmail.com</a>
+</div>
+<div class="flex items-center gap-6 group">
+  <div class="w-12 h-12 rounded-full border border-outline/30 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
+    <span class="material-symbols-outlined" data-icon="phone">phone</span>
+  </div>
+  <a href="tel:+14148994450" class="text-xl font-headline text-surface-variant hover:text-white transition-colors">+1-414-899-4450</a>
+</div>
+<div class="flex items-center gap-6 group">
+  <div class="w-12 h-12 rounded-full border border-outline/30 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
+    <span class="material-symbols-outlined" data-icon="location_on">location_on</span>
+  </div>
+  <span class="text-xl font-headline text-surface-variant">Elm Grove, Wisconsin</span>
+</div>
+<div class="flex items-center gap-6 group">
+  <div class="w-12 h-12 rounded-full border border-outline/30 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all">
+    <span class="material-symbols-outlined" data-icon="link">link</span>
+  </div>
+  <a href="https://linkedin.com/in/guillermosalas" target="_blank" class="text-xl font-headline text-surface-variant hover:text-white transition-colors">linkedin.com/in/guillermosalas</a>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 pt-12">
+<div class="bg-white/5 backdrop-blur-md p-12 border border-white/10">
+<h4 class="text-2xl font-headline mb-6 text-white">Direct Inquiry</h4>
+<form class="space-y-8">
+<div>
+  <label class="block text-[10px] uppercase tracking-widest text-on-primary-container font-label mb-2">Full Name</label>
+  <input class="w-full bg-transparent border-b border-outline/30 py-3 focus:border-secondary focus:ring-0 transition-colors text-white font-headline text-lg outline-none" type="text"/>
+</div>
+<div>
+  <label class="block text-[10px] uppercase tracking-widest text-on-primary-container font-label mb-2">Subject</label>
+  <input class="w-full bg-transparent border-b border-outline/30 py-3 focus:border-secondary focus:ring-0 transition-colors text-white font-headline text-lg outline-none" type="text"/>
+</div>
+<button class="w-full py-5 bg-secondary text-white font-label uppercase tracking-widest text-sm hover:opacity-90 transition-opacity mt-8" type="submit">
+  Send Message
+</button>
+</form>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+</main>
+
+<footer class="bg-[#f4f3f2] w-full py-20 px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 max-w-7xl mx-auto">
+<div class="text-xl font-bold text-[#000000] font-headline">Portfolio Herald</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-sans text-sm uppercase tracking-widest text-[#1a1c1c] opacity-60 hover:opacity-100 hover:text-[#775a19] transition-opacity" href="https://linkedin.com/in/guillermosalas" target="_blank">LinkedIn</a>
+<a class="font-sans text-sm uppercase tracking-widest text-[#1a1c1c] opacity-60 hover:opacity-100 hover:text-[#775a19] transition-opacity" href="mailto:gsalast@gmail.com">Email</a>
+<a class="font-sans text-sm uppercase tracking-widest text-[#1a1c1c] opacity-60 hover:opacity-100 hover:text-[#775a19] transition-opacity" href="resume.html">Download CV</a>
+</div>
+<div class="text-[#1a1c1c] font-sans text-sm uppercase tracking-widest opacity-40">
+  © 2025 Guillermo Salas. All Rights Reserved.
+</div>
+</div>
+</footer>
+
+</body>
+</html>
