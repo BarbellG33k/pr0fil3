@@ -160,391 +160,529 @@
             </div>
         </div>
     </footer>
+
     <script>
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
-</body>
-</html>
-<script>
-    const JSON_FILE = 'resume-content.json';
-    let RESUME_DATA = null;
 
-    async function loadResume() {
-        let data;
-        try {
-            const res = await fetch(JSON_FILE);
-            if (!res.ok) throw new Error('fetch failed');
-            data = await res.json();
-        } catch (e) {
-            console.error('Failed to load JSON, falling back to empty data or handling error', e);
-            return;
-        }
-        RESUME_DATA = data;
-        render(data);
-    }
-
-    function render(data) {
-        renderHero(data.meta, data.summary);
-        renderExperience(data.experience);
-        renderSkills(data.skills);
-        renderContact(data.meta);
-        renderFooter(data.meta);
-    }
-
-    function renderHero(meta, summary) {
-        document.getElementById('hero-content').innerHTML = `
-            <span class="text-dashboard-accent font-mono text-xs tracking-[0.3em] uppercase mb-4 block">${meta.title}</span>
-            <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
-                ${meta.name}
-            </h1>
-            <p class="text-xl md:text-2xl text-dashboard-muted max-w-2xl leading-relaxed font-light">
-                ${summary}
-            </p>
-        `;
-
-        document.getElementById('hero-image-container').innerHTML = `
-            <img alt="${meta.name}" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uj4C1dBFaXL_VS1Tv-ggBNs1CNcS4q0UBRZJRpf1v6wE8RpT3XqHhEFDSxqU6EY_zrS1soLKgXT4YFbxI9sT5_q7y-dM3qZO95fUTCLPrRFL0RGUznAgnMY3z65SpxIwqj8mDH5dVLqXoa4Mk8nHFyHTUVmuPNhCO7NbzVTrY778VDL7Ygl7rkketr6PU4kgXTzURtvQSP6cgjZ39kKOe8ggk78q1BnyXIDHeFDPX-UHYiQQKFyhM_oHHsdnyzft651zuWuAXOv4w"/>
-            <div class="absolute inset-0 bg-dashboard-bg/10 group-hover:bg-transparent transition-colors"></div>
-            <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-dashboard-bg/90 to-transparent">
-                <div class="flex justify-between items-end">
-                    <div>
-                        <div class="metric-value">20+</div>
-                        <div class="text-[10px] uppercase tracking-tighter text-dashboard-muted font-mono">Years Exp.</div>
-                    </div>
-                    <div class="text-right">
-                        <div class="text-xs font-mono text-dashboard-accent">${meta.location}</div>
-                    </div>
-                </div>
-            </div>
-        `;
-    }
-
-    function renderExperience(jobs) {
-        const container = document.getElementById('experience-container');
-        let html = '';
-        jobs.slice(0, 3).forEach((job, index) => {
-            const isLatest = index === 0;
-            const borderClass = isLatest ? 'border-l-4 border-l-dashboard-accent' : '';
-            const periodClass = isLatest ? 'text-dashboard-accent bg-dashboard-accent/10 px-2 py-1' : 'text-dashboard-muted';
-            const titleClass = isLatest ? 'text-dashboard-accent' : 'text-dashboard-muted';
-
-            // Extract keywords or use generic ones
-            const keywords = isLatest ? ['Cloud-Scale', 'AI Ops'] :
-                             (index === 1 ? ['Legacy Pivot', 'Microservices'] : ['Product Strategy', 'Leadership']);
-
-            const keywordsHtml = keywords.map(k => `<span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">${k}</span>`).join('');
-
-            // Trim description for portfolio card view
-            const desc = job.bullets[0].replace(/^##\s*/, '');
-
-            html += `
-                <div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all ${borderClass}">
-                    <div class="flex justify-between items-start mb-6">
-                        <span class="font-mono text-[10px] ${periodClass}">${job.period.toUpperCase()}</span>
-                    </div>
-                    <h4 class="text-2xl font-bold text-white mb-1">${job.company}</h4>
-                    <p class="${titleClass} font-mono text-xs uppercase tracking-widest mb-4">${job.title}</p>
-                    <p class="text-sm text-dashboard-muted leading-relaxed mb-6 line-clamp-4">${desc}</p>
-                    <div class="flex flex-wrap gap-2">
-                        ${keywordsHtml}
-                    </div>
-                </div>
-            `;
-        });
-        container.innerHTML = html;
-    }
-
-    function renderSkills(skills) {
-        const container = document.getElementById('skills-container');
-        const icons = ['leaderboard', 'neurology', 'transform', 'rocket_launch', 'account_balance'];
-        const metrics = ['98th PCTL', 'GEN_AI_READY', '400% VELOCITY', 'ALPHA_ADOPTER', 'SEC_COMPLIANT'];
-        const values = ['95%', '90%', '85%', '92%', '88%'];
-
-        let html = '';
-        skills.slice(0, 5).forEach((skill, index) => {
-            const isHighlight = index === 1;
-            const bgClass = isHighlight ? 'bg-dashboard-accent/5 border-dashboard-accent/20' : '';
-            const icon = icons[index % icons.length];
-            const metric = metrics[index % metrics.length];
-            const value = values[index % values.length];
-            const desc = skill.items.join(', ');
-
-            html += `
-                <div class="stat-card ${bgClass}">
-                    <div class="flex items-start justify-between mb-4">
-                        <span class="material-symbols-outlined text-dashboard-accent" data-icon="${icon}">${icon}</span>
-                        <div class="text-[10px] font-mono text-dashboard-accent">${metric}</div>
-                    </div>
-                    <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">${skill.category}</h4>
-                    <p class="text-xs text-dashboard-muted leading-relaxed line-clamp-3">${desc}</p>
-                    <div class="mt-4 h-1 w-full bg-dashboard-border rounded-full overflow-hidden">
-                        <div class="bg-dashboard-accent h-full" style="width: ${value};"></div>
-                    </div>
-                </div>
-            `;
-        });
-
-        // Add reliability card
-        html += `
-            <div class="stat-card flex flex-col justify-center items-center bg-dashboard-accent text-dashboard-bg">
-                <div class="text-4xl font-black font-mono">100%</div>
-                <div class="text-[10px] uppercase font-bold tracking-widest mt-2">Uptime Reliability</div>
-            </div>
-        `;
-
-        container.innerHTML = html;
-    }
-
-    function renderContact(meta) {
-        document.getElementById('contact-container').innerHTML = `
-            <div class="flex items-center gap-4 group">
-                <div class="w-10 h-10 border border-dashboard-border flex items-center justify-center text-dashboard-accent group-hover:bg-dashboard-accent group-hover:text-dashboard-bg transition-all">
-                    <span class="material-symbols-outlined text-sm" data-icon="mail">mail</span>
-                </div>
-                <span class="text-sm text-dashboard-muted group-hover:text-white transition-colors"><a href="mailto:${meta.email}">${meta.email}</a></span>
-            </div>
-            <div class="flex items-center gap-4 group">
-                <div class="w-10 h-10 border border-dashboard-border flex items-center justify-center text-dashboard-accent group-hover:bg-dashboard-accent group-hover:text-dashboard-bg transition-all">
-                    <span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
-                </div>
-                <span class="text-sm text-dashboard-muted group-hover:text-white transition-colors">${meta.location}</span>
-            </div>
-        `;
-    }
-
-    function renderFooter(meta) {
-        document.getElementById('footer-links').innerHTML = `
-            <a class="font-mono text-[10px] uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="${meta.linkedinUrl}" target="_blank">LinkedIn</a>
-            <a class="font-mono text-[10px] uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="mailto:${meta.email}">Email</a>
-            <button onclick="downloadPDF()" class="font-mono text-[10px] uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors cursor-pointer bg-transparent border-none p-0 m-0">Download_CV</button>
-        `;
-    }
-
-    // Call loadResume on page load
-    document.addEventListener('DOMContentLoaded', loadResume);
-
-</script>
-<script>
-    const THEMES = {
-      carbon: {
-        name: 'Carbon Edge',
-        attr: 'carbon',
-        fonts: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap',
-        colors: { INK: '#111827', INKL: '#374151', INKM: '#6b7280', ACC: '#0d7490', RULE: '#4b5563', JOBRULE: '#d1d5db' }
-      },
-      executive: {
-        name: 'Executive Edge',
-        attr: 'executive',
-        fonts: 'https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap',
-        colors: { INK: '#0f1923', INKL: '#374151', INKM: '#6b7280', ACC: '#1e3a5f', RULE: '#94a3b8', JOBRULE: '#d1d9e0' }
-      },
-      editorial: {
-        name: 'Warm Editorial',
-        attr: 'editorial',
-        fonts: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap',
-        colors: { INK: '#1a1a1a', INKL: '#4a4a4a', INKM: '#888888', ACC: '#8b6f47', RULE: '#c8b99a', JOBRULE: '#e8e0d0' }
-      },
-      meridian: {
-        name: 'Meridian Dark',
-        attr: 'meridian',
-        fonts: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap',
-        colors: { INK: '#e6edf3', INKL: '#c9d1d9', INKM: '#8b949e', ACC: '#58a6ff', RULE: '#30363d', JOBRULE: '#21262d' }
-      },
-      blueprint: {
-        name: 'Blueprint',
-        attr: 'blueprint',
-        fonts: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap',
-        colors: { INK: '#0f172a', INKL: '#1e3a5f', INKM: '#64748b', ACC: '#2563eb', RULE: '#bfdbfe', JOBRULE: '#eff6ff' }
-      }
-    };
-
-    let currentTheme = 'carbon';
-
-    function downloadPDF() {
-      if (!RESUME_DATA) return;
-      const d = RESUME_DATA;
-      // Change button text briefly to show loading state if desired
-
-      try {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF({ unit: 'pt', format: 'a4' });
-
-        const PW = 595.28, PH = 841.89;
-        const ML = 36, MR = 36, MT = 40, MB = 36;
-        const LBL_W = 90, GAP = 14;
-        const BODY_X = ML + LBL_W + GAP;
-        const BODY_W = PW - MR - BODY_X;
-        const CAT_COL = 130;
-
-        const h2r = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
-        const tc = h => doc.setTextColor(...h2r(h));
-        const dc = h => doc.setDrawColor(...h2r(h));
-        const { INK, INKL, INKM, ACC, RULE, JOBRULE } = THEMES[currentTheme].colors;
-
-        let y = MT;
-
-        const newPage = () => { doc.addPage(); y = MT; };
-        const need = (h) => { if (y + h > PH - MB) newPage(); };
-
-        const lbl = (text) => {
-          doc.setFont('helvetica', 'bold'); doc.setFontSize(7); tc(ACC);
-          doc.text(text.toUpperCase(), ML + LBL_W, y + 7, { align: 'right' });
-          dc(RULE); doc.setLineWidth(0.4);
-          doc.line(ML + LBL_W - 22, y + 10, ML + LBL_W, y + 10);
+    <script>
+        const RESUME_DATA = {
+          "meta": {
+            "name": "Guillermo Salas",
+            "title": "EVP SOFTWARE ENGINEERING / CTO",
+            "email": "gsalast@gmail.com",
+            "phone": "+1-414-899-4450",
+            "location": "Elm Grove, Wisconsin",
+            "linkedin": "linkedin.com/in/guillermosalas",
+            "linkedinUrl": "https://linkedin.com/in/guillermosalas"
+          },
+          "summary": "Technology executive who builds AI-augmented engineering organizations—teams, workflows, and operating models where governed LLM tooling multiplies what an engineering team can deliver without sacrificing quality or compliance. Currently leading platform engineering for a Healthcare SaaS serving 5,000+ urgent care providers while operationalizing AI-augmented delivery across a 27-person engineering organization. Leads from the front: personally evaluated and implemented AI tooling across code generation, review automation, and incident response before institutionalizing governance policy and team standards. 20+ years scaling engineering organizations and modernizing platforms across Healthcare SaaS, fintech, and enterprise software—consistently aligning technology strategy to measurable business outcomes.",
+          "experience": [
+            {
+              "company": "Experity",
+              "title": "VP, Software Engineering and Product Development",
+              "period": "Mar 2023 – Present",
+              "bullets": [
+                "## Building the AI-Augmented Engineering Organization",
+                "Defined AI governance framework, security guardrails, and training programs; scaled AI-enabled workflows across delivery, code review, incident response, and knowledge retrieval—delivering ~25% faster cycle time, ~30% reduction in defect rework, and ~40% improvement in MTTR; transformed ad-hoc tool experiments into consistent, audited, and repeatable pipelines aligned with Security, Compliance, and Product.",
+                "Transformed engineering teams from ad-hoc AI tool users to agent-augmented reviewers—LLM tooling generates first-draft code, PR descriptions, test cases, and documentation; engineers review, refine, and merge with enforced quality gates. The team's constraint shifted from build capacity to review quality—a fundamentally better bottleneck.",
+                "Led from the front: personally evaluated AI tooling across code generation, PR review automation, knowledge retrieval, and incident response before institutionalizing governance frameworks and team standards—ensuring adoption policy was grounded in practitioner experience rather than delegated from a distance.",
+                "## Platform Modernization & Engineering Reliability",
+                "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care and emergency medicine providers; accountable for reliability, performance, and compliance (HIPAA, HL7, FHIR) across legacy and modern distributed systems.",
+                "Drove architectural modernization of mission-critical platforms, introducing CI/CD maturity, improved cloud observability, and AI-compressed incident response—decreasing initial triage times and consistently generating actionable post-incident learnings.",
+                "Provided hands-on technical leadership on distributed system design decisions, including scalability constraints, data consistency, and incident response—moving from reactive firefighting to repeatable operational discipline.",
+                "## Organizational Leadership & Strategic Operations",
+                "Built and led a multi-disciplinary engineering organization across multiple time zones (5 direct reports, 4 teams, 27 engineers); accountable for $4.8M in strategic engineering investments within a $23M R&D budget, delivering 35%+ improvement in team efficiency through process redesign, engineering metrics adoption, and strategic resource reallocation—creating shared visibility into throughput, quality, and operational health.",
+                "Championed a people-first leadership culture emphasizing mentorship, ownership, and continuous improvement—maintaining top 10% talent retention and performance outcomes.",
+                "Partnered cross-functionally with Product, Finance, and executive leadership to define and execute engineering roadmaps, shaping budget allocation decisions tied to AI tooling adoption, platform modernization, and team structure."
+              ]
+            },
+            {
+              "company": "Chronicled",
+              "title": "Implementation Solutions Architect & Head of Customer Success Services",
+              "period": "Jul 2022 – May 2023",
+              "bullets": [
+                "Led enterprise blockchain solution implementations for Fortune 100 pharmaceutical customers via the MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
+                "Served as Head of Customer Success Services, managing a team of Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
+                "Bridged technical implementation with strategic business outcomes, ensuring alignment between platform capabilities and client objectives."
+              ]
+            },
+            {
+              "company": "SafeNet Consulting",
+              "title": "Director, Solutions Group",
+              "period": "Apr 2021 – Jul 2022",
+              "bullets": [
+                "Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure, identifying emerging technology opportunities and translating them into actionable adoption strategies."
+              ]
+            },
+            {
+              "company": "SysLogic",
+              "title": "Cloud & Enterprise Architecture Lead",
+              "period": "May 2019 – Mar 2021",
+              "bullets": [
+                "Championed cloud-first modernization across multiple enterprise engagements—governing solution design, guiding infrastructure adoption, and mentoring engineering talent through hands-on architectural leadership."
+              ]
+            },
+            {
+              "company": "HSA Bank",
+              "title": "Director, Enterprise Solutions Architect",
+              "period": "Jun 2016 – May 2019",
+              "bullets": [
+                "Architected enterprise integration patterns and governed technology adoption across a regulated financial services platform.",
+                "Partnered with CTO and executive leadership to communicate critical technical initiatives and scalable architectural solutions aligned to enterprise strategy."
+              ]
+            },
+            {
+              "company": "HSA Bank",
+              "title": "VP, Application Development Manager",
+              "period": "May 2014 – Jun 2016",
+              "bullets": [
+                "Reduced support incident rework by 43% YoY by establishing an intake, definition, alignment, and assignment integrated process.",
+                "Built a hiring practice anchored in curiosity and continuous improvement — resulting in engineers who consistently performed within the top 10%."
+              ]
+            },
+            {
+              "company": "CoreLogic / Marshall Swift & Boeckh",
+              "title": "Enterprise Application Architect",
+              "period": "Dec 2011 – May 2014",
+              "bullets": [
+                "Collaboratively defined roadmaps, annual planning, and feature sets impacting multiple platforms and products.",
+                "Delivered comprehensive enterprise solutions with full technical specifications, mentoring distributed remote and onsite teams."
+              ]
+            },
+            {
+              "company": "Health Payment Systems",
+              "title": "Application Architect",
+              "period": "May 2010 – Dec 2011",
+              "bullets": [
+                "Managed the software development team ensuring constant improvement, engagement, and productivity across delivery cycles."
+              ]
+            }
+          ],
+          "skills": [
+            {
+              "category": "Executive Leadership",
+              "items": ["Org Design & Team Scaling", "Executive Stakeholder Management", "Engineering Operating Cadence", "Budget & Capacity Planning", "Leadership Development & Hiring"]
+            },
+            {
+              "category": "AI-Augmented Leadership",
+              "items": ["Agent-Augmented Operating Models", "AI Governance & Guardrail Architecture", "LLM Enablement for Engineering Workflows", "Organizational AI Change Management", "AI-Compressed Incident Response"]
+            },
+            {
+              "category": "Platform & Architecture",
+              "items": ["Enterprise Architecture", "Distributed Systems Modernization", "Cloud-Native Platforms", "Microservices & Integration Patterns", "DDD / SOLID Design"]
+            },
+            {
+              "category": "Reliability, Security & Compliance",
+              "items": ["Security-First Architecture", "Observability & Incident Leadership", "HIPAA / HL7 / FHIR", "Regulated Platform Delivery"]
+            },
+            {
+              "category": "Cloud, Data & Delivery",
+              "items": ["AWS (Primary), Azure", "Kubernetes & Container Platforms", "PostgreSQL Performance Optimization", "CI/CD Maturity", "OpenAPI / OAuth 2.0 / JWT"]
+            }
+          ],
+          "education": [
+            {
+              "degree": "BS, Computer Engineering",
+              "institution": "UNE",
+              "location": "Caracas, Venezuela",
+              "year": "1994"
+            }
+          ],
+          "certifications": [
+            {
+              "issuer": "Oracle",
+              "items": [
+                "OCI Certified — Cloud Infrastructure 2024 Generative AI Professional",
+                "OCI Foundations 2021 Associate"
+              ]
+            },
+            {
+              "issuer": "Microsoft",
+              "items": [
+                "Azure Administrator (AZ-104)",
+                "Azure Data Fundamentals (DP-900)",
+                "Azure Fundamentals (AZ-900)"
+              ]
+            },
+            {
+              "issuer": "IBM",
+              "items": [
+                "Cloud-Native and Multicloud Applications"
+              ]
+            }
+          ],
+          "aiPractitioner": {
+            "title": "AI-Augmented Engineering — Practitioner Record",
+            "intro": "The AI governance framework and operating model changes above were built from hands-on practitioner work—personally evaluating and implementing AI tooling at the workflow level before defining governance policy, quality standards, and organizational change strategy.",
+            "bullets": [
+              "Governance Architecture: Designed the engineering organization's AI adoption framework—defining LLM usage policies, no-auto-merge standards, code review quality gates for AI-generated output, security guardrails, and audit protocols satisfying HIPAA-adjacent Compliance requirements. Converted ad-hoc, personality-driven tool use into a governed, repeatable, audited practice across 4 engineering teams.",
+              "Operating Model Shift: Led the transition from manual code producers to agent-augmented reviewers—establishing structured PR quality criteria for AI-generated output and incremental rollout through low-risk wins before expanding to production workflows. Taught the team that the future of individual contribution is reviewing and directing agents, not writing every line.",
+              "AI-Compressed Incident Response: Deployed AI-assisted runbooks and knowledge retrieval pipelines that compressed initial triage times and automated structured post-incident learning generation—reducing on-call cognitive load and improving MTTR across distributed teams.",
+              "Practitioner Certification: OCI Certified — Cloud Infrastructure 2024 Generative AI Professional — hands-on credential covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design on cloud infrastructure. Used to inform architecture decisions, evaluate tooling from a practitioner standpoint, and lead AI enablement conversations with credibility."
+            ]
+          }
         };
 
-        // HEADER
-        doc.setFont('times', 'bold'); doc.setFontSize(30); tc(INK);
-        doc.text(d.meta.name, ML, y + 28);
-
-        doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(ACC);
-        doc.text(d.meta.title, ML, y + 42);
-
-        doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
-        [d.meta.email, d.meta.phone, d.meta.location, d.meta.linkedin].forEach((v, i) => {
-          doc.text(v, PW - MR, y + 10 + i * 12.5, { align: 'right' });
-        });
-        y += 54;
-        dc(RULE); doc.setLineWidth(1.5); doc.line(ML, y, PW - MR, y);
-        y += 18;
-
-        // PROFILE
-        lbl('Profile');
-        doc.setFont('helvetica', 'italic'); doc.setFontSize(9); tc(INKL);
-        doc.splitTextToSize(d.summary, BODY_W).forEach(line => {
-          doc.text(line, BODY_X, y + 9); y += 13;
-        });
-        y += 14;
-
-        // EXPERIENCE
-        need(60); lbl('Experience');
-        d.experience.forEach((job, idx) => {
-          if (idx > 0) {
-            need(50);
-            dc(JOBRULE); doc.setLineDashPattern([1.5, 1.5], 0); doc.setLineWidth(0.4);
-            doc.line(BODY_X, y, PW - MR, y); doc.setLineDashPattern([], 0);
-            y += 10;
-          }
-
-          doc.setFont('times', 'bold'); doc.setFontSize(13); tc(INK);
-          doc.text(job.company, BODY_X, y + 10);
-          doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5); tc(INKM);
-          doc.text(job.period, PW - MR, y + 10, { align: 'right' });
-          y += 15;
-
-          doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(ACC);
-          doc.text(job.title.toUpperCase(), BODY_X, y + 7);
-          y += 13;
-
-          doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
-          job.bullets.forEach(b => {
-            if (b.startsWith('##')) {
-              y += 4;
-              doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INK);
-              doc.text(b.slice(2).trim().toUpperCase(), BODY_X, y + 7);
-              y += 13;
-              return;
-            }
-            doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
-            const lines = doc.splitTextToSize(b, BODY_W - 14);
-            need(lines.length * 13 + 3);
-            tc(RULE); doc.text('—', BODY_X, y + 9);
-            tc(INKL);
-            lines.forEach((l, li) => { doc.text(l, BODY_X + 14, y + 9 + li * 13); });
-            y += lines.length * 13 + 3;
-          });
-          y += 8;
-        });
-
-        // SKILLS
-        need(30); y += 4; lbl('Skills');
-        d.skills.forEach(sg => {
-          need(20);
-          doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INKM);
-          const catLines = doc.splitTextToSize(sg.category.toUpperCase(), CAT_COL);
-          catLines.forEach((cl, ci) => { doc.text(cl, BODY_X, y + 8 + ci * 10); });
-
-          doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
-          const itemLines = doc.splitTextToSize(sg.items.join('  ·  '), BODY_W - CAT_COL - 6);
-          itemLines.forEach((il, ii) => { doc.text(il, BODY_X + CAT_COL + 6, y + 8 + ii * 12); });
-
-          y += Math.max(catLines.length * 10, itemLines.length * 12) + 6;
-        });
-
-        // EDUCATION
-        if (d.education && d.education.length) {
-          need(30); y += 4; lbl('Education');
-          d.education.forEach(edu => {
-            need(28);
-            doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INKM);
-            doc.text(edu.institution.toUpperCase(), BODY_X, y + 8);
-            doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
-            doc.text(`${edu.degree}  —  ${edu.location}, ${edu.year}`, BODY_X, y + 20);
-            y += 30;
-          });
+        function render(data) {
+            renderHero(data.meta, data.summary);
+            renderExperience(data.experience);
+            renderSkills(data.skills);
+            renderContact(data.meta);
+            renderFooter(data.meta);
         }
 
-        // CERTIFICATIONS
-        need(30); y += 4; lbl('Certifications');
-        d.certifications.forEach(cert => {
-          need(20);
-          doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INKM);
-          doc.text(cert.issuer.toUpperCase(), BODY_X, y + 8);
-          y += 13;
-          cert.items.forEach(item => {
-            need(14);
-            doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
-            doc.text('·  ' + item, BODY_X + 4, y + 9);
-            y += 13;
-          });
-          y += 6;
-        });
+        function renderHero(meta, summary) {
+            document.getElementById('hero-content').innerHTML = `
+                <span class="text-dashboard-accent font-mono text-xs tracking-[0.3em] uppercase mb-4 block">${meta.title}</span>
+                <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
+                    ${meta.name}
+                </h1>
+                <p class="text-xl md:text-2xl text-dashboard-muted max-w-2xl leading-relaxed font-light">
+                    ${summary}
+                </p>
+            `;
 
-        // AI PRACTITIONER
-        if (d.aiPractitioner) {
-          const ai = d.aiPractitioner;
-          need(30); y += 4; lbl('AI Practice');
-          if (ai.intro) {
+            document.getElementById('hero-image-container').innerHTML = `
+                <img alt="${meta.name}" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida/ADBb0uj4C1dBFaXL_VS1Tv-ggBNs1CNcS4q0UBRZJRpf1v6wE8RpT3XqHhEFDSxqU6EY_zrS1soLKgXT4YFbxI9sT5_q7y-dM3qZO95fUTCLPrRFL0RGUznAgnMY3z65SpxIwqj8mDH5dVLqXoa4Mk8nHFyHTUVmuPNhCO7NbzVTrY778VDL7Ygl7rkketr6PU4kgXTzURtvQSP6cgjZ39kKOe8ggk78q1BnyXIDHeFDPX-UHYiQQKFyhM_oHHsdnyzft651zuWuAXOv4w"/>
+                <div class="absolute inset-0 bg-dashboard-bg/10 group-hover:bg-transparent transition-colors"></div>
+                <div class="absolute bottom-0 left-0 w-full p-6 bg-gradient-to-t from-dashboard-bg/90 to-transparent">
+                    <div class="flex justify-between items-end">
+                        <div>
+                            <div class="metric-value">20+</div>
+                            <div class="text-[10px] uppercase tracking-tighter text-dashboard-muted font-mono">Years Exp.</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-xs font-mono text-dashboard-accent">${meta.location}</div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function renderExperience(jobs) {
+            const container = document.getElementById('experience-container');
+            let html = '';
+            jobs.slice(0, 3).forEach((job, index) => {
+                const isLatest = index === 0;
+                const borderClass = isLatest ? 'border-l-4 border-l-dashboard-accent' : '';
+                const periodClass = isLatest ? 'text-dashboard-accent bg-dashboard-accent/10 px-2 py-1' : 'text-dashboard-muted';
+                const titleClass = isLatest ? 'text-dashboard-accent' : 'text-dashboard-muted';
+
+                const keywords = isLatest ? ['Cloud-Scale', 'AI Ops'] :
+                                 (index === 1 ? ['Legacy Pivot', 'Microservices'] : ['Product Strategy', 'Leadership']);
+
+                const keywordsHtml = keywords.map(k => `<span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">${k}</span>`).join('');
+
+                const desc = job.bullets[0].replace(/^##\s*/, '');
+
+                html += `
+                    <div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all ${borderClass}">
+                        <div class="flex justify-between items-start mb-6">
+                            <span class="font-mono text-[10px] ${periodClass}">${job.period.toUpperCase()}</span>
+                        </div>
+                        <h4 class="text-2xl font-bold text-white mb-1">${job.company}</h4>
+                        <p class="${titleClass} font-mono text-xs uppercase tracking-widest mb-4">${job.title}</p>
+                        <p class="text-sm text-dashboard-muted leading-relaxed mb-6 line-clamp-4">${desc}</p>
+                        <div class="flex flex-wrap gap-2">
+                            ${keywordsHtml}
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function renderSkills(skills) {
+            const container = document.getElementById('skills-container');
+            const icons = ['leaderboard', 'neurology', 'transform', 'rocket_launch', 'account_balance'];
+            const metrics = ['98th PCTL', 'GEN_AI_READY', '400% VELOCITY', 'ALPHA_ADOPTER', 'SEC_COMPLIANT'];
+            const values = ['95%', '90%', '85%', '92%', '88%'];
+
+            let html = '';
+            skills.slice(0, 5).forEach((skill, index) => {
+                const isHighlight = index === 1;
+                const bgClass = isHighlight ? 'bg-dashboard-accent/5 border-dashboard-accent/20' : '';
+                const icon = icons[index % icons.length];
+                const metric = metrics[index % metrics.length];
+                const value = values[index % values.length];
+                const desc = skill.items.join(', ');
+
+                html += `
+                    <div class="stat-card ${bgClass}">
+                        <div class="flex items-start justify-between mb-4">
+                            <span class="material-symbols-outlined text-dashboard-accent" data-icon="${icon}">${icon}</span>
+                            <div class="text-[10px] font-mono text-dashboard-accent">${metric}</div>
+                        </div>
+                        <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">${skill.category}</h4>
+                        <p class="text-xs text-dashboard-muted leading-relaxed line-clamp-3">${desc}</p>
+                        <div class="mt-4 h-1 w-full bg-dashboard-border rounded-full overflow-hidden">
+                            <div class="bg-dashboard-accent h-full" style="width: ${value};"></div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            html += `
+                <div class="stat-card flex flex-col justify-center items-center bg-dashboard-accent text-dashboard-bg">
+                    <div class="text-4xl font-black font-mono">100%</div>
+                    <div class="text-[10px] uppercase font-bold tracking-widest mt-2">Uptime Reliability</div>
+                </div>
+            `;
+
+            container.innerHTML = html;
+        }
+
+        function renderContact(meta) {
+            document.getElementById('contact-container').innerHTML = `
+                <div class="flex items-center gap-4 group">
+                    <div class="w-10 h-10 border border-dashboard-border flex items-center justify-center text-dashboard-accent group-hover:bg-dashboard-accent group-hover:text-dashboard-bg transition-all">
+                        <span class="material-symbols-outlined text-sm" data-icon="mail">mail</span>
+                    </div>
+                    <span class="text-sm text-dashboard-muted group-hover:text-white transition-colors"><a href="mailto:${meta.email}">${meta.email}</a></span>
+                </div>
+                <div class="flex items-center gap-4 group">
+                    <div class="w-10 h-10 border border-dashboard-border flex items-center justify-center text-dashboard-accent group-hover:bg-dashboard-accent group-hover:text-dashboard-bg transition-all">
+                        <span class="material-symbols-outlined text-sm" data-icon="location_on">location_on</span>
+                    </div>
+                    <span class="text-sm text-dashboard-muted group-hover:text-white transition-colors">${meta.location}</span>
+                </div>
+            `;
+        }
+
+        function renderFooter(meta) {
+            document.getElementById('footer-links').innerHTML = `
+                <a class="font-mono text-[10px] uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="${meta.linkedinUrl}" target="_blank">LinkedIn</a>
+                <a class="font-mono text-[10px] uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="mailto:${meta.email}">Email</a>
+                <button onclick="downloadPDF()" class="font-mono text-[10px] uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors cursor-pointer bg-transparent border-none p-0 m-0">Download_CV</button>
+            `;
+        }
+
+        document.addEventListener('DOMContentLoaded', () => render(RESUME_DATA));
+    </script>
+
+    <script>
+        const THEMES = {
+          carbon: {
+            name: 'Carbon Edge',
+            attr: 'carbon',
+            fonts: 'https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap',
+            colors: { INK: '#111827', INKL: '#374151', INKM: '#6b7280', ACC: '#0d7490', RULE: '#4b5563', JOBRULE: '#d1d5db' }
+          },
+          executive: {
+            name: 'Executive Edge',
+            attr: 'executive',
+            fonts: 'https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,600;0,700;1,400&display=swap',
+            colors: { INK: '#0f1923', INKL: '#374151', INKM: '#6b7280', ACC: '#1e3a5f', RULE: '#94a3b8', JOBRULE: '#d1d9e0' }
+          },
+          editorial: {
+            name: 'Warm Editorial',
+            attr: 'editorial',
+            fonts: 'https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap',
+            colors: { INK: '#1a1a1a', INKL: '#4a4a4a', INKM: '#888888', ACC: '#8b6f47', RULE: '#c8b99a', JOBRULE: '#e8e0d0' }
+          },
+          meridian: {
+            name: 'Meridian Dark',
+            attr: 'meridian',
+            fonts: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap',
+            colors: { INK: '#e6edf3', INKL: '#c9d1d9', INKM: '#8b949e', ACC: '#58a6ff', RULE: '#30363d', JOBRULE: '#21262d' }
+          },
+          blueprint: {
+            name: 'Blueprint',
+            attr: 'blueprint',
+            fonts: 'https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600&display=swap',
+            colors: { INK: '#0f172a', INKL: '#1e3a5f', INKM: '#64748b', ACC: '#2563eb', RULE: '#bfdbfe', JOBRULE: '#eff6ff' }
+          }
+        };
+
+        let currentTheme = 'carbon';
+
+        function downloadPDF() {
+          if (!RESUME_DATA) return;
+          const d = RESUME_DATA;
+
+          try {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF({ unit: 'pt', format: 'a4' });
+
+            const PW = 595.28, PH = 841.89;
+            const ML = 36, MR = 36, MT = 40, MB = 36;
+            const LBL_W = 90, GAP = 14;
+            const BODY_X = ML + LBL_W + GAP;
+            const BODY_W = PW - MR - BODY_X;
+            const CAT_COL = 130;
+
+            const h2r = h => [parseInt(h.slice(1, 3), 16), parseInt(h.slice(3, 5), 16), parseInt(h.slice(5, 7), 16)];
+            const tc = h => doc.setTextColor(...h2r(h));
+            const dc = h => doc.setDrawColor(...h2r(h));
+            const { INK, INKL, INKM, ACC, RULE, JOBRULE } = THEMES[currentTheme].colors;
+
+            let y = MT;
+
+            const newPage = () => { doc.addPage(); y = MT; };
+            const need = (h) => { if (y + h > PH - MB) newPage(); };
+
+            const lbl = (text) => {
+              doc.setFont('helvetica', 'bold'); doc.setFontSize(7); tc(ACC);
+              doc.text(text.toUpperCase(), ML + LBL_W, y + 7, { align: 'right' });
+              dc(RULE); doc.setLineWidth(0.4);
+              doc.line(ML + LBL_W - 22, y + 10, ML + LBL_W, y + 10);
+            };
+
+            // HEADER
+            doc.setFont('times', 'bold'); doc.setFontSize(30); tc(INK);
+            doc.text(d.meta.name, ML, y + 28);
+
+            doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(ACC);
+            doc.text(d.meta.title, ML, y + 42);
+
+            doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
+            [d.meta.email, d.meta.phone, d.meta.location, d.meta.linkedin].forEach((v, i) => {
+              doc.text(v, PW - MR, y + 10 + i * 12.5, { align: 'right' });
+            });
+            y += 54;
+            dc(RULE); doc.setLineWidth(1.5); doc.line(ML, y, PW - MR, y);
+            y += 18;
+
+            // PROFILE
+            lbl('Profile');
             doc.setFont('helvetica', 'italic'); doc.setFontSize(9); tc(INKL);
-            doc.splitTextToSize(ai.intro, BODY_W).forEach(line => {
+            doc.splitTextToSize(d.summary, BODY_W).forEach(line => {
               doc.text(line, BODY_X, y + 9); y += 13;
             });
-            y += 6;
-          }
-          ai.bullets.forEach(b => {
-            const colon = b.indexOf(':');
-            const hasLabel = colon > 0 && colon < 35;
-            const label = hasLabel ? b.slice(0, colon + 1) : '';
-            const rest = hasLabel ? b.slice(colon + 1).trim() : b;
-            doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
-            const lines = doc.splitTextToSize((hasLabel ? rest : b), BODY_W - 14);
-            need(lines.length * 13 + 3);
-            tc(RULE); doc.text('—', BODY_X, y + 9);
-            if (hasLabel) {
-              doc.setFont('helvetica', 'bold'); tc(INK);
-              doc.text(label, BODY_X + 14, y + 9);
-              const lw = doc.getTextWidth(label) + 3;
-              doc.setFont('helvetica', 'normal'); tc(INKL);
-              const firstLineRest = doc.splitTextToSize(rest, BODY_W - 14 - lw);
-              doc.text(firstLineRest[0], BODY_X + 14 + lw, y + 9);
-              if (firstLineRest.length > 1) {
-                firstLineRest.slice(1).forEach((l, li) => {
-                  doc.text(l, BODY_X + 14, y + 9 + (li + 1) * 13);
-                });
+            y += 14;
+
+            // EXPERIENCE
+            need(60); lbl('Experience');
+            d.experience.forEach((job, idx) => {
+              if (idx > 0) {
+                need(50);
+                dc(JOBRULE); doc.setLineDashPattern([1.5, 1.5], 0); doc.setLineWidth(0.4);
+                doc.line(BODY_X, y, PW - MR, y); doc.setLineDashPattern([], 0);
+                y += 10;
               }
-              y += firstLineRest.length * 13 + 3;
-            } else {
-              lines.forEach((l, li) => { doc.text(l, BODY_X + 14, y + 9 + li * 13); });
-              y += lines.length * 13 + 3;
+
+              doc.setFont('times', 'bold'); doc.setFontSize(13); tc(INK);
+              doc.text(job.company, BODY_X, y + 10);
+              doc.setFont('helvetica', 'normal'); doc.setFontSize(8.5); tc(INKM);
+              doc.text(job.period, PW - MR, y + 10, { align: 'right' });
+              y += 15;
+
+              doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(ACC);
+              doc.text(job.title.toUpperCase(), BODY_X, y + 7);
+              y += 13;
+
+              doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
+              job.bullets.forEach(b => {
+                if (b.startsWith('##')) {
+                  y += 4;
+                  doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INK);
+                  doc.text(b.slice(2).trim().toUpperCase(), BODY_X, y + 7);
+                  y += 13;
+                  return;
+                }
+                doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
+                const lines = doc.splitTextToSize(b, BODY_W - 14);
+                need(lines.length * 13 + 3);
+                tc(RULE); doc.text('—', BODY_X, y + 9);
+                tc(INKL);
+                lines.forEach((l, li) => { doc.text(l, BODY_X + 14, y + 9 + li * 13); });
+                y += lines.length * 13 + 3;
+              });
+              y += 8;
+            });
+
+            // SKILLS
+            need(30); y += 4; lbl('Skills');
+            d.skills.forEach(sg => {
+              need(20);
+              doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INKM);
+              const catLines = doc.splitTextToSize(sg.category.toUpperCase(), CAT_COL);
+              catLines.forEach((cl, ci) => { doc.text(cl, BODY_X, y + 8 + ci * 10); });
+
+              doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
+              const itemLines = doc.splitTextToSize(sg.items.join('  ·  '), BODY_W - CAT_COL - 6);
+              itemLines.forEach((il, ii) => { doc.text(il, BODY_X + CAT_COL + 6, y + 8 + ii * 12); });
+
+              y += Math.max(catLines.length * 10, itemLines.length * 12) + 6;
+            });
+
+            // EDUCATION
+            if (d.education && d.education.length) {
+              need(30); y += 4; lbl('Education');
+              d.education.forEach(edu => {
+                need(28);
+                doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INKM);
+                doc.text(edu.institution.toUpperCase(), BODY_X, y + 8);
+                doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
+                doc.text(`${edu.degree}  —  ${edu.location}, ${edu.year}`, BODY_X, y + 20);
+                y += 30;
+              });
             }
-          });
+
+            // CERTIFICATIONS
+            need(30); y += 4; lbl('Certifications');
+            d.certifications.forEach(cert => {
+              need(20);
+              doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INKM);
+              doc.text(cert.issuer.toUpperCase(), BODY_X, y + 8);
+              y += 13;
+              cert.items.forEach(item => {
+                need(14);
+                doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
+                doc.text('·  ' + item, BODY_X + 4, y + 9);
+                y += 13;
+              });
+              y += 6;
+            });
+
+            // AI PRACTITIONER
+            if (d.aiPractitioner) {
+              const ai = d.aiPractitioner;
+              need(30); y += 4; lbl('AI Practice');
+              if (ai.intro) {
+                doc.setFont('helvetica', 'italic'); doc.setFontSize(9); tc(INKL);
+                doc.splitTextToSize(ai.intro, BODY_W).forEach(line => {
+                  doc.text(line, BODY_X, y + 9); y += 13;
+                });
+                y += 6;
+              }
+              ai.bullets.forEach(b => {
+                const colon = b.indexOf(':');
+                const hasLabel = colon > 0 && colon < 35;
+                const label = hasLabel ? b.slice(0, colon + 1) : '';
+                const rest = hasLabel ? b.slice(colon + 1).trim() : b;
+                doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
+                const lines = doc.splitTextToSize((hasLabel ? rest : b), BODY_W - 14);
+                need(lines.length * 13 + 3);
+                tc(RULE); doc.text('—', BODY_X, y + 9);
+                if (hasLabel) {
+                  doc.setFont('helvetica', 'bold'); tc(INK);
+                  doc.text(label, BODY_X + 14, y + 9);
+                  const lw = doc.getTextWidth(label) + 3;
+                  doc.setFont('helvetica', 'normal'); tc(INKL);
+                  const firstLineRest = doc.splitTextToSize(rest, BODY_W - 14 - lw);
+                  doc.text(firstLineRest[0], BODY_X + 14 + lw, y + 9);
+                  if (firstLineRest.length > 1) {
+                    firstLineRest.slice(1).forEach((l, li) => {
+                      doc.text(l, BODY_X + 14, y + 9 + (li + 1) * 13);
+                    });
+                  }
+                  y += firstLineRest.length * 13 + 3;
+                } else {
+                  lines.forEach((l, li) => { doc.text(l, BODY_X + 14, y + 9 + li * 13); });
+                  y += lines.length * 13 + 3;
+                }
+              });
+            }
+
+            doc.save('Guillermo_Salas_Resume.pdf');
+
+          } catch (err) {
+            console.error('PDF generation failed:', err);
+            alert('PDF generation failed.');
+          }
         }
-
-        doc.save('Guillermo_Salas_Resume.pdf');
-
-      } catch (err) {
-        console.error('PDF generation failed:', err);
-        alert('PDF generation failed.');
-      }
-    }
-</script>
+    </script>
+</body>
+</html>
