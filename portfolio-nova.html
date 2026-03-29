@@ -192,14 +192,23 @@
 <div class="lg:col-span-5 pt-12">
 <div class="bg-white/5 backdrop-blur-md p-12 border border-white/10">
 <h4 class="text-2xl font-headline mb-6 text-white">Direct Inquiry</h4>
-<form class="space-y-8">
+<form action="/contact" method="POST" class="space-y-8">
+<input type="hidden" name="page" value="portfolio-nova"/>
 <div>
 <label class="block text-[10px] uppercase tracking-widest text-on-primary-container font-label mb-2">Full Name</label>
-<input class="w-full bg-transparent border-b border-outline/30 py-3 focus:border-secondary focus:ring-0 transition-colors text-white font-headline text-lg outline-none" type="text"/>
+<input class="w-full bg-transparent border-b border-outline/30 py-3 focus:border-secondary focus:ring-0 transition-colors text-white font-headline text-lg outline-none" type="text" name="name" placeholder="Your name"/>
+</div>
+<div>
+<label class="block text-[10px] uppercase tracking-widest text-on-primary-container font-label mb-2">Email</label>
+<input class="w-full bg-transparent border-b border-outline/30 py-3 focus:border-secondary focus:ring-0 transition-colors text-white font-headline text-lg outline-none" type="email" name="email" placeholder="your@email.com"/>
+</div>
+<div>
+<label class="block text-[10px] uppercase tracking-widest text-on-primary-container font-label mb-2">Phone</label>
+<input class="w-full bg-transparent border-b border-outline/30 py-3 focus:border-secondary focus:ring-0 transition-colors text-white font-headline text-lg outline-none" type="tel" name="phone" placeholder="+1 (555) 000-0000"/>
 </div>
 <div>
 <label class="block text-[10px] uppercase tracking-widest text-on-primary-container font-label mb-2">Subject</label>
-<input class="w-full bg-transparent border-b border-outline/30 py-3 focus:border-secondary focus:ring-0 transition-colors text-white font-headline text-lg outline-none" type="text"/>
+<input class="w-full bg-transparent border-b border-outline/30 py-3 focus:border-secondary focus:ring-0 transition-colors text-white font-headline text-lg outline-none" type="text" name="subject"/>
 </div>
 <button class="w-full py-5 bg-secondary text-white font-label uppercase tracking-widest text-sm hover:opacity-90 transition-opacity mt-8" type="submit">
                                     Send Message

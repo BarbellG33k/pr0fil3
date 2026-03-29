@@ -383,14 +383,23 @@ Operational Trajectory
 </div>
 <div class="bg-dashboard-card p-10 border border-dashboard-border relative">
 <div class="absolute top-0 right-0 p-4 font-mono text-[9px] text-dashboard-accent">AUTH_REQUIRED: TRUE</div>
-<form class="space-y-6">
+<form action="/contact" method="POST" class="space-y-6">
+<input type="hidden" name="page" value="portfolio-cipher"/>
 <div>
   <label class="block text-[10px] uppercase tracking-widest text-dashboard-muted font-mono mb-2">Full_Name</label>
-  <input class="w-full bg-dashboard-bg/50 border border-dashboard-border p-3 focus:border-dashboard-accent focus:ring-0 transition-colors text-white font-mono text-sm outline-none" placeholder="GUEST_USER" type="text"/>
+  <input class="w-full bg-dashboard-bg/50 border border-dashboard-border p-3 focus:border-dashboard-accent focus:ring-0 transition-colors text-white font-mono text-sm outline-none" placeholder="GUEST_USER" type="text" name="name"/>
+</div>
+<div>
+  <label class="block text-[10px] uppercase tracking-widest text-dashboard-muted font-mono mb-2">Email_Address</label>
+  <input class="w-full bg-dashboard-bg/50 border border-dashboard-border p-3 focus:border-dashboard-accent focus:ring-0 transition-colors text-white font-mono text-sm outline-none" placeholder="user@domain.com" type="email" name="email"/>
+</div>
+<div>
+  <label class="block text-[10px] uppercase tracking-widest text-dashboard-muted font-mono mb-2">Phone_Number</label>
+  <input class="w-full bg-dashboard-bg/50 border border-dashboard-border p-3 focus:border-dashboard-accent focus:ring-0 transition-colors text-white font-mono text-sm outline-none" placeholder="+1_555_000_0000" type="tel" name="phone"/>
 </div>
 <div>
   <label class="block text-[10px] uppercase tracking-widest text-dashboard-muted font-mono mb-2">Subject_Line</label>
-  <input class="w-full bg-dashboard-bg/50 border border-dashboard-border p-3 focus:border-dashboard-accent focus:ring-0 transition-colors text-white font-mono text-sm outline-none" placeholder="INQUIRY_01" type="text"/>
+  <input class="w-full bg-dashboard-bg/50 border border-dashboard-border p-3 focus:border-dashboard-accent focus:ring-0 transition-colors text-white font-mono text-sm outline-none" placeholder="INQUIRY_01" type="text" name="subject"/>
 </div>
 <button class="w-full py-4 bg-dashboard-accent text-dashboard-bg font-bold uppercase tracking-[0.2em] text-xs hover:bg-white transition-colors mt-4" type="submit">
   Push_Message
