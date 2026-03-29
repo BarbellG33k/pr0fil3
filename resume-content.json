@@ -22,18 +22,21 @@
         "## Platform Modernization & Engineering Reliability",
         "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care and emergency medicine providers; accountable for reliability, performance, and compliance (HIPAA, HL7, FHIR) across legacy and modern distributed systems.",
         "Drove architectural modernization of mission-critical platforms, introducing CI/CD maturity, improved cloud observability, and AI-compressed incident response—decreasing initial triage times and consistently generating actionable post-incident learnings.",
+        "Provided hands-on technical leadership on distributed system design decisions, including scalability constraints, data consistency, and incident response—moving from reactive firefighting to repeatable operational discipline.",
         "## Organizational Leadership & Strategic Operations",
-        "Built and led a multi-disciplinary engineering organization across multiple time zones (5 direct reports, 4 teams, 27 engineers); accountable for $4.8M in strategic engineering investments within a $23M R&D budget, delivering 35%+ improvement in team efficiency through process redesign and turning scattered knowledge into searchable, AI-curated portals.",
+        "Built and led a multi-disciplinary engineering organization across multiple time zones (5 direct reports, 4 teams, 27 engineers); accountable for $4.8M in strategic engineering investments within a $23M R&D budget, delivering 35%+ improvement in team efficiency through process redesign, engineering metrics adoption, and strategic resource reallocation—creating shared visibility into throughput, quality, and operational health.",
+        "Championed a people-first leadership culture emphasizing mentorship, ownership, and continuous improvement—maintaining top 10% talent retention and performance outcomes.",
         "Partnered cross-functionally with Product, Finance, and executive leadership to define and execute engineering roadmaps, shaping budget allocation decisions tied to AI tooling adoption, platform modernization, and team structure."
       ]
     },
     {
       "company": "Chronicled",
-      "title": "Director, Enterprise Architecture & Customer Success",
+      "title": "Implementation Solutions Architect & Head of Customer Success Services",
       "period": "Jul 2022 – May 2023",
       "bullets": [
-        "Architected and directed enterprise blockchain deployments for Fortune 100 pharmaceutical clients on the MediLedger platform, ensuring DSCSA track-and-trace compliance and supply chain integrity across regulated distribution networks.",
-        "Led a cross-functional team of implementation engineers and technical consultants; translated complex Kubernetes-based blockchain infrastructure into clear client delivery roadmaps, aligning platform capabilities to executive stakeholder objectives."
+        "Led enterprise blockchain solution implementations for Fortune 100 pharmaceutical customers via the MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
+        "Served as Head of Customer Success Services, managing a team of Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
+        "Bridged technical implementation with strategic business outcomes, ensuring alignment between platform capabilities and client objectives."
       ]
     },
     {
@@ -75,7 +78,8 @@
       "title": "Enterprise Application Architect",
       "period": "Dec 2011 – May 2014",
       "bullets": [
-        "Defined multi-platform roadmaps and annual planning cycles; delivered comprehensive enterprise solutions with full technical specifications while mentoring distributed engineering teams."
+        "Collaboratively defined roadmaps, annual planning, and feature sets impacting multiple platforms and products.",
+        "Delivered comprehensive enterprise solutions with full technical specifications, mentoring distributed remote and onsite teams."
       ]
     },
     {
