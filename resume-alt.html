@@ -393,6 +393,7 @@
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+      scroll-margin-top: 120px;
     }
     .resume-block.visible {
       opacity: 1; transform: translateY(0);
@@ -965,32 +966,38 @@
       const navItems = document.querySelectorAll('.nav-item');
       const mobileNavLinks = document.querySelectorAll('#mobile-section-nav a');
 
-      const observer = new IntersectionObserver((entries) => {
+      // Visibility observer: threshold 0 so even very tall sections
+      // (like Experience on mobile) become visible as soon as any
+      // part enters the viewport.
+      const visibilityObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            
-            // Highlight both desktop nav-matrix and mobile section nav
+          }
+        });
+      }, { threshold: 0, rootMargin: '0px 0px 0px 0px' });
+
+      // Nav-highlight observer: uses a small threshold so the
+      // active section updates when the top of the block scrolls
+      // into the upper portion of the viewport.
+      const navObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
             const id = entry.target.id;
             navItems.forEach(n => {
-              if (n.getAttribute('href') === '#' + id) {
-                 n.classList.add('active');
-              } else {
-                 n.classList.remove('active');
-              }
+              n.classList.toggle('active', n.getAttribute('href') === '#' + id);
             });
             mobileNavLinks.forEach(a => {
-              if (a.getAttribute('href') === '#' + id) {
-                a.classList.add('active');
-              } else {
-                a.classList.remove('active');
-              }
+              a.classList.toggle('active', a.getAttribute('href') === '#' + id);
             });
           }
         });
-      }, { threshold: 0.15, rootMargin: '0px 0px -20% 0px' });
+      }, { threshold: 0.01, rootMargin: '-10% 0px -60% 0px' });
 
-      blocks.forEach(block => observer.observe(block));
+      blocks.forEach(block => {
+        visibilityObserver.observe(block);
+        navObserver.observe(block);
+      });
     }
 
     // ── PDF export ────────────────────────────────────────────────────────────────
