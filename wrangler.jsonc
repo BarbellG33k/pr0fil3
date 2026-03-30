@@ -7,8 +7,7 @@
     "enabled": true
   },
   "assets": {
-    "directory": ".",
-    "include": ["*.html", "*.json", "*.css", "*.js", "*.png", "*.jpg", "*.svg"]
+    "directory": "."
   },
   "compatibility_flags": [
     "nodejs_compat"
