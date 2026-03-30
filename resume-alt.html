@@ -161,11 +161,78 @@
       padding: 0 32px; z-index: 1000;
       transition: all 0.3s ease;
     }
-    #toolbar span {
+    #toolbar .toolbar-title {
       color: var(--ink); font-size: 13px; font-weight: 600;
       letter-spacing: 0.1em; text-transform: uppercase;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      flex-shrink: 1; min-width: 0;
     }
-    #toolbar .toolbar-right { display: flex; gap: 12px; align-items: center; }
+    #toolbar .toolbar-right { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
+    .toolbar-actions { display: flex; gap: 12px; align-items: center; }
+
+    /* hamburger — mobile only */
+    #menu-toggle {
+      display: none;
+      background: transparent;
+      border: 1px solid var(--rule-subtle);
+      color: var(--ink-muted);
+      border-radius: 6px;
+      padding: 6px 10px;
+      cursor: pointer;
+      font-size: 18px;
+      line-height: 1;
+    }
+
+    /* mobile action drawer */
+    #mobile-menu {
+      display: none;
+      position: fixed;
+      top: 56px; left: 0; right: 0;
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--glass-border);
+      padding: 12px 16px;
+      z-index: 990;
+      flex-direction: column;
+      gap: 8px;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu .btn { width: 100%; justify-content: center; padding: 12px; }
+
+    /* ── mobile section nav (replaces nav-matrix on small screens) ── */
+    #mobile-section-nav {
+      display: none;
+      position: sticky;
+      top: 56px;
+      z-index: 900;
+      background: var(--card-bg);
+      border-bottom: 1px solid var(--rule-subtle);
+      overflow-x: auto;
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+      white-space: nowrap;
+      padding: 0 8px;
+    }
+    #mobile-section-nav::-webkit-scrollbar { display: none; }
+    #mobile-section-nav a {
+      display: inline-block;
+      padding: 10px 14px;
+      font-size: 10px;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      font-family: var(--body-font);
+      font-weight: 600;
+      color: var(--ink-muted);
+      text-decoration: none;
+      border-bottom: 2px solid transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    #mobile-section-nav a.active,
+    #mobile-section-nav a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
 
     .btn {
       display: inline-flex; align-items: center; gap: 6px;
@@ -196,6 +263,73 @@
       gap: 40px;
     }
 
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE — tablet
+    ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 900px) {
+      #app-container { margin: 72px auto 40px; padding: 0 16px; gap: 0; }
+      .resume-block { padding: 32px 28px; border-radius: 10px; }
+      #resume { gap: 24px; }
+    }
+
+    /* ═══════════════════════════════════════════════════════════
+       RESPONSIVE — mobile
+    ═══════════════════════════════════════════════════════════ */
+    @media (max-width: 640px) {
+      /* toolbar */
+      #toolbar { padding: 0 14px; }
+      #toolbar .toolbar-title { font-size: 10px; }
+      .toolbar-actions { display: none; }
+      #menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+
+      /* mobile section nav */
+      #mobile-section-nav { display: block; }
+
+      /* layout */
+      #app-container { margin: 56px auto 24px; padding: 0; gap: 0; }
+      #page-wrap { padding: 0; }
+
+      /* cards */
+      .resume-block { padding: 20px 16px; border-radius: 0; box-shadow: none; border-left: none; border-right: none; }
+      #resume { gap: 12px; }
+
+      /* header */
+      #header { flex-direction: column; align-items: flex-start; gap: 12px; padding-bottom: 16px; margin-bottom: 16px; }
+      #header-left h1 { font-size: 28px; }
+      #header-left .title-tag { font-size: 11px; }
+      #header-right { justify-content: flex-start; font-size: 12px; gap: 2px 12px; margin-left: 0; flex: none; }
+      .header-bullet { font-size: 10px; }
+
+      /* sections */
+      .section-title { font-size: 22px; margin-bottom: 16px; }
+
+      /* experience */
+      .job-card { padding: 12px 8px; }
+      .job-card:hover { transform: none; }
+      .job-header { flex-direction: column; align-items: flex-start; gap: 2px; }
+      .job-company { font-size: 16px; }
+      .job-period { font-size: 11px; }
+      .job-title { font-size: 11px; }
+      .job-bullets li { font-size: 13px; padding-left: 16px; margin-bottom: 6px; }
+      .job-bullets li::before { font-size: 12px; }
+      .job-bullets li.bullet-heading { font-size: 10px; }
+
+      /* skills */
+      .skills-grid { grid-template-columns: 1fr; gap: 12px; }
+      .skill-card { padding: 14px; }
+      .skill-card:hover { transform: none; }
+      .skill-chip { font-size: 12px; padding: 5px 10px; }
+
+      /* education & certs */
+      .edu-institution { font-size: 14px; }
+      .edu-detail { font-size: 13px; }
+      .cert-issuer { font-size: 13px; }
+      .cert-items li { font-size: 13px; }
+
+      /* summary */
+      .summary-text { font-size: 14px; line-height: 1.7; }
+    }
+
     /* ── navigation matrix ── */
     #nav-matrix {
       position: sticky;
@@ -208,7 +342,6 @@
     }
     @media(max-width: 900px) {
       #nav-matrix { display: none; }
-      #app-container { justify-content: center; }
     }
     .nav-item {
       padding: 10px 16px;
@@ -271,9 +404,7 @@
       padding-bottom: 24px; border-bottom: 2px solid var(--rule-subtle);
       margin-bottom: 26px;
     }
-    @media(max-width: 600px) {
-      #header { flex-direction: column; align-items: flex-start; gap: 16px; }
-    }
+    /* mobile header override now in consolidated @media(max-width: 640px) above */
     #header-left h1 {
       font-family: var(--heading-font);
       font-size: 48px; font-weight: 700; color: var(--ink); line-height: 1.1;
@@ -287,7 +418,7 @@
       display: flex; flex-direction: row; flex-wrap: wrap; gap: 4px 8px; justify-content: flex-end; align-items: center;
       font-size: 14px; color: var(--ink-light); max-width: none; flex: 1; margin-left: auto;
     }
-    @media(max-width: 600px) { #header-right { text-align: left; } }
+    /* header-right mobile override in consolidated @media(max-width: 640px) above */
     #header-right a { color: var(--ink-light); text-decoration: none; transition: 0.2s; font-weight: 500;}
     #header-right a:hover { color: var(--accent); }
 
@@ -324,7 +455,7 @@
       display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 4px;
       flex-wrap: wrap; gap: 8px;
     }
-    @media(max-width: 600px) { .job-header { flex-direction: column; align-items: flex-start; } }
+    /* job-header mobile override in consolidated @media(max-width: 640px) above */
     
     .job-company {
       font-family: var(--heading-font); font-size: 20px; font-weight: 600; color: var(--ink);
@@ -419,7 +550,7 @@
         background: white !important; color: #1a1a1a !important; font-size: 13px !important;
         font-family: 'DM Sans', sans-serif !important;
       }
-      #toolbar, #nav-matrix { display: none !important; }
+      #toolbar, #nav-matrix, #mobile-menu, #mobile-section-nav { display: none !important; }
       #app-container { margin: 0 !important; padding: 0 !important; max-width: none !important; display: block !important; }
       
       #page-wrap { padding: 0 !important; margin: 0 !important; display: block !important; max-width: none !important; }
@@ -490,7 +621,7 @@
 <body>
 
   <div id="toolbar">
-    <span>Guillermo Salas — Resume</span>
+    <span class="toolbar-title">Guillermo Salas — Resume</span>
     <div class="toolbar-right">
       <select id="theme-select" class="theme-select" onchange="applyTheme(this.value)">
         <option value="carbon">Carbon Edge</option>
@@ -499,11 +630,29 @@
         <option value="meridian">Meridian Dark</option>
         <option value="blueprint">Blueprint</option>
       </select>
-      <button class="btn btn-ghost" onclick="downloadJSON()">↓ JSON</button>
-      <button class="btn btn-ghost" onclick="printPDF()">⎙ Print / PDF</button>
-      <button class="btn btn-primary" onclick="downloadPDF()">↓ Download PDF</button>
+      <div class="toolbar-actions">
+        <button class="btn btn-ghost" onclick="downloadJSON()">↓ JSON</button>
+        <button class="btn btn-ghost" onclick="printPDF()">⎙ Print / PDF</button>
+        <button class="btn btn-primary" onclick="downloadPDF()">↓ Download PDF</button>
+      </div>
+      <button id="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
     </div>
   </div>
+
+  <div id="mobile-menu">
+    <button class="btn btn-ghost" onclick="downloadJSON();toggleMenu()">↓ Download JSON</button>
+    <button class="btn btn-ghost" onclick="printPDF();toggleMenu()">⎙ Print / PDF</button>
+    <button class="btn btn-primary" onclick="downloadPDF();toggleMenu()">↓ Download PDF</button>
+  </div>
+
+  <nav id="mobile-section-nav" aria-label="Resume sections">
+    <a href="#sect-profile">Profile</a>
+    <a href="#sect-experience">Experience</a>
+    <a href="#sect-skills">Skills</a>
+    <a href="#sect-education">Education</a>
+    <a href="#sect-certifications">Certs</a>
+    <a href="#sect-ai" id="mobile-nav-ai" style="display:none;">AI Practice</a>
+  </nav>
 
     <div id="app-container">
     <nav id="nav-matrix">
@@ -569,6 +718,16 @@
       if (sel) sel.value = key;
     }
 
+    function toggleMenu() {
+      document.getElementById('mobile-menu').classList.toggle('open');
+    }
+
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('#menu-toggle') && !e.target.closest('#mobile-menu')) {
+        document.getElementById('mobile-menu').classList.remove('open');
+      }
+    });
+
     // ── Load JSON and render ──────────────────────────────────────────────────────
 
     const JSON_FILE = 'resume-content.json';
@@ -612,6 +771,8 @@
 
       if (d.aiPractitioner) {
         document.getElementById('nav-ai').style.display = 'flex';
+        const mobileAi = document.getElementById('mobile-nav-ai');
+        if (mobileAi) mobileAi.style.display = 'inline-block';
       }
 
       setupIntersectionObserver();
@@ -802,19 +963,27 @@
     function setupIntersectionObserver() {
       const blocks = document.querySelectorAll('.resume-block');
       const navItems = document.querySelectorAll('.nav-item');
+      const mobileNavLinks = document.querySelectorAll('#mobile-section-nav a');
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
             
-            // Highlight nav 
+            // Highlight both desktop nav-matrix and mobile section nav
             const id = entry.target.id;
             navItems.forEach(n => {
               if (n.getAttribute('href') === '#' + id) {
                  n.classList.add('active');
               } else {
                  n.classList.remove('active');
+              }
+            });
+            mobileNavLinks.forEach(a => {
+              if (a.getAttribute('href') === '#' + id) {
+                a.classList.add('active');
+              } else {
+                a.classList.remove('active');
               }
             });
           }
