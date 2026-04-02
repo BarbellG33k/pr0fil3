@@ -1,7 +1,7 @@
 import { EmailMessage } from "cloudflare:email";
 
 const FROM_ADDRESS = "info@factor317.com";
-const TO_ADDRESS = "gsalast@mail.com";
+const TO_ADDRESS = "gsalast@gmail.com";
 
 export default {
   async fetch(request, env) {
