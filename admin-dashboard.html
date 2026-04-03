@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio A/B Dashboard</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            color: #e5e5e5;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
+
+        .dashboard {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            font-weight: 700;
+            background: linear-gradient(135deg, #00d4ff, #00aaff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 12px;
+        }
+
+        .header-meta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            color: #888;
+            font-size: 13px;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        .refresh-btn {
+            background: rgba(0, 212, 255, 0.1);
+            border: 1px solid rgba(0, 212, 255, 0.3);
+            color: #00d4ff;
+            padding: 6px 16px;
+            border-radius: 6px;
+            font-family: 'Roboto', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .refresh-btn:hover {
+            background: rgba(0, 212, 255, 0.2);
+            border-color: rgba(0, 212, 255, 0.5);
+        }
+
+        .cards-row {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 28px 24px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .card-variant {
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 16px;
+        }
+
+        .card-stat {
+            margin-bottom: 12px;
+        }
+
+        .card-stat-value {
+            font-size: 32px;
+            font-weight: 700;
+        }
+
+        .card-stat-label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 400;
+        }
+
+        .card-row {
+            display: flex;
+            gap: 20px;
+            margin-top: 8px;
+        }
+
+        .card-row .card-stat {
+            margin-bottom: 0;
+        }
+
+        .card-row .card-stat-value {
+            font-size: 20px;
+        }
+
+        .conversion-rate {
+            margin-top: 16px;
+            padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 13px;
+            color: #a0a0a0;
+            font-weight: 300;
+        }
+
+        .conversion-rate strong {
+            font-weight: 700;
+            font-size: 18px;
+        }
+
+        .charts-row {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .chart-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 24px;
+            transition: all 0.3s ease;
+        }
+
+        .chart-card:hover {
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .chart-card h3 {
+            font-size: 13px;
+            font-weight: 500;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: #aaa;
+            margin-bottom: 20px;
+        }
+
+        .chart-card.full-width {
+            grid-column: 1 / -1;
+        }
+
+        .chart-wrapper {
+            position: relative;
+            width: 100%;
+        }
+
+        .chart-wrapper.doughnut {
+            max-width: 280px;
+            margin: 0 auto;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(26, 26, 26, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            transition: opacity 0.3s ease;
+        }
+
+        .loading-overlay.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+            border: 3px solid rgba(0, 212, 255, 0.2);
+            border-top-color: #00d4ff;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .error-banner {
+            background: rgba(255, 70, 70, 0.1);
+            border: 1px solid rgba(255, 70, 70, 0.3);
+            color: #ff6b6b;
+            padding: 14px 20px;
+            border-radius: 8px;
+            text-align: center;
+            margin-bottom: 24px;
+            font-size: 14px;
+            display: none;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 12px;
+            color: #555;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+        }
+
+        @media (max-width: 768px) {
+            .cards-row {
+                grid-template-columns: 1fr;
+            }
+
+            .charts-row {
+                grid-template-columns: 1fr;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            .header-meta {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="loading-overlay" id="loading">
+        <div class="spinner"></div>
+    </div>
+
+    <div class="dashboard">
+        <header>
+            <h1>Portfolio A/B Dashboard</h1>
+            <div class="header-meta">
+                <span id="last-refresh">Last refresh: —</span>
+                <button class="refresh-btn" onclick="fetchData()">Refresh</button>
+            </div>
+        </header>
+
+        <div class="error-banner" id="error-banner"></div>
+
+        <div class="cards-row" id="cards-row">
+            <div class="card" id="card-herald" style="border-top: 2px solid #c5993e;">
+                <div class="card-variant" style="color: #c5993e;">Herald</div>
+                <div class="card-stat">
+                    <div class="card-stat-value" style="color: #c5993e;" id="impressions-herald">—</div>
+                    <div class="card-stat-label">Impressions</div>
+                </div>
+                <div class="card-row">
+                    <div class="card-stat">
+                        <div class="card-stat-value" id="contacts-herald">—</div>
+                        <div class="card-stat-label">Contacts</div>
+                    </div>
+                </div>
+                <div class="conversion-rate">Conversion: <strong id="cvr-herald">—</strong></div>
+            </div>
+            <div class="card" id="card-cipher" style="border-top: 2px solid #00d4ff;">
+                <div class="card-variant" style="color: #00d4ff;">Cipher</div>
+                <div class="card-stat">
+                    <div class="card-stat-value" style="color: #00d4ff;" id="impressions-cipher">—</div>
+                    <div class="card-stat-label">Impressions</div>
+                </div>
+                <div class="card-row">
+                    <div class="card-stat">
+                        <div class="card-stat-value" id="contacts-cipher">—</div>
+                        <div class="card-stat-label">Contacts</div>
+                    </div>
+                </div>
+                <div class="conversion-rate">Conversion: <strong id="cvr-cipher">—</strong></div>
+            </div>
+            <div class="card" id="card-ember" style="border-top: 2px solid #ff6b35;">
+                <div class="card-variant" style="color: #ff6b35;">Ember</div>
+                <div class="card-stat">
+                    <div class="card-stat-value" style="color: #ff6b35;" id="impressions-ember">—</div>
+                    <div class="card-stat-label">Impressions</div>
+                </div>
+                <div class="card-row">
+                    <div class="card-stat">
+                        <div class="card-stat-value" id="contacts-ember">—</div>
+                        <div class="card-stat-label">Contacts</div>
+                    </div>
+                </div>
+                <div class="conversion-rate">Conversion: <strong id="cvr-ember">—</strong></div>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-card">
+                <h3>Impression Distribution</h3>
+                <div class="chart-wrapper doughnut">
+                    <canvas id="chart-impressions"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>Contact Distribution</h3>
+                <div class="chart-wrapper doughnut">
+                    <canvas id="chart-contacts"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-card full-width">
+                <h3>Daily Impressions Trend</h3>
+                <div class="chart-wrapper">
+                    <canvas id="chart-daily"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-card full-width">
+                <h3>Conversion Funnel</h3>
+                <div class="chart-wrapper">
+                    <canvas id="chart-funnel"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <footer>Data from Cloudflare Analytics Engine · Auto-refreshes every 60s</footer>
+    </div>
+
+    <script>
+        const VARIANT_COLORS = {
+            herald: '#c5993e',
+            cipher: '#00d4ff',
+            ember: '#ff6b35'
+        };
+
+        const VARIANT_COLORS_ALPHA = {
+            herald: 'rgba(197, 153, 62, 0.2)',
+            cipher: 'rgba(0, 212, 255, 0.2)',
+            ember: 'rgba(255, 107, 53, 0.2)'
+        };
+
+        let chartImpressions = null;
+        let chartContacts = null;
+        let chartDaily = null;
+        let chartFunnel = null;
+
+        Chart.defaults.color = '#888';
+        Chart.defaults.font.family = "'Roboto', sans-serif";
+
+        function formatTime(date) {
+            return date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+        }
+
+        function cvr(contacts, impressions) {
+            if (!impressions) return '0.0%';
+            return (contacts / impressions * 100).toFixed(1) + '%';
+        }
+
+        function updateCards(data) {
+            const variants = ['herald', 'cipher', 'ember'];
+            for (const v of variants) {
+                const imp = data.impressions[v] || 0;
+                const con = data.contacts[v] || 0;
+                document.getElementById('impressions-' + v).textContent = imp.toLocaleString();
+                document.getElementById('contacts-' + v).textContent = con.toLocaleString();
+                document.getElementById('cvr-' + v).textContent = cvr(con, imp);
+            }
+        }
+
+        function buildDoughnutConfig(values, label) {
+            return {
+                type: 'doughnut',
+                data: {
+                    labels: ['Herald', 'Cipher', 'Ember'],
+                    datasets: [{
+                        data: values,
+                        backgroundColor: [VARIANT_COLORS.herald, VARIANT_COLORS.cipher, VARIANT_COLORS.ember],
+                        borderColor: 'rgba(26, 26, 26, 0.8)',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    animation: { animateRotate: true, duration: 600 },
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { padding: 16, usePointStyle: true, pointStyleWidth: 8, font: { size: 11 } }
+                        }
+                    },
+                    cutout: '60%'
+                }
+            };
+        }
+
+        function updateDoughnutCharts(data) {
+            const impValues = [data.impressions.herald || 0, data.impressions.cipher || 0, data.impressions.ember || 0];
+            const conValues = [data.contacts.herald || 0, data.contacts.cipher || 0, data.contacts.ember || 0];
+
+            if (!chartImpressions) {
+                chartImpressions = new Chart(document.getElementById('chart-impressions'), buildDoughnutConfig(impValues, 'Impressions'));
+                chartContacts = new Chart(document.getElementById('chart-contacts'), buildDoughnutConfig(conValues, 'Contacts'));
+            } else {
+                chartImpressions.data.datasets[0].data = impValues;
+                chartImpressions.update();
+                chartContacts.data.datasets[0].data = conValues;
+                chartContacts.update();
+            }
+        }
+
+        function updateDailyChart(data) {
+            const daily = data.daily || [];
+            const dateSet = [...new Set(daily.map(d => d.date))].sort();
+            const variants = ['herald', 'cipher', 'ember'];
+
+            const series = {};
+            for (const v of variants) {
+                series[v] = {};
+                for (const date of dateSet) series[v][date] = 0;
+            }
+            for (const row of daily) {
+                if (series[row.variant]) {
+                    series[row.variant][row.date] = (series[row.variant][row.date] || 0) + row.impressions;
+                }
+            }
+
+            const datasets = variants.map(v => ({
+                label: v.charAt(0).toUpperCase() + v.slice(1),
+                data: dateSet.map(d => series[v][d] || 0),
+                borderColor: VARIANT_COLORS[v],
+                backgroundColor: VARIANT_COLORS_ALPHA[v],
+                fill: true,
+                tension: 0.3,
+                pointRadius: 3,
+                pointHoverRadius: 6
+            }));
+
+            if (!chartDaily) {
+                chartDaily = new Chart(document.getElementById('chart-daily'), {
+                    type: 'line',
+                    data: { labels: dateSet, datasets },
+                    options: {
+                        responsive: true,
+                        animation: { duration: 600 },
+                        scales: {
+                            x: { grid: { color: 'rgba(255,255,255,0.05)' } },
+                            y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } }
+                        },
+                        plugins: {
+                            legend: {
+                                labels: { usePointStyle: true, pointStyleWidth: 8, font: { size: 11 } }
+                            }
+                        },
+                        interaction: { intersect: false, mode: 'index' }
+                    }
+                });
+            } else {
+                chartDaily.data.labels = dateSet;
+                chartDaily.data.datasets = datasets;
+                chartDaily.update();
+            }
+        }
+
+        function updateFunnelChart(data) {
+            const variants = ['Herald', 'Cipher', 'Ember'];
+            const impData = [data.impressions.herald || 0, data.impressions.cipher || 0, data.impressions.ember || 0];
+            const conData = [data.contacts.herald || 0, data.contacts.cipher || 0, data.contacts.ember || 0];
+
+            const config = {
+                type: 'bar',
+                data: {
+                    labels: variants,
+                    datasets: [
+                        {
+                            label: 'Impressions',
+                            data: impData,
+                            backgroundColor: [VARIANT_COLORS_ALPHA.herald, VARIANT_COLORS_ALPHA.cipher, VARIANT_COLORS_ALPHA.ember],
+                            borderColor: [VARIANT_COLORS.herald, VARIANT_COLORS.cipher, VARIANT_COLORS.ember],
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Contacts',
+                            data: conData,
+                            backgroundColor: [VARIANT_COLORS.herald, VARIANT_COLORS.cipher, VARIANT_COLORS.ember],
+                            borderColor: [VARIANT_COLORS.herald, VARIANT_COLORS.cipher, VARIANT_COLORS.ember],
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    animation: { duration: 600 },
+                    scales: {
+                        x: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.05)' } },
+                        y: { grid: { color: 'rgba(255,255,255,0.05)' } }
+                    },
+                    plugins: {
+                        legend: {
+                            labels: { usePointStyle: true, pointStyleWidth: 8, font: { size: 11 } }
+                        }
+                    }
+                }
+            };
+
+            if (!chartFunnel) {
+                chartFunnel = new Chart(document.getElementById('chart-funnel'), config);
+            } else {
+                chartFunnel.data.datasets[0].data = impData;
+                chartFunnel.data.datasets[1].data = conData;
+                chartFunnel.update();
+            }
+        }
+
+        async function fetchData() {
+            const loading = document.getElementById('loading');
+            const errorBanner = document.getElementById('error-banner');
+            loading.classList.remove('hidden');
+            errorBanner.style.display = 'none';
+
+            try {
+                const res = await fetch('/api/analytics');
+                if (!res.ok) throw new Error('API returned ' + res.status);
+                const data = await res.json();
+
+                updateCards(data);
+                updateDoughnutCharts(data);
+                updateDailyChart(data);
+                updateFunnelChart(data);
+
+                document.getElementById('last-refresh').textContent = 'Last refresh: ' + formatTime(new Date());
+            } catch (err) {
+                errorBanner.textContent = 'Failed to load analytics data: ' + err.message;
+                errorBanner.style.display = 'block';
+            } finally {
+                loading.classList.add('hidden');
+            }
+        }
+
+        fetchData();
+        setInterval(fetchData, 60000);
+    </script>
+</body>
+</html>

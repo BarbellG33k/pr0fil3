@@ -16,5 +16,11 @@
     {
       "name": "SEND_EMAIL"
     }
+  ],
+  "analytics_engine_datasets": [
+    {
+      "binding": "ANALYTICS",
+      "dataset": "portfolio"
+    }
   ]
 }
