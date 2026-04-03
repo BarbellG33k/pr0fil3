@@ -17,5 +17,11 @@
       "name": "SEND_EMAIL",
       "destination_address": "gsalast@mail.com"
     }
+  ],
+  "analytics_engine_datasets": [
+    {
+      "binding": "ANALYTICS",
+      "dataset": "portfolio"
+    }
   ]
 }
