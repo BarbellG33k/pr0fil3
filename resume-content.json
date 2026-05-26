@@ -112,7 +112,7 @@
     },
     {
       "category": "Cloud, Data & Delivery",
-      "items": ["AWS (Primary), Azure, GCP", "Kubernetes & Container Platforms", "PostgreSQL Performance Optimization", "CI/CD Maturity", "OpenAPI / OAuth 2.0 / JWT"]
+      "items": ["AWS (Primary), Azure, GCP", "Kubernetes & Container Platforms", "SQL Server-backed Product Workflows", "PostgreSQL Experience: Chronicled, Select Experity Products & Personal Projects", "CI/CD Maturity", "OpenAPI / OAuth 2.0 / JWT"]
     }
   ],
   "education": [
