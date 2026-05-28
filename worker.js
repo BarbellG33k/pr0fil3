@@ -1,6 +1,6 @@
 import { EmailMessage } from "cloudflare:email";
 
-const FROM_ADDRESS = "info@factor317.com";
+const FROM_ADDRESS = "info@guillermosalas.dev";
 const TO_ADDRESS = "gsalast@gmail.com";
 
 const VARIANTS = ["herald", "cipher", "ember"];
