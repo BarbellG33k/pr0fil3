@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guillermo Salas - Technical Executive</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg"/>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
         * {
@@ -230,7 +230,7 @@
 
             <div class="portfolio-section">
                 <div class="portfolio-links">
-                    <a href="/portfolio" class="portfolio-link">Executive Portfolio</a>
+                    <a id="portfolio-link" href="/portfolio" class="portfolio-link">Executive Portfolio</a>
                     <a href="resume-alt.html" class="portfolio-link">Alternative Resume</a>
                 </div>
             </div>
@@ -246,5 +246,17 @@
             </div>
         </div>
     </div>
+    <script>
+      // Fix portfolio link for local file:// access (Worker handles /portfolio in production)
+      (function() {
+        if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+          var variants = ['executive_portfolio_herald.html', 'executive_portfolio_cipher.html', 'executive_portfolio_ember.html'];
+          var link = document.getElementById('portfolio-link');
+          if (link) {
+            link.href = variants[Math.floor(Math.random() * variants.length)];
+          }
+        }
+      })();
+    </script>
 </body>
 </html>
