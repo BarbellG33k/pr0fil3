@@ -24,6 +24,16 @@ export default {
       return env.ASSETS.fetch(new Request(assetUrl, request));
     }
 
+    if (url.pathname === "/privacy") {
+      const assetUrl = new URL("/privacy.html", request.url);
+      return env.ASSETS.fetch(new Request(assetUrl, request));
+    }
+
+    if (url.pathname === "/tos") {
+      const assetUrl = new URL("/tos.html", request.url);
+      return env.ASSETS.fetch(new Request(assetUrl, request));
+    }
+
     if (url.pathname === "/api/analytics") {
       return handleAnalytics(env);
     }
