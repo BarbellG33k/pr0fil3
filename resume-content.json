@@ -8,63 +8,99 @@
     "linkedin": "linkedin.com/in/guillermosalas",
     "linkedinUrl": "https://linkedin.com/in/guillermosalas"
   },
-  "summary": "Technology executive and enterprise solutions architect who builds AI-augmented engineering organizations from the ground up. 20+ years progressing from hands-on cloud architecture and digital transformation delivery to leading multi-team engineering organizations—designing operating models, governance frameworks, and platform strategies that convert technical capability into measurable business outcomes. Career arc spans Fortune 500 consulting, regulated fintech platforms, enterprise SaaS modernization, and Healthcare IT at scale. Currently driving AI-first organizational transformation, global team architecture, and M&A integration within a PE-backed growth environment.",
+  "summary": "Technology executive and enterprise solutions architect who builds AI-augmented engineering organizations from the ground up. 20+ years progressing from hands-on cloud architecture and digital transformation delivery to leading multi-team engineering organizations\u2014designing operating models, governance frameworks, and platform strategies that convert technical capability into measurable business outcomes. Career arc spans Fortune 500 consulting, regulated fintech platforms, enterprise SaaS modernization, and Healthcare IT at scale. Currently driving AI-first organizational transformation, AI operating-model adoption, platform modernization, and M&A integration within a PE-backed growth environment.",
   "experience": [
     {
       "company": "Experity",
       "title": "VP, Software Engineering and Product Development",
-      "period": "Mar 2023 – Present",
+      "period": "Mar 2023 \u2013 Present",
       "bullets": [
         "## AI-First Organizational Transformation",
-        "Championed enterprise AI adoption against initial executive resistance—delivering a documented 3–4x increase in meaningful code output (500K → 1.5–2M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs → AI Executes → Developer Validates), and created the AI-Native PDLC—a 5-stage framework feeding curated context to both engineers and AI agents.",
-        "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols—converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC.",
-        "## Global Capability Center & Team Scaling",
-        "Led the engineering implementation of a board-sponsored Global Capability Center—negotiating the delivery partner agreement, standing up wave-based hiring governance, and ensuring engineering readiness for a 60–65 person offshore organization.",
-        "Built and led a 57+ person multi-disciplinary engineering organization across multiple time zones (6 direct reports, 4+ teams, 20+ nearshore LATAM contractors) within a PE-backed SaaS scale-up—direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
-        "## M&A Integration & Operational Transformation",
-        "Led post-acquisition integration of the OnePacs engineering team—transforming small-shop operations into enterprise-grade delivery with CI/CD maturity, quality gates, FDA audit remediation, and cultural alignment under direct leadership.",
+        "Championed enterprise AI adoption against initial executive resistance\u2014delivering a documented 3\u20134x increase in meaningful code output (500K \u2192 1.5\u20132M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs \u2192 AI Executes \u2192 Developer Validates), and created the AI-Native PDLC\u2014a 5-stage framework feeding curated context to both engineers and AI agents.",
+        "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols\u2014converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC.",
+        "## Organizational Scale & Team Operations",
+        "Participated in engineering workstreams for a board-sponsored Global Capability Center initiative\u2014contributing to implementation planning, readiness coordination, and cross-functional alignment while the program strategy and ownership remained outside my direct design authority.",
+        "Built and led a 57+ person multi-disciplinary engineering organization across multiple time zones (6 direct reports, 4+ teams, 20+ nearshore LATAM contractors) within a PE-backed SaaS scale-up\u2014direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
+        "Led post-acquisition integration of an acquired healthcare platform engineering team\u2014transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership.",
+        "Converted recurring operational escalations into an executive operating-model transformation discussion\u2014reframing isolated support conflicts as systemic ownership, escalation, key-person dependency, and product-health investment issues across Engineering, Operations, Product, and executive stakeholders.",
         "## Platform Modernization & Engineering Reliability",
-        "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); drove AFC latency fix (6% → 0% failure rate); championed Jenkins → CircleCI migration completed in one day with zero incidents.",
+        "Led a multi-year transformation of architecture from review-oriented advisory activity into an accountable technical leadership capability\u2014clarifying boundaries between architects, Staff Engineers, managers, and delivery teams while emphasizing delivery enablement, distributed ownership, modernization alignment, and measurable outcomes.",
+        "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical latency failure modes and championed Jenkins \u2192 CircleCI migration completed in one day with zero incidents.",
         "## Organizational Leadership & Strategic Operations",
-        "Designed quarterly leadership onsites with progressive maturity arc (Identity → Excellence → Focus → Growth → Recalibration → Sharpen the Standard). Served as technical ambassador to PE stakeholders. Championed people-first culture under financial constraint—advocating retention cases against committee pushback while maintaining top 10% performance outcomes."
+        "Designed quarterly leadership onsites with progressive maturity arc (Identity \u2192 Excellence \u2192 Focus \u2192 Growth \u2192 Recalibration \u2192 Sharpen the Standard). Served as technical ambassador to PE stakeholders. Championed people-first culture under financial constraint\u2014advocating retention cases against committee pushback while maintaining top 10% performance outcomes."
       ]
     },
     {
       "company": "Earlier Career",
       "title": "Progressive Leadership Across Regulated & Enterprise Environments",
-      "period": "2010 – 2023",
+      "period": "2010 \u2013 2023",
       "bullets": [
         "## Customer Success & Enterprise Architecture",
-        "Chronicled (2022–2023): Led enterprise blockchain implementations for Fortune 100 pharmaceutical customers via GCP-hosted MediLedger; served as Head of Customer Success Services managing implementation consultants with deep Kubernetes configuration expertise.",
-        "SafeNet Consulting (2021–2022): Led architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure—identifying emerging technology opportunities and translating them into actionable adoption strategies.",
-        "SysLogic (2019–2021): Championed cloud-first modernization across multiple enterprise engagements—governing solution design, guiding infrastructure adoption, and mentoring engineering talent.",
+        "Chronicled (2022\u20132023): Led enterprise blockchain implementations for Fortune 100 pharmaceutical customers via GCP-hosted MediLedger; served as Head of Customer Success Services managing implementation consultants with deep Kubernetes configuration expertise.",
+        "SafeNet Consulting (2021\u20132022): Led architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure\u2014identifying emerging technology opportunities and translating them into actionable adoption strategies.",
+        "SysLogic (2019\u20132021): Championed cloud-first modernization across multiple enterprise engagements\u2014governing solution design, guiding infrastructure adoption, and mentoring engineering talent.",
         "## Regulated Platform & Delivery Leadership",
-        "HSA Bank (2014–2019): Dual VP/Director roles over 5 years—architected enterprise integration patterns, governed technology adoption on a regulated financial services platform, reduced support rework by 43% YoY, partnered with CTO on technical strategy.",
-        "CoreLogic / MSB (2011–2014): Defined roadmaps and delivered enterprise solutions with full technical specifications, mentoring distributed remote and onsite teams.",
-        "Health Payment Systems (2010–2011): Managed software development team ensuring constant improvement, engagement, and productivity across delivery cycles."
+        "HSA Bank (2014\u20132019): Dual VP/Director roles over 5 years\u2014architected enterprise integration patterns, governed technology adoption on a regulated financial services platform, reduced support rework by 43% YoY, partnered with CTO on technical strategy.",
+        "CoreLogic / MSB (2011\u20132014): Defined roadmaps and delivered enterprise solutions with full technical specifications, mentoring distributed remote and onsite teams.",
+        "Health Payment Systems (2010\u20132011): Managed software development team ensuring constant improvement, engagement, and productivity across delivery cycles."
       ]
     }
   ],
   "skills": [
     {
       "category": "Executive Leadership",
-      "items": ["Org Design & Global Team Scaling", "M&A Integration & Operational Transformation", "Executive & PE Stakeholder Management", "P&L Ownership & Budget Governance", "GCC Launch & Offshore Strategy", "Leadership Development & Talent Advocacy"]
+      "items": [
+        "Org Design & Global Team Scaling",
+        "Operating Model Transformation",
+        "M&A Integration & Operational Maturity",
+        "Executive & PE Stakeholder Management",
+        "P&L Ownership & Budget Governance",
+        "Leadership Development & Talent Advocacy",
+        "Cross-Functional Transformation Participation"
+      ]
     },
     {
       "category": "AI-Augmented Organization Design",
-      "items": ["AI Governance & Guardrail Architecture", "AI-Native PDLC Framework Design", "Agent-Augmented Operating Models", "AI Hackathon & Cultural Transformation", "LLM Cost Governance & Optimization", "Organizational AI Change Management"]
+      "items": [
+        "AI Governance & Guardrail Architecture",
+        "AI-Native PDLC Framework Design",
+        "Agent-Augmented Operating Models",
+        "AI Hackathon & Cultural Transformation",
+        "LLM Cost Governance & Optimization",
+        "Organizational AI Change Management"
+      ]
     },
     {
       "category": "Platform & Architecture",
-      "items": ["Enterprise Architecture & Modernization", "Architecture Hub & Compliance Scoring", "Distributed Systems & Microservices", "Cloud-Native Platforms (AWS, Azure, GCP)", "DDD / SOLID / Platform-First Design"]
+      "items": [
+        "Enterprise Architecture & Modernization",
+        "Architecture Operating Model Design",
+        "Architecture Hub & Compliance Scoring",
+        "Distributed Ownership & Technical Guardrails",
+        "Cloud-Native Platforms (AWS, Azure, GCP)",
+        "DDD / SOLID / Platform-First Design"
+      ]
     },
     {
       "category": "Reliability, Security & Compliance",
-      "items": ["Security-First Architecture & IP Protection", "Observability & Incident Leadership", "HIPAA / HL7 / FHIR Compliance", "Regulated Platform Delivery", "Tiered Contractor Security Models"]
+      "items": [
+        "Security-First Architecture & IP Protection",
+        "Observability & Incident Leadership",
+        "Ownership & Escalation Model Design",
+        "HIPAA / HL7 / FHIR Compliance",
+        "Regulated Platform Delivery",
+        "Tiered Contractor Security Models"
+      ]
     },
     {
       "category": "Cloud, Data & Delivery",
-      "items": ["AWS (Primary), Azure, GCP", "Kubernetes & Container Platforms", "SQL Server-backed Product Workflows", "CI/CD Pipeline Modernization", "OpenAPI / OAuth 2.0 / JWT"]
+      "items": [
+        "AWS (Primary), Azure, GCP",
+        "Kubernetes & Container Platforms",
+        "SQL Server-backed Product Workflows",
+        "CI/CD Pipeline Modernization",
+        "OpenAPI / OAuth 2.0 / JWT"
+      ]
     }
   ],
   "education": [
@@ -79,7 +115,7 @@
     {
       "issuer": "Oracle",
       "items": [
-        "OCI Certified — Cloud Infrastructure 2024 Generative AI Professional",
+        "OCI Certified \u2014 Cloud Infrastructure 2024 Generative AI Professional",
         "OCI Foundations 2021 Associate"
       ]
     },
@@ -99,240 +135,495 @@
     }
   ],
   "aiPractitioner": {
-    "title": "AI-Augmented Engineering — Practitioner & Architect Record",
-    "intro": "Built Experity's AI-augmented engineering practice from zero—personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 57+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
+    "title": "AI-Augmented Engineering \u2014 Practitioner & Architect Record",
+    "intro": "Built Experity's AI-augmented engineering practice from zero\u2014personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 57+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
     "bullets": [
-      "AI Transformation Leadership: Championed AI adoption against initial executive resistance—built the business case, ran Experity's first-ever AI Hackathon, and drove cultural shift from skepticism to embedded practice. Delivered documented 3–4x productivity increase (500K → 1.5–2M lines of meaningful code) with 30%+ cycle time improvement across engineering teams.",
-      "AI-Native PDLC Design: Created a 5-stage Product Development Lifecycle (Signal → Context → Decision → Execution → Memory) with an AI Workspace for Product—feeding curated context packets to both human engineers and AI coding agents. Invented the 'Cold-Read Validation' method proving artifact quality before build begins.",
-      "Governance Architecture: Designed the organization's AI adoption framework—LLM usage policies, no-auto-merge standards, code review quality gates for AI-generated output, per-team cost tracking, security guardrails, and HIPAA-adjacent audit protocols. Converted ad-hoc tool experiments into governed, repeatable, audited pipelines.",
-      "Operating Model Shift: Led transition from manual code producers to agent-augmented reviewers—establishing that the team's constraint shifted from build capacity to review quality (a fundamentally better bottleneck). Defined the Developer Directs → AI Executes → Developer Validates workflow with 80/20 architectural oversight model.",
+      "AI Transformation Leadership: Championed AI adoption against initial executive resistance\u2014built the business case, ran Experity's first-ever AI Hackathon, and drove cultural shift from skepticism to embedded practice. Delivered documented 3\u20134x productivity increase (500K \u2192 1.5\u20132M lines of meaningful code) with 30%+ cycle time improvement across engineering teams.",
+      "AI-Native PDLC Design: Created a 5-stage Product Development Lifecycle (Signal \u2192 Context \u2192 Decision \u2192 Execution \u2192 Memory) with an AI Workspace for Product\u2014feeding curated context packets to both human engineers and AI coding agents. Invented the 'Cold-Read Validation' method proving artifact quality before build begins.",
+      "Governance Architecture: Designed the organization's AI adoption framework\u2014LLM usage policies, no-auto-merge standards, code review quality gates for AI-generated output, per-team cost tracking, security guardrails, and HIPAA-adjacent audit protocols. Converted ad-hoc tool experiments into governed, repeatable, audited pipelines.",
+      "Operating Model Shift: Led transition from manual code producers to agent-augmented reviewers\u2014establishing that the team's constraint shifted from build capacity to review quality (a fundamentally better bottleneck). Defined the Developer Directs \u2192 AI Executes \u2192 Developer Validates workflow with 80/20 architectural oversight model.",
       "AI-Compressed Incident Response: Deployed AI-assisted runbooks and knowledge retrieval pipelines that compressed initial triage times, automated structured post-incident learning generation, and reduced on-call cognitive load across distributed teams.",
-      "Architecture Hub: Coached and guided architecture leadership toward building a repo-based compliance scoring platform—injecting the 'Well-Architected Framework' concept over time, shaping the vision and assessment model across security, reliability, maintainability, deployability, and observability pillars. Enabled automated architecture governance at scale.",
-      "Practitioner Certification: OCI Certified — Cloud Infrastructure 2024 Generative AI Professional—hands-on credential covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design. Used to inform architecture decisions and lead AI enablement conversations with credibility."
+      "Architecture Transformation: Reframed architecture from advisory review into accountable delivery enablement\u2014coaching technical leaders toward outcome ownership while guiding the Architecture Hub vision, five-pillar assessment model, and automated governance approach across security, reliability, maintainability, deployability, and observability.",
+      "Practitioner Certification: OCI Certified \u2014 Cloud Infrastructure 2024 Generative AI Professional\u2014hands-on credential covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design. Used to inform architecture decisions and lead AI enablement conversations with credibility."
     ]
   },
   "strategicInitiatives": [
     {
       "name": "Enterprise AI Adoption & Engineering Productivity Transformation",
       "category": "AI Strategy / Org Change",
-      "status": "Active — Scaled",
-      "summary": "Championed enterprise-wide AI adoption against initial executive resistance—delivering a documented 3–4x increase in meaningful code output and 30%+ productivity improvement across a ~41-person engineering organization.",
-      "narrative": "Faced with an organizational mandate to avoid AI entirely, built the business case from scratch and drove a transformation that became the defining achievement of the engineering org. Designed the AI Development Framework, created the AI-Native PDLC, ran the organization's first-ever AI Hackathon, and established the governance architecture that made AI adoption safe, auditable, and HIPAA-adjacent compliant. The core insight that shaped everything: 'The team's constraint shifted from build capacity to review quality—a fundamentally better bottleneck.'",
-      "role": ["Ideation", "Sponsor", "Creative Force", "Driver", "Enabler"],
-      "roleDescription": "Conceived the vision, built the business case against institutional resistance, and designed the frameworks from scratch. The engineering teams executed within the model—Guillermo created the enabling conditions, governance, and cultural momentum that made execution possible.",
-      "frameworks": ["Developer Directs → AI Executes → Developer Validates", "AI-Native PDLC (5-Stage)", "AI Governance Architecture", "No-Auto-Merge Standards", "Definition-First Agentic Discipline"],
+      "status": "Active \u2014 Scaled",
+      "summary": "Championed enterprise-wide AI adoption against initial executive resistance\u2014delivering a documented 3\u20134x increase in meaningful code output and 30%+ productivity improvement across a ~41-person engineering organization.",
+      "narrative": "Faced with an organizational mandate to avoid AI entirely, built the business case from scratch and drove a transformation that became the defining achievement of the engineering org. Designed the AI Development Framework, created the AI-Native PDLC, ran the organization's first-ever AI Hackathon, and established the governance architecture that made AI adoption safe, auditable, and HIPAA-adjacent compliant. The core insight that shaped everything: 'The team's constraint shifted from build capacity to review quality\u2014a fundamentally better bottleneck.'",
+      "role": [
+        "Ideation",
+        "Sponsor",
+        "Creative Force",
+        "Driver",
+        "Enabler"
+      ],
+      "roleDescription": "Conceived the vision, built the business case against institutional resistance, and designed the frameworks from scratch. The engineering teams executed within the model\u2014Guillermo created the enabling conditions, governance, and cultural momentum that made execution possible.",
+      "frameworks": [
+        "Developer Directs \u2192 AI Executes \u2192 Developer Validates",
+        "AI-Native PDLC (5-Stage)",
+        "AI Governance Architecture",
+        "No-Auto-Merge Standards",
+        "Definition-First Agentic Discipline"
+      ],
       "keyDetails": [
-        "Starting point: executive mandate was to avoid AI entirely—organizational risk aversion was the initial blocker",
-        "Meaningful code output grew from ~500K (peak, pre-AI) to ~1.5–2M lines across architectural platform work, medical imaging rewrites, and document processing improvements",
+        "Starting point: executive mandate was to avoid AI entirely\u2014organizational risk aversion was the initial blocker",
+        "Meaningful code output grew from ~500K (peak, pre-AI) to ~1.5\u20132M lines across architectural platform work, medical imaging rewrites, and document processing improvements",
         "Embedded AI directly into customer-facing product offerings, not just internal engineering tooling",
-        "Surfaced structural gap: engineering velocity began outpacing product definition capacity—prompted redesign of the product-to-engineering handoff model",
-        "Applied 'definition-first, then iteration' discipline—evaluating cost-to-value ratios before recommending agentic approaches, avoiding trend-following"
+        "Surfaced structural gap: engineering velocity began outpacing product definition capacity\u2014prompted redesign of the product-to-engineering handoff model",
+        "Applied 'definition-first, then iteration' discipline\u2014evaluating cost-to-value ratios before recommending agentic approaches, avoiding trend-following"
       ],
       "metricHighlights": [
-        {"value": "3–4x", "label": "Code Output"},
-        {"value": "30%+", "label": "Productivity"}
+        {
+          "value": "3\u20134x",
+          "label": "Code Output"
+        },
+        {
+          "value": "30%+",
+          "label": "Productivity"
+        }
       ],
-      "metrics": ["3–4x increase in meaningful code output", "30%+ documented productivity improvement", "500K → 1.5–2M lines of meaningful code", "AI embedded across full SDLC", "First-ever AI Hackathon conceived and led"],
-      "technologies": ["Claude Code", "GitHub Copilot", "AWS Bedrock", "Automated PR reviews", "Automated security scans", "Custom governance tooling"]
+      "metrics": [
+        "3\u20134x increase in meaningful code output",
+        "30%+ documented productivity improvement",
+        "500K \u2192 1.5\u20132M lines of meaningful code",
+        "AI embedded across full SDLC",
+        "First-ever AI Hackathon conceived and led"
+      ],
+      "technologies": [
+        "Claude Code",
+        "GitHub Copilot",
+        "AWS Bedrock",
+        "Automated PR reviews",
+        "Automated security scans",
+        "Custom governance tooling"
+      ],
+      "caseStudyUrl": "case-study-ai-development-framework.html"
     },
     {
-      "name": "Global Engineering Capability Center — Implementation Leadership",
-      "category": "Global Workforce Strategy",
-      "status": "Active — Implementation",
-      "summary": "Leading the engineering implementation of an executive-sponsored Global Capability Center in Bangalore—coordinating cross-functional workstreams, establishing governance cadence, and ensuring engineering readiness for a 60–65 person offshore organization.",
-      "narrative": "Assigned as the engineering leader responsible for operationalizing a board-level GCC decision. Negotiated the delivery partner agreement on engineering's behalf, then stood up the implementation structure: wave-based hiring coordination, weekly governance cadences across HR/IT/Finance/TA, and an AI-first readiness mandate for all incoming engineers. Built the employer value proposition and LinkedIn presence from scratch in a market where the organization had no brand recognition. The work demands experienced coordination across many stakeholders with competing priorities—applying operational discipline to a complex, multi-threaded initiative that engineering didn't originate but must make succeed.",
-      "role": ["Execution Leader", "Coordinator", "Enabler", "Oversight"],
-      "roleDescription": "This was not Guillermo's initiative—it was a board-level strategic decision. His role is operational leadership: negotiating the engineering agreement, standing up governance, coordinating cross-functional workstreams, and ensuring the engineering organization is prepared to integrate a 60–65 person offshore team successfully.",
-      "frameworks": ["Wave-Based Hiring Coordination", "PMO Governance (Weekly Cadence + Steering Committee)", "Employee Value Proposition Design", "AI-First Engineering Readiness"],
+      "name": "Global Capability Center \u2014 Engineering Workstream Participation",
+      "category": "Cross-Functional Transformation Exposure",
+      "status": "Participating",
+      "summary": "Participated in engineering workstreams for an executive-sponsored Global Capability Center initiative, contributing to readiness planning, implementation coordination, and cross-functional alignment without claiming program ownership or design authority.",
+      "narrative": "The Global Capability Center was an executive/board-sponsored initiative, not Guillermo\u2019s design or owned strategy. His role was participative: contributing engineering context, supporting implementation planning, coordinating readiness inputs, and helping align engineering considerations with broader cross-functional workstreams. The experience is relevant as exposure to global delivery transformation and cross-functional execution, but should not be positioned as a primary leadership achievement.",
+      "role": [
+        "Participant",
+        "Engineering Input",
+        "Readiness Support",
+        "Cross-Functional Coordination"
+      ],
+      "roleDescription": "Participative contribution only. Guillermo provided engineering context and readiness support within a broader executive-sponsored program owned outside his direct authority.",
+      "frameworks": [
+        "Engineering Readiness Input",
+        "Cross-Functional Workstream Participation",
+        "Global Delivery Exposure"
+      ],
       "keyDetails": [
-        "Board-level strategic decision—engineering's role is operationalizing the implementation, not originating the strategy",
-        "Negotiated the delivery partner agreement on engineering's behalf and transitioned immediately to structured implementation",
-        "Target: 60–65 engineers, QA, and delivery managers across structured wave-based hiring cohorts",
-        "Established weekly workstream cadence (TA, HR, IT, Branding) and monthly steering committee with executive sponsorship",
-        "AI-first readiness mandate: ensuring all GCC hires can operate within AI-augmented engineering workflows from day one",
-        "Built employer branding and LinkedIn presence from zero—competing for talent against hyperscalers without existing brand recognition"
+        "Executive/board-sponsored initiative; not originated, designed, or owned by Guillermo",
+        "Contributed engineering perspective and readiness inputs to broader implementation planning",
+        "Participated in cross-functional coordination where appropriate without claiming program leadership",
+        "Relevant as global delivery transformation exposure, not as a primary accomplishment"
       ],
       "metricHighlights": [
-        {"value": "60–65", "label": "Target Headcount"},
-        {"value": "AI-First", "label": "Readiness"}
+        {
+          "value": "Support",
+          "label": "Role"
+        },
+        {
+          "value": "X-Func",
+          "label": "Exposure"
+        }
       ],
-      "metrics": ["60–65 person target headcount", "Wave-based hiring cohorts coordinated", "Multi-workstream governance cadence established", "Employer branding built from zero"],
-      "technologies": ["Cross-functional coordination", "Vendor governance", "Global delivery frameworks", "AI-first engineering standards"]
+      "metrics": [
+        "Engineering readiness inputs contributed",
+        "Cross-functional workstream participation",
+        "Global delivery transformation exposure"
+      ],
+      "technologies": [
+        "Cross-functional coordination",
+        "Engineering readiness",
+        "Global delivery exposure"
+      ]
     },
     {
-      "name": "Engineering Architecture Compliance Platform — Architecture Hub",
-      "category": "Platform Engineering / Dev Experience",
-      "status": "Active — Scaling",
-      "summary": "Guided and enabled architecture leadership to build a proprietary repo-based Architecture Hub—assessing every service against a multi-pillar compliance framework for continuous, data-driven visibility into engineering health.",
-      "narrative": "Injected the 'Well-Architected Framework' concept over time and shaped the vision and assessment model until the team had clarity to build. The Hub scores every service across five pillars (Security, Reliability, Maintainability, Deployability, Observability), surfaces dependency mapping, and shifts governance from reactive review to proactive data-driven decisions. Also sponsored evaluation of a cloud-native application protection platform (CNAPP) to strengthen the security pillar—assessing runtime exploitability, API endpoint discovery, and code-to-cloud PR commenting.",
-      "role": ["Ideation", "Guidance", "Enabler", "Sponsor", "Oversight"],
-      "roleDescription": "Provided the conceptual framework, validated the approach, removed organizational barriers, and enabled the architecture team to build and own the platform. The Hub was designed by Guillermo's vision; built and operated by the architecture team.",
-      "frameworks": ["5-Pillar Well-Architected Assessment", "Shift-Left Security Integration", "Self-Service Governance Model", "Dependency Mapping", "CNAPP Vendor Evaluation"],
+      "name": "Architecture Transformation \u2014 Accountable Delivery Enablement",
+      "category": "Enterprise Architecture / Org Design",
+      "status": "Active \u2014 Scaling",
+      "summary": "Led a multi-year effort to redefine architecture from a review-oriented advisory model into an accountable technical leadership capability aligned with delivery outcomes, modernization strategy, distributed ownership, and measurable engineering health.",
+      "narrative": "Inherited a complex software portfolio where architecture was often treated as review, opinion, approval, or detached advisory input. Reframed architecture as a delivery-enabling technical leadership capability: accountable for reducing complexity, creating reusable patterns, clarifying decision ownership, accelerating modernization, and improving engineering autonomy. Coached technical leaders to move beyond critique into outcome ownership, clarified boundaries between Architects, Staff Engineers, Engineering Managers, and delivery teams, and shaped the Architecture Hub as a lightweight governance mechanism built on standards, guardrails, and data-driven visibility rather than centralized approval.",
+      "role": [
+        "Executive Influence",
+        "Org Designer",
+        "Technical Leadership",
+        "Coach",
+        "Sponsor"
+      ],
+      "roleDescription": "Guillermo did not treat architecture as a detached review board. He shaped the operating model, coached leaders, clarified decision rights, sponsored governance mechanisms, and influenced executive understanding so architecture became accountable for delivery enablement and measurable outcomes.",
+      "frameworks": [
+        "Architecture as Delivery Enablement",
+        "Distributed Ownership Model",
+        "Role Boundary Clarification",
+        "5-Pillar Architecture Assessment",
+        "Guardrails over Gatekeeping"
+      ],
       "keyDetails": [
-        "5 compliance pillars: Security, Reliability, Maintainability, Deployability, Observability—scored per service with visual dependency mapping",
-        "Shift-left security: evaluated and piloted a CNAPP (cloud-native application protection platform) assessing runtime exploitability and API endpoint discovery",
-        "Code-to-cloud PR commenting capability evaluated: deploy / caution / block recommendations surfaced at PR time",
-        "Vendor evaluation assessed complementarity with existing endpoint protection tools rather than replacement",
-        "Roadmap includes attack surface management and deeper CI/CD integration for build-time risk gating"
+        "Core philosophy: architecture exists to help teams deliver business value faster, safer, and more consistently\u2014not to produce diagrams or centralize authority",
+        "Clarified operating boundaries between Architects, Staff Engineers, Engineering Managers, and delivery teams to reduce ownership ambiguity",
+        "Coached technical leaders to move beyond critique toward solution creation, cross-functional alignment, and measurable outcome ownership",
+        "Modernization framing rejected false choices between legacy preservation and total rewrite; advocated incremental, business-aligned, measurable modernization",
+        "Architecture Hub operationalized lightweight governance through five pillars: security, reliability, maintainability, deployability, and observability"
       ],
       "metricHighlights": [
-        {"value": "5", "label": "Pillars"},
-        {"value": "Full Portfolio", "label": "Coverage"}
+        {
+          "value": "5",
+          "label": "Pillars"
+        },
+        {
+          "value": "Distributed",
+          "label": "Ownership"
+        }
       ],
-      "metrics": ["5-pillar assessment model across full service portfolio", "Continuous automated compliance scoring", "Dependency mapping surfacing risk pre-production", "Shift-left security vendor evaluation completed"],
-      "technologies": ["Repository-based scoring", "CNAPP security platform", "CI/CD integration", "Security pillar", "Observability stack"]
+      "metrics": [
+        "Architecture reframed as accountable delivery enablement",
+        "Role boundaries clarified across architecture, staff engineering, management, and teams",
+        "5-pillar architecture assessment model established",
+        "Modernization aligned to delivery, reliability, scalability, and maintainability outcomes"
+      ],
+      "technologies": [
+        "Enterprise architecture",
+        "Modernization strategy",
+        "Architecture Hub",
+        "Technical guardrails",
+        "Cloud-native platforms"
+      ],
+      "caseStudyUrl": "case-study-architecture-delivery-enablement.html"
     },
     {
-      "name": "Integration Platform Transformation — Manual to Self-Service",
+      "name": "Integration Platform Transformation \u2014 Manual to Self-Service",
       "category": "Platform Strategy / Org Redesign",
-      "status": "Active — Transforming",
-      "summary": "Identified and drove a strategic restructuring of the integration function—consolidating a 17,000+ pipeline operations team under platform engineering to eliminate overhead, close skills gaps, and shift from maintenance to transformation.",
-      "narrative": "Identified a structural misalignment: the integration team maintained 17,000+ active pipelines with strong operational reliability but no strategic growth trajectory, and communication overhead between integration and platform development was creating organizational drag. Applied a waste-elimination methodology to surface transformation opportunities and designed a consolidation that repositioned the team as future integration leaders—not a maintenance function. Framed the change as 'evolution, not disruption,' preserving tribal knowledge while opening the path to API and MCP integration capabilities.",
-      "role": ["Ideation", "Driver", "Sponsor", "Oversight"],
+      "status": "Active \u2014 Transforming",
+      "summary": "Identified and drove a strategic restructuring of the integration function\u2014consolidating a 17,000+ pipeline operations team under platform engineering to eliminate overhead, close skills gaps, and shift from maintenance to transformation.",
+      "narrative": "Identified a structural misalignment: the integration team maintained 17,000+ active pipelines with strong operational reliability but no strategic growth trajectory, and communication overhead between integration and platform development was creating organizational drag. Applied a waste-elimination methodology to surface transformation opportunities and designed a consolidation that repositioned the team as future integration leaders\u2014not a maintenance function. Framed the change as 'evolution, not disruption,' preserving tribal knowledge while opening the path to API and MCP integration capabilities.",
+      "role": [
+        "Ideation",
+        "Driver",
+        "Sponsor",
+        "Oversight"
+      ],
       "roleDescription": "Identified the structural gap, designed the consolidation rationale, framed the change management approach, and directed the restructuring. The team executes the new model; Guillermo designed the organizational architecture and the narrative that made change possible.",
-      "frameworks": ["Kaizen Waste-Elimination Methodology", "Platform-as-Product Thinking", "API-First Integration Strategy", "Evolution-Not-Disruption Change Management", "Skills Gap Analysis"],
+      "frameworks": [
+        "Kaizen Waste-Elimination Methodology",
+        "Platform-as-Product Thinking",
+        "API-First Integration Strategy",
+        "Evolution-Not-Disruption Change Management",
+        "Skills Gap Analysis"
+      ],
       "keyDetails": [
         "Scale: 17,000+ active integration pipelines with strong reliability track record but no strategic growth path",
         "Consolidation eliminated communication hops between integration and platform development, reducing decision latency",
         "Skills gap identified: missing solution architect expertise, API integration capabilities, and customer-facing decision-tree mindset",
-        "Change management framing: 'evolution, not disruption'—emphasizing tribal knowledge value and positioning the team as future integration leaders",
+        "Change management framing: 'evolution, not disruption'\u2014emphasizing tribal knowledge value and positioning the team as future integration leaders",
         "MCP (Model Context Protocol) integration capabilities identified as a key growth area for the consolidated team",
-        "GCC engineering resources positioned to supplement API/MCP capability gaps within 6-month transformation window"
+        "Future engineering capacity planning identified to supplement API/MCP capability gaps within the transformation window"
       ],
       "metricHighlights": [
-        {"value": "17K+", "label": "Pipelines"},
-        {"value": "6 Months", "label": "Transform"}
+        {
+          "value": "17K+",
+          "label": "Pipelines"
+        },
+        {
+          "value": "6 Months",
+          "label": "Transform"
+        }
       ],
-      "metrics": ["17,000+ pipelines under consolidated ownership", "Communication overhead structurally eliminated", "Skills gap assessment completed", "6-month transformation timeline defined"],
-      "technologies": ["API integration patterns", "MCP (Model Context Protocol)", "Platform engineering", "GCC capability augmentation"]
+      "metrics": [
+        "17,000+ pipelines under consolidated ownership",
+        "Communication overhead structurally eliminated",
+        "Skills gap assessment completed",
+        "6-month transformation timeline defined"
+      ],
+      "technologies": [
+        "API integration patterns",
+        "MCP (Model Context Protocol)",
+        "Platform engineering",
+        "Capability augmentation planning"
+      ]
     },
     {
       "name": "AI-Native Product Development Lifecycle",
       "category": "Process Innovation",
-      "status": "Pilot — Proving",
-      "summary": "Created a 5-stage PDLC (Signal → Context → Decision → Execution → Memory) redesigning how Product and Engineering collaborate when AI agents make build cycles cheaper than product definition.",
-      "narrative": "Surfaced and addressed a structural insight that changed how the organization thinks about product-to-engineering handoff: when AI makes implementation cheap, the bottleneck shifts to product clarity. Designed a complete Product Development Lifecycle treating AI agents as first-class participants—feeding curated context packets to both engineers and AI coding agents. Facilitated a 2-day structured onsite to prove the model, inventing the 'Cold-Read Validation' method to prove artifact quality before build begins.",
-      "role": ["Ideation", "Creative Force", "Driver", "Enabler"],
+      "status": "Pilot \u2014 Proving",
+      "summary": "Created a 5-stage PDLC (Signal \u2192 Context \u2192 Decision \u2192 Execution \u2192 Memory) redesigning how Product and Engineering collaborate when AI agents make build cycles cheaper than product definition.",
+      "narrative": "Surfaced and addressed a structural insight that changed how the organization thinks about product-to-engineering handoff: when AI makes implementation cheap, the bottleneck shifts to product clarity. Designed a complete Product Development Lifecycle treating AI agents as first-class participants\u2014feeding curated context packets to both engineers and AI coding agents. Facilitated a 2-day structured onsite to prove the model, inventing the 'Cold-Read Validation' method to prove artifact quality before build begins.",
+      "role": [
+        "Ideation",
+        "Creative Force",
+        "Driver",
+        "Enabler"
+      ],
       "roleDescription": "Conceived the framework, designed the 5-stage pipeline model, facilitated the proving onsite, and invented the Cold-Read Validation method. The product and engineering teams operate within the framework; Guillermo designed the architecture and drove adoption.",
-      "frameworks": ["Signal → Context → Decision → Execution → Memory", "AI Workspace for Product", "Cold-Read Validation Method", "Product Intelligence Hub", "Context-as-Input Model"],
+      "frameworks": [
+        "Signal \u2192 Context \u2192 Decision \u2192 Execution \u2192 Memory",
+        "AI Workspace for Product",
+        "Cold-Read Validation Method",
+        "Product Intelligence Hub",
+        "Context-as-Input Model"
+      ],
       "keyDetails": [
-        "Core insight: 'Implementation has gotten cheap. The product process is not as compressible.'—reframing the organization's true constraint",
+        "Core insight: 'Implementation has gotten cheap. The product process is not as compressible.'\u2014reframing the organization's true constraint",
         "5-stage pipeline defines how product documentation becomes AI agent context, not just human specification",
         "Cold-Read Validation method: prove artifact quality before build begins, independent of the author",
-        "78% Day 1 readiness score achieved in the structured proving onsite—validated the framework's practicality",
+        "78% Day 1 readiness score achieved in the structured proving onsite\u2014validated the framework's practicality",
         "Surfaces organizational need to redesign the product-to-engineering handoff at a structural level"
       ],
       "metricHighlights": [
-        {"value": "78%", "label": "Readiness"},
-        {"value": "5-Stage", "label": "Pipeline"}
+        {
+          "value": "78%",
+          "label": "Readiness"
+        },
+        {
+          "value": "5-Stage",
+          "label": "Pipeline"
+        }
       ],
-      "metrics": ["78% Day 1 readiness score", "Cold-read validation method invented", "5-stage pipeline defined", "Compressed handoff-to-delivery cycle"],
-      "technologies": ["AI Workspace for Product", "Product Intelligence Hub", "Agentic context delivery", "Claude Code"]
+      "metrics": [
+        "78% Day 1 readiness score",
+        "Cold-read validation method invented",
+        "5-stage pipeline defined",
+        "Compressed handoff-to-delivery cycle"
+      ],
+      "technologies": [
+        "AI Workspace for Product",
+        "Product Intelligence Hub",
+        "Agentic context delivery",
+        "Claude Code"
+      ]
     },
     {
-      "name": "Asynchronous Messaging Platform — Performance Remediation",
+      "name": "Asynchronous Messaging Platform \u2014 Performance Remediation",
       "category": "Engineering Operations / Reliability",
       "status": "Completed",
-      "summary": "Led the diagnosis and resolution of a critical performance degradation in a high-volume async messaging platform—reducing clinical workflow message latency failures from 6% to 0% and structured an executive communication campaign framing the outcome as a model for engineering problem-solving.",
-      "narrative": "A clinical workflow messaging platform was delivering 6% of messages outside the acceptable latency window—a reliability gap with direct patient care implications. Led the diagnostic framing and directed the resolution strategy (channel separation + polling configuration), achieving 0% failure rate within 24 hours of the root cause fix. Personally designed the structured communication narrative for the CTO organization and product stakeholders—framing the fix as a teaching moment on proactive engineering, not just incident closure. Executed while simultaneously managing org restructuring, GCC implementation, and a team role-fit assessment.",
-      "role": ["Supervisor", "Oversight", "Driver", "Creative Force"],
+      "summary": "Led the diagnosis and resolution of a critical performance degradation in a high-volume async messaging platform\u2014reducing clinical workflow message latency failures from 6% to 0% and structured an executive communication campaign framing the outcome as a model for engineering problem-solving.",
+      "narrative": "A clinical workflow messaging platform was delivering 6% of messages outside the acceptable latency window\u2014a reliability gap with direct patient care implications. Led the diagnostic framing and directed the resolution strategy (channel separation + polling configuration), achieving 0% failure rate within 24 hours of the root cause fix. Personally designed the structured communication narrative for the CTO organization and product stakeholders\u2014framing the fix as a teaching moment on proactive engineering, not just incident closure. Executed while simultaneously managing org restructuring, cross-functional transformation work, and a team role-fit assessment.",
+      "role": [
+        "Supervisor",
+        "Oversight",
+        "Driver",
+        "Creative Force"
+      ],
       "roleDescription": "Directed the diagnostic approach, oversaw the remediation, and designed the stakeholder communication narrative. The engineering team implemented the channel separation and polling changes; Guillermo framed the problem, removed blockers, and structured the executive story.",
-      "frameworks": ["Root Cause Analysis", "Structured Executive Communication (Problem → Solution → Results)", "Proactive Incident Narrative Design", "Clinical Reliability Standards"],
+      "frameworks": [
+        "Root Cause Analysis",
+        "Structured Executive Communication (Problem \u2192 Solution \u2192 Results)",
+        "Proactive Incident Narrative Design",
+        "Clinical Reliability Standards"
+      ],
       "keyDetails": [
-        "Baseline: 6% of messages exceeded 2–3 minute delivery window in a clinical context where latency has direct patient care implications",
+        "Baseline: 6% of messages exceeded 2\u20133 minute delivery window in a clinical context where latency has direct patient care implications",
         "Channel separation change immediately reduced failure rate to 2%; polling configuration update brought it to 0% within 24 hours",
         "100% of messages delivered under one minute post-fix; two-thirds under one minute consistently",
-        "Communication strategy: designed structured narrative (problem → solution → results) broadcast to CTO organization and product teams",
-        "Framed the fix as a teaching moment on proactive engineering problem-solving—not just incident closure",
-        "Executed while simultaneously managing org restructuring, GCC implementation, and a team role-fit assessment"
+        "Communication strategy: designed structured narrative (problem \u2192 solution \u2192 results) broadcast to CTO organization and product teams",
+        "Framed the fix as a teaching moment on proactive engineering problem-solving\u2014not just incident closure",
+        "Executed while simultaneously managing org restructuring, cross-functional transformation work, and a team role-fit assessment"
       ],
       "metricHighlights": [
-        {"value": "6%→0%", "label": "Latency Failures"},
-        {"value": "100%", "label": "Under 1 Min"}
+        {
+          "value": "6%\u21920%",
+          "label": "Latency Failures"
+        },
+        {
+          "value": "100%",
+          "label": "Under 1 Min"
+        }
       ],
-      "metrics": ["6% → 0% message latency failures", "100% messages delivered under one minute", "24-hour resolution after root cause fix", "Executive communication campaign designed and deployed"],
-      "technologies": ["Async messaging platform", "Channel separation architecture", "Polling configuration optimization", "Executive communication framework"]
+      "metrics": [
+        "6% \u2192 0% message latency failures",
+        "100% messages delivered under one minute",
+        "24-hour resolution after root cause fix",
+        "Executive communication campaign designed and deployed"
+      ],
+      "technologies": [
+        "Async messaging platform",
+        "Channel separation architecture",
+        "Polling configuration optimization",
+        "Executive communication framework"
+      ]
+    },
+    {
+      "name": "Operating Model Transformation \u2014 Ownership & Escalation Clarity",
+      "category": "Executive Leadership / Org Design",
+      "status": "Completed \u2014 Executive Alignment",
+      "summary": "Transformed recurring production escalations and cross-functional friction into an executive operating-model discussion focused on ownership clarity, sustainable support models, escalation paths, key-person risk, and product-health investment.",
+      "narrative": "Recognized that a pattern of recurring escalations, operational requests, and stakeholder friction was not an incident-management problem\u2014it was an operating-model problem. Reframed the conversation away from individuals and isolated events toward the system producing those outcomes: unclear ownership boundaries, accumulated operational responsibilities, missing support capabilities, key-person dependency, and engineering capacity erosion. Coached engineering leadership to distinguish product-health accountability from business-operations backstop behavior, then influenced executive stakeholders toward a documented model for ownership, escalation, support responsibilities, and operational-noise reduction.",
+      "role": [
+        "Executive Influence",
+        "Coach",
+        "Systems Thinker",
+        "Org Designer",
+        "Cross-Functional Framing"
+      ],
+      "roleDescription": "This was a cross-functional influence action, not direct ownership of every operational function. Guillermo identified the systemic pattern, coached engineering leadership, reframed executive discussion, and created alignment around the need for a sustainable operating model owned across functions.",
+      "frameworks": [
+        "Ownership Boundary Mapping",
+        "Operational Noise Assessment",
+        "Escalation Path Design",
+        "Key-Person Risk Reduction",
+        "Product Health Investment Framing"
+      ],
+      "keyDetails": [
+        "Pattern recognized: recurring escalations were symptoms of unclear ownership and missing support capabilities, not isolated interpersonal or incident failures",
+        "Coaching mechanism: shifted engineering leadership from heroics-based execution toward systems-based thinking and sustainable boundaries",
+        "Executive framing: moved the discussion from who responded correctly to what operating model produced repeated friction",
+        "Strategy: document ownership, escalation responsibilities, support capability gaps, operational noise, and opportunity cost to product health",
+        "Outcome: executive alignment that the organization needed to address the underlying system rather than continue relying on individual intervention"
+      ],
+      "metricHighlights": [
+        {
+          "value": "Exec",
+          "label": "Alignment"
+        },
+        {
+          "value": "Systemic",
+          "label": "Reframe"
+        }
+      ],
+      "metrics": [
+        "Executive alignment around operating-model redesign",
+        "Ownership and escalation ambiguity surfaced",
+        "Key-person dependency identified as organizational risk",
+        "Operational noise reframed as product-health investment issue"
+      ],
+      "technologies": [
+        "Operating model design",
+        "Executive stakeholder management",
+        "Cross-functional coaching",
+        "Escalation governance"
+      ],
+      "caseStudyUrl": "case-study-operating-model-transformation.html"
     },
     {
       "name": "M&A Integration & Team Operationalization",
       "category": "Post-Acquisition Leadership",
       "status": "Completed",
-      "summary": "Led post-acquisition integration of the OnePacs engineering team—transforming small-shop operations into enterprise-grade delivery with CI/CD maturity, quality gates, FDA audit remediation, and cultural alignment.",
-      "narrative": "Absorbed a small-shop imaging engineering team into the enterprise delivery organization following acquisition—establishing CI/CD maturity, quality gates, and compliance frameworks from near-zero. Directed FDA audit remediation and cultural alignment work that enabled the team to operate at enterprise standards while maintaining product continuity throughout the integration period. Built the organizational bridge between startup delivery norms and enterprise operating standards without losing the team's product knowledge or pace.",
-      "role": ["Oversight", "Driver", "Supervisor", "Enabler"],
+      "summary": "Led post-acquisition integration of an acquired healthcare platform engineering team\u2014transforming small-shop operations into enterprise-grade delivery with CI/CD maturity, quality gates, compliance remediation, and cultural alignment.",
+      "narrative": "Absorbed a small-shop healthcare platform engineering team into the enterprise delivery organization following acquisition\u2014establishing CI/CD maturity, quality gates, and compliance frameworks from near-zero. Directed audit remediation and cultural alignment work that enabled the team to operate at enterprise standards while maintaining product continuity throughout the integration period. Built the organizational bridge between startup delivery norms and enterprise operating standards without losing the team's product knowledge or pace.",
+      "role": [
+        "Oversight",
+        "Driver",
+        "Supervisor",
+        "Enabler"
+      ],
       "roleDescription": "Directed the integration strategy and held accountability for outcomes. Engineering leads executed the technical implementations; Guillermo set the standards, cleared organizational friction, and ensured cultural alignment across the combined team.",
-      "frameworks": ["Enterprise Delivery Standards Framework", "CI/CD Maturity Model", "FDA Audit Remediation", "Cultural Alignment Playbook"],
+      "frameworks": [
+        "Enterprise Delivery Standards Framework",
+        "CI/CD Maturity Model",
+        "FDA Audit Remediation",
+        "Cultural Alignment Playbook"
+      ],
       "keyDetails": [
         "Team absorbed under direct leadership with full accountability for delivery outcomes and continuity",
-        "CI/CD pipelines, quality gates, and compliance frameworks established from near-zero—not inherited",
-        "FDA audit remediation completed—bringing the team to regulated delivery standards required for the platform",
+        "CI/CD pipelines, quality gates, and compliance frameworks established from near-zero\u2014not inherited",
+        "Compliance audit remediation completed\u2014bringing the team to regulated delivery standards required for the platform",
         "Product continuity maintained throughout the integration period despite significant operational change",
-        "Cultural alignment bridged small-shop engineering norms to enterprise operating standards—no talent loss"
+        "Cultural alignment bridged small-shop engineering norms to enterprise operating standards\u2014no talent loss"
       ],
       "metricHighlights": [
-        {"value": "FDA", "label": "Remediated"},
-        {"value": "100%", "label": "Standards Adopted"}
+        {
+          "value": "FDA",
+          "label": "Remediated"
+        },
+        {
+          "value": "100%",
+          "label": "Standards Adopted"
+        }
       ],
-      "metrics": ["FDA audit remediation completed", "Enterprise delivery standards adopted", "Product continuity maintained throughout", "Team fully integrated under unified leadership"],
-      "technologies": ["CI/CD pipelines", "Quality gates", "Compliance frameworks", "FDA-regulated delivery"]
+      "metrics": [
+        "Compliance audit remediation completed",
+        "Enterprise delivery standards adopted",
+        "Product continuity maintained throughout",
+        "Team fully integrated under unified leadership"
+      ],
+      "technologies": [
+        "CI/CD pipelines",
+        "Quality gates",
+        "Compliance frameworks",
+        "FDA-regulated delivery"
+      ]
     }
   ],
   "leadershipFrameworks": [
     {
       "name": "AI Development Framework",
-      "tagline": "Developer Directs → AI Executes → Developer Validates",
-      "description": "The operating model that shifted the engineering organization from manual code production to agent-augmented review. Engineers provide context, intent, and architectural direction; AI agents generate first-draft code, PR descriptions, test cases, and documentation; engineers validate, refine, and own the output. The bottleneck moves from build capacity to review quality—a fundamentally better constraint. Four core principles: Provide Blueprints, Iterate in Cycles, Delegate Systematics, Shift Your Skills.",
+      "tagline": "Developer Directs \u2192 AI Executes \u2192 Developer Validates",
+      "description": "The operating model that shifted the engineering organization from manual code production to agent-augmented review. Engineers provide context, intent, and architectural direction; AI agents generate first-draft code, PR descriptions, test cases, and documentation; engineers validate, refine, and own the output. The bottleneck moves from build capacity to review quality\u2014a fundamentally better constraint. Four core principles: Provide Blueprints, Iterate in Cycles, Delegate Systematics, Shift Your Skills.",
       "icon": "neurology",
-      "origin": "Designed from practitioner experience—personally evaluated AI tooling before institutionalizing as governance policy. Documented as an interactive infographic with data visualizations showing the 80/20 oversight shift."
+      "origin": "Designed from practitioner experience\u2014personally evaluated AI tooling before institutionalizing as governance policy. Documented as an interactive infographic with data visualizations showing the 80/20 oversight shift.",
+      "caseStudyUrl": "case-study-ai-development-framework.html"
     },
     {
-      "name": "BMAD Method — AI-Driven Agile Development",
-      "tagline": "Analyst → PM → Architect → Scrum Master → Developer → QA",
-      "description": "An agentic software development lifecycle where specialized AI agents handle each phase—Analyst for ideation, PM for requirements, Architect for technical design, Scrum Master for story drafting, Developer for implementation, QA for compliance. Context engineering ensures each agent receives only the precise information needed. Document-driven: the process revolves around creating and refining artifacts that serve as context for each step.",
+      "name": "BMAD Method \u2014 AI-Driven Agile Development",
+      "tagline": "Analyst \u2192 PM \u2192 Architect \u2192 Scrum Master \u2192 Developer \u2192 QA",
+      "description": "An agentic software development lifecycle where specialized AI agents handle each phase\u2014Analyst for ideation, PM for requirements, Architect for technical design, Scrum Master for story drafting, Developer for implementation, QA for compliance. Context engineering ensures each agent receives only the precise information needed. Document-driven: the process revolves around creating and refining artifacts that serve as context for each step.",
       "icon": "schema",
-      "origin": "Adapted and documented as an organizational framework—bridging the gap between ad-hoc AI tool usage and governed, repeatable agentic delivery pipelines."
+      "origin": "Adapted and documented as an organizational framework\u2014bridging the gap between ad-hoc AI tool usage and governed, repeatable agentic delivery pipelines."
     },
     {
-      "name": "A-D-V-R Cycle — AI Hackathon Workflow",
-      "tagline": "Architect → Direct → Validate → Repeat",
+      "name": "A-D-V-R Cycle \u2014 AI Hackathon Workflow",
+      "tagline": "Architect \u2192 Direct \u2192 Validate \u2192 Repeat",
       "description": "A high-speed iterative workflow designed for the organization's first-ever AI Hackathon. Positions the developer as Architect and the AI as Apprentice. Each cycle: provide a precise small task from the blueprint, AI generates the output, developer validates and approves before the next cycle begins. Emphasizes that the developer's value shifts from typing speed to clarity of architectural thinking.",
       "icon": "cycle",
-      "origin": "Created for and deployed during the first AI Hackathon—a cultural transformation event conceived and led to shift the organization from AI skepticism to embedded practice."
+      "origin": "Created for and deployed during the first AI Hackathon\u2014a cultural transformation event conceived and led to shift the organization from AI skepticism to embedded practice.",
+      "caseStudyUrl": "case-study-advr-cycle.html"
     },
     {
       "name": "AI-Native Product Development Lifecycle",
-      "tagline": "Signal → Context → Decision → Execution → Memory",
-      "description": "A 5-stage PDLC that treats AI agents as first-class participants alongside human engineers. Each stage produces curated context packets consumed by both humans and AI coding agents. Addresses the structural insight that AI has made implementation cheap—shifting the true organizational constraint to product definition quality. Includes the Cold-Read Validation method proving artifact quality before build begins.",
+      "tagline": "Signal \u2192 Context \u2192 Decision \u2192 Execution \u2192 Memory",
+      "description": "A 5-stage PDLC that treats AI agents as first-class participants alongside human engineers. Each stage produces curated context packets consumed by both humans and AI coding agents. Addresses the structural insight that AI has made implementation cheap\u2014shifting the true organizational constraint to product definition quality. Includes the Cold-Read Validation method proving artifact quality before build begins.",
       "icon": "account_tree",
-      "origin": "Created and piloted through a structured 2-day onsite proving session with the product and engineering teams. 78% Day 1 readiness score validated the framework's practicality."
+      "origin": "Created and piloted through a structured 2-day onsite proving session with the product and engineering teams. 78% Day 1 readiness score validated the framework's practicality.",
+      "caseStudyUrl": "case-study-ai-native-pdlc.html"
     },
     {
-      "name": "Architecture Assessment Model",
-      "tagline": "Security · Reliability · Maintainability · Deployability · Observability",
-      "description": "Five pillars scored per service against defined standards. Powers continuous, automated visibility into engineering health across the full software estate. Shifts governance from reactive post-deployment review to proactive, data-driven risk surfacing before code reaches production. Includes dependency mapping, shift-left security integration, and self-service governance capabilities.",
+      "name": "Architecture as Delivery Enablement",
+      "tagline": "Guardrails \u00b7 Distributed Ownership \u00b7 Outcome Accountability",
+      "description": "A model that reframes architecture from centralized review or detached advice into an accountable technical leadership capability. Architecture reduces friction, creates reusable patterns, clarifies decision rights, enables modernization, and gives teams guardrails so they can make good decisions independently.",
       "icon": "verified_user",
-      "origin": "Injected as a concept over time into the architecture team; shaped the Architecture Hub's scoring methodology and dependency mapping approach."
+      "origin": "Developed through multi-year coaching, executive influence, role-boundary clarification, and the Architecture Hub assessment model across a complex regulated software portfolio.",
+      "caseStudyUrl": "case-study-architecture-delivery-enablement.html"
     },
     {
       "name": "Security Design & IP Protection Framework",
-      "tagline": "Tiered Access · Context Boundaries · Audit Protocols",
+      "tagline": "Tiered Access \u00b7 Context Boundaries \u00b7 Audit Protocols",
       "description": "A structured approach to securing AI-augmented engineering workflows in regulated environments. Defines tiered contractor security models, establishes context boundaries for AI tooling (what data AI agents can and cannot access), and implements audit protocols satisfying HIPAA-adjacent compliance requirements. Ensures AI adoption does not compromise the organization's security posture or intellectual property.",
       "icon": "shield",
-      "origin": "Designed to address the organizational risk concerns that initially blocked AI adoption—turning security from a blocker into an enabler through governance architecture."
+      "origin": "Designed to address the organizational risk concerns that initially blocked AI adoption\u2014turning security from a blocker into an enabler through governance architecture."
+    },
+    {
+      "name": "Operating Model Transformation",
+      "tagline": "Ownership \u00b7 Escalation \u00b7 Support \u00b7 Product Health",
+      "description": "A systems-thinking approach for converting recurring escalations into executive-level organizational design work. Identifies ownership ambiguity, operational noise, support capability gaps, key-person dependency, and product-health opportunity cost; then reframes the conversation from incident response to sustainable operating mechanisms.",
+      "icon": "hub",
+      "origin": "Developed through cross-functional coaching and executive influence in a regulated, post-acquisition platform environment where historical expectations outlived the operating model.",
+      "caseStudyUrl": "case-study-operating-model-transformation.html"
     },
     {
       "name": "Leadership Maturation Arc",
-      "tagline": "Identity → Excellence → Focus → Growth → Recalibration → Sharpen",
-      "description": "A deliberate multi-quarter progression designed for an engineering leadership team. Each quarter's theme builds intentionally on the last—producing artifacts, operating models, and shared language that compound over time. The arc treats leadership development as a designed system, not a series of disconnected offsite events.",
+      "tagline": "Identity \u2192 Excellence \u2192 Focus \u2192 Growth \u2192 Recalibration \u2192 Sharpen",
+      "description": "A deliberate multi-quarter progression designed for an engineering leadership team. Each quarter's theme builds intentionally on the last\u2014producing artifacts, operating models, and shared language that compound over time. The arc treats leadership development as a designed system, not a series of disconnected offsite events.",
       "icon": "trending_up",
-      "origin": "Designed and facilitated across six consecutive quarterly leadership onsites, each building on the artifacts of the last."
+      "origin": "Designed and facilitated across six consecutive quarterly leadership onsites, each building on the artifacts of the last.",
+      "caseStudyUrl": "case-study-leadership-maturation-arc.html"
     },
     {
       "name": "Agentic Architecture Discipline",
       "tagline": "Definition-First, Then Iteration",
-      "description": "Before recommending any agentic approach, evaluate the cost-to-value ratio against the specific use case. Avoid architectural trend-following. The principle: definition precedes iteration. Surfaces the insight that the real bottleneck in AI-augmented engineering is often product definition quality—not build capacity—and ensures AI investments deliver genuine leverage rather than novelty.",
+      "description": "Before recommending any agentic approach, evaluate the cost-to-value ratio against the specific use case. Avoid architectural trend-following. The principle: definition precedes iteration. Surfaces the insight that the real bottleneck in AI-augmented engineering is often product definition quality\u2014not build capacity\u2014and ensures AI investments deliver genuine leverage rather than novelty.",
       "icon": "rule",
-      "origin": "Developed through practitioner evaluation of AI tooling patterns; applied across integration and product transformation initiatives."
+      "origin": "Developed through practitioner evaluation of AI tooling patterns; applied across integration and product transformation initiatives.",
+      "caseStudyUrl": "case-study-agentic-architecture-discipline.html"
     }
   ]
 }
