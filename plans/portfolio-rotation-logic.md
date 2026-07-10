@@ -2,7 +2,7 @@
 
 ## Overview
 
-The `/portfolio` endpoint uses **cookie-based session affinity** to serve one of three executive portfolio variants — `herald`, `cipher`, or `ember` — to each visitor. A visitor is randomly assigned a variant on their **first** visit and then sees that **same variant for 30 days**. Clicking the button again does **not** rotate to a new variant; it replays the assigned one.
+The `/portfolio` endpoint uses **cookie-based session affinity** to serve one of three executive portfolio variants - `herald`, `cipher`, or `ember` - to each visitor. A visitor is randomly assigned a variant on their **first** visit and then sees that **same variant for 30 days**. Clicking the button again does **not** rotate to a new variant; it replays the assigned one.
 
 ---
 
@@ -12,62 +12,62 @@ The `/portfolio` endpoint uses **cookie-based session affinity** to serve one of
 
 | Component | Role |
 |---|---|
-| `VARIANTS` array | `["herald", "cipher", "ember"]` — the three portfolio HTML pages |
+| `VARIANTS` array | `["herald", "cipher", "ember"]` - the three portfolio HTML pages |
 | `pv` cookie | Stores the assigned variant name in the visitor's browser |
-| `COOKIE_MAX_AGE` | `2,592,000` seconds (30 days) — how long the cookie persists |
-| `pickVariant()` | Selects a random variant (`Math.random`) — called **only once** per visitor lifecycle |
+| `COOKIE_MAX_AGE` | `2,592,000` seconds (30 days) - how long the cookie persists |
+| `pickVariant()` | Selects a random variant (`Math.random`) - called **only once** per visitor lifecycle |
 | `parseVariantCookie()` | Reads the `pv` cookie from the incoming request to check for an existing assignment |
 
 ### Request Flow
 
 ```
 Visitor hits /portfolio
-        │
-        ▼
-┌─────────────────────────┐
-│ Parse "pv" cookie from  │
-│ the request headers     │
-└────────────┬────────────┘
-             │
-     ┌───────┴────────┐
-     │ Cookie exists  │
-     │ and is valid?  │
-     └───────┬────────┘
+        |
+        v
++-------------------------+
+| Parse "pv" cookie from  |
+| the request headers     |
++------------+------------+
+             |
+     +-------+--------+
+     | Cookie exists  |
+     | and is valid?  |
+     +-------+--------+
         YES/ \NO
-       ┌────┘ └────┐
-       ▼            ▼
+       +----+ +----+
+       v            v
  Use existing   pickVariant()
  variant from   (random selection)
  cookie         Set isNew = true
-       │            │
-       └─────┬──────┘
-             ▼
-┌─────────────────────────┐
-│ Fetch the HTML file:    │
-│ executive_portfolio_    │
-│ {variant}.html          │
-└────────────┬────────────┘
-             │
-     ┌───────┴────────┐
-     │  isNew = true? │
-     └───────┬────────┘
+       |            |
+       +-----+------+
+             v
++-------------------------+
+| Fetch the HTML file:    |
+| executive_portfolio_    |
+| {variant}.html          |
++------------+------------+
+             |
+     +-------+--------+
+     |  isNew = true? |
+     +-------+--------+
         YES/ \NO
-       ┌────┘ └────┐
-       ▼            ▼
+       +----+ +----+
+       v            v
  Set-Cookie:     Return HTML
  pv={variant};   as-is
  Max-Age=30d;
  Path=/;
  SameSite=Lax
-       │
-       ▼
+       |
+       v
  Return HTML
  with cookie
 ```
 
 ### Step-by-step
 
-1. **Visitor clicks the portfolio button** → request arrives at the Cloudflare Worker for `/portfolio`.
+1. **Visitor clicks the portfolio button** -> request arrives at the Cloudflare Worker for `/portfolio`.
 2. **`parseVariantCookie(request)`** reads the `Cookie` header, looking for `pv=<value>`.
 3. **If the cookie exists and contains a valid variant name** (`herald`, `cipher`, or `ember`):
    - That variant is reused. No new cookie is set. The visitor sees the **same** page they saw last time.
@@ -84,10 +84,10 @@ Visitor hits /portfolio
 The 30-day duration is a deliberate **A/B testing best-practice** choice, not arbitrary. Here's the reasoning:
 
 ### 1. Consistent user experience
-If a recruiter, hiring manager, or networking contact visits the portfolio, bookmarks it, and returns days later, they should see the **same** page. Showing a different design on every click would feel broken — as if the site is glitching — and would undermine trust.
+If a recruiter, hiring manager, or networking contact visits the portfolio, bookmarks it, and returns days later, they should see the **same** page. Showing a different design on every click would feel broken - as if the site is glitching - and would undermine trust.
 
 ### 2. Accurate A/B analytics
-The purpose of having three variants is to measure which design converts best (impression → contact form submission). For that measurement to be valid:
+The purpose of having three variants is to measure which design converts best (impression -> contact form submission). For that measurement to be valid:
 - Each visitor must be counted as **one** subject in **one** test group.
 - If a visitor could see multiple variants across visits, you couldn't attribute a conversion to a specific design.
 - 30 days provides enough time for a visitor to revisit and eventually convert, all while staying in their assigned cohort.
@@ -101,7 +101,7 @@ The purpose of having three variants is to measure which design converts best (i
 | **7 days** | Viable but tight. Hiring pipelines often span weeks. A candidate portfolio could be revisited 10+ days later. |
 
 ### 4. Why not longer?
-30 days is the sweet spot — long enough to cover a typical hiring/evaluation cycle, short enough that:
+30 days is the sweet spot - long enough to cover a typical hiring/evaluation cycle, short enough that:
 - If you deploy new variants or retire old ones, visitors cycle into the new pool within a month.
 - It respects reasonable cookie lifetime expectations (many analytics platforms use 30 days as a standard).
 - It aligns with Cloudflare Analytics Engine's default 30-day query window, keeping cookie lifetime and data retention in sync.

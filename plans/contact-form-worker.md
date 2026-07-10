@@ -9,10 +9,10 @@ Wire every portfolio contact form to a Cloudflare Worker that sends an email to
 
 ```
 Browser POST /contact
-    └─> Cloudflare Worker (worker.js)
-            └─> send_email binding
-                    └─> Cloudflare Email Routing
-                            └─> gsalast@gmail.com
+    +-> Cloudflare Worker (worker.js)
+            +-> send_email binding
+                    +-> Cloudflare Email Routing
+                            +-> gsalast@gmail.com
 ```
 
 Static assets (HTML/SVG/JSON) continue to be served directly by Workers Assets.
@@ -22,22 +22,22 @@ Static assets (HTML/SVG/JSON) continue to be served directly by Workers Assets.
 ## Domain & DNS Setup (guillermosalas.dev / guillermosalas.net)
 
 ### 1. Add Domains to Cloudflare
-1. Cloudflare Dashboard → "Add a site" → `guillermosalas.dev`
+1. Cloudflare Dashboard -> "Add a site" -> `guillermosalas.dev`
 2. Select Free plan
 3. Note the assigned nameservers (e.g., `aria.ns.cloudflare.com`, `todd.ns.cloudflare.com`)
 4. Repeat for `guillermosalas.net`
 
 ### 2. Point Namecheap DNS to Cloudflare
-1. Namecheap Dashboard → Domain List → `guillermosalas.dev` → Manage
-2. Under "Nameservers" → select "Custom DNS"
+1. Namecheap Dashboard -> Domain List -> `guillermosalas.dev` -> Manage
+2. Under "Nameservers" -> select "Custom DNS"
 3. Enter the two Cloudflare nameservers
 4. Repeat for `.net`
 5. Wait for propagation (5-30 min typical, up to 24h)
 
 ### 3. Enable Email Routing
-1. Dashboard → **guillermosalas.dev** (or whichever zone sends email) → **Email** → **Email Routing**
+1. Dashboard -> **guillermosalas.dev** (or whichever zone sends email) -> **Email** -> **Email Routing**
 2. Toggle Email Routing **on**
-3. Under **Destination addresses** → **Add address** → enter `gsalast@gmail.com`
+3. Under **Destination addresses** -> **Add address** -> enter `gsalast@gmail.com`
 4. Check your inbox and click the verification link Cloudflare sends
 
 ### 4. Verify in Cloudflare
@@ -49,13 +49,13 @@ Static assets (HTML/SVG/JSON) continue to be served directly by Workers Assets.
 ## One-Time Setup
 
 ### Create an API Token for CI/CD
-1. Dashboard → **My Profile** → **API Tokens** → **Create Token**
+1. Dashboard -> **My Profile** -> **API Tokens** -> **Create Token**
 2. Use template **"Edit Cloudflare Workers"**
 3. Scope: your account + the `profile` Worker
 4. Copy the token value
 
 ### Add GitHub Secrets
-Repo (`BarbellG33k/pr0fil3`) → **Settings** → **Secrets and variables** → **Actions** → **New secret**:
+Repo (`BarbellG33k/pr0fil3`) -> **Settings** -> **Secrets and variables** -> **Actions** -> **New secret**:
 
 | Secret name | Value |
 |---|---|
@@ -81,7 +81,7 @@ Repo (`BarbellG33k/pr0fil3`) → **Settings** → **Secrets and variables** → 
 | `email` | Email / Email_Address |
 | `phone` | Phone / Phone_Number |
 | `subject` | Subject / Subject_Line |
-| `page` | _(hidden — identifies which portfolio page)_ |
+| `page` | _(hidden - identifies which portfolio page)_ |
 
 ## Sample Email Received
 
@@ -110,7 +110,7 @@ npx wrangler dev
 
 The Worker runs at `http://localhost:8787`. Form submissions will hit `/contact`
 and routing/redirect logic works locally, but `send_email` is not available in
-the local dev environment — you'll see a 500 if you actually submit. Use
+the local dev environment - you'll see a 500 if you actually submit. Use
 `wrangler tail` in production to verify live sends.
 
 ---

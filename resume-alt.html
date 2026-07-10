@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Guillermo Salas — Resume</title>
+  <title>Guillermo Salas - Resume</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   <link id="gfonts-link"
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap"
@@ -150,7 +150,7 @@
       overflow-x: hidden;
     }
 
-    /* ── toolbar ── */
+    /* -- toolbar -- */
     #toolbar {
       position: fixed;
       top: 0; left: 0; right: 0; height: 56px;
@@ -171,7 +171,7 @@
     #toolbar .toolbar-right { display: flex; gap: 12px; align-items: center; flex-shrink: 0; }
     .toolbar-actions { display: flex; gap: 12px; align-items: center; }
 
-    /* hamburger — mobile only */
+    /* hamburger - mobile only */
     #menu-toggle {
       display: none;
       background: transparent;
@@ -201,7 +201,7 @@
     #mobile-menu.open { display: flex; }
     #mobile-menu .btn { width: 100%; justify-content: center; padding: 12px; }
 
-    /* ── mobile section nav (replaces nav-matrix on small screens) ── */
+    /* -- mobile section nav (replaces nav-matrix on small screens) -- */
     #mobile-section-nav {
       display: none;
       position: sticky;
@@ -265,7 +265,7 @@
     }
     .theme-select:hover { border-color: var(--accent); }
 
-    /* ── layout framework ── */
+    /* -- layout framework -- */
     #app-container {
       display: flex;
       max-width: calc(var(--content-max) + var(--nav-width) + 80px);
@@ -275,18 +275,18 @@
       gap: 40px;
     }
 
-    /* ═══════════════════════════════════════════════════════════
-       RESPONSIVE — tablet
-    ═══════════════════════════════════════════════════════════ */
+    /* ===========================================================
+       RESPONSIVE - tablet
+    =========================================================== */
     @media (max-width: 900px) {
       #app-container { margin: 72px auto 40px; padding: 0 16px; gap: 0; }
       .resume-block { padding: 32px 28px; border-radius: 10px; }
       #resume { gap: 24px; }
     }
 
-    /* ═══════════════════════════════════════════════════════════
-       RESPONSIVE — mobile
-    ═══════════════════════════════════════════════════════════ */
+    /* ===========================================================
+       RESPONSIVE - mobile
+    =========================================================== */
     @media (max-width: 640px) {
       /* toolbar */
       #toolbar { padding: 0 14px; }
@@ -342,7 +342,7 @@
       .summary-text { font-size: 14px; line-height: 1.7; }
     }
 
-    /* ── navigation matrix ── */
+    /* -- navigation matrix -- */
     #nav-matrix {
       position: sticky;
       top: 100px;
@@ -384,14 +384,14 @@
     }
     .nav-item.active::before { background: var(--accent); transform: scale(1.5); }
 
-    /* ── page wrapper ── */
+    /* -- page wrapper -- */
     #page-wrap {
       flex-grow: 1;
       max-width: var(--content-max);
       width: 100%;
     }
 
-    /* ── resume blocks (web specific) ── */
+    /* -- resume blocks (web specific) -- */
     #resume {
       display: flex; flex-direction: column; gap: 40px;
     }
@@ -411,7 +411,7 @@
       opacity: 1; transform: translateY(0);
     }
 
-    /* ── header ── */
+    /* -- header -- */
     #header {
       display: flex; justify-content: space-between; align-items: flex-end;
       padding-bottom: 24px; border-bottom: 2px solid var(--rule-subtle);
@@ -435,7 +435,7 @@
     #header-right a { color: var(--ink-light); text-decoration: none; transition: 0.2s; font-weight: 500;}
     #header-right a:hover { color: var(--accent); }
 
-    /* ── sections ── */
+    /* -- sections -- */
     .section-title {
       font-family: var(--heading-font);
       font-size: 28px; font-weight: 600; color: var(--ink);
@@ -445,13 +445,13 @@
       content: ''; flex-grow: 1; height: 1px; background: var(--rule-subtle);
     }
 
-    /* ── summary ── */
+    /* -- summary -- */
     .summary-text {
       font-size: 16px; color: var(--ink-light); line-height: 1.8;
       font-family: var(--body-font);
     }
 
-    /* ── experience ── */
+    /* -- experience -- */
     .job { margin-bottom: 32px; position: relative; }
     .job:last-child { margin-bottom: 0; }
     
@@ -488,7 +488,7 @@
       font-size: 15px; color: var(--ink-light); line-height: 1.6;
     }
     .job-bullets li::before {
-      content: '→'; position: absolute; left: 0; color: var(--accent);
+      content: '->'; position: absolute; left: 0; color: var(--accent);
       font-size: 14px; top: 2px;
     }
     .job-bullets li.bullet-heading {
@@ -512,7 +512,7 @@
     }
     .job-collapsible[open] .show-more-indicator { display: none; }
 
-    /* ── skills grid ── */
+    /* -- skills grid -- */
     .skills-grid {
       display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
       gap: 24px;
@@ -538,7 +538,7 @@
       background: var(--accent); color: white; border-color: var(--accent);
     }
 
-    /* ── education & certifications ── */
+    /* -- education & certifications -- */
     .edu-grid { display: grid; gap: 20px; }
     .edu-card { display: flex; flex-direction: column; gap: 4px; }
     .edu-institution { font-weight: 700; color: var(--ink); font-size: 16px; }
@@ -552,10 +552,10 @@
       padding-left: 20px; position: relative; margin-bottom: 6px;
     }
     .cert-items li::before {
-      content: '✓'; position: absolute; left: 0; color: var(--accent); font-size: 12px; font-weight:bold; top:3px;
+      content: 'OK'; position: absolute; left: 0; color: var(--accent); font-size: 12px; font-weight:bold; top:3px;
     }
 
-    /* ── print styles (strictly reverts to original sheet format) ── */
+    /* -- print styles (strictly reverts to original sheet format) -- */
     @page { size: A4; margin: 14mm 12mm; }
     @media print {
       * { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; transition: none !important; opacity: 1 !important; transform: none !important;}
@@ -601,7 +601,7 @@
       .job-period { font-size: 10.5px !important; padding: 0 !important; background: transparent !important; color: #888 !important; letter-spacing: 0.04em !important;}
       .job-title { font-size: 10px !important; letter-spacing: 0.08em !important; margin-bottom: 5px !important; }
       .job-bullets li { font-size: 11.5px !important; line-height: 1.5 !important; padding-left: 14px !important; margin-bottom: 2px !important; }
-      .job-bullets li::before { content: '—' !important; color: #c8b99a !important; font-size: 11px !important; top: 1px !important; }
+      .job-bullets li::before { content: '-' !important; color: #c8b99a !important; font-size: 11px !important; top: 1px !important; }
       .job-bullets li.bullet-heading { font-size: 8px !important; margin-top: 8px !important; margin-bottom: 3px !important; padding-left: 0 !important; }
       .job+.job { padding-top: 12px !important; border-top: 1px dashed #e8e0d0 !important; }
 
@@ -621,7 +621,7 @@
       .cert-group { margin-bottom: 10px !important; }
       .cert-issuer { font-size: 10px !important; font-family: 'DM Sans', sans-serif !important; letter-spacing: 0.12em !important; text-transform: uppercase !important; color: #888 !important; margin-bottom: 3px !important; font-weight: 600 !important;}
       .cert-items li { font-size: 12px !important; padding-left: 12px !important; margin-bottom: 0 !important;}
-      .cert-items li::before { content: '·' !important; color: #8b6f47 !important; font-size: 16px !important; font-weight: normal!important; top: 0 !important;}
+      .cert-items li::before { content: '-' !important; color: #8b6f47 !important; font-size: 16px !important; font-weight: normal!important; top: 0 !important;}
 
       details.job-collapsible .show-more-indicator { display: none !important; }
       details.job-collapsible .job-bullets { display: block !important; }
@@ -634,8 +634,8 @@
 <body>
 
   <div id="toolbar">
-    <a href="index.html" style="color:var(--ink-muted);text-decoration:none;font-size:12px;letter-spacing:0.05em;text-transform:uppercase;font-family:var(--body-font);font-weight:600;white-space:nowrap;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'">← Back</a>
-    <span class="toolbar-title">Guillermo Salas — Resume</span>
+    <a href="index.html" style="color:var(--ink-muted);text-decoration:none;font-size:12px;letter-spacing:0.05em;text-transform:uppercase;font-family:var(--body-font);font-weight:600;white-space:nowrap;transition:color 0.2s;" onmouseover="this.style.color='var(--ink)'" onmouseout="this.style.color='var(--ink-muted)'"><- Back</a>
+    <span class="toolbar-title">Guillermo Salas - Resume</span>
     <div class="toolbar-right">
       <select id="theme-select" class="theme-select" onchange="applyTheme(this.value)">
         <option value="carbon">Carbon Edge</option>
@@ -648,18 +648,18 @@
         <button id="edu-toggle" class="btn-icon owner-only" onclick="toggleEducation()" title="Education excluded from PDF">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l4 2.18v6L12 21l7-3.82v-6l2-1.09V17h2V9L12 3zm6.82 6L12 12.72 5.18 9 12 5.28 18.82 9zM17 15.99l-5 2.73-5-2.73v-3.72L12 15l5-2.73v3.72z"/></svg>
         </button>
-        <button class="btn btn-ghost" onclick="downloadJSON()">↓ JSON</button>
-        <button class="btn btn-ghost" onclick="printPDF()">⎙ Print / PDF</button>
-        <button class="btn btn-primary" onclick="downloadPDF()">↓ Download PDF</button>
+        <button class="btn btn-ghost" onclick="downloadJSON()">JSON</button>
+        <button class="btn btn-ghost" onclick="printPDF()">Print / PDF</button>
+        <button class="btn btn-primary" onclick="downloadPDF()">Download PDF</button>
       </div>
-      <button id="menu-toggle" onclick="toggleMenu()" aria-label="Menu">☰</button>
+      <button id="menu-toggle" onclick="toggleMenu()" aria-label="Menu">Menu</button>
     </div>
   </div>
 
   <div id="mobile-menu">
-    <button class="btn btn-ghost" onclick="downloadJSON();toggleMenu()">↓ Download JSON</button>
-    <button class="btn btn-ghost" onclick="printPDF();toggleMenu()">⎙ Print / PDF</button>
-    <button class="btn btn-primary" onclick="downloadPDF();toggleMenu()">↓ Download PDF</button>
+    <button class="btn btn-ghost" onclick="downloadJSON();toggleMenu()">Download JSON</button>
+    <button class="btn btn-ghost" onclick="printPDF();toggleMenu()">Print / PDF</button>
+    <button class="btn btn-primary" onclick="downloadPDF();toggleMenu()">Download PDF</button>
   </div>
 
   <nav id="mobile-section-nav" aria-label="Resume sections">
@@ -688,7 +688,7 @@
   </div>
 
   <script>
-    // ── Theme system ──────────────────────────────────────────────────────────────
+    // -- Theme system --------------------------------------------------------------
 
     const THEMES = {
       carbon: {
@@ -776,7 +776,7 @@
       }
     });
 
-    // ── Load JSON and render ──────────────────────────────────────────────────────
+    // -- Load JSON and render ------------------------------------------------------
 
     const JSON_FILE = 'resume-content.json';
     let RESUME_DATA = null;
@@ -836,11 +836,11 @@
       </div>
       <div id="header-right">
         <div>${m.email}</div>
-        <div class="header-bullet">•</div>
+        <div class="header-bullet">*</div>
         <div>${m.phone}</div>
-        <div class="header-bullet">•</div>
+        <div class="header-bullet">*</div>
         <div>${m.location}</div>
-        <div class="header-bullet">•</div>
+        <div class="header-bullet">*</div>
         <div><a href="${m.linkedinUrl}" target="_blank">${m.linkedin}</a></div>
       </div>
     </div>
@@ -1008,7 +1008,7 @@
   `;
     }
 
-    // ── Intersection Observer ──────────────────────────────────────────────────
+    // -- Intersection Observer --------------------------------------------------
     function setupIntersectionObserver() {
       const blocks = document.querySelectorAll('.resume-block');
       const navItems = document.querySelectorAll('.nav-item');
@@ -1048,19 +1048,19 @@
       });
     }
 
-    // ── PDF export ────────────────────────────────────────────────────────────────
+    // -- PDF export ----------------------------------------------------------------
 
     function downloadPDF() {
       if (!RESUME_DATA) return;
       const d = RESUME_DATA;
       const btn = document.querySelector('#toolbar .btn-primary');
-      if (btn) { btn.disabled = true; btn.innerHTML = 'Generating…'; }
+      if (btn) { btn.disabled = true; btn.innerHTML = 'Generating...'; }
 
       try {
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF({ unit: 'pt', format: 'a4' });
 
-        // ── Layout constants ────────────────────────────────────────────────────
+        // -- Layout constants ----------------------------------------------------
         const PW = 595.28, PH = 841.89;
         const ML = 36, MR = 36, MT = 40, MB = 36;
         const LBL_W = 90, GAP = 14;
@@ -1068,7 +1068,7 @@
         const BODY_W = PW - MR - BODY_X;            // width of body content area
         const CAT_COL = 130;                         // skills category label width
 
-        // ── Color helpers ───────────────────────────────────────────────────────
+        // -- Color helpers -------------------------------------------------------
         const h2r = h => [parseInt(h.slice(1,3),16), parseInt(h.slice(3,5),16), parseInt(h.slice(5,7),16)];
         const tc = h => doc.setTextColor(...h2r(h));
         const dc = h => doc.setDrawColor(...h2r(h));
@@ -1081,7 +1081,7 @@
         // Ensure `needed` pts are available; if not, new page
         const need = (h) => { if (y + h > PH - MB) newPage(); };
 
-        // Draw section label at current y — does NOT advance y
+        // Draw section label at current y - does NOT advance y
         // Label text is right-aligned in the label column; body content drawn alongside
         const lbl = (text) => {
           doc.setFont('helvetica', 'bold'); doc.setFontSize(7); tc(ACC);
@@ -1090,7 +1090,7 @@
           doc.line(ML + LBL_W - 22, y + 10, ML + LBL_W, y + 10);
         };
 
-        // ── HEADER ─────────────────────────────────────────────────────────────
+        // -- HEADER -------------------------------------------------------------
         doc.setFont('times', 'bold'); doc.setFontSize(30); tc(INK);
         doc.text(d.meta.name, ML, y + 28);
 
@@ -1105,7 +1105,7 @@
         dc(RULE); doc.setLineWidth(1.5); doc.line(ML, y, PW - MR, y);
         y += 18;
 
-        // ── PROFILE ────────────────────────────────────────────────────────────
+        // -- PROFILE ------------------------------------------------------------
         lbl('Profile');
         doc.setFont('helvetica', 'italic'); doc.setFontSize(9); tc(INKL);
         doc.splitTextToSize(d.summary, BODY_W).forEach(line => {
@@ -1113,7 +1113,7 @@
         });
         y += 14;
 
-        // ── EXPERIENCE ─────────────────────────────────────────────────────────
+        // -- EXPERIENCE ---------------------------------------------------------
         need(60); lbl('Experience');
         d.experience.forEach((job, idx) => {
           if (idx > 0) {
@@ -1148,7 +1148,7 @@
             doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
             const lines = doc.splitTextToSize(b, BODY_W - 14);
             need(lines.length * 13 + 3);
-            tc(RULE); doc.text('—', BODY_X, y + 9);
+            tc(RULE); doc.text('-', BODY_X, y + 9);
             tc(INKL);
             lines.forEach((l, li) => { doc.text(l, BODY_X + 14, y + 9 + li * 13); });
             y += lines.length * 13 + 3;
@@ -1156,7 +1156,7 @@
           y += 8;
         });
 
-        // ── SKILLS ─────────────────────────────────────────────────────────────
+        // -- SKILLS -------------------------------------------------------------
         need(30); y += 4; lbl('Skills');
         d.skills.forEach(sg => {
           need(20);
@@ -1165,13 +1165,13 @@
           catLines.forEach((cl, ci) => { doc.text(cl, BODY_X, y + 8 + ci * 10); });
 
           doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
-          const itemLines = doc.splitTextToSize(sg.items.join('  ·  '), BODY_W - CAT_COL - 6);
+          const itemLines = doc.splitTextToSize(sg.items.join('  -  '), BODY_W - CAT_COL - 6);
           itemLines.forEach((il, ii) => { doc.text(il, BODY_X + CAT_COL + 6, y + 8 + ii * 12); });
 
           y += Math.max(catLines.length * 10, itemLines.length * 12) + 6;
         });
 
-        // ── EDUCATION ──────────────────────────────────────────────────────────
+        // -- EDUCATION ----------------------------------------------------------
         if (includeEducation && d.education && d.education.length) {
           need(30); y += 4; lbl('Education');
           d.education.forEach(edu => {
@@ -1179,12 +1179,12 @@
             doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INKM);
             doc.text(edu.institution.toUpperCase(), BODY_X, y + 8);
             doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
-            doc.text(`${edu.degree}  —  ${edu.location}, ${edu.year}`, BODY_X, y + 20);
+            doc.text(`${edu.degree}  -  ${edu.location}, ${edu.year}`, BODY_X, y + 20);
             y += 30;
           });
         }
 
-        // ── CERTIFICATIONS ─────────────────────────────────────────────────────
+        // -- CERTIFICATIONS -----------------------------------------------------
         need(30); y += 4; lbl('Certifications');
         d.certifications.forEach(cert => {
           need(20);
@@ -1194,13 +1194,13 @@
           cert.items.forEach(item => {
             need(14);
             doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
-            doc.text('·  ' + item, BODY_X + 4, y + 9);
+            doc.text('-  ' + item, BODY_X + 4, y + 9);
             y += 13;
           });
           y += 6;
         });
 
-        // ── AI PRACTITIONER ────────────────────────────────────────────────────
+        // -- AI PRACTITIONER ----------------------------------------------------
         if (d.aiPractitioner) {
           const ai = d.aiPractitioner;
           need(30); y += 4; lbl('AI Practice');
@@ -1219,7 +1219,7 @@
             doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
             const lines = doc.splitTextToSize((hasLabel ? rest : b), BODY_W - 14);
             need(lines.length * 13 + 3);
-            tc(RULE); doc.text('—', BODY_X, y + 9);
+            tc(RULE); doc.text('-', BODY_X, y + 9);
             if (hasLabel) {
               doc.setFont('helvetica', 'bold'); tc(INK);
               doc.text(label, BODY_X + 14, y + 9);
@@ -1246,7 +1246,7 @@
         console.error('PDF generation failed:', err);
         alert('PDF generation failed. Use "Print / PDF" as a fallback.');
       } finally {
-        if (btn) { btn.disabled = false; btn.innerHTML = '↓ Download PDF'; }
+        if (btn) { btn.disabled = false; btn.innerHTML = 'Download PDF'; }
       }
     }
 
@@ -1255,7 +1255,7 @@
       window.print();
     }
 
-    // ── Download JSON ─────────────────────────────────────────────────────────────
+    // -- Download JSON -------------------------------------------------------------
 
     function downloadJSON() {
       if (!RESUME_DATA) return;
@@ -1268,7 +1268,7 @@
       URL.revokeObjectURL(url);
     }
 
-    // ── Embedded fallback data (mirrors resume-content.json) ─────────────────────
+    // -- Embedded fallback data (mirrors resume-content.json) ---------------------
     // This allows the file to work standalone if JSON fetch fails.
 
     const EMBEDDED_DATA = {
@@ -1281,42 +1281,42 @@
         "linkedin": "linkedin.com/in/guillermosalas",
         "linkedinUrl": "https://linkedin.com/in/guillermosalas"
       },
-      "summary": "Technology executive and enterprise solutions architect who builds AI-augmented engineering organizations from the ground up. 20+ years progressing from hands-on cloud architecture and digital transformation delivery to leading multi-team engineering organizations—designing operating models, governance frameworks, and platform strategies that convert technical capability into measurable business outcomes. Career arc spans Fortune 500 consulting, regulated fintech platforms, enterprise SaaS modernization, and Healthcare IT at scale. Currently driving AI-first organizational transformation, global team architecture, and M&A integration within a PE-backed growth environment.",
+      "summary": "Technology executive and enterprise solutions architect who builds AI-augmented engineering organizations from the ground up. 20+ years progressing from hands-on cloud architecture and digital transformation delivery to leading multi-team engineering organizations-designing operating models, governance frameworks, and platform strategies that convert technical capability into measurable business outcomes. Career arc spans Fortune 500 consulting, regulated fintech platforms, enterprise SaaS modernization, and Healthcare IT at scale. Currently driving AI-first organizational transformation, global team architecture, and M&A integration within a PE-backed growth environment.",
       "experience": [
         {
           "company": "Experity",
           "title": "VP, Software Engineering and Product Development",
-          "period": "Mar 2023 – Present",
+          "period": "Mar 2023 - Present",
           "bullets": [
             "## AI-First Organizational Transformation",
-            "Championed enterprise AI adoption against initial executive resistance—delivering a documented 3–4x increase in meaningful code output (500K → 1.5–2M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs → AI Executes → Developer Validates), and created the AI-Native PDLC—a 5-stage framework feeding curated context to both engineers and AI agents.",
-            "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols—converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC.",
+            "Championed enterprise AI adoption against initial executive resistance-delivering a documented 3-4x increase in meaningful code output (500K -> 1.5-2M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs -> AI Executes -> Developer Validates), and created the AI-Native PDLC-a 5-stage framework feeding curated context to both engineers and AI agents.",
+            "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols-converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC.",
             "## Organizational Scale & Team Operations",
-            "Participated in engineering workstreams for a board-sponsored Global Capability Center initiative—contributing to implementation planning, readiness coordination, and cross-functional alignment while the program strategy and ownership remained outside my direct design authority.",
-            "Built and led a 57+ person multi-disciplinary engineering organization across multiple time zones (6 direct reports, 4+ teams, 20+ nearshore LATAM contractors) within a PE-backed SaaS scale-up—direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
+            "Participated in engineering workstreams for a board-sponsored Global Capability Center initiative-contributing to implementation planning, readiness coordination, and cross-functional alignment while the program strategy and ownership remained outside my direct design authority.",
+            "Built and led a 57+ person multi-disciplinary engineering organization across multiple time zones (6 direct reports, 4+ teams, 20+ nearshore LATAM contractors) within a PE-backed SaaS scale-up-direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
             "## M&A Integration & Operational Transformation",
-            "Led post-acquisition integration of an acquired healthcare platform engineering team—transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership.",
-            "Converted recurring operational escalations into an executive operating-model transformation discussion—reframing isolated support conflicts as systemic ownership, escalation, key-person dependency, and product-health investment issues across Engineering, Operations, Product, and executive stakeholders.",
+            "Led post-acquisition integration of an acquired healthcare platform engineering team-transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership.",
+            "Converted recurring operational escalations into an executive operating-model transformation discussion-reframing isolated support conflicts as systemic ownership, escalation, key-person dependency, and product-health investment issues across Engineering, Operations, Product, and executive stakeholders.",
             "## Platform Modernization & Engineering Reliability",
-            "Led a multi-year transformation of architecture from review-oriented advisory activity into an accountable technical leadership capability—clarifying boundaries between architects, Staff Engineers, managers, and delivery teams while emphasizing delivery enablement, distributed ownership, modernization alignment, and measurable outcomes.",
-            "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical latency failure modes and championed Jenkins → CircleCI migration completed in one day with zero incidents.",
+            "Led a multi-year transformation of architecture from review-oriented advisory activity into an accountable technical leadership capability-clarifying boundaries between architects, Staff Engineers, managers, and delivery teams while emphasizing delivery enablement, distributed ownership, modernization alignment, and measurable outcomes.",
+            "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical latency failure modes and championed Jenkins -> CircleCI migration completed in one day with zero incidents.",
             "## Organizational Leadership & Strategic Operations",
-            "Designed quarterly leadership onsites with progressive maturity arc (Identity → Excellence → Focus → Growth → Recalibration → Sharpen the Standard). Served as technical ambassador to PE stakeholders. Championed people-first culture under financial constraint—advocating retention cases against committee pushback while maintaining top 10% performance outcomes."
+            "Designed quarterly leadership onsites with progressive maturity arc (Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen the Standard). Served as technical ambassador to PE stakeholders. Championed people-first culture under financial constraint-advocating retention cases against committee pushback while maintaining top 10% performance outcomes."
           ]
         },
         {
           "company": "Earlier Career",
           "title": "Progressive Leadership Across Regulated & Enterprise Environments",
-          "period": "2010 – 2023",
+          "period": "2010 - 2023",
           "bullets": [
             "## Customer Success & Enterprise Architecture",
-            "Chronicled (2022–2023): Led enterprise blockchain implementations for Fortune 100 pharmaceutical customers via GCP-hosted MediLedger; served as Head of Customer Success Services managing implementation consultants with deep Kubernetes configuration expertise.",
-            "SafeNet Consulting (2021–2022): Led architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure—identifying emerging technology opportunities and translating them into actionable adoption strategies.",
-            "SysLogic (2019–2021): Championed cloud-first modernization across multiple enterprise engagements—governing solution design, guiding infrastructure adoption, and mentoring engineering talent.",
+            "Chronicled (2022-2023): Led enterprise blockchain implementations for Fortune 100 pharmaceutical customers via GCP-hosted MediLedger; served as Head of Customer Success Services managing implementation consultants with deep Kubernetes configuration expertise.",
+            "SafeNet Consulting (2021-2022): Led architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure-identifying emerging technology opportunities and translating them into actionable adoption strategies.",
+            "SysLogic (2019-2021): Championed cloud-first modernization across multiple enterprise engagements-governing solution design, guiding infrastructure adoption, and mentoring engineering talent.",
             "## Regulated Platform & Delivery Leadership",
-            "HSA Bank (2014–2019): Dual VP/Director roles over 5 years—architected enterprise integration patterns, governed technology adoption on a regulated financial services platform, reduced support rework by 43% YoY, partnered with CTO on technical strategy.",
-            "CoreLogic / MSB (2011–2014): Defined roadmaps and delivered enterprise solutions with full technical specifications, mentoring distributed remote and onsite teams.",
-            "Health Payment Systems (2010–2011): Managed software development team ensuring constant improvement, engagement, and productivity across delivery cycles."
+            "HSA Bank (2014-2019): Dual VP/Director roles over 5 years-architected enterprise integration patterns, governed technology adoption on a regulated financial services platform, reduced support rework by 43% YoY, partnered with CTO on technical strategy.",
+            "CoreLogic / MSB (2011-2014): Defined roadmaps and delivered enterprise solutions with full technical specifications, mentoring distributed remote and onsite teams.",
+            "Health Payment Systems (2010-2011): Managed software development team ensuring constant improvement, engagement, and productivity across delivery cycles."
           ]
         }
       ],
@@ -1354,7 +1354,7 @@
         {
           "issuer": "Oracle",
           "items": [
-            "OCI Certified — Cloud Infrastructure 2024 Generative AI Professional",
+            "OCI Certified - Cloud Infrastructure 2024 Generative AI Professional",
             "OCI Foundations 2021 Associate"
           ]
         },
@@ -1374,21 +1374,21 @@
         }
       ],
       "aiPractitioner": {
-        "title": "AI-Augmented Engineering — Practitioner & Architect Record",
-        "intro": "Built Experity's AI-augmented engineering practice from zero—personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 57+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
+        "title": "AI-Augmented Engineering - Practitioner & Architect Record",
+        "intro": "Built Experity's AI-augmented engineering practice from zero-personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 57+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
         "bullets": [
-          "AI Transformation Leadership: Championed AI adoption against initial executive resistance—built the business case, ran Experity's first-ever AI Hackathon, and drove cultural shift from skepticism to embedded practice. Delivered documented 3–4x productivity increase (500K → 1.5–2M lines of meaningful code) with 30%+ cycle time improvement across engineering teams.",
-          "AI-Native PDLC Design: Created a 5-stage Product Development Lifecycle (Signal → Context → Decision → Execution → Memory) with an AI Workspace for Product—feeding curated context packets to both human engineers and AI coding agents. Invented the 'Cold-Read Validation' method proving artifact quality before build begins.",
-          "Governance Architecture: Designed the organization's AI adoption framework—LLM usage policies, no-auto-merge standards, code review quality gates for AI-generated output, per-team cost tracking, security guardrails, and HIPAA-adjacent audit protocols. Converted ad-hoc tool experiments into governed, repeatable, audited pipelines.",
-          "Operating Model Shift: Led transition from manual code producers to agent-augmented reviewers—establishing that the team's constraint shifted from build capacity to review quality (a fundamentally better bottleneck). Defined the Developer Directs → AI Executes → Developer Validates workflow with 80/20 architectural oversight model.",
+          "AI Transformation Leadership: Championed AI adoption against initial executive resistance-built the business case, ran Experity's first-ever AI Hackathon, and drove cultural shift from skepticism to embedded practice. Delivered documented 3-4x productivity increase (500K -> 1.5-2M lines of meaningful code) with 30%+ cycle time improvement across engineering teams.",
+          "AI-Native PDLC Design: Created a 5-stage Product Development Lifecycle (Signal -> Context -> Decision -> Execution -> Memory) with an AI Workspace for Product-feeding curated context packets to both human engineers and AI coding agents. Invented the 'Cold-Read Validation' method proving artifact quality before build begins.",
+          "Governance Architecture: Designed the organization's AI adoption framework-LLM usage policies, no-auto-merge standards, code review quality gates for AI-generated output, per-team cost tracking, security guardrails, and HIPAA-adjacent audit protocols. Converted ad-hoc tool experiments into governed, repeatable, audited pipelines.",
+          "Operating Model Shift: Led transition from manual code producers to agent-augmented reviewers-establishing that the team's constraint shifted from build capacity to review quality (a fundamentally better bottleneck). Defined the Developer Directs -> AI Executes -> Developer Validates workflow with 80/20 architectural oversight model.",
           "AI-Compressed Incident Response: Deployed AI-assisted runbooks and knowledge retrieval pipelines that compressed initial triage times, automated structured post-incident learning generation, and reduced on-call cognitive load across distributed teams.",
-          "Architecture Transformation: Reframed architecture from advisory review into accountable delivery enablement—coaching technical leaders toward outcome ownership while guiding the Architecture Hub vision, five-pillar assessment model, and automated governance approach across security, reliability, maintainability, deployability, and observability.",
-          "Practitioner Certification: OCI Certified — Cloud Infrastructure 2024 Generative AI Professional—hands-on credential covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design. Used to inform architecture decisions and lead AI enablement conversations with credibility."
+          "Architecture Transformation: Reframed architecture from advisory review into accountable delivery enablement-coaching technical leaders toward outcome ownership while guiding the Architecture Hub vision, five-pillar assessment model, and automated governance approach across security, reliability, maintainability, deployability, and observability.",
+          "Practitioner Certification: OCI Certified - Cloud Infrastructure 2024 Generative AI Professional-hands-on credential covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design. Used to inform architecture decisions and lead AI enablement conversations with credibility."
         ]
       }
     };
 
-    // ── Boot ──────────────────────────────────────────────────────────────────────
+    // -- Boot ----------------------------------------------------------------------
     initOwnerControls();
     applyTheme(localStorage.getItem('resume-theme') || 'carbon');
     loadResume();

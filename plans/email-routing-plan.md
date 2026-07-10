@@ -18,9 +18,9 @@ Switch to SendGrid for transactional email instead of Cloudflare Email Routing.
 - Low setup friction
 
 ## Changes Made So Far
-1. ✅ Fixed typo in worker: `gsalast@mail.com` → `gsalast@gmail.com`
-2. ✅ Updated `wrangler.jsonc` to remove invalid `destination_address` config
-3. ✅ Verified cipher portfolio already has correct email: `gsalast@gmail.com`
+1. [x] Fixed typo in worker: `gsalast@mail.com` -> `gsalast@gmail.com`
+2. [x] Updated `wrangler.jsonc` to remove invalid `destination_address` config
+3. [x] Verified cipher portfolio already has correct email: `gsalast@gmail.com`
 
 ## Next Steps (TODO)
 1. Create SendGrid account and get API key
