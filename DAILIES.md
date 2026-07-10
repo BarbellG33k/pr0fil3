@@ -4,6 +4,21 @@ A running log of changes to Guillermo's resume and portfolio site.
 
 ---
 
+## 2026-07-10 - Build Version Badge
+
+### Deployment Verification
+- Added a small, unobtrusive build badge (bottom-right corner, plain text,
+  no link) to `index.html` only: short git SHA + UTC deploy timestamp
+- `scripts/stamp-version.sh` replaces a `BUILD_VERSION_PLACEHOLDER` token
+  with the real value; runs automatically in `.github/workflows/deploy.yml`
+  on every push to main, right before `wrangler deploy`
+- Never committed back to git - CI stamps a disposable checkout, not the
+  tracked source
+- Documented the full convention (including how to add the badge to
+  another page later) in `readme.md` under "Versioning"
+
+---
+
 ## 2026-05-27 (cont.) -> 2026-05-28 - Domain Migration & Portfolio Polish
 
 ### Domain Migration: guillermosalas.dev (LIVE)

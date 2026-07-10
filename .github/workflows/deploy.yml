@@ -32,6 +32,9 @@ jobs:
 
       - run: npm install
 
+      - name: Stamp build version
+        run: npm run stamp-version
+
       - name: Deploy to Cloudflare Workers
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
