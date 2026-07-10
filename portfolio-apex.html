@@ -226,18 +226,93 @@
               ]
             },
             {
-              "company": "Earlier Career",
-              "title": "Progressive Leadership Across Regulated & Enterprise Environments",
-              "period": "2010 - 2023",
+              "company": "Chronicled",
+              "title": "Enterprise Solutions Architect",
+              "period": "Jul 2022 - Mar 2023",
               "bullets": [
-                "## Customer Success & Enterprise Architecture",
-                "Chronicled (2022-2023): Led enterprise blockchain implementations for Fortune 100 pharmaceutical customers via GCP-hosted MediLedger; served as Head of Customer Success Services managing implementation consultants with deep Kubernetes configuration expertise.",
-                "SafeNet Consulting (2021-2022): Led architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure-identifying emerging technology opportunities and translating them into actionable adoption strategies.",
-                "SysLogic (2019-2021): Championed cloud-first modernization across multiple enterprise engagements-governing solution design, guiding infrastructure adoption, and mentoring engineering talent.",
-                "## Regulated Platform & Delivery Leadership",
-                "HSA Bank (2014-2019): Dual VP/Director roles over 5 years-architected enterprise integration patterns, governed technology adoption on a regulated financial services platform, reduced support rework by 43% YoY, partnered with CTO on technical strategy.",
-                "CoreLogic / MSB (2011-2014): Defined roadmaps and delivered enterprise solutions with full technical specifications, mentoring distributed remote and onsite teams.",
-                "Health Payment Systems (2010-2011): Managed software development team ensuring constant improvement, engagement, and productivity across delivery cycles."
+                "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
+                "Served as Head of Customer Success Services (CSS), managing a team of Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
+                "Delivered customer-centric solutions by balancing technical implementation with strategic business value, ensuring alignment between technology capabilities and client objectives.",
+                "Guided Implementation Consultants to combine technical configuration skill with customer-facing solution ownership, driving adoption and satisfaction across pharmaceutical supply chain deployments."
+              ]
+            },
+            {
+              "company": "SafeNet Consulting",
+              "title": "Customer Solutions Architect",
+              "period": "Aug 2021 - Jul 2022",
+              "bullets": [
+                "Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure.",
+                "Identified emerging technology opportunities and translated them into actionable adoption strategies for enterprise consulting engagements."
+              ]
+            },
+            {
+              "company": "HealthEquity",
+              "title": "Solutions Architect",
+              "period": "Apr 2021 - Aug 2021",
+              "bullets": [
+                "Provided solution architecture and technical code review for benefits administration platform initiatives during a short-term engagement.",
+                "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
+              ]
+            },
+            {
+              "company": "MoreTalent",
+              "title": "Technology Leader & Success Mentor (Part-Time Advisory)",
+              "period": "Mar 2020 - Present",
+              "bullets": [
+                "Provide part-time executive mentorship to technology leaders and startup founders, advising on engineering leadership, career growth, and organizational scaling.",
+                "Support early-stage companies with technical strategy guidance drawn from enterprise architecture and engineering leadership experience."
+              ]
+            },
+            {
+              "company": "SysLogic, Inc.",
+              "title": "EAA Practice Lead",
+              "period": "Jun 2019 - Mar 2021",
+              "bullets": [
+                "Championed cloud-first modernization across multiple enterprise engagements, governing solution design and guiding infrastructure adoption for client organizations.",
+                "Mentored engineering talent and established repeatable enterprise architecture practices across the consulting practice."
+              ]
+            },
+            {
+              "company": "HSA Bank, a division of Webster Bank, N.A.",
+              "title": "VP, Enterprise Solutions Architect",
+              "period": "May 2014 - May 2019",
+              "bullets": [
+                "## Role Progression",
+                "Solutions Architect (May 2014 - Jul 2016, initial engagement via Kforce Inc. contract staffing) -> VP, Application Development Manager (Jul 2016 - Sep 2018) -> VP, Enterprise Solutions Architect (Sep 2018 - May 2019).",
+                "Architected enterprise integration patterns and governed technology adoption on a regulated financial services platform.",
+                "Reduced support rework by 43% YoY and partnered with the CTO on technical strategy across a 5-year tenure spanning individual architecture through VP-level technology leadership."
+              ]
+            },
+            {
+              "company": "CoreLogic",
+              "title": "Software Architect",
+              "period": "Dec 2011 - May 2014",
+              "bullets": [
+                "Defined roadmaps and delivered enterprise solutions with full technical specifications for mortgage and property data platforms.",
+                "Mentored distributed remote and onsite development teams."
+              ]
+            },
+            {
+              "company": "Health Payment Systems, Inc.",
+              "title": "Applications Architect",
+              "period": "May 2010 - Dec 2011",
+              "bullets": [
+                "Managed a software development team, driving continuous improvement, engagement, and delivery productivity across release cycles."
+              ]
+            },
+            {
+              "company": "Early Career",
+              "title": "Foundational Software Engineering & Consulting Roles",
+              "period": "Aug 2000 - May 2010",
+              "collapsed": true,
+              "bullets": [
+                "RAIR Technologies, Software Development Manager (Jul 2009 - May 2010): Provided architectural and technical guidance for product development, introduced Scrum as the team's agile framework, and led a virtualization strategy that consolidated hardware investment and improved infrastructure responsiveness.",
+                "Zywave, Senior Software Developer -> Manager, Continuous Product Improvement (Jul 2007 - Jun 2009): Led architecture and development for a web portal application on ASP.NET, WCF, and DotNetNuke; contributed to the organization's SOA framework; supervised a team of software engineers across multiple concurrent applications.",
+                "AQS, Inc., Integration Lead Developer (Mar 2006 - Jul 2007): Led development of custom .NET Web Services integration solutions, working directly with clients to deliver custom integration interfaces into core line-of-business applications.",
+                "Markel American Insurance, Senior Software Engineer (Apr 2004 - Mar 2006): Led a development team rewriting underwriting software for policy management, billing, and claims on an ASP.NET/SOA platform; served as SQL Server lead, DBA, and data modeler.",
+                "IHS, Inc., .NET Architect / Technical Lead (May 2002 - Apr 2004): Led development and architecture for an ASP.NET application, optimized a data access layer of 100+ SQL Server stored procedures, and mentored developers on .NET architecture and object-oriented design.",
+                "RHP Consulting Partners, Senior Consultant (Nov 2001 - May 2002): Delivered technical consulting engagements for enterprise clients.",
+                "Lakewood Technologies, Senior Consultant (Aug 2000 - Nov 2001): Delivered technical consulting engagements early in career, building foundational enterprise software development experience."
               ]
             }
           ],
@@ -359,7 +434,7 @@
 
                 const keywordsHtml = keywords.map(k => `<span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">${k}</span>`).join('');
 
-                const desc = job.bullets[0].replace(/^##\s*/, '');
+                const desc = (job.bullets.find(b => !b.startsWith('##')) || job.bullets[0]).replace(/^##\s*/, '');
 
                 html += `
                     <div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all ${borderClass}">
