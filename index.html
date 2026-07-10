@@ -206,6 +206,25 @@
                 font-size: 14px;
             }
         }
+
+        /* Build version badge - see readme.md "Versioning" section.
+           Value is stamped by scripts/stamp-version.sh in CI, right before
+           `wrangler deploy`, on every push to main. Do not hand-edit the
+           placeholder token in the div below, and do not commit this file
+           if you ran `npm run stamp-version` locally to preview it - undo
+           the stamped value before committing (see readme.md). */
+        .build-version-badge {
+            position: fixed;
+            bottom: 8px;
+            right: 10px;
+            font-size: 10px;
+            font-family: monospace;
+            color: rgba(255, 255, 255, 0.35);
+            letter-spacing: 0.02em;
+            pointer-events: none;
+            z-index: 1000;
+            user-select: none;
+        }
     </style>
 </head>
 <body>
@@ -246,6 +265,7 @@
             </div>
         </div>
     </div>
+    <div class="build-version-badge">BUILD_VERSION_PLACEHOLDER</div>
     <script>
       // Fix portfolio link for local file:// access (Worker handles /portfolio in production)
       (function() {
