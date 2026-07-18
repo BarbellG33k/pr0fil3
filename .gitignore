@@ -13,3 +13,6 @@ wrangler*.log
 
 # Node.js dependencies
 node_modules/
+
+# Private professional evidence and drafting inputs
+.private/
