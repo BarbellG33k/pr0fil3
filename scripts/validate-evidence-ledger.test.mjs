@@ -45,6 +45,26 @@ test("blocks public wording for unresolved claims", () => {
   assert.match(validateLedger({ ...ledger, records: [unresolved] }).join("\n"), /unresolved.*approvedWording/);
 });
 
+test("requires unresolved claims to have blocked publication status", () => {
+  const unresolved = {
+    ...record,
+    id: "unresolved-public-safe",
+    confidence: "unresolved",
+    publication: { ...record.publication, approvedWording: null, eligibleArtifacts: [] }
+  };
+  assert.match(validateLedger({ ...ledger, records: [unresolved] }).join("\n"), /unresolved.*status.*blocked/);
+});
+
+test("prevents unresolved claims from being eligible for artifacts", () => {
+  const unresolved = {
+    ...record,
+    id: "unresolved-artifact",
+    confidence: "unresolved",
+    publication: { ...record.publication, status: "blocked", approvedWording: null }
+  };
+  assert.match(validateLedger({ ...ledger, records: [unresolved] }).join("\n"), /unresolved.*empty eligibleArtifacts/);
+});
+
 test("requires corroboration for verified claims", () => {
   const unsupported = {
     ...record,
@@ -52,6 +72,18 @@ test("requires corroboration for verified claims", () => {
     sources: [{ type: "owner-recollection", reference: "Memory only" }]
   };
   assert.match(validateLedger({ ...ledger, records: [unsupported] }).join("\n"), /verified.*corroborating source/);
+});
+
+test("reports malformed source entries without throwing", () => {
+  const malformed = {
+    ...record,
+    id: "malformed-source",
+    sources: [null, { type: "", reference: "   " }]
+  };
+  const errors = validateLedger({ ...ledger, records: [malformed] });
+  assert.match(errors.join("\n"), /sources\[0\].*object/);
+  assert.match(errors.join("\n"), /sources\[1\]\.type.*non-empty string/);
+  assert.match(errors.join("\n"), /sources\[1\]\.reference.*non-empty string/);
 });
 
 test("rejects RCM target as current adoption", () => {

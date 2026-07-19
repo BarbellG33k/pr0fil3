@@ -38,6 +38,15 @@ export function validateLedger(ledger) {
     if (!object(record.scope)) errors.push(`${label}: scope must be an object`);
     if (!Array.isArray(record.collaborators)) errors.push(`${label}: collaborators must be an array`);
     if (!Array.isArray(record.sources) || !record.sources.length) errors.push(`${label}: source is required`);
+    else record.sources.forEach((source, sourceIndex) => {
+      const sourceLabel = `${label}: sources[${sourceIndex}]`;
+      if (!object(source)) {
+        errors.push(`${sourceLabel} must be an object`);
+        return;
+      }
+      if (typeof source.type !== "string" || !source.type.trim()) errors.push(`${sourceLabel}.type must be a non-empty string`);
+      if (typeof source.reference !== "string" || !source.reference.trim()) errors.push(`${sourceLabel}.reference must be a non-empty string`);
+    });
     if (!Array.isArray(record.conflicts)) errors.push(`${label}: conflicts must be an array`);
     if (!object(record.publication)) {
       errors.push(`${label}: publication must be an object`);
@@ -48,11 +57,15 @@ export function validateLedger(ledger) {
       else for (const item of record.publication.eligibleArtifacts) {
         if (!ARTIFACTS.has(item)) errors.push(`${label}: invalid artifact ${item}`);
       }
-      if (record.confidence === "unresolved" && record.publication.approvedWording) {
-        errors.push(`${label}: unresolved claims cannot have approvedWording`);
+      if (record.confidence === "unresolved") {
+        if (record.publication.status !== "blocked") errors.push(`${label}: unresolved claims must have publication status blocked`);
+        if (record.publication.eligibleArtifacts?.length) errors.push(`${label}: unresolved claims must have empty eligibleArtifacts`);
+        if (record.publication.approvedWording !== null && record.publication.approvedWording !== "") {
+          errors.push(`${label}: unresolved claims cannot have approvedWording`);
+        }
       }
     }
-    if (record.confidence === "verified" && !record.sources?.some((source) => CORROBORATING.has(source.type))) {
+    if (record.confidence === "verified" && !record.sources?.some((source) => object(source) && CORROBORATING.has(source.type))) {
       errors.push(`${label}: verified claims require a corroborating source`);
     }
     if (record.id === "rcm-adoption" && record.result?.kind === "current" && record.result?.value >= 1500) {
