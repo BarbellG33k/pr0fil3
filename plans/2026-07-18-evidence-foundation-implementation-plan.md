@@ -52,7 +52,7 @@
 - Consumes: `{ schemaVersion, subject, updatedAt, records }` JSON.
 - Produces: `validateLedger(ledger): string[]`; CLI exits 0 when valid and 1 when invalid.
 
-- [ ] **Step 1: Write the failing validator tests**
+- [x] **Step 1: Write the failing validator tests**
 
 Create `scripts/validate-evidence-ledger.test.mjs`:
 
@@ -124,13 +124,13 @@ test("rejects RCM target as current adoption", () => {
 });
 ```
 
-- [ ] **Step 2: Run the tests and verify the missing-module failure**
+- [x] **Step 2: Run the tests and verify the missing-module failure**
 
 Run: `node --test scripts/validate-evidence-ledger.test.mjs`
 
 Expected: FAIL with `ERR_MODULE_NOT_FOUND` for `validate-evidence-ledger.mjs`.
 
-- [ ] **Step 3: Implement the validator**
+- [x] **Step 3: Implement the validator**
 
 Create `scripts/validate-evidence-ledger.mjs`:
 
@@ -213,13 +213,13 @@ function cli() {
 if (process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1])) cli();
 ```
 
-- [ ] **Step 4: Run tests**
+- [x] **Step 4: Run tests**
 
 Run: `node --test scripts/validate-evidence-ledger.test.mjs`
 
 Expected: 5 tests pass, 0 fail.
 
-- [ ] **Step 5: Protect `.private/`**
+- [x] **Step 5: Protect `.private/`**
 
 Append to `.gitignore`:
 
@@ -229,7 +229,7 @@ Append to `.gitignore`:
 .private/
 ```
 
-- [ ] **Step 6: Add npm commands**
+- [x] **Step 6: Add npm commands**
 
 Add to `package.json` scripts:
 
@@ -238,7 +238,7 @@ Add to `package.json` scripts:
 "validate:evidence": "node scripts/validate-evidence-ledger.mjs .private/evidence-ledger.json"
 ```
 
-- [ ] **Step 7: Verify tests and ignore behavior**
+- [x] **Step 7: Verify tests and ignore behavior**
 
 Run:
 
@@ -252,7 +252,7 @@ rm .private/.ignore-check
 
 Expected: tests pass and `git check-ignore` prints `.private/.ignore-check`.
 
-- [ ] **Step 8: Commit tracked files only**
+- [x] **Step 8: Commit tracked files only**
 
 ```bash
 git add .gitignore package.json scripts/validate-evidence-ledger.mjs scripts/validate-evidence-ledger.test.mjs
@@ -273,7 +273,7 @@ Before committing, verify no `.private/` or pre-existing `sources/` file is stag
 - Consumes: Task 1’s record contract and the approved analysis.
 - Produces: Stable claim IDs used by both proof packs and message maps.
 
-- [ ] **Step 1: Create metadata and the verified current-title record**
+- [x] **Step 1: Create metadata and the verified current-title record**
 
 Create `.private/evidence-ledger.json` with metadata and an `experity-current-title` record containing:
 
@@ -283,7 +283,7 @@ Create `.private/evidence-ledger.json` with metadata and an `experity-current-ti
 - Conflict: `Vice President, Software Engineering` from `resume-content.json`, marked superseded.
 - Public wording: the exact official title.
 
-- [ ] **Step 2: Add unresolved chronology records**
+- [x] **Step 2: Add unresolved chronology records**
 
 Add these records with `confidence: "unresolved"`, `publication.status: "blocked"`, and `approvedWording: null`:
 
@@ -297,13 +297,13 @@ Add these records with `confidence: "unresolved"`, `publication.status: "blocked
 
 Each record must retain every conflicting value, source filename, and an exact reconciliation question.
 
-- [ ] **Step 3: Add current organization and GCC records**
+- [x] **Step 3: Add current organization and GCC records**
 
 Add `experity-current-organization` with approximately 93 total, six directs, 41 FTE under those leaders, 14 LATAM nearshore, and remainder in Bangalore. Keep it blocked until the six-versus-41 arithmetic, exact Bangalore count, and as-of date are resolved. Retain historical 27, approximately 41, 52 FTE + 20+, 57+, and 70+ figures as conflicts.
 
 Add `experity-gcc-engineering-readiness` stating that Guillermo owns engineering integration/readiness but not the corporate GCC program. Record team topology, work allocation, onboarding, standards, governance, and operating integration as the confirmed responsibility categories; keep publication `restricted` pending employer-safe wording.
 
-- [ ] **Step 4: Add five separate directional outcome records**
+- [x] **Step 4: Add five separate directional outcome records**
 
 Create:
 
@@ -315,7 +315,7 @@ Create:
 
 Set all to `directional` and `restricted`. Record baseline period, comparison period, population, method, and public-use permission as unanswered. Keep approved wording null. Never label code output as productivity.
 
-- [ ] **Step 5: Add AI product records**
+- [x] **Step 5: Add AI product records**
 
 Create:
 
@@ -326,7 +326,7 @@ Create:
 
 Set confidence to `recollection` and publication to `restricted` pending adoption definition, as-of date, overlap, source, and customer outcome. Record the internal 60/10/30 attribution only in private measurement metadata; public attribution must use engineering leadership, governance contribution, and direct architecture contribution.
 
-- [ ] **Step 6: Add current-builder, identity, and historical technical records**
+- [x] **Step 6: Add current-builder, identity, and historical technical records**
 
 Add:
 
@@ -347,7 +347,7 @@ Add:
 
 Use historical PDFs as documentary sources without allowing them to resolve conflicting official titles or dates. Keep Factor317 public wording restricted until public title and employer-policy safety are confirmed.
 
-- [ ] **Step 7: Validate and verify privacy**
+- [x] **Step 7: Validate and verify privacy**
 
 Run:
 
@@ -373,7 +373,7 @@ Do not commit this private deliverable.
 - Consumes: Stable Task 2 ledger IDs.
 - Produces: Human-reviewable executive evidence with blocked claims separated.
 
-- [ ] **Step 1: Create exact proof-pack sections**
+- [x] **Step 1: Create exact proof-pack sections**
 
 ```markdown
 # Executive Proof Pack
@@ -394,7 +394,7 @@ Do not commit this private deliverable.
 ## Blocked claims and evidence requests
 ```
 
-- [ ] **Step 2: Populate claims using a consistent block**
+- [x] **Step 2: Populate claims using a consistent block**
 
 Use this shape for every claim:
 
@@ -410,11 +410,11 @@ Use this shape for every claim:
 
 Include current title, global scope, six leaders, GCC responsibility, four AI products, five directional outcomes, AI operating mechanisms, architecture guardrails, financial context, HSA result, leadership system, and Spanish-native/LatAm value.
 
-- [ ] **Step 3: Add exact blocked-evidence requests**
+- [x] **Step 3: Add exact blocked-evidence requests**
 
 For every blocked claim list the decision, acceptable corroboration, and fallback if unresolved. Example: if 93-person arithmetic remains unresolved, use “global distributed organization” without a number.
 
-- [ ] **Step 4: Verify every referenced ledger ID**
+- [x] **Step 4: Verify every referenced ledger ID**
 
 Run a Node one-liner that extracts backtick IDs from the proof pack and fails when an ID is absent from `.private/evidence-ledger.json`.
 
@@ -434,7 +434,7 @@ Do not commit the proof pack.
 - Consumes: Factor317 public pages and `factor317-direct-builder-role`.
 - Produces: Three prioritized product entries separating public product facts from owner-confirmed implementation.
 
-- [ ] **Step 1: Add public-source product ledger records**
+- [x] **Step 1: Add public-source product ledger records**
 
 Create:
 
@@ -447,7 +447,7 @@ Create:
 
 Record each live URL, stated purpose, target user, public stage wording, and capabilities. Do not infer stack, revenue, users, or private status.
 
-- [ ] **Step 2: Create proof-pack sections**
+- [x] **Step 2: Create proof-pack sections**
 
 ```markdown
 # Builder and 0-to-1 Proof Pack
@@ -464,19 +464,19 @@ Record each live URL, stated purpose, target user, public stage wording, and cap
 ## Missing proof and selection decision
 ```
 
-- [ ] **Step 3: Populate BaseSignal and Momentum**
+- [x] **Step 3: Populate BaseSignal and Momentum**
 
 For each include problem, public capabilities, owner-confirmed direct architecture/implementation role, stage, URL, required architecture artifact, required technical-decision story, and required usage/learning signal. Mark stack as unresolved until repository or owner architecture evidence is inspected.
 
-- [ ] **Step 4: Select the third product by evidence**
+- [x] **Step 4: Select the third product by evidence**
 
 Score Subscription Scope and Wisdom Loop from 0–2 on public usability, technical depth, differentiation, user/learning evidence, and direct-implementation story. Use `Evidence not yet captured` rather than invented scores. Select only after at least four criteria are evidenced.
 
-- [ ] **Step 5: Document the human/agent workflow evidence required**
+- [x] **Step 5: Document the human/agent workflow evidence required**
 
 Require examples proving that Guillermo defines the problem and constraints, owns architecture, delegates bounded work to agents, reviews/tests/integrates, deploys/operates, and rejects or corrects unsuitable agent output. Do not approve public wording until each selected product has one concrete example.
 
-- [ ] **Step 6: Validate and verify privacy**
+- [x] **Step 6: Validate and verify privacy**
 
 Run:
 
@@ -499,11 +499,11 @@ Expected: ledger valid; private files ignored and absent from status.
 - Consumes: Both proof packs.
 - Produces: Drafting constraints and five-claim maps for each target narrative.
 
-- [ ] **Step 1: Record shared factual rules**
+- [x] **Step 1: Record shared factual rules**
 
 State that both tracks share chronology and confidence; target roles never appear as held titles; unresolved claims are excluded; directional metrics are qualified and limited; each track preserves a bridge to the other identity.
 
-- [ ] **Step 2: Build the executive map**
+- [x] **Step 2: Build the executive map**
 
 Set the primary role family to engineering/product-led CTO or EVP/SVP Engineering and Product Development in SaaS, technology-enabled, PE-backed, or growth-stage businesses.
 
@@ -517,7 +517,7 @@ Answer these buyer concerns with exactly five non-blocked claims:
 
 Add one builder bridge claim, excluded claims, required portfolio proof, and desired interview questions.
 
-- [ ] **Step 3: Build the builder map**
+- [x] **Step 3: Build the builder map**
 
 Set the primary role family to hands-on startup CTO, founding engineer, technical co-founder, or Head/VP Engineering for 0-to-1 and early scale.
 
@@ -531,13 +531,13 @@ Answer these buyer concerns with exactly five non-blocked claims:
 
 Use BaseSignal and Momentum provisionally; keep the third slot blocked until Task 4 is evidenced. Add one executive bridge claim.
 
-- [ ] **Step 4: Record the shared through-line**
+- [x] **Step 4: Record the shared through-line**
 
 Use as positioning guidance, not mandatory final copy:
 
 > A software engineer who learned to architect systems, then organizations, and who continues to build products while leading at executive scale.
 
-- [ ] **Step 5: Audit each selected claim**
+- [x] **Step 5: Audit each selected claim**
 
 For every top-five claim record ledger IDs, confidence, attribution, public-safety status, required proof, and eligibility. No claim is eligible when any linked record is unresolved or blocked.
 
@@ -557,7 +557,7 @@ Do not commit the message maps.
 - Consumes: User answers and corroboration.
 - Produces: Validated drafting inputs for a separate public-content plan.
 
-- [ ] **Step 1: Ask blocked questions one at a time in this order**
+- [x] **Step 1: Ask blocked questions one at a time in this order**
 
 1. Six directs versus 41 FTE arithmetic, Bangalore count, and as-of date.
 2. AI product adoption definition and as-of date.
@@ -568,11 +568,11 @@ Do not commit the message maps.
 7. Factor317 public title, employer-policy safety, and stacks.
 8. People-leadership outcomes.
 
-- [ ] **Step 2: Update records after each answer**
+- [x] **Step 2: Update records after each answer**
 
 Owner-confirmed exact facts may become verified; metrics remain directional without documentary methodology; sensitive facts remain restricted; historical conflicts remain with resolution notes; public wording is added only when unblocked.
 
-- [ ] **Step 3: Run final checks**
+- [x] **Step 3: Run final checks**
 
 ```bash
 npm run test:evidence
@@ -583,11 +583,11 @@ git status --short
 
 Expected: tests and validation pass; no whitespace errors; `.private/` absent from status; pre-existing `sources/` remains untouched and unstaged.
 
-- [ ] **Step 4: Confirm drafting readiness**
+- [x] **Step 4: Confirm drafting readiness**
 
 Require consistent chronology, canonical current title, dated/scoped organization wording or a qualitative fallback, current-versus-target adoption language, exact financial authority, technical evidence for at least three Factor317 products, non-blocked top-five claims, and visible confidentiality restrictions.
 
-- [ ] **Step 5: Write the separate public-content implementation plan**
+- [x] **Step 5: Write the separate public-content implementation plan**
 
 That follow-on plan must cover executive and builder manuscripts, portfolio proof routes, safe case-study revisions, structured rendering/fallback synchronization, and content-consistency validation. Do not modify public artifacts in this task.
 
