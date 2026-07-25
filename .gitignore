@@ -16,3 +16,5 @@ node_modules/
 
 # Private professional evidence and drafting inputs
 .private/
+
+.serena/cache/
