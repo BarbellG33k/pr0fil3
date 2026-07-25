@@ -7,3 +7,14 @@
 wrangler*.log
 
 .DS_Store
+
+# Local git worktrees
+.worktrees/
+
+# Node.js dependencies
+node_modules/
+
+# Private professional evidence and drafting inputs
+.private/
+
+.serena/cache/

@@ -5,7 +5,9 @@
   "scripts": {
     "stamp-version": "bash scripts/stamp-version.sh",
     "dev": "wrangler dev",
-    "deploy": "wrangler deploy"
+    "deploy": "wrangler deploy",
+    "test:evidence": "node --test scripts/validate-evidence-ledger.test.mjs",
+    "validate:evidence": "node scripts/validate-evidence-ledger.mjs .private/evidence-ledger.json"
   },
   "devDependencies": {
     "wrangler": "^4.80.0"
