@@ -668,7 +668,7 @@
     <a href="#sect-skills">Skills</a>
     <a href="#sect-education">Education</a>
     <a href="#sect-certifications">Certs</a>
-    <a href="#sect-ai" id="mobile-nav-ai" style="display:none;">AI Practice</a>
+    <a href="#sect-technical-practice">Technical Practice</a>
   </nav>
 
     <div id="app-container">
@@ -678,7 +678,7 @@
       <a href="#sect-skills" class="nav-item">Skills</a>
       <a href="#sect-education" class="nav-item">Education</a>
       <a href="#sect-certifications" class="nav-item">Certifications</a>
-      <a href="#sect-ai" class="nav-item" id="nav-ai" style="display:none;">AI Practice</a>
+      <a href="#sect-technical-practice" class="nav-item">Technical Practice</a>
     </nav>
     <div id="page-wrap">
       <div id="resume">
@@ -797,42 +797,57 @@
     }
 
     function render(d) {
+      const b = d.builderResume;
       const resume = document.getElementById('resume');
       resume.innerHTML = `
         <div class="resume-block" id="sect-profile">
-          ${renderHeader(d.meta)}
-          ${renderSummary(d.summary)}
+          ${renderHeader(d.meta, b.headline)}
+          ${renderSummary(b.summary)}
         </div>
         <div class="resume-block" id="sect-experience">
-          ${renderExperience(d.experience)}
+          ${renderExperience(b.experience)}
         </div>
         <div class="resume-block" id="sect-skills">
-          ${renderSkills(d.skills)}
+          ${renderSkills(buildTechnicalRangeSkills(b.skills.technicalRange))}
         </div>
         <div class="resume-block" id="sect-education">
           ${renderEducation(d.education)}
         </div>
         <div class="resume-block" id="sect-certifications">
-          ${renderCertifications(d.certifications)}
+          ${renderCertifications(buildCredentialGroups(b.skills))}
         </div>
-        ${d.aiPractitioner ? `<div class="resume-block" id="sect-ai">${renderAIPractitioner(d.aiPractitioner)}</div>` : ''}
+        <div class="resume-block" id="sect-technical-practice">
+          ${renderTechnicalPractice(b.technicalPractice, b.executiveScaleNote)}
+        </div>
       `;
-
-      if (d.aiPractitioner) {
-        document.getElementById('nav-ai').style.display = 'flex';
-        const mobileAi = document.getElementById('mobile-nav-ai');
-        if (mobileAi) mobileAi.style.display = 'inline-block';
-      }
 
       setupIntersectionObserver();
     }
 
-    function renderHeader(m) {
+    // Flattens the comma-grouped technicalRange strings into a single
+    // skill-card so it can be rendered through the existing renderSkills().
+    function buildTechnicalRangeSkills(technicalRange) {
+      return [{
+        category: 'Technical Range',
+        items: technicalRange.flatMap(group => group.split(',').map(s => s.trim()))
+      }];
+    }
+
+    // Reframes builderResume.skills current/historicalLegacy lists as
+    // cert-style groups so they render through the existing renderCertifications().
+    function buildCredentialGroups(skills) {
+      return [
+        { issuer: 'Current', items: skills.current },
+        { issuer: 'Historical / Legacy', items: skills.historicalLegacy }
+      ];
+    }
+
+    function renderHeader(m, headline) {
       return `
     <div id="header">
       <div id="header-left">
         <h1>${m.name}</h1>
-        <div class="title-tag">${m.title}</div>
+        <div class="title-tag">${headline || m.title}</div>
       </div>
       <div id="header-right">
         <div>${m.email}</div>
@@ -981,24 +996,31 @@
   `;
     }
 
-    function renderAIPractitioner(section) {
-      if (!section) return '';
-      const bullets = section.bullets.map(b => {
-        const colon = b.indexOf(':');
-        if (colon > 0 && colon < 35) {
-          return `<li><strong>${b.slice(0, colon + 1)}</strong>${b.slice(colon + 1)}</li>`;
-        }
-        return `<li>${b}</li>`;
-      }).join('');
+    function renderTechnicalPractice(tp, executiveScaleNote) {
+      if (!tp) return '';
+      const block = (label, text) => `
+    <div style="margin-bottom: 20px;">
+      <div class="job-title">${label}</div>
+      <p class="summary-text">${text}</p>
+    </div>
+  `;
+      const note = executiveScaleNote ? `
+    <div style="margin-top: 4px;">
+      <div class="job-title">Executive Scale</div>
+      <p class="summary-text" style="font-style: italic;">${executiveScaleNote}</p>
+    </div>
+  ` : '';
       return `
     <div class="section-wrap">
       <div class="section-title-wrap">
-        <h2 class="section-title">AI Practice</h2>
+        <h2 class="section-title">Technical Practice</h2>
         <div class="section-divider"></div>
       </div>
       <div class="section-body">
-        ${section.intro ? `<p class="summary-text" style="margin-bottom:20px;">${section.intro}</p>` : ''}
-        <ul class="job-bullets">${bullets}</ul>
+        ${block('Foundation', tp.foundation)}
+        ${block('Cloud Evolution', tp.cloudEvolution)}
+        ${block('Current Practice', tp.currentPractice)}
+        ${note}
       </div>
     </div>
   `;
@@ -1049,6 +1071,7 @@
     function downloadPDF() {
       if (!RESUME_DATA) return;
       const d = RESUME_DATA;
+      const b = d.builderResume;
       const btn = document.querySelector('#toolbar .btn-primary');
       if (btn) { btn.disabled = true; btn.innerHTML = 'Generating...'; }
 
@@ -1091,27 +1114,29 @@
         doc.text(d.meta.name, ML, y + 28);
 
         doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(ACC);
-        doc.text(d.meta.title, ML, y + 42);
+        const HEADLINE_W = PW - ML - MR - 180; // leaves room for the contact block on the right
+        const headlineLines = doc.splitTextToSize(b.headline, HEADLINE_W);
+        headlineLines.forEach((line, i) => { doc.text(line, ML, y + 42 + i * 9); });
 
         doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
         [d.meta.email, d.meta.phone, d.meta.location, d.meta.linkedin].forEach((v, i) => {
           doc.text(v, PW - MR, y + 10 + i * 12.5, { align: 'right' });
         });
-        y += 54;
+        y += Math.max(54, 42 + headlineLines.length * 9 + 8);
         dc(RULE); doc.setLineWidth(1.5); doc.line(ML, y, PW - MR, y);
         y += 18;
 
         // -- PROFILE ------------------------------------------------------------
         lbl('Profile');
         doc.setFont('helvetica', 'italic'); doc.setFontSize(9); tc(INKL);
-        doc.splitTextToSize(d.summary, BODY_W).forEach(line => {
+        doc.splitTextToSize(b.summary, BODY_W).forEach(line => {
           doc.text(line, BODY_X, y + 9); y += 13;
         });
         y += 14;
 
         // -- EXPERIENCE ---------------------------------------------------------
         need(60); lbl('Experience');
-        d.experience.forEach((job, idx) => {
+        b.experience.forEach((job, idx) => {
           if (idx > 0) {
             need(50);
             dc(JOBRULE); doc.setLineDashPattern([1.5, 1.5], 0); doc.setLineWidth(0.4);
@@ -1154,7 +1179,7 @@
 
         // -- SKILLS -------------------------------------------------------------
         need(30); y += 4; lbl('Skills');
-        d.skills.forEach(sg => {
+        buildTechnicalRangeSkills(b.skills.technicalRange).forEach(sg => {
           need(20);
           doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INKM);
           const catLines = doc.splitTextToSize(sg.category.toUpperCase(), CAT_COL);
@@ -1182,7 +1207,7 @@
 
         // -- CERTIFICATIONS -----------------------------------------------------
         need(30); y += 4; lbl('Certifications');
-        d.certifications.forEach(cert => {
+        buildCredentialGroups(b.skills).forEach(cert => {
           need(20);
           doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(INKM);
           doc.text(cert.issuer.toUpperCase(), BODY_X, y + 8);
@@ -1196,47 +1221,35 @@
           y += 6;
         });
 
-        // -- AI PRACTITIONER ----------------------------------------------------
-        if (d.aiPractitioner) {
-          const ai = d.aiPractitioner;
-          need(30); y += 4; lbl('AI Practice');
-          if (ai.intro) {
-            doc.setFont('helvetica', 'italic'); doc.setFontSize(9); tc(INKL);
-            doc.splitTextToSize(ai.intro, BODY_W).forEach(line => {
-              doc.text(line, BODY_X, y + 9); y += 13;
-            });
-            y += 6;
-          }
-          ai.bullets.forEach(b => {
-            const colon = b.indexOf(':');
-            const hasLabel = colon > 0 && colon < 35;
-            const label = hasLabel ? b.slice(0, colon + 1) : '';
-            const rest  = hasLabel ? b.slice(colon + 1).trim() : b;
-            doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
-            const lines = doc.splitTextToSize((hasLabel ? rest : b), BODY_W - 14);
-            need(lines.length * 13 + 3);
-            tc(RULE); doc.text('-', BODY_X, y + 9);
-            if (hasLabel) {
-              doc.setFont('helvetica', 'bold'); tc(INK);
-              doc.text(label, BODY_X + 14, y + 9);
-              const lw = doc.getTextWidth(label) + 3;
-              doc.setFont('helvetica', 'normal'); tc(INKL);
-              const firstLineRest = doc.splitTextToSize(rest, BODY_W - 14 - lw);
-              doc.text(firstLineRest[0], BODY_X + 14 + lw, y + 9);
-              if (firstLineRest.length > 1) {
-                firstLineRest.slice(1).forEach((l, li) => {
-                  doc.text(l, BODY_X + 14, y + 9 + (li + 1) * 13);
-                });
-              }
-              y += firstLineRest.length * 13 + 3;
-            } else {
-              lines.forEach((l, li) => { doc.text(l, BODY_X + 14, y + 9 + li * 13); });
-              y += lines.length * 13 + 3;
-            }
-          });
+        // -- TECHNICAL PRACTICE ---------------------------------------------------
+        need(30); y += 4; lbl('Technical Practice');
+        [['Foundation', b.technicalPractice.foundation],
+         ['Cloud Evolution', b.technicalPractice.cloudEvolution],
+         ['Current Practice', b.technicalPractice.currentPractice]].forEach(([label, text]) => {
+          need(20);
+          doc.setFont('helvetica', 'bold'); doc.setFontSize(7.5); tc(ACC);
+          doc.text(label.toUpperCase(), BODY_X, y + 7);
+          y += 12;
+          doc.setFont('helvetica', 'normal'); doc.setFontSize(9); tc(INKL);
+          const lines = doc.splitTextToSize(text, BODY_W);
+          need(lines.length * 12);
+          lines.forEach((l, li) => { doc.text(l, BODY_X, y + 9 + li * 12); });
+          y += lines.length * 12 + 8;
+        });
+
+        if (b.executiveScaleNote) {
+          need(20);
+          doc.setFont('helvetica', 'italic'); doc.setFontSize(7.5); tc(INKM);
+          doc.text('EXECUTIVE SCALE', BODY_X, y + 7);
+          y += 12;
+          doc.setFont('helvetica', 'italic'); doc.setFontSize(8.5); tc(INKL);
+          const lines = doc.splitTextToSize(b.executiveScaleNote, BODY_W);
+          need(lines.length * 12);
+          lines.forEach((l, li) => { doc.text(l, BODY_X, y + 9 + li * 12); });
+          y += lines.length * 12;
         }
 
-        doc.save('Guillermo_Salas_Resume.pdf');
+        doc.save('Guillermo_Salas_Resume_Builder.pdf');
 
       } catch (err) {
         console.error('PDF generation failed:', err);
@@ -1277,144 +1290,6 @@
         "linkedin": "linkedin.com/in/guillermosalas",
         "linkedinUrl": "https://linkedin.com/in/guillermosalas"
       },
-      "summary": "Technology executive and enterprise solutions architect who builds AI-augmented engineering organizations from the ground up. 20+ years progressing from hands-on cloud architecture and digital transformation delivery to leading multi-team engineering organizations-designing operating models, governance frameworks, and platform strategies that convert technical capability into measurable business outcomes. Career arc spans Fortune 500 consulting, regulated fintech platforms, enterprise SaaS modernization, and Healthcare IT at scale. Currently driving AI-first organizational transformation, global team architecture, and M&A integration within a PE-backed growth environment.",
-      "experience": [
-        {
-          "company": "Experity",
-          "title": "Vice President, Software Engineering",
-          "period": "Mar 2023 - Present",
-          "bullets": [
-            "## Role Progression",
-            "Promoted three times in three years: Director of Product Development (Mar 2023 - Apr 2024) -> Senior Director of Software Engineering (Apr 2024 - Oct 2025) -> Vice President, Software Engineering (Oct 2025 - Present).",
-            "## AI-First Organizational Transformation",
-            "Championed enterprise AI adoption against initial executive resistance-delivering a documented 3-4x increase in meaningful code output (500K -> 1.5-2M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs -> AI Executes -> Developer Validates), and created the AI-Native PDLC-a 5-stage framework feeding curated context to both engineers and AI agents.",
-            "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols-converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC.",
-            "## Organizational Scale & Team Operations",
-            "Participated in engineering workstreams for a board-sponsored Global Capability Center initiative-contributing to implementation planning, readiness coordination, and cross-functional alignment while the program strategy and ownership remained outside my direct design authority.",
-            "Built and led a 57+ person multi-disciplinary engineering organization across multiple time zones (6 direct reports, 4+ teams, 20+ nearshore LATAM contractors) within a PE-backed SaaS scale-up-direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
-            "## M&A Integration & Operational Transformation",
-            "Led post-acquisition integration of an acquired healthcare platform engineering team-transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership.",
-            "Converted recurring operational escalations into an executive operating-model transformation discussion-reframing isolated support conflicts as systemic ownership, escalation, key-person dependency, and product-health investment issues across Engineering, Operations, Product, and executive stakeholders.",
-            "## Platform Modernization & Engineering Reliability",
-            "Led a multi-year transformation of architecture from review-oriented advisory activity into an accountable technical leadership capability-clarifying boundaries between architects, Staff Engineers, managers, and delivery teams while emphasizing delivery enablement, distributed ownership, modernization alignment, and measurable outcomes.",
-            "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical latency failure modes and championed Jenkins -> CircleCI migration completed in one day with zero incidents.",
-            "## Organizational Leadership & Strategic Operations",
-            "Designed quarterly leadership onsites with progressive maturity arc (Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen the Standard). Served as technical ambassador to PE stakeholders. Championed people-first culture under financial constraint-advocating retention cases against committee pushback while maintaining top 10% performance outcomes."
-          ]
-        },
-        {
-          "company": "Chronicled",
-          "title": "Enterprise Solutions Architect",
-          "period": "Jul 2022 - Mar 2023",
-          "bullets": [
-            "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
-            "Served as Head of Customer Success Services (CSS), managing a team of Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
-            "Delivered customer-centric solutions by balancing technical implementation with strategic business value, ensuring alignment between technology capabilities and client objectives.",
-            "Guided Implementation Consultants to combine technical configuration skill with customer-facing solution ownership, driving adoption and satisfaction across pharmaceutical supply chain deployments."
-          ]
-        },
-        {
-          "company": "SafeNet Consulting",
-          "title": "Customer Solutions Architect",
-          "period": "Aug 2021 - Jul 2022",
-          "bullets": [
-            "Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure.",
-            "Identified emerging technology opportunities and translated them into actionable adoption strategies for enterprise consulting engagements."
-          ]
-        },
-        {
-          "company": "HealthEquity",
-          "title": "Solutions Architect",
-          "period": "Apr 2021 - Aug 2021",
-          "bullets": [
-            "Provided solution architecture and technical code review for benefits administration platform initiatives during a short-term engagement.",
-            "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
-          ]
-        },
-        {
-          "company": "MoreTalent",
-          "title": "Technology Leader & Success Mentor (Part-Time Advisory)",
-          "period": "Mar 2020 - Present",
-          "bullets": [
-            "Provide part-time executive mentorship to technology leaders and startup founders, advising on engineering leadership, career growth, and organizational scaling.",
-            "Support early-stage companies with technical strategy guidance drawn from enterprise architecture and engineering leadership experience."
-          ]
-        },
-        {
-          "company": "SysLogic, Inc.",
-          "title": "EAA Practice Lead",
-          "period": "Jun 2019 - Mar 2021",
-          "bullets": [
-            "Championed cloud-first modernization across multiple enterprise engagements, governing solution design and guiding infrastructure adoption for client organizations.",
-            "Mentored engineering talent and established repeatable enterprise architecture practices across the consulting practice."
-          ]
-        },
-        {
-          "company": "HSA Bank, a division of Webster Bank, N.A.",
-          "title": "VP, Enterprise Solutions Architect",
-          "period": "May 2014 - May 2019",
-          "bullets": [
-            "## Role Progression",
-            "Solutions Architect (May 2014 - Jul 2016, initial engagement via Kforce Inc. contract staffing) -> VP, Application Development Manager (Jul 2016 - Sep 2018) -> VP, Enterprise Solutions Architect (Sep 2018 - May 2019).",
-            "Architected enterprise integration patterns and governed technology adoption on a regulated financial services platform.",
-            "Reduced support rework by 43% YoY and partnered with the CTO on technical strategy across a 5-year tenure spanning individual architecture through VP-level technology leadership."
-          ]
-        },
-        {
-          "company": "CoreLogic",
-          "title": "Software Architect",
-          "period": "Dec 2011 - May 2014",
-          "bullets": [
-            "Defined roadmaps and delivered enterprise solutions with full technical specifications for mortgage and property data platforms.",
-            "Mentored distributed remote and onsite development teams."
-          ]
-        },
-        {
-          "company": "Health Payment Systems, Inc.",
-          "title": "Applications Architect",
-          "period": "May 2010 - Dec 2011",
-          "bullets": [
-            "Managed a software development team, driving continuous improvement, engagement, and delivery productivity across release cycles."
-          ]
-        },
-        {
-          "company": "Early Career",
-          "title": "Foundational Software Engineering & Consulting Roles",
-          "period": "Aug 2000 - May 2010",
-          "collapsed": true,
-          "bullets": [
-            "RAIR Technologies, Software Development Manager (Jul 2009 - May 2010): Provided architectural and technical guidance for product development, introduced Scrum as the team's agile framework, and led a virtualization strategy that consolidated hardware investment and improved infrastructure responsiveness.",
-            "Zywave, Senior Software Developer -> Manager, Continuous Product Improvement (Jul 2007 - Jun 2009): Led architecture and development for a web portal application on ASP.NET, WCF, and DotNetNuke; contributed to the organization's SOA framework; supervised a team of software engineers across multiple concurrent applications.",
-            "AQS, Inc., Integration Lead Developer (Mar 2006 - Jul 2007): Led development of custom .NET Web Services integration solutions, working directly with clients to deliver custom integration interfaces into core line-of-business applications.",
-            "Markel American Insurance, Senior Software Engineer (Apr 2004 - Mar 2006): Led a development team rewriting underwriting software for policy management, billing, and claims on an ASP.NET/SOA platform; served as SQL Server lead, DBA, and data modeler.",
-            "IHS, Inc., .NET Architect / Technical Lead (May 2002 - Apr 2004): Led development and architecture for an ASP.NET application, optimized a data access layer of 100+ SQL Server stored procedures, and mentored developers on .NET architecture and object-oriented design.",
-            "RHP Consulting Partners, Senior Consultant (Nov 2001 - May 2002): Delivered technical consulting engagements for enterprise clients.",
-            "Lakewood Technologies, Senior Consultant (Aug 2000 - Nov 2001): Delivered technical consulting engagements early in career, building foundational enterprise software development experience."
-          ]
-        }
-      ],
-      "skills": [
-        {
-          "category": "Executive Leadership",
-          "items": ["Org Design & Global Team Scaling", "Operating Model Transformation", "M&A Integration & Operational Maturity", "Executive & PE Stakeholder Management", "P&L Ownership & Budget Governance", "Cross-Functional Transformation Participation", "Leadership Development & Talent Advocacy"]
-        },
-        {
-          "category": "AI-Augmented Organization Design",
-          "items": ["AI Governance & Guardrail Architecture", "AI-Native PDLC Framework Design", "Agent-Augmented Operating Models", "AI Hackathon & Cultural Transformation", "LLM Cost Governance & Optimization", "Organizational AI Change Management"]
-        },
-        {
-          "category": "Platform & Architecture",
-          "items": ["Enterprise Architecture & Modernization", "Architecture Operating Model Design", "Architecture Hub & Compliance Scoring", "Distributed Ownership & Technical Guardrails", "Cloud-Native Platforms (AWS, Azure, GCP)", "DDD / SOLID / Platform-First Design"]
-        },
-        {
-          "category": "Reliability, Security & Compliance",
-          "items": ["Security-First Architecture & IP Protection", "Observability & Incident Leadership", "Ownership & Escalation Model Design", "HIPAA / HL7 / FHIR Compliance", "Regulated Platform Delivery", "Tiered Contractor Security Models"]
-        },
-        {
-          "category": "Cloud, Data & Delivery",
-          "items": ["AWS (Primary), Azure, GCP", "Kubernetes & Container Platforms", "SQL Server-backed Product Workflows", "CI/CD Pipeline Modernization", "OpenAPI / OAuth 2.0 / JWT"]
-        }
-      ],
       "education": [
         {
           "degree": "BS, Computer Engineering",
@@ -1423,41 +1298,105 @@
           "year": "1994"
         }
       ],
-      "certifications": [
-        {
-          "issuer": "Oracle",
-          "items": [
-            "OCI Certified - Cloud Infrastructure 2024 Generative AI Professional",
-            "OCI Foundations 2021 Associate"
+      "builderResume": {
+        "headline": "Software Engineering Practitioner & Architect - Concept to Production, Now With AI-Agent Leverage",
+        "summary": "Guillermo is a software engineer who never stopped writing, architecting, and shipping systems while taking on progressively larger scope-from stored-procedure-level SQL tuning and ASP.NET/WCF integration work to distributed, AI-agent-assisted platform architecture for a healthcare SaaS company. He moves the full distance from concept through architecture, implementation, deployment, and operation, across regulated financial, pharmaceutical-blockchain, and healthcare platforms. His technical foundation is deep .NET/C#/SQL Server and service-oriented architecture, built over a decade of hands-on lead-developer and architect roles, carried into cloud and distributed-systems practice-AWS, Azure, Docker, Kubernetes, microservices decomposition, and ETL/data-migration work-and, at Experity, into AI-agent-assisted engineering as a development method paired with human architecture and validation, not a replacement for either. That AI-agent leverage is scoped specifically to his Experity tenure. He is also the leader who shows up after the prototype works: capable of building the team, the operating cadence, and the technical-lead structure a system needs once it has traction, not only the individual contributor who built the first version.",
+        "experience": [
+          {
+            "company": "Experity",
+            "title": "VP, Software Engineering",
+            "period": "Mar 2023 - Present",
+            "bullets": [
+              "## Role Progression",
+              "Three promotions in three years: Director of Product Development (Mar 2023 - Apr 2024) -> Senior Director of Software Engineering (Apr 2024 - Oct 2025) -> VP, Software Engineering (Oct 2025 - Present).",
+              "## AI-Agent Engineering Practice",
+              "Personally evaluated and piloted AI coding and agent tooling (Claude Code-class agents, GitHub Copilot, AWS Bedrock) at the workflow level before writing the governance policy that followed-usage rules, no-auto-merge standards, PR quality gates for AI-generated output, and audit protocols aligned to HIPAA-adjacent compliance.",
+              "Designed and ran a guardrailed, two-day agentic-coding hackathon (greenfield-only scope, individual repos, private AWS sandbox) and built the companion Architecture-Design-Vision-Requirements (ADVR) framework requiring system/component/data/deployment/security architecture, user journeys, API contracts, and functional/nonfunctional requirements before any team wrote code.",
+              "Personally architected two healthcare proof-of-concept reference solutions to anchor the hackathon: a Medication Adherence Tracker (React PWA, serverless Node.js on AWS Lambda/DynamoDB, Redis session state) and an AI-Powered Symptom Journal (Next.js frontend, Python FastAPI backend, AWS Comprehend, Kafka processing queues, ECS deployment).",
+              "Co-created a nine-pillar, Experity-specific Well-Architected Framework (security, reliability, performance, operations, cost, maintainability, testability, scalability, extensibility) and directed the design of a self-service architecture-assessment portal.",
+              "Established a single-accountable technical-lead model for the Care Agent product-hands-on ownership across frontend, backend, AWS infrastructure, DevOps, and production-grade agentic patterns in a PHI-sensitive context.",
+              "Contributed engineering leadership and architecture to three of Experity's production AI-agent products: AI Scribe (1,000+ clinics, 1,600+ providers, 300+ practices), Care Agent (2,000+ clinics, 200k+ patients), and AIM, an insurance-matching agent still piloting at 100+ clinics.",
+              "Directed the architecture behind a Core EMR platform-recovery plan: sequencing multi-region resilience, scoping a bounded offshore workstream for REST-API migration and a .NET 9 upgrade, and setting architectural guardrails for revenue-cycle workflows.",
+              "Diagnosed and directed remediation of a clinical-workflow async-messaging latency defect (channel separation plus polling-configuration correction), internally reported as reducing message-latency failures from roughly 6% to 0% within about 24 hours of the root-cause fix.",
+              "## Technical Practice Foundation",
+              "Practitioner credential: OCI Certified - Cloud Infrastructure 2024 Generative AI Professional, covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design."
+            ]
+          },
+          {
+            "company": "Chronicled",
+            "title": "Implementation Solutions Architect & Head of Customer Success Services",
+            "period": "Jul 2022 - Mar 2023",
+            "bullets": [
+              "Led enterprise blockchain solution implementations for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply-chain compliance and track-and-trace regulatory requirements.",
+              "Managed a team of Implementation Consultants carrying deep Kubernetes configuration expertise, pairing hands-on platform knowledge with customer-facing solution ownership."
+            ]
+          },
+          {
+            "company": "SafeNet Consulting",
+            "title": "Director, Solutions Group (Executive Leadership)",
+            "period": "Aug 2021 - Jul 2022",
+            "bullets": [
+              "Held the title of record Director, Solutions Group at the executive-leadership level; day-to-day responsibilities were carried out acting as Chief Software Architect and customer-facing Solutions Architect.",
+              "Led an architecture team delivering multi-tier, cloud-native solutions on AWS and Azure for Fortune 500 enterprise clients.",
+              "Identified emerging-technology opportunities and translated them into concrete, actionable adoption strategies for client engagements."
+            ]
+          },
+          {
+            "company": "HealthEquity",
+            "title": "Solutions Architect",
+            "period": "Mar 2021 - Aug 2021",
+            "bullets": [
+              "Provided solution architecture and technical code review for benefits-administration platform initiatives during a short-term engagement bridging SysLogic and SafeNet Consulting.",
+              "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
+            ]
+          },
+          {
+            "company": "SysLogic, Inc.",
+            "title": "Cloud & Enterprise Architecture Lead",
+            "period": "May 2019 - Mar 2021",
+            "bullets": [
+              "Developed and deployed Docker containers on Kubernetes; implemented an ETL process migrating legacy on-premises data into an Azure SQL database instance.",
+              "Designed the information architecture and asset model for a client organization and delivered the final adopted implementation.",
+              "Served as internal and pre-sales cloud evangelist, providing direct technical guidance on AWS/Azure design fit and adoption, and mentored practice resources across skillsets."
+            ]
+          },
+          {
+            "company": "HSA Bank, a division of Webster Bank, N.A.",
+            "title": "VP, Enterprise Solutions Architect",
+            "period": "May 2014 - May 2019",
+            "bullets": [
+              "## Role Progression",
+              "Solutions Architect (Kforce Inc. contract staffing, May 2014 - Jul 2016) -> VP, Application Development Manager (Jul 2016 - Sep 2018) -> VP, Enterprise Solutions Architect (Sep 2018 - May 2019).",
+              "Designed AWS components for prototype customer-facing applications on web and mobile; recruited, managed, and mentored a development team of up to 37 engineers.",
+              "Established an Architecture Review Board to monitor adherence to corporate standards in application design, development, and testing.",
+              "Reduced support-incident rework by approximately 43% year over year after establishing an integrated intake, definition, alignment, and assignment process.",
+              "Designed, defined, and led the microservices strategy migrating the platform from a monolith pattern to Docker containers."
+            ]
+          }
+        ],
+        "technicalPractice": {
+          "foundation": "2000-2016: C#, .NET, ASP.NET, WCF, SOA, DotNetNuke, SQL Server (DBA, data modeling, stored-procedure optimization), Windows-based enterprise application development. Hands-on WPF development earlier in his career; WPF remains part of the stack he leads today, though he has had no direct hands-on work with it in the last decade.",
+          "cloudEvolution": "2016-2022: AWS and Azure architecture, Docker and Kubernetes (container deployment and microservices migration off a monolith pattern), ETL and data migration to Azure SQL, event-driven design, distributed scalable patterns, systems integration, GCP (via the Chronicled/MediLedger platform).",
+          "currentPractice": "Experity, 2023-present: AWS-native architecture (Lambda, DynamoDB, ECS, Bedrock), Kubernetes, Kafka and Debezium-based event streaming, Redis, React/Next.js, Node.js and Python/FastAPI, GitHub Actions CI/CD, healthcare-context constraints (HIPAA/HL7/FHIR-aware design), and AI-agent-assisted engineering as a working method-using coding agents for first-draft implementation while retaining human architecture, PR-quality gates, and validation ownership."
+        },
+        "skills": {
+          "current": [
+            "OCI Certified - Cloud Infrastructure 2024 Generative AI Professional (Oracle)",
+            "OCI Foundations 2021 Associate (Oracle)",
+            "Azure Administrator (AZ-104), Azure Data Fundamentals (DP-900), Azure Fundamentals (AZ-900) (Microsoft)",
+            "IBM Cloud-Native and Multicloud Applications (IBM)"
+          ],
+          "historicalLegacy": [
+            "Microsoft Certified Database Administrator (MCDBA), Microsoft Certified Solutions Developer (MCSD), Microsoft Certified Systems Engineer (MCSE) (Microsoft, 2000-2005) - legacy, retired program tracks",
+            "AWS Certified Solutions Architect - Associate (Amazon, 2021) - legacy credential"
+          ],
+          "technicalRange": [
+            "AWS, Azure, GCP", "Docker, Kubernetes, ECS", "Kafka, Debezium, Redis", "React, Next.js, Node.js, Python/FastAPI",
+            "C#, .NET, ASP.NET, WCF, SOA", "SQL Server, PostgreSQL, data modeling and migration", "CI/CD (GitHub Actions; Jenkins-based pipelines)",
+            "OpenAPI, OAuth 2.0, JWT", "AI-agent-assisted engineering (Claude Code-class agents, GitHub Copilot, AWS Bedrock)"
           ]
         },
-        {
-          "issuer": "Microsoft",
-          "items": [
-            "Azure Administrator (AZ-104)",
-            "Azure Data Fundamentals (DP-900)",
-            "Azure Fundamentals (AZ-900)"
-          ]
-        },
-        {
-          "issuer": "IBM",
-          "items": [
-            "Cloud-Native and Multicloud Applications"
-          ]
-        }
-      ],
-      "aiPractitioner": {
-        "title": "AI-Augmented Engineering - Practitioner & Architect Record",
-        "intro": "Built Experity's AI-augmented engineering practice from zero-personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 57+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
-        "bullets": [
-          "AI Transformation Leadership: Championed AI adoption against initial executive resistance-built the business case, ran Experity's first-ever AI Hackathon, and drove cultural shift from skepticism to embedded practice. Delivered documented 3-4x productivity increase (500K -> 1.5-2M lines of meaningful code) with 30%+ cycle time improvement across engineering teams.",
-          "AI-Native PDLC Design: Created a 5-stage Product Development Lifecycle (Signal -> Context -> Decision -> Execution -> Memory) with an AI Workspace for Product-feeding curated context packets to both human engineers and AI coding agents. Invented the 'Cold-Read Validation' method proving artifact quality before build begins.",
-          "Governance Architecture: Designed the organization's AI adoption framework-LLM usage policies, no-auto-merge standards, code review quality gates for AI-generated output, per-team cost tracking, security guardrails, and HIPAA-adjacent audit protocols. Converted ad-hoc tool experiments into governed, repeatable, audited pipelines.",
-          "Operating Model Shift: Led transition from manual code producers to agent-augmented reviewers-establishing that the team's constraint shifted from build capacity to review quality (a fundamentally better bottleneck). Defined the Developer Directs -> AI Executes -> Developer Validates workflow with 80/20 architectural oversight model.",
-          "AI-Compressed Incident Response: Deployed AI-assisted runbooks and knowledge retrieval pipelines that compressed initial triage times, automated structured post-incident learning generation, and reduced on-call cognitive load across distributed teams.",
-          "Architecture Transformation: Reframed architecture from advisory review into accountable delivery enablement-coaching technical leaders toward outcome ownership while guiding the Architecture Hub vision, five-pillar assessment model, and automated governance approach across security, reliability, maintainability, deployability, and observability.",
-          "Practitioner Certification: OCI Certified - Cloud Infrastructure 2024 Generative AI Professional-hands-on credential covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design. Used to inform architecture decisions and lead AI enablement conversations with credibility."
-        ]
+        "executiveScaleNote": "Guillermo currently leads a 90+ person engineering organization at Experity (~40 FTE, 20+ nearshore LATAM, 30+ offshore). Executive scale is kept as a brief bridge here rather than the emphasis of this document; see the executive resume for the full leadership narrative."
       }
     };
 
