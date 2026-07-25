@@ -83,7 +83,7 @@
     <main class="pt-20 px-6 max-w-[1600px] mx-auto dashboard-grid-pattern min-h-screen">
         <section class="py-12 grid grid-cols-1 lg:grid-cols-12 gap-6" id="about">
             <div class="lg:col-span-8 bg-dashboard-card border border-dashboard-border p-8 lg:p-12 relative overflow-hidden flex flex-col justify-center">
-                <div class="absolute top-0 right-0 p-4 font-mono text-[10px] text-dashboard-muted">STATUS: OPTIMIZED</div>
+                <div class="absolute top-0 right-0 p-4 font-mono text-[10px] text-dashboard-muted">PORTFOLIO</div>
                 <div class="relative z-10" id="hero-content">
                     <!-- Hero Content Injected Here -->
                 </div>
@@ -192,42 +192,46 @@
     </script>
 
     <script>
-        const RESUME_DATA = {
+        const JSON_FILE = 'resume-content.json';
+        const EMBEDDED_DATA = {
           "meta": {
             "name": "Guillermo Salas",
-            "title": "EVP SOFTWARE ENGINEERING / CTO",
+            "title": "Vice President, Software Engineering",
             "email": "gsalast@gmail.com",
             "phone": "+1-414-899-4450",
             "location": "Elm Grove, Wisconsin",
             "linkedin": "linkedin.com/in/guillermosalas",
             "linkedinUrl": "https://linkedin.com/in/guillermosalas"
           },
-          "summary": "Technology executive and enterprise solutions architect who builds AI-augmented engineering organizations from the ground up. 20+ years progressing from hands-on cloud architecture and digital transformation delivery to leading multi-team engineering organizations-designing operating models, governance frameworks, and platform strategies that convert technical capability into measurable business outcomes. Career arc spans Fortune 500 consulting, regulated fintech platforms, enterprise SaaS modernization, and Healthcare IT at scale. Currently driving AI-first organizational transformation, global team architecture, and M&A integration within a PE-backed growth environment.",
+          "summary": "Guillermo Salas builds engineering organizations with the same discipline he has spent two decades applying to software systems: align talent to real needs, develop leaders deliberately, distribute ownership without losing accountability, and convert ambiguity into durable operating mechanisms. His arc runs from hands-on .NET/SQL Server engineering and enterprise architecture through cloud modernization to VP-level engineering leadership, spanning Fortune 500 consulting, regulated fintech, blockchain-based pharmaceutical compliance, and healthcare SaaS. At Experity, that discipline now spans a 90+ person engineering organization (~40 FTE, 20+ nearshore LATAM, 30+ offshore) across four product areas, where AI-assisted engineering is the newest arena for that leadership, not the whole story.",
           "experience": [
             {
               "company": "Experity",
-              "title": "VP, Software Engineering and Product Development",
+              "title": "Vice President, Software Engineering",
               "period": "Mar 2023 - Present",
               "bullets": [
+                "## Role Progression",
+                "Promoted three times in three years: Director of Product Development (Mar 2023 - Apr 2024) -> Senior Director of Software Engineering (Apr 2024 - Oct 2025) -> Vice President, Software Engineering (Oct 2025 - Present).",
                 "## AI-First Organizational Transformation",
                 "Championed enterprise AI adoption against initial executive resistance-delivering a documented 3-4x increase in meaningful code output (500K -> 1.5-2M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs -> AI Executes -> Developer Validates), and created the AI-Native PDLC-a 5-stage framework feeding curated context to both engineers and AI agents.",
                 "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols-converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC.",
+                "That governance now underpins production AI products: AI Scribe, in use across 1,000+ clinics, 1,600+ providers, and 300+ practices, and Care Agent, in use across 2,000+ clinics and by 200k+ patients. AIM, an insurance-matching agent, is still piloting at 100+ clinics rather than in general release.",
                 "## Organizational Scale & Team Operations",
                 "Participated in engineering workstreams for a board-sponsored Global Capability Center initiative-contributing to implementation planning, readiness coordination, and cross-functional alignment while the program strategy and ownership remained outside my direct design authority.",
-                "Built and led a 57+ person multi-disciplinary engineering organization across multiple time zones (6 direct reports, 4+ teams, 20+ nearshore LATAM contractors) within a PE-backed SaaS scale-up-direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
+                "Built and lead a 90+ person multi-disciplinary engineering organization across multiple time zones (~40 FTE, 20+ nearshore LATAM, 30+ offshore) within a PE-backed SaaS scale-up-direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
                 "## M&A Integration & Operational Transformation",
-                "Directed post-acquisition integration of an acquired healthcare platform engineering team-transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership.",
+                "Led post-acquisition integration of an acquired healthcare platform engineering team-transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership.",
                 "Converted recurring operational escalations into an executive operating-model transformation discussion-reframing isolated support conflicts as systemic ownership, escalation, key-person dependency, and product-health investment issues across Engineering, Operations, Product, and executive stakeholders.",
                 "## Platform Modernization & Engineering Reliability",
                 "Led a multi-year transformation of architecture from review-oriented advisory activity into an accountable technical leadership capability-clarifying boundaries between architects, Staff Engineers, managers, and delivery teams while emphasizing delivery enablement, distributed ownership, modernization alignment, and measurable outcomes.",
-                "Guided architecture and platform reliability for a Healthcare SaaS platform serving enterprise customers; coached architecture leadership toward building the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical failure modes and compressed incident response across the platform.",
+                "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical latency failure modes and championed Jenkins -> CircleCI migration completed in one day with zero incidents.",
                 "## Organizational Leadership & Strategic Operations",
                 "Designed quarterly leadership onsites with progressive maturity arc (Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen the Standard). Served as technical ambassador to PE stakeholders. Championed people-first culture under financial constraint-advocating retention cases against committee pushback while maintaining top 10% performance outcomes."
               ]
             },
             {
               "company": "Chronicled",
-              "title": "Enterprise Solutions Architect",
+              "title": "Implementation Solutions Architect & Head of Customer Success Services",
               "period": "Jul 2022 - Mar 2023",
               "bullets": [
                 "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
@@ -238,9 +242,10 @@
             },
             {
               "company": "SafeNet Consulting",
-              "title": "Customer Solutions Architect",
+              "title": "Director, Solutions Group (Executive Leadership)",
               "period": "Aug 2021 - Jul 2022",
               "bullets": [
+                "Held the title of record Director, Solutions Group at the executive-leadership level, while carrying out day-to-day responsibilities acting as Chief Software Architect and customer-facing Solutions Architect.",
                 "Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure.",
                 "Identified emerging technology opportunities and translated them into actionable adoption strategies for enterprise consulting engagements."
               ]
@@ -248,7 +253,7 @@
             {
               "company": "HealthEquity",
               "title": "Solutions Architect",
-              "period": "Apr 2021 - Aug 2021",
+              "period": "Mar 2021 - Aug 2021",
               "bullets": [
                 "Provided solution architecture and technical code review for benefits administration platform initiatives during a short-term engagement.",
                 "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
@@ -371,7 +376,7 @@
           ],
           "aiPractitioner": {
             "title": "AI-Augmented Engineering - Practitioner & Architect Record",
-            "intro": "Built Experity's AI-augmented engineering practice from zero-personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 57+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
+            "intro": "Built Experity's AI-augmented engineering practice from zero-personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 90+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
             "bullets": [
               "AI Transformation Leadership: Championed AI adoption against initial executive resistance-built the business case, ran Experity's first-ever AI Hackathon, and drove cultural shift from skepticism to embedded practice. Delivered documented 3-4x productivity increase (500K -> 1.5-2M lines of meaningful code) with 30%+ cycle time improvement across engineering teams.",
               "AI-Native PDLC Design: Created a 5-stage Product Development Lifecycle (Signal -> Context -> Decision -> Execution -> Memory) with an AI Workspace for Product-feeding curated context packets to both human engineers and AI coding agents. Invented the 'Cold-Read Validation' method proving artifact quality before build begins.",
@@ -390,6 +395,20 @@
             renderSkills(data.skills);
             renderContact(data.meta);
             renderFooter(data.meta);
+        }
+
+        async function loadResume() {
+            let data;
+            try {
+                const res = await fetch(JSON_FILE);
+                if (!res.ok) throw new Error('fetch failed');
+                data = await res.json();
+            } catch (e) {
+                console.warn('Failed to load resume-content.json, falling back to embedded data.', e);
+                data = EMBEDDED_DATA;
+            }
+            window.RESUME_DATA = data;
+            render(data);
         }
 
         function renderHero(meta, summary) {
@@ -423,18 +442,14 @@
         function renderExperience(jobs) {
             const container = document.getElementById('experience-container');
             let html = '';
-            jobs.slice(0, 3).forEach((job, index) => {
+            jobs.forEach((job, index) => {
                 const isLatest = index === 0;
                 const borderClass = isLatest ? 'border-l-4 border-l-dashboard-accent' : '';
                 const periodClass = isLatest ? 'text-dashboard-accent bg-dashboard-accent/10 px-2 py-1' : 'text-dashboard-muted';
                 const titleClass = isLatest ? 'text-dashboard-accent' : 'text-dashboard-muted';
 
-                const keywords = isLatest ? ['Cloud-Scale', 'AI Ops'] :
-                                 (index === 1 ? ['Legacy Pivot', 'Microservices'] : ['Product Strategy', 'Leadership']);
-
-                const keywordsHtml = keywords.map(k => `<span class="border border-dashboard-border px-2 py-1 text-[9px] font-mono text-dashboard-muted uppercase">${k}</span>`).join('');
-
-                const desc = (job.bullets.find(b => !b.startsWith('##')) || job.bullets[0]).replace(/^##\s*/, '');
+                const descBullets = job.bullets.filter(b => !b.startsWith('##')).slice(0, 3);
+                const bulletsHtml = descBullets.map(b => `<li>${b}</li>`).join('');
 
                 html += `
                     <div class="bg-dashboard-card border border-dashboard-border p-8 hover:bg-[#1c2128] transition-all ${borderClass}">
@@ -443,10 +458,9 @@
                         </div>
                         <h4 class="text-2xl font-bold text-white mb-1">${job.company}</h4>
                         <p class="${titleClass} font-mono text-xs uppercase tracking-widest mb-4">${job.title}</p>
-                        <p class="text-sm text-dashboard-muted leading-relaxed mb-6 line-clamp-4">${desc}</p>
-                        <div class="flex flex-wrap gap-2">
-                            ${keywordsHtml}
-                        </div>
+                        <ul class="text-sm text-dashboard-muted leading-relaxed list-disc list-outside pl-4 space-y-2">
+                            ${bulletsHtml}
+                        </ul>
                     </div>
                 `;
             });
@@ -456,37 +470,32 @@
         function renderSkills(skills) {
             const container = document.getElementById('skills-container');
             const icons = ['leaderboard', 'neurology', 'transform', 'rocket_launch', 'account_balance'];
-            const metrics = ['98th PCTL', 'GEN_AI_READY', '400% VELOCITY', 'ALPHA_ADOPTER', 'SEC_COMPLIANT'];
-            const values = ['95%', '90%', '85%', '92%', '88%'];
+            const credentialBadges = { 1: 'OCI GENAI PRO' };
 
             let html = '';
             skills.slice(0, 5).forEach((skill, index) => {
                 const isHighlight = index === 1;
                 const bgClass = isHighlight ? 'bg-dashboard-accent/5 border-dashboard-accent/20' : '';
                 const icon = icons[index % icons.length];
-                const metric = metrics[index % metrics.length];
-                const value = values[index % values.length];
+                const badge = credentialBadges[index];
                 const desc = skill.items.join(', ');
 
                 html += `
                     <div class="stat-card ${bgClass}">
                         <div class="flex items-start justify-between mb-4">
                             <span class="material-symbols-outlined text-dashboard-accent" data-icon="${icon}">${icon}</span>
-                            <div class="text-[10px] font-mono text-dashboard-accent">${metric}</div>
+                            ${badge ? `<div class="text-[10px] font-mono text-dashboard-accent">${badge}</div>` : ''}
                         </div>
                         <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">${skill.category}</h4>
                         <p class="text-xs text-dashboard-muted leading-relaxed line-clamp-3">${desc}</p>
-                        <div class="mt-4 h-1 w-full bg-dashboard-border rounded-full overflow-hidden">
-                            <div class="bg-dashboard-accent h-full" style="width: ${value};"></div>
-                        </div>
                     </div>
                 `;
             });
 
             html += `
                 <div class="stat-card flex flex-col justify-center items-center bg-dashboard-accent text-dashboard-bg">
-                    <div class="text-4xl font-black font-mono">100%</div>
-                    <div class="text-[10px] uppercase font-bold tracking-widest mt-2">Uptime Reliability</div>
+                    <div class="text-4xl font-black font-mono">90+</div>
+                    <div class="text-[10px] uppercase font-bold tracking-widest mt-2">Engineers Led</div>
                 </div>
             `;
 
@@ -518,7 +527,7 @@
             `;
         }
 
-        document.addEventListener('DOMContentLoaded', () => render(RESUME_DATA));
+        document.addEventListener('DOMContentLoaded', loadResume);
     </script>
 
     <script>
@@ -558,8 +567,8 @@
         let currentTheme = 'carbon';
 
         function downloadPDF() {
-          if (!RESUME_DATA) return;
-          const d = RESUME_DATA;
+          if (!window.RESUME_DATA) return;
+          const d = window.RESUME_DATA;
 
           try {
             const { jsPDF } = window.jspdf;

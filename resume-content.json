@@ -8,7 +8,7 @@
     "linkedin": "linkedin.com/in/guillermosalas",
     "linkedinUrl": "https://linkedin.com/in/guillermosalas"
   },
-  "summary": "Technology executive and enterprise solutions architect who builds AI-augmented engineering organizations from the ground up. 20+ years progressing from hands-on cloud architecture and digital transformation delivery to leading multi-team engineering organizations-designing operating models, governance frameworks, and platform strategies that convert technical capability into measurable business outcomes. Career arc spans Fortune 500 consulting, regulated fintech platforms, enterprise SaaS modernization, and Healthcare IT at scale. Currently driving AI-first organizational transformation, AI operating-model adoption, platform modernization, and M&A integration within a PE-backed growth environment.",
+  "summary": "Guillermo Salas builds engineering organizations with the same discipline he has spent two decades applying to software systems: align talent to real needs, develop leaders deliberately, distribute ownership without losing accountability, and convert ambiguity into durable operating mechanisms. His arc runs from hands-on .NET/SQL Server engineering and enterprise architecture through cloud modernization to VP-level engineering leadership, spanning Fortune 500 consulting, regulated fintech, blockchain-based pharmaceutical compliance, and healthcare SaaS. At Experity, that discipline now spans a 90+ person engineering organization (~40 FTE, 20+ nearshore LATAM, 30+ offshore) across four product areas, where AI-assisted engineering is the newest arena for that leadership, not the whole story.",
   "experience": [
     {
       "company": "Experity",
@@ -20,9 +20,10 @@
         "## AI-First Organizational Transformation",
         "Championed enterprise AI adoption against initial executive resistance-delivering a documented 3-4x increase in meaningful code output (500K -> 1.5-2M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs -> AI Executes -> Developer Validates), and created the AI-Native PDLC-a 5-stage framework feeding curated context to both engineers and AI agents.",
         "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols-converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC.",
+        "That governance now underpins production AI products: AI Scribe, in use across 1,000+ clinics, 1,600+ providers, and 300+ practices, and Care Agent, in use across 2,000+ clinics and by 200k+ patients. AIM, an insurance-matching agent, is still piloting at 100+ clinics rather than in general release.",
         "## Organizational Scale & Team Operations",
         "Participated in engineering workstreams for a board-sponsored Global Capability Center initiative-contributing to implementation planning, readiness coordination, and cross-functional alignment while the program strategy and ownership remained outside my direct design authority.",
-        "Built and led a 57+ person multi-disciplinary engineering organization across multiple time zones (6 direct reports, 4+ teams, 20+ nearshore LATAM contractors) within a PE-backed SaaS scale-up-direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
+        "Built and lead a 90+ person multi-disciplinary engineering organization across multiple time zones (~40 FTE, 20+ nearshore LATAM, 30+ offshore) within a PE-backed SaaS scale-up-direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
         "## M&A Integration & Operational Transformation",
         "Led post-acquisition integration of an acquired healthcare platform engineering team-transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership.",
         "Converted recurring operational escalations into an executive operating-model transformation discussion-reframing isolated support conflicts as systemic ownership, escalation, key-person dependency, and product-health investment issues across Engineering, Operations, Product, and executive stakeholders.",
@@ -35,7 +36,7 @@
     },
     {
       "company": "Chronicled",
-      "title": "Enterprise Solutions Architect",
+      "title": "Implementation Solutions Architect & Head of Customer Success Services",
       "period": "Jul 2022 - Mar 2023",
       "bullets": [
         "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
@@ -46,9 +47,10 @@
     },
     {
       "company": "SafeNet Consulting",
-      "title": "Customer Solutions Architect",
+      "title": "Director, Solutions Group (Executive Leadership)",
       "period": "Aug 2021 - Jul 2022",
       "bullets": [
+        "Held the title of record Director, Solutions Group at the executive-leadership level, while carrying out day-to-day responsibilities acting as Chief Software Architect and customer-facing Solutions Architect.",
         "Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure.",
         "Identified emerging technology opportunities and translated them into actionable adoption strategies for enterprise consulting engagements."
       ]
@@ -56,7 +58,7 @@
     {
       "company": "HealthEquity",
       "title": "Solutions Architect",
-      "period": "Apr 2021 - Aug 2021",
+      "period": "Mar 2021 - Aug 2021",
       "bullets": [
         "Provided solution architecture and technical code review for benefits administration platform initiatives during a short-term engagement.",
         "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
@@ -210,16 +212,33 @@
       "items": [
         "Cloud-Native and Multicloud Applications"
       ]
+    },
+    {
+      "issuer": "Microsoft (Legacy, 2000-2005)",
+      "items": [
+        "Microsoft Certified Database Administrator (MCDBA)",
+        "Microsoft Certified Solutions Developer (MCSD)",
+        "Microsoft Certified Systems Engineer (MCSE)"
+      ],
+      "note": "Legacy, retired program tracks kept as career-history evidence of a multi-era learning arc, not current active credentials."
+    },
+    {
+      "issuer": "AWS (Legacy)",
+      "items": [
+        "AWS Certified Solutions Architect - Associate (2021)"
+      ],
+      "note": "Legacy credential kept as career-history evidence, not a current active credential."
     }
   ],
   "aiPractitioner": {
     "title": "AI-Augmented Engineering - Practitioner & Architect Record",
-    "intro": "Built Experity's AI-augmented engineering practice from zero-personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 57+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
+    "intro": "Built Experity's AI-augmented engineering practice from zero-personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 90+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
     "bullets": [
       "AI Transformation Leadership: Championed AI adoption against initial executive resistance-built the business case, ran Experity's first-ever AI Hackathon, and drove cultural shift from skepticism to embedded practice. Delivered documented 3-4x productivity increase (500K -> 1.5-2M lines of meaningful code) with 30%+ cycle time improvement across engineering teams.",
       "AI-Native PDLC Design: Created a 5-stage Product Development Lifecycle (Signal -> Context -> Decision -> Execution -> Memory) with an AI Workspace for Product-feeding curated context packets to both human engineers and AI coding agents. Invented the 'Cold-Read Validation' method proving artifact quality before build begins.",
       "Governance Architecture: Designed the organization's AI adoption framework-LLM usage policies, no-auto-merge standards, code review quality gates for AI-generated output, per-team cost tracking, security guardrails, and HIPAA-adjacent audit protocols. Converted ad-hoc tool experiments into governed, repeatable, audited pipelines.",
       "Operating Model Shift: Led transition from manual code producers to agent-augmented reviewers-establishing that the team's constraint shifted from build capacity to review quality (a fundamentally better bottleneck). Defined the Developer Directs -> AI Executes -> Developer Validates workflow with 80/20 architectural oversight model.",
+      "Production AI-Agent Products: Contributed engineering leadership and architecture to three of Experity's production AI-agent products-AI Scribe (1,000+ clinics, 1,600+ providers, 300+ practices), Care Agent (2,000+ clinics, 200k+ patients), and AIM, an insurance-matching agent still piloting at 100+ clinics rather than in general release. Revenue-cycle-management adoption remains a forward target of 1,500+ clinics, not a current figure.",
       "AI-Compressed Incident Response: Deployed AI-assisted runbooks and knowledge retrieval pipelines that compressed initial triage times, automated structured post-incident learning generation, and reduced on-call cognitive load across distributed teams.",
       "Architecture Transformation: Reframed architecture from advisory review into accountable delivery enablement-coaching technical leaders toward outcome ownership while guiding the Architecture Hub vision, five-pillar assessment model, and automated governance approach across security, reliability, maintainability, deployability, and observability.",
       "Practitioner Certification: OCI Certified - Cloud Infrastructure 2024 Generative AI Professional-hands-on credential covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design. Used to inform architecture decisions and lead AI enablement conversations with credibility."
@@ -230,7 +249,7 @@
       "name": "Enterprise AI Adoption & Engineering Productivity Transformation",
       "category": "AI Strategy / Org Change",
       "status": "Active - Scaled",
-      "summary": "Championed enterprise-wide AI adoption against initial executive resistance-delivering a documented 3-4x increase in meaningful code output and 30%+ productivity improvement across a ~41-person engineering organization.",
+      "summary": "Championed enterprise-wide AI adoption against initial executive resistance-delivering a documented 3-4x increase in meaningful code output and 30%+ productivity improvement across a ~90-person engineering organization.",
       "narrative": "Faced with an organizational mandate to avoid AI entirely, built the business case from scratch and drove a transformation that became the defining achievement of the engineering org. Designed the AI Development Framework, created the AI-Native PDLC, ran the organization's first-ever AI Hackathon, and established the governance architecture that made AI adoption safe, auditable, and HIPAA-adjacent compliant. The core insight that shaped everything: 'The team's constraint shifted from build capacity to review quality-a fundamentally better bottleneck.'",
       "role": [
         "Ideation",
@@ -252,7 +271,8 @@
         "Meaningful code output grew from ~500K (peak, pre-AI) to ~1.5-2M lines across architectural platform work, medical imaging rewrites, and document processing improvements",
         "Embedded AI directly into customer-facing product offerings, not just internal engineering tooling",
         "Surfaced structural gap: engineering velocity began outpacing product definition capacity-prompted redesign of the product-to-engineering handoff model",
-        "Applied 'definition-first, then iteration' discipline-evaluating cost-to-value ratios before recommending agentic approaches, avoiding trend-following"
+        "Applied 'definition-first, then iteration' discipline-evaluating cost-to-value ratios before recommending agentic approaches, avoiding trend-following",
+        "Governance now underpins production AI products: AI Scribe (1,000+ clinics/1,600+ providers/300+ practices) and Care Agent (2,000+ clinics/200k+ patients); AIM (insurance matching) remains in pilot at 100+ clinics"
       ],
       "metricHighlights": [
         {
@@ -703,5 +723,105 @@
       "origin": "Developed through practitioner evaluation of AI tooling patterns; applied across integration and product transformation initiatives.",
       "caseStudyUrl": "case-study-agentic-architecture-discipline.html"
     }
-  ]
+  ],
+  "builderResume": {
+    "headline": "Software Engineering Practitioner & Architect - Concept to Production, Now With AI-Agent Leverage",
+    "summary": "Guillermo is a software engineer who never stopped writing, architecting, and shipping systems while taking on progressively larger scope-from stored-procedure-level SQL tuning and ASP.NET/WCF integration work to distributed, AI-agent-assisted platform architecture for a healthcare SaaS company. He moves the full distance from concept through architecture, implementation, deployment, and operation, across regulated financial, pharmaceutical-blockchain, and healthcare platforms. His technical foundation is deep .NET/C#/SQL Server and service-oriented architecture, built over a decade of hands-on lead-developer and architect roles, carried into cloud and distributed-systems practice-AWS, Azure, Docker, Kubernetes, microservices decomposition, and ETL/data-migration work-and, at Experity, into AI-agent-assisted engineering as a development method paired with human architecture and validation, not a replacement for either. That AI-agent leverage is scoped specifically to his Experity tenure. He is also the leader who shows up after the prototype works: capable of building the team, the operating cadence, and the technical-lead structure a system needs once it has traction, not only the individual contributor who built the first version.",
+    "experience": [
+      {
+        "company": "Experity",
+        "title": "VP, Software Engineering",
+        "period": "Mar 2023 - Present",
+        "bullets": [
+          "## Role Progression",
+          "Three promotions in three years: Director of Product Development (Mar 2023 - Apr 2024) -> Senior Director of Software Engineering (Apr 2024 - Oct 2025) -> VP, Software Engineering (Oct 2025 - Present).",
+          "## AI-Agent Engineering Practice",
+          "Personally evaluated and piloted AI coding and agent tooling (Claude Code-class agents, GitHub Copilot, AWS Bedrock) at the workflow level before writing the governance policy that followed-usage rules, no-auto-merge standards, PR quality gates for AI-generated output, and audit protocols aligned to HIPAA-adjacent compliance.",
+          "Designed and ran a guardrailed, two-day agentic-coding hackathon (greenfield-only scope, individual repos, private AWS sandbox) and built the companion Architecture-Design-Vision-Requirements (ADVR) framework requiring system/component/data/deployment/security architecture, user journeys, API contracts, and functional/nonfunctional requirements before any team wrote code.",
+          "Personally architected two healthcare proof-of-concept reference solutions to anchor the hackathon: a Medication Adherence Tracker (React PWA, serverless Node.js on AWS Lambda/DynamoDB, Redis session state) and an AI-Powered Symptom Journal (Next.js frontend, Python FastAPI backend, AWS Comprehend, Kafka processing queues, ECS deployment).",
+          "Co-created a nine-pillar, Experity-specific Well-Architected Framework (security, reliability, performance, operations, cost, maintainability, testability, scalability, extensibility) and directed the design of a self-service architecture-assessment portal.",
+          "Established a single-accountable technical-lead model for the Care Agent product-hands-on ownership across frontend, backend, AWS infrastructure, DevOps, and production-grade agentic patterns in a PHI-sensitive context.",
+          "Contributed engineering leadership and architecture to three of Experity's production AI-agent products: AI Scribe (1,000+ clinics, 1,600+ providers, 300+ practices), Care Agent (2,000+ clinics, 200k+ patients), and AIM, an insurance-matching agent still piloting at 100+ clinics.",
+          "Directed the architecture behind a Core EMR platform-recovery plan: sequencing multi-region resilience, scoping a bounded offshore workstream for REST-API migration and a .NET 9 upgrade, and setting architectural guardrails for revenue-cycle workflows.",
+          "Diagnosed and directed remediation of a clinical-workflow async-messaging latency defect (channel separation plus polling-configuration correction), internally reported as reducing message-latency failures from roughly 6% to 0% within about 24 hours of the root-cause fix.",
+          "## Technical Practice Foundation",
+          "Practitioner credential: OCI Certified - Cloud Infrastructure 2024 Generative AI Professional, covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design."
+        ]
+      },
+      {
+        "company": "Chronicled",
+        "title": "Implementation Solutions Architect & Head of Customer Success Services",
+        "period": "Jul 2022 - Mar 2023",
+        "bullets": [
+          "Led enterprise blockchain solution implementations for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply-chain compliance and track-and-trace regulatory requirements.",
+          "Managed a team of Implementation Consultants carrying deep Kubernetes configuration expertise, pairing hands-on platform knowledge with customer-facing solution ownership."
+        ]
+      },
+      {
+        "company": "SafeNet Consulting",
+        "title": "Director, Solutions Group (Executive Leadership)",
+        "period": "Aug 2021 - Jul 2022",
+        "bullets": [
+          "Held the title of record Director, Solutions Group at the executive-leadership level; day-to-day responsibilities were carried out acting as Chief Software Architect and customer-facing Solutions Architect.",
+          "Led an architecture team delivering multi-tier, cloud-native solutions on AWS and Azure for Fortune 500 enterprise clients.",
+          "Identified emerging-technology opportunities and translated them into concrete, actionable adoption strategies for client engagements."
+        ]
+      },
+      {
+        "company": "HealthEquity",
+        "title": "Solutions Architect",
+        "period": "Mar 2021 - Aug 2021",
+        "bullets": [
+          "Provided solution architecture and technical code review for benefits-administration platform initiatives during a short-term engagement bridging SysLogic and SafeNet Consulting.",
+          "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
+        ]
+      },
+      {
+        "company": "SysLogic, Inc.",
+        "title": "Cloud & Enterprise Architecture Lead",
+        "period": "May 2019 - Mar 2021",
+        "bullets": [
+          "Developed and deployed Docker containers on Kubernetes; implemented an ETL process migrating legacy on-premises data into an Azure SQL database instance.",
+          "Designed the information architecture and asset model for a client organization and delivered the final adopted implementation.",
+          "Served as internal and pre-sales cloud evangelist, providing direct technical guidance on AWS/Azure design fit and adoption, and mentored practice resources across skillsets."
+        ]
+      },
+      {
+        "company": "HSA Bank, a division of Webster Bank, N.A.",
+        "title": "VP, Enterprise Solutions Architect",
+        "period": "May 2014 - May 2019",
+        "bullets": [
+          "## Role Progression",
+          "Solutions Architect (Kforce Inc. contract staffing, May 2014 - Jul 2016) -> VP, Application Development Manager (Jul 2016 - Sep 2018) -> VP, Enterprise Solutions Architect (Sep 2018 - May 2019).",
+          "Designed AWS components for prototype customer-facing applications on web and mobile; recruited, managed, and mentored a development team of up to 37 engineers.",
+          "Established an Architecture Review Board to monitor adherence to corporate standards in application design, development, and testing.",
+          "Reduced support-incident rework by approximately 43% year over year after establishing an integrated intake, definition, alignment, and assignment process.",
+          "Designed, defined, and led the microservices strategy migrating the platform from a monolith pattern to Docker containers."
+        ]
+      }
+    ],
+    "technicalPractice": {
+      "foundation": "2000-2016: C#, .NET, ASP.NET, WCF, SOA, DotNetNuke, SQL Server (DBA, data modeling, stored-procedure optimization), Windows-based enterprise application development. Hands-on WPF development earlier in his career; WPF remains part of the stack he leads today, though he has had no direct hands-on work with it in the last decade.",
+      "cloudEvolution": "2016-2022: AWS and Azure architecture, Docker and Kubernetes (container deployment and microservices migration off a monolith pattern), ETL and data migration to Azure SQL, event-driven design, distributed scalable patterns, systems integration, GCP (via the Chronicled/MediLedger platform).",
+      "currentPractice": "Experity, 2023-present: AWS-native architecture (Lambda, DynamoDB, ECS, Bedrock), Kubernetes, Kafka and Debezium-based event streaming, Redis, React/Next.js, Node.js and Python/FastAPI, GitHub Actions CI/CD, healthcare-context constraints (HIPAA/HL7/FHIR-aware design), and AI-agent-assisted engineering as a working method-using coding agents for first-draft implementation while retaining human architecture, PR-quality gates, and validation ownership."
+    },
+    "skills": {
+      "current": [
+        "OCI Certified - Cloud Infrastructure 2024 Generative AI Professional (Oracle)",
+        "OCI Foundations 2021 Associate (Oracle)",
+        "Azure Administrator (AZ-104), Azure Data Fundamentals (DP-900), Azure Fundamentals (AZ-900) (Microsoft)",
+        "IBM Cloud-Native and Multicloud Applications (IBM)"
+      ],
+      "historicalLegacy": [
+        "Microsoft Certified Database Administrator (MCDBA), Microsoft Certified Solutions Developer (MCSD), Microsoft Certified Systems Engineer (MCSE) (Microsoft, 2000-2005) - legacy, retired program tracks",
+        "AWS Certified Solutions Architect - Associate (Amazon, 2021) - legacy credential"
+      ],
+      "technicalRange": [
+        "AWS, Azure, GCP", "Docker, Kubernetes, ECS", "Kafka, Debezium, Redis", "React, Next.js, Node.js, Python/FastAPI",
+        "C#, .NET, ASP.NET, WCF, SOA", "SQL Server, PostgreSQL, data modeling and migration", "CI/CD (GitHub Actions; Jenkins-based pipelines)",
+        "OpenAPI, OAuth 2.0, JWT", "AI-agent-assisted engineering (Claude Code-class agents, GitHub Copilot, AWS Bedrock)"
+      ]
+    },
+    "executiveScaleNote": "Guillermo currently leads a 90+ person engineering organization at Experity (~40 FTE, 20+ nearshore LATAM, 30+ offshore). Executive scale is kept as a brief bridge here rather than the emphasis of this document; see the executive resume for the full leadership narrative."
+  }
 }
