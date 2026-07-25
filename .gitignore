@@ -18,3 +18,9 @@ node_modules/
 .private/
 
 .serena/cache/
+
+# Local development artifacts
+.agent-notes/
+.mcp.json
+.serena/
+sources/
