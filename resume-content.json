@@ -23,12 +23,12 @@
         "That governance now underpins production AI products: AI Scribe, in use across 1,000+ clinics, 1,600+ providers, and 300+ practices, and Care Agent, in use across 2,000+ clinics and by 200k+ patients. AIM, an insurance-matching agent, is still piloting at 100+ clinics rather than in general release.",
         "## Organizational Scale & Team Operations",
         "Participated in engineering workstreams for a board-sponsored Global Capability Center initiative-contributing to implementation planning, readiness coordination, and cross-functional alignment while the program strategy and ownership remained outside my direct design authority.",
-        "Built and lead a 90+ person multi-disciplinary engineering organization across multiple time zones (~40 FTE, 20+ nearshore LATAM, 30+ offshore) within a PE-backed SaaS scale-up-direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
+        "Built and lead a 90+ person multi-disciplinary engineering organization across multiple time zones (~40 FTE, 20+ nearshore LATAM, 30+ offshore) within a PE-backed SaaS scale-up operating on Agile/Scrum delivery cadences-direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
         "## M&A Integration & Operational Transformation",
         "Led post-acquisition integration of an acquired healthcare platform engineering team-transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership.",
         "Converted recurring operational escalations into an executive operating-model transformation discussion-reframing isolated support conflicts as systemic ownership, escalation, key-person dependency, and product-health investment issues across Engineering, Operations, Product, and executive stakeholders.",
         "## Platform Modernization & Engineering Reliability",
-        "Led a multi-year transformation of architecture from review-oriented advisory activity into an accountable technical leadership capability-clarifying boundaries between architects, Staff Engineers, managers, and delivery teams while emphasizing delivery enablement, distributed ownership, modernization alignment, and measurable outcomes.",
+        "Led a multi-year transformation of architecture from review-oriented advisory activity into an accountable technical leadership capability-clarifying boundaries between architects, Staff Engineers, managers, and delivery teams while emphasizing delivery enablement, distributed ownership, microservices and distributed-systems modernization alignment, and measurable outcomes.",
         "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical latency failure modes and championed Jenkins -> CircleCI migration completed in one day with zero incidents.",
         "## Organizational Leadership & Strategic Operations",
         "Designed quarterly leadership onsites with progressive maturity arc (Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen the Standard). Served as technical ambassador to PE stakeholders. Championed people-first culture under financial constraint-advocating retention cases against committee pushback while maintaining top 10% performance outcomes."
@@ -130,13 +130,15 @@
     {
       "category": "Executive Leadership",
       "items": [
-        "Org Design & Global Team Scaling",
+        "Org Design & Globally Distributed Team Scaling",
+        "PE-Backed SaaS Scale-Up Leadership",
         "Operating Model Transformation",
         "M&A Integration & Operational Maturity",
         "Executive & PE Stakeholder Management",
         "P&L Ownership & Budget Governance",
         "Leadership Development & Talent Advocacy",
-        "Cross-Functional Transformation Participation"
+        "Cross-Functional Leadership & Transformation Participation",
+        "Product-Led Engineering & Agile/Scrum Delivery"
       ]
     },
     {
@@ -158,6 +160,7 @@
         "Architecture Hub & Compliance Scoring",
         "Distributed Ownership & Technical Guardrails",
         "Cloud-Native Platforms (AWS, Azure, GCP)",
+        "Microservices & Distributed Systems Architecture",
         "DDD / SOLID / Platform-First Design"
       ]
     },
@@ -178,8 +181,9 @@
         "AWS (Primary), Azure, GCP",
         "Kubernetes & Container Platforms",
         "SQL Server-backed Product Workflows",
-        "CI/CD Pipeline Modernization",
-        "OpenAPI / OAuth 2.0 / JWT"
+        "DevOps & CI/CD Pipeline Modernization",
+        "RESTful APIs / OpenAPI / OAuth 2.0 / JWT",
+        "React, Next.js, Node.js, TypeScript & Python (Architecture-Level Fluency)"
       ]
     }
   ],
@@ -803,7 +807,7 @@
     "technicalPractice": {
       "foundation": "2000-2016: C#, .NET, ASP.NET, WCF, SOA, DotNetNuke, SQL Server (DBA, data modeling, stored-procedure optimization), Windows-based enterprise application development. Hands-on WPF development earlier in his career; WPF remains part of the stack he leads today, though he has had no direct hands-on work with it in the last decade.",
       "cloudEvolution": "2016-2022: AWS and Azure architecture, Docker and Kubernetes (container deployment and microservices migration off a monolith pattern), ETL and data migration to Azure SQL, event-driven design, distributed scalable patterns, systems integration, GCP (via the Chronicled/MediLedger platform).",
-      "currentPractice": "Experity, 2023-present: AWS-native architecture (Lambda, DynamoDB, ECS, Bedrock), Kubernetes, Kafka and Debezium-based event streaming, Redis, React/Next.js, Node.js and Python/FastAPI, GitHub Actions CI/CD, healthcare-context constraints (HIPAA/HL7/FHIR-aware design), and AI-agent-assisted engineering as a working method-using coding agents for first-draft implementation while retaining human architecture, PR-quality gates, and validation ownership."
+      "currentPractice": "Experity, 2023-present: AWS-native architecture (Lambda, DynamoDB, ECS, Bedrock), Kubernetes, Kafka and Debezium-based event streaming, Redis, React/Next.js, TypeScript, Node.js and Python/FastAPI, RESTful API design, GitHub Actions CI/CD, healthcare-context constraints (HIPAA/HL7/FHIR-aware design), and AI-agent-assisted engineering as a working method-using coding agents for first-draft implementation while retaining human architecture, PR-quality gates, and validation ownership."
     },
     "skills": {
       "current": [
@@ -817,9 +821,9 @@
         "AWS Certified Solutions Architect - Associate (Amazon, 2021) - legacy credential"
       ],
       "technicalRange": [
-        "AWS, Azure, GCP", "Docker, Kubernetes, ECS", "Kafka, Debezium, Redis", "React, Next.js, Node.js, Python/FastAPI",
+        "AWS, Azure, GCP", "Docker, Kubernetes, ECS", "Kafka, Debezium, Redis", "React, Next.js, Node.js, TypeScript, Python/FastAPI",
         "C#, .NET, ASP.NET, WCF, SOA", "SQL Server, PostgreSQL, data modeling and migration", "CI/CD (GitHub Actions; Jenkins-based pipelines)",
-        "OpenAPI, OAuth 2.0, JWT", "AI-agent-assisted engineering (Claude Code-class agents, GitHub Copilot, AWS Bedrock)"
+        "RESTful APIs, OpenAPI, OAuth 2.0, JWT", "Microservices & distributed systems architecture", "AI-agent-assisted engineering (Claude Code-class agents, GitHub Copilot, AWS Bedrock)"
       ]
     },
     "executiveScaleNote": "Guillermo currently leads a 90+ person engineering organization at Experity (~40 FTE, 20+ nearshore LATAM, 30+ offshore). Executive scale is kept as a brief bridge here rather than the emphasis of this document; see the executive resume for the full leadership narrative."
