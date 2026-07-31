@@ -86,7 +86,6 @@
       "company": "HSA Bank, a division of Webster Bank, N.A.",
       "title": "VP, Enterprise Solutions Architect",
       "period": "May 2014 - May 2019",
-      "_reviewNote": "DATE/TITLE CONFLICT TO CONFIRM: the Role Progression line below is the current LinkedIn-sourced structure. Historical PDFs (Cloud Architect msrt + Director Engineering CTOc) show a simpler 2-role structure with DIFFERENT year boundaries: 'VP, Application Development Manager (May 2014 - Jun 2016)' then 'Director/VP, Enterprise Solutions Architect (Jun 2016 - May 2019)' - i.e. App Dev Manager as the FIRST role, not the middle. Resolve which progression is authoritative. Bullets below are enriched from the historical PDFs and organized by topic to stay valid under either progression.",
       "bullets": [
         "## Role Progression",
         "Solutions Architect (May 2014 - Jul 2016, initial engagement via Kforce Inc. contract staffing) -> VP, Application Development Manager (Jul 2016 - Sep 2018) -> VP, Enterprise Solutions Architect (Sep 2018 - May 2019).",
@@ -103,9 +102,8 @@
     },
     {
       "company": "CoreLogic",
-      "title": "Enterprise Application Architect",
+      "title": "Software Architect",
       "period": "Dec 2011 - May 2014",
-      "_reviewNote": "TITLE CONFLICT TO CONFIRM: historical PDFs (Cloud Architect msrt + Director Engineering CTOc) both say 'Enterprise Application Architect'; this entry previously said 'Software Architect'. Set to the historically-sourced title pending confirmation.",
       "bullets": [
         "Defined architectural standards for component and application design, code quality, source control strategy, CI, and application structure; enforced compliance with standards and best practices across deliverables.",
         "Worked with product owners on blueprints and annual planning for feature sets spanning multiple platforms and products.",
