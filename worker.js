@@ -114,7 +114,7 @@ async function handleAnalytics(env) {
       "Content-Type": "text/plain",
     };
 
-    const [impressionsRes, contactsRes, dailyRes] = await Promise.all([
+    const [impressionsRes, contactsRes, dailyRes, byCountryRes, topIspsRes] = await Promise.all([
       fetch(endpoint, {
         method: "POST",
         headers,
@@ -130,11 +130,23 @@ async function handleAnalytics(env) {
         headers,
         body: `SELECT toDate(timestamp) as date, blob2 as variant, count() as count FROM portfolio WHERE blob1 = 'impression' AND timestamp > NOW() - INTERVAL '30' DAY GROUP BY date, variant ORDER BY date, variant`,
       }),
+      fetch(endpoint, {
+        method: "POST",
+        headers,
+        body: `SELECT blob3 as country, count() as count FROM portfolio WHERE blob1 = 'contact' GROUP BY country ORDER BY count DESC`,
+      }),
+      fetch(endpoint, {
+        method: "POST",
+        headers,
+        body: `SELECT blob4 as asn, blob5 as isp, count() as count FROM portfolio WHERE blob1 = 'contact' GROUP BY asn, isp ORDER BY count DESC LIMIT 10`,
+      }),
     ]);
 
     const impressionsData = await impressionsRes.json();
     const contactsData = await contactsRes.json();
     const dailyData = await dailyRes.json();
+    const byCountryData = await byCountryRes.json();
+    const topIspsData = await topIspsRes.json();
 
     const impressions = { herald: 0, cipher: 0, ember: 0 };
     for (const row of impressionsData.data || []) {
@@ -158,7 +170,18 @@ async function handleAnalytics(env) {
       contacts: 0,
     }));
 
-    const result = { impressions, contacts, daily };
+    const contactsByCountry = {};
+    for (const row of byCountryData.data || []) {
+      if (row.country) contactsByCountry[row.country] = Number(row.count);
+    }
+
+    const topIsps = (topIspsData.data || []).map((row) => ({
+      asn: row.asn,
+      isp: row.isp,
+      count: Number(row.count),
+    }));
+
+    const result = { impressions, contacts, contactsByCountry, topIsps, daily };
 
     return new Response(JSON.stringify(result), {
       headers: {
@@ -184,19 +207,26 @@ async function handleContact(request, env) {
     const subject = (fd.get("subject") ?? "").trim() || "(not provided)";
     const page    = (fd.get("page")    ?? "").trim() || "portfolio";
 
-    // Log contact conversion to Analytics Engine
-    if (env.ANALYTICS) {
-      env.ANALYTICS.writeDataPoint({
-        blobs: ["contact", page],
-        indexes: [page],
-      });
-    }
+    // Edge-provided request metadata (free, in-process). request.cf is
+    // populated in the deployed Worker / `wrangler dev --remote`, not the
+    // dashboard Playground preview.
+    const cf = request.cf || {};
+    const ip        = request.headers.get("CF-Connecting-IP") || "(unknown)";
+    const country   = cf.country || "??";
+    const asn       = cf.asn ? `AS${cf.asn}` : "(unknown)";
+    const isp       = cf.asOrganization || "(unknown)";
+    const city      = cf.city || "(unknown)";
+    const region    = cf.region || "(unknown)";
+    const colo      = cf.colo || "(unknown)";
+    const latitude  = cf.latitude || "(unknown)";
+    const longitude = cf.longitude || "(unknown)";
+    const timezone  = cf.timezone || "(unknown)";
 
     const rawEmail = [
       `MIME-Version: 1.0`,
       `From: Portfolio Contact <${FROM_ADDRESS}>`,
       `To: ${TO_ADDRESS}`,
-      `Subject: Portfolio contact from ${name}`,
+      `Subject: [${country}] Portfolio contact from ${name}`,
       `Content-Type: text/plain; charset=utf-8`,
       ``,
       `Contact request submitted via online portfolio`,
@@ -206,10 +236,28 @@ async function handleContact(request, env) {
       `Phone:   ${phone}`,
       `Message: ${subject}`,
       `Source:  ${page}`,
+      ``,
+      `--- Submission metadata ---`,
+      `IP:        ${ip}`,
+      `Country:   ${country} (${city}, ${region})`,
+      `ASN/ISP:   ${asn} / ${isp}`,
+      `Edge colo: ${colo}`,
+      `Location:  ${latitude}, ${longitude}`,
+      `Timezone:  ${timezone}`,
     ].join("\r\n");
 
     const message = new EmailMessage(FROM_ADDRESS, TO_ADDRESS, rawEmail);
     await env.SEND_EMAIL.send(message);
+
+    // Count the contact only after the email send is accepted. Store
+    // aggregable geo/ASN dims for the dashboard; full IP/lat/long/timezone
+    // stay in the email only (lower aggregation value, more PII).
+    if (env.ANALYTICS) {
+      env.ANALYTICS.writeDataPoint({
+        blobs: ["contact", page, country, asn, isp, city, region, colo],
+        indexes: [page],
+      });
+    }
 
     const referer = request.headers.get("Referer") ?? "/";
     return Response.redirect(referer, 303);
