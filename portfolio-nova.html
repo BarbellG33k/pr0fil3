@@ -1016,11 +1016,12 @@ ${tagsHTML}
   if (phone) {
     phone.addEventListener('input', function() {
       var d = this.value.replace(/\D/g, '');
+      if (d.charAt(0) === '1') d = d.substring(1);
+      d = d.substring(0, 10);
       var f = '';
-      if (d.length > 0) f = '+' + d.substring(0, Math.min(2, d.length));
-      if (d.length > 2) f = '+' + d.substring(0, 2) + ' (' + d.substring(2, Math.min(5, d.length));
-      if (d.length > 5) f = '+' + d.substring(0, 2) + ' (' + d.substring(2, 5) + ') ' + d.substring(5, Math.min(9, d.length));
-      if (d.length > 9) f = '+' + d.substring(0, 2) + ' (' + d.substring(2, 5) + ') ' + d.substring(5, 9) + '-' + d.substring(9, 13);
+      if (d.length > 6) f = '+1 (' + d.substring(0, 3) + ') ' + d.substring(3, 6) + '-' + d.substring(6, 10);
+      else if (d.length > 3) f = '+1 (' + d.substring(0, 3) + ') ' + d.substring(3, 6);
+      else if (d.length > 0) f = '+1 (' + d;
       this.value = f;
     });
   }

@@ -191,6 +191,44 @@
             margin: 0 auto;
         }
 
+        .rank-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .rank-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            font-size: 14px;
+        }
+
+        .rank-row.overseas {
+            border-color: rgba(255, 107, 53, 0.4);
+            background: rgba(255, 107, 53, 0.08);
+        }
+
+        .rank-label {
+            color: #ddd;
+        }
+
+        .rank-count {
+            font-weight: 700;
+            color: #00d4ff;
+        }
+
+        .rank-empty {
+            color: #666;
+            font-size: 13px;
+            text-align: center;
+            padding: 20px;
+        }
+
         .loading-overlay {
             position: fixed;
             inset: 0;
@@ -354,6 +392,17 @@
                 <div class="chart-wrapper">
                     <canvas id="chart-funnel"></canvas>
                 </div>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-card">
+                <h3>Contacts by Country</h3>
+                <div id="contacts-by-country" class="rank-list"><div class="rank-empty">No contact data yet</div></div>
+            </div>
+            <div class="chart-card">
+                <h3>Top ISPs / ASNs</h3>
+                <div id="top-isps" class="rank-list"><div class="rank-empty">No contact data yet</div></div>
             </div>
         </div>
 
@@ -546,6 +595,30 @@
             }
         }
 
+        function updateGeo(data) {
+            const countryEl = document.getElementById('contacts-by-country');
+            const ispsEl = document.getElementById('top-isps');
+
+            const countries = Object.entries(data.contactsByCountry || {}).sort((a, b) => b[1] - a[1]);
+            countryEl.innerHTML = countries.length
+                ? countries.map(([code, n]) => {
+                    const overseas = code && code !== 'US';
+                    return `<div class="rank-row${overseas ? ' overseas' : ''}">
+                        <span class="rank-label">${code || '??'}</span>
+                        <span class="rank-count">${n.toLocaleString()}</span>
+                    </div>`;
+                }).join('')
+                : '<div class="rank-empty">No contact data yet</div>';
+
+            const isps = data.topIsps || [];
+            ispsEl.innerHTML = isps.length
+                ? isps.map(r => `<div class="rank-row">
+                    <span class="rank-label">${r.isp} <span style="color:#666;font-size:12px">${r.asn}</span></span>
+                    <span class="rank-count">${r.count.toLocaleString()}</span>
+                </div>`).join('')
+                : '<div class="rank-empty">No contact data yet</div>';
+        }
+
         async function fetchData() {
             const loading = document.getElementById('loading');
             const errorBanner = document.getElementById('error-banner');
@@ -561,6 +634,7 @@
                 updateDoughnutCharts(data);
                 updateDailyChart(data);
                 updateFunnelChart(data);
+                updateGeo(data);
 
                 document.getElementById('last-refresh').textContent = 'Last refresh: ' + formatTime(new Date());
             } catch (err) {
