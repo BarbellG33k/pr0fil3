@@ -7,6 +7,13 @@ const VARIANTS = ["herald", "cipher", "ember"];
 const COOKIE_NAME = "pv";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 
+// Stamped by scripts/stamp-version.sh in CI immediately before `wrangler
+// deploy`, and served at runtime from /api/version. Serving it from the Worker
+// rather than from stamped HTML means an edge-cached index.html can no longer
+// pin the badge to a stale value. Stays as the literal placeholder in git - see
+// the "Versioning" section in readme.md.
+const BUILD_VERSION = "BUILD_VERSION_PLACEHOLDER";
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -28,9 +35,23 @@ export default {
       return handleAnalytics(env);
     }
 
+    if (url.pathname === "/api/version") {
+      return handleVersion();
+    }
+
     return env.ASSETS.fetch(request);
   },
 };
+
+function handleVersion() {
+  return new Response(JSON.stringify({ version: BUILD_VERSION }), {
+    headers: {
+      "Content-Type": "application/json",
+      // Never cache - the badge must reflect the deployment actually running.
+      "Cache-Control": "no-store, must-revalidate",
+    },
+  });
+}
 
 function parseVariantCookie(request) {
   const cookieHeader = request.headers.get("Cookie") || "";

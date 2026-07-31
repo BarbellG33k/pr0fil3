@@ -208,11 +208,13 @@
         }
 
         /* Build version badge - see readme.md "Versioning" section.
-           Value is stamped by scripts/stamp-version.sh in CI, right before
-           `wrangler deploy`, on every push to main. Do not hand-edit the
-           placeholder token in the div below, and do not commit this file
-           if you ran `npm run stamp-version` locally to preview it - undo
-           the stamped value before committing (see readme.md). */
+           The value is resolved at runtime from /api/version (served by
+           worker.js), with the CI-stamped data-static attribute as a fallback.
+           The badge stays hidden unless one of those yielded a real value. Do
+           not hand-edit the placeholder token in the div below, and do not
+           commit this file if you ran `npm run stamp-version` locally to
+           preview it - undo the stamped value before committing (see
+           readme.md). */
         .build-version-badge {
             position: fixed;
             bottom: 8px;
@@ -265,7 +267,7 @@
             </div>
         </div>
     </div>
-    <div class="build-version-badge">BUILD_VERSION_PLACEHOLDER</div>
+    <div class="build-version-badge" id="build-version" hidden data-static="BUILD_VERSION_PLACEHOLDER"></div>
     <script>
       // Fix portfolio link for local file:// access (Worker handles /portfolio in production)
       (function() {
@@ -276,6 +278,29 @@
             link.href = variants[Math.floor(Math.random() * variants.length)];
           }
         }
+      })();
+
+      // Build version badge - see readme.md "Versioning" section.
+      // Prefers /api/version, which worker.js serves with Cache-Control:
+      // no-store, so an edge-cached copy of this page cannot pin the badge to a
+      // stale value. Falls back to the value stamped into data-static. Stays
+      // hidden if neither source was stamped, so the raw placeholder token is
+      // never shown to visitors.
+      (function() {
+        var el = document.getElementById('build-version');
+        if (!el) return;
+        // Split so scripts/stamp-version.sh does not substitute this guard.
+        var TOKEN = 'BUILD_VERSION' + '_PLACEHOLDER';
+        function show(value) {
+          if (!value || value === TOKEN) return;
+          el.textContent = value;
+          el.hidden = false;
+        }
+        show(el.getAttribute('data-static'));
+        fetch('/api/version', { cache: 'no-store' })
+          .then(function(res) { return res.ok ? res.json() : null; })
+          .then(function(data) { if (data) show(data.version); })
+          .catch(function() { /* offline or file:// - keep static value or stay hidden */ });
       })();
     </script>
 </body>
