@@ -89,17 +89,27 @@
       "bullets": [
         "## Role Progression",
         "Solutions Architect (May 2014 - Jul 2016, initial engagement via Kforce Inc. contract staffing) -> VP, Application Development Manager (Jul 2016 - Sep 2018) -> VP, Enterprise Solutions Architect (Sep 2018 - May 2019).",
-        "Architected enterprise integration patterns and governed technology adoption on a regulated financial services platform.",
-        "Reduced support rework by 43% YoY and partnered with the CTO on technical strategy across a 5-year tenure spanning individual architecture through VP-level technology leadership."
+        "## Application Development Leadership",
+        "Recruited, managed, and mentored a development team of up to 37 engineers; hires consistently performed in the top 10% through a rigorous, curiosity-driven evaluation and retention process.",
+        "Reduced support incident rework 43% YoY by establishing an integrated intake -> definition -> alignment -> assignment process.",
+        "Enforced corporate standards across application design, development, and testing through an Architecture Review Board, and built monitoring tooling and processes to detect issues and surface improvement areas.",
+        "## Enterprise Solutions Architecture",
+        "Owned and governed technology adoption, enterprise integration patterns, and application design across a regulated financial services platform; partnered with the CTO on technical strategy and executive communication.",
+        "Designed and led the microservices strategy-migrating from a monolith pattern to Docker containers-and defined the data-storage strategy and implementation roadmaps.",
+        "Defined security protocols for inter-system communication and designed AWS components for prototype customer-facing web and mobile applications with scalable, distributed back-end integration.",
+        "Led periodic governance and architecture board reviews and liaised with product/process owners on roadmaps and vision."
       ]
     },
     {
       "company": "CoreLogic",
-      "title": "Software Architect",
+      "title": "Enterprise Applications Architect",
       "period": "Dec 2011 - May 2014",
       "bullets": [
-        "Defined roadmaps and delivered enterprise solutions with full technical specifications for mortgage and property data platforms.",
-        "Mentored distributed remote and onsite development teams."
+        "Defined architectural standards for component and application design, code quality, source control strategy, CI, and application structure; enforced compliance with standards and best practices across deliverables.",
+        "Worked with product owners on blueprints and annual planning for feature sets spanning multiple platforms and products.",
+        "Led third-party partner integration efforts, authoring detailed technical specifications and mentoring individuals through complex implementations.",
+        "Led adoption of agile practices across the organization.",
+        "Led a distributed team spanning an offshore (Ukraine) developer group and a remote (California) office."
       ]
     },
     {
@@ -107,7 +117,10 @@
       "title": "Applications Architect",
       "period": "May 2010 - Dec 2011",
       "bullets": [
-        "Managed a software development team, driving continuous improvement, engagement, and delivery productivity across release cycles."
+        "Principal architect and lead developer across multi-tier projects on the .NET / Microsoft stack (SQL Server, ASP.NET), owning overall solution design for all delivered work.",
+        "Coordinated feature intake, artifact design, backlog grooming, and the release process across the development team.",
+        "Led refactoring efforts that transformed the foundational architecture underpinning all ongoing initiatives.",
+        "Provided hands-on leadership on architecture, technical design, and performance tuning while managing the team's continuous improvement, engagement, and delivery productivity."
       ]
     },
     {
