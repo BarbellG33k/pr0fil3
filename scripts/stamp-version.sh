@@ -1,8 +1,12 @@
 #!/usr/bin/env bash
-# Stamps the current git commit and a UTC timestamp into any *.html file
-# containing the BUILD_VERSION_PLACEHOLDER token (currently just
-# index.html - see the "Versioning" section in readme.md for the full
-# convention, and for how to add the badge to another page).
+# Stamps the current git commit and a UTC timestamp into any *.html file and
+# into worker.js where the BUILD_VERSION_PLACEHOLDER token appears (currently
+# index.html and worker.js - see the "Versioning" section in readme.md for the
+# full convention, and for how to add the badge to another page).
+#
+# worker.js is stamped because the badge resolves its value at runtime from
+# /api/version. Serving the version from the Worker rather than from stamped
+# HTML means an edge-cached index.html cannot pin the badge to a stale value.
 #
 # Run automatically by .github/workflows/deploy.yml on every push to main,
 # immediately before `wrangler deploy`. Run it locally (`npm run
@@ -16,7 +20,7 @@ SHORT_SHA=$(git rev-parse --short HEAD)
 DEPLOYED_AT=$(date -u +"%b %d, %Y %H:%M UTC")
 VERSION_STRING="${SHORT_SHA} - ${DEPLOYED_AT}"
 
-FILES=$(grep -l "BUILD_VERSION_PLACEHOLDER" ./*.html 2>/dev/null || true)
+FILES=$(grep -l "BUILD_VERSION_PLACEHOLDER" ./*.html ./worker.js 2>/dev/null || true)
 
 if [ -z "$FILES" ]; then
   echo "No files contain BUILD_VERSION_PLACEHOLDER; nothing to stamp."
