@@ -90,6 +90,65 @@
     </style>
 </head>
 <body class="bg-surface text-on-surface font-body selection:bg-secondary-fixed selection:text-on-secondary-fixed">
+<script type="application/json" id="portfolio-data">{
+  "meta": {
+    "name": "Guillermo Salas",
+    "title": "Vice President, Software Engineering",
+    "email": "gsalast@gmail.com",
+    "phone": "+1-414-899-4450",
+    "location": "Elm Grove, Wisconsin",
+    "linkedin": "linkedin.com/in/guillermosalas",
+    "linkedinUrl": "https://linkedin.com/in/guillermosalas"
+  },
+  "summary": "Guillermo Salas is a software engineer who became an enterprise architect and then an executive leader. Two decades in, he still builds people, develops leaders, and pushes engineering execution to a higher standard. That work started hands-on in .NET and cloud architecture, moved through director- and VP-level leadership, and now shows up in how he designs the organization, architecture, and operating model behind Experity's engineering teams. AI-assisted engineering is the newest arena for that same leadership pattern. The pattern itself repeats across CoreLogic, HSA Bank, SafeNet and SysLogic, Chronicled, and Experity: strengthen technical judgment, clarify ownership, and build leaders who can carry the work forward without him in the room.",
+  "hero": {
+    "tagline": "He builds stronger leaders and stronger engineering systems."
+  },
+  "caseStudyCards": [
+    {
+      "category": "Executive Leadership",
+      "title": "Operating Model Transformation",
+      "tagline": "Ownership clarity, escalation design, support model gaps, and product-health investment.",
+      "url": "case-study-operating-model-transformation.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Technical Leadership",
+      "title": "Architecture as Delivery Enablement",
+      "tagline": "Architecture reframed from advisory review into accountable delivery leadership.",
+      "url": "case-study-architecture-delivery-enablement.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "AI Transformation",
+      "title": "AI Development Framework",
+      "tagline": "Developer Directs -> AI Executes -> Developer Validates.",
+      "url": "case-study-ai-development-framework.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Process Innovation",
+      "title": "AI-Native PDLC",
+      "tagline": "Signal -> Context -> Decision -> Execution -> Memory.",
+      "url": "case-study-ai-native-pdlc.html",
+      "variants": ["herald", "cipher", "ember"]
+    },
+    {
+      "category": "Leadership Development",
+      "title": "Leadership Maturation Arc",
+      "tagline": "Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen.",
+      "url": "case-study-leadership-maturation-arc.html",
+      "variants": ["herald", "cipher", "ember"]
+    },
+    {
+      "category": "Agentic Architecture",
+      "title": "Agentic Architecture Discipline",
+      "tagline": "Definition-first, then iteration; cost-to-value before agentic adoption.",
+      "url": "case-study-agentic-architecture-discipline.html",
+      "variants": ["herald", "cipher", "ember"]
+    }
+  ]
+}</script>
 <!-- TopNavBar (Shared Component) -->
 <nav class="fixed top-0 w-full z-50 border-b border-[#747878]/20 glass-nav shadow-sm shadow-[#1a1c1c]/5">
 <div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto transition-all duration-500 ease-in-out">
@@ -161,11 +220,7 @@
 <h2 class="text-secondary font-label text-sm uppercase tracking-[0.5em] mb-4">Deep Dives</h2>
 <h3 class="text-6xl font-headline text-primary tracking-tight">Case Studies</h3>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<a class="bg-white p-8 editorial-shadow border border-outline-variant/30 block hover:border-secondary/40 transition-colors" href="case-study-operating-model-transformation.html"><div class="text-[10px] font-label uppercase tracking-widest text-secondary mb-2">Executive Leadership</div><h4 class="text-xl font-headline font-semibold text-primary-container mb-2">Operating Model Transformation</h4><p class="text-sm text-on-surface-variant leading-relaxed">Ownership clarity, escalation design, and product-health investment.</p></a>
-<a class="bg-white p-8 editorial-shadow border border-outline-variant/30 block hover:border-secondary/40 transition-colors" href="case-study-architecture-delivery-enablement.html"><div class="text-[10px] font-label uppercase tracking-widest text-secondary mb-2">Technical Leadership</div><h4 class="text-xl font-headline font-semibold text-primary-container mb-2">Architecture as Delivery Enablement</h4><p class="text-sm text-on-surface-variant leading-relaxed">Architecture reframed into accountable delivery leadership.</p></a>
-<a class="bg-white p-8 editorial-shadow border border-outline-variant/30 block hover:border-secondary/40 transition-colors" href="case-study-ai-development-framework.html"><div class="text-[10px] font-label uppercase tracking-widest text-secondary mb-2">AI Transformation</div><h4 class="text-xl font-headline font-semibold text-primary-container mb-2">AI Development Framework</h4><p class="text-sm text-on-surface-variant leading-relaxed">Developer Directs -> AI Executes -> Developer Validates.</p></a>
-</div>
+<div data-pc="cards" data-pc-variant="nova" class="grid grid-cols-1 md:grid-cols-3 gap-6"></div>
 </div>
 </section>
 <!-- Skills Section (Bento Grid) -->
@@ -239,6 +294,7 @@
 </div>
 </section>
 </main>
+<script src="portfolio-content.js" defer></script>
 <script>
     // -- Data Loading and Rendering Logic ------------------------------------------
 
@@ -567,6 +623,20 @@
       }
       if (data) {
         window.RESUME_DATA = data;
+        // Portfolio-owned copy (bio, tagline, case-study cards) lives in
+        // portfolio-content.json. Override builderResume's headline + summary
+        // so the hero matches the rest of the portfolio family. The original
+        // builderResume fields are still used for resume-alt.html's PDF/TXT/XML
+        // export which keeps the practitioner narrative.
+        if (window.PortfolioContent && window.PortfolioContent.whenReady) {
+          try { await window.PortfolioContent.whenReady(); } catch (e) { /* ignore */ }
+          const pc = window.PORTFOLIO_DATA;
+          if (pc) {
+            if (!data.builderResume) data.builderResume = {};
+            if (pc.hero && pc.hero.tagline) data.builderResume.headline = pc.hero.tagline;
+            if (pc.summary) data.builderResume.summary = pc.summary;
+          }
+        }
         renderPortfolio(data);
       }
     }
