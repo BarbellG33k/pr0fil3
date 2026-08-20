@@ -61,12 +61,15 @@ builder variant) share `resume-export.js` for downloads. All download formats
 are ATS-optimized for resume importers (Workday and similar):
 
 - **PDF** - linear single-column layout, strict top-to-bottom reading order,
-  standard plain-caps section headings, one role per company (the
-  `## subsection` bullets render as bullet lines, never as standalone
-  headings, so role progressions cannot be split into separate jobs), and
-  certifications as flat `Name - Issuer` lines so issuer names (e.g.
-  Microsoft) never appear on their own line and cannot be parsed as
-  employers or titles.
+  standard plain-caps section headings, and certifications as flat
+  `Name - Issuer` lines. ATS-only experience omits editorial subsection
+  labels and nested promotion timelines, both of which can look like extra
+  jobs to an importer. The synthetic `Early Career` rollup is expanded into
+  its five retained employer/title/date records under a distinct `EARLY
+  CAREER` section. Titles, descriptions, skills, and certification text
+  are normalized to exclude Workday-rejected characters (`[]{}<>/`).
+  Wrapped paragraphs carry semantic `ActualText` so compatible PDF readers
+  and importers receive one logical bullet instead of one line at a time.
 - **TXT** - the same structure as wrapped plain text with `SECTION` +
   `=====` markers.
 - **XML** - HR-XML Resume (2.5 subset): one `EmployerOrg` per company with a

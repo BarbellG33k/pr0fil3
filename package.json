@@ -7,6 +7,7 @@
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
     "test:evidence": "node --test scripts/validate-evidence-ledger.test.mjs",
+    "test:resume-export": "node --test scripts/validate-resume-export.test.mjs",
     "validate:evidence": "node scripts/validate-evidence-ledger.mjs .private/evidence-ledger.json"
   },
   "devDependencies": {
