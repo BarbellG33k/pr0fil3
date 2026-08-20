@@ -60,6 +60,65 @@
     </style>
 </head>
 <body class="selection:bg-dashboard-accent/30 selection:text-dashboard-accent">
+<script type="application/json" id="portfolio-data">{
+  "meta": {
+    "name": "Guillermo Salas",
+    "title": "Vice President, Software Engineering",
+    "email": "gsalast@gmail.com",
+    "phone": "+1-414-899-4450",
+    "location": "Elm Grove, Wisconsin",
+    "linkedin": "linkedin.com/in/guillermosalas",
+    "linkedinUrl": "https://linkedin.com/in/guillermosalas"
+  },
+  "summary": "Guillermo Salas is a software engineer who became an enterprise architect and then an executive leader. Two decades in, he still builds people, develops leaders, and pushes engineering execution to a higher standard. That work started hands-on in .NET and cloud architecture, moved through director- and VP-level leadership, and now shows up in how he designs the organization, architecture, and operating model behind Experity's engineering teams. AI-assisted engineering is the newest arena for that same leadership pattern. The pattern itself repeats across CoreLogic, HSA Bank, SafeNet and SysLogic, Chronicled, and Experity: strengthen technical judgment, clarify ownership, and build leaders who can carry the work forward without him in the room.",
+  "hero": {
+    "tagline": "He builds stronger leaders and stronger engineering systems."
+  },
+  "caseStudyCards": [
+    {
+      "category": "Executive Leadership",
+      "title": "Operating Model Transformation",
+      "tagline": "Ownership clarity, escalation design, support model gaps, and product-health investment.",
+      "url": "case-study-operating-model-transformation.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Technical Leadership",
+      "title": "Architecture as Delivery Enablement",
+      "tagline": "Architecture reframed from advisory review into accountable delivery leadership.",
+      "url": "case-study-architecture-delivery-enablement.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "AI Transformation",
+      "title": "AI Development Framework",
+      "tagline": "Developer Directs -> AI Executes -> Developer Validates.",
+      "url": "case-study-ai-development-framework.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Process Innovation",
+      "title": "AI-Native PDLC",
+      "tagline": "Signal -> Context -> Decision -> Execution -> Memory.",
+      "url": "case-study-ai-native-pdlc.html",
+      "variants": ["herald", "cipher", "ember"]
+    },
+    {
+      "category": "Leadership Development",
+      "title": "Leadership Maturation Arc",
+      "tagline": "Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen.",
+      "url": "case-study-leadership-maturation-arc.html",
+      "variants": ["herald", "cipher", "ember"]
+    },
+    {
+      "category": "Agentic Architecture",
+      "title": "Agentic Architecture Discipline",
+      "tagline": "Definition-first, then iteration; cost-to-value before agentic adoption.",
+      "url": "case-study-agentic-architecture-discipline.html",
+      "variants": ["herald", "cipher", "ember"]
+    }
+  ]
+}</script>
     <nav class="fixed top-0 w-full z-50 border-b border-dashboard-border bg-dashboard-bg/80 backdrop-blur-md">
         <div class="flex justify-between items-center px-6 py-3 max-w-[1600px] mx-auto">
             <div class="flex items-center space-x-3">
@@ -114,11 +173,7 @@
                 </h2>
                 <div class="text-[10px] font-mono text-dashboard-muted uppercase">Deep_Dives</div>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                <a class="stat-card block" href="case-study-operating-model-transformation.html"><div class="text-[9px] font-mono text-dashboard-accent uppercase mb-2">Executive Leadership</div><h4 class="text-base font-bold text-white mb-2">Operating Model Transformation</h4><p class="text-xs text-dashboard-muted leading-relaxed">Ownership clarity, escalation design, and product-health investment.</p></a>
-                <a class="stat-card block" href="case-study-architecture-delivery-enablement.html"><div class="text-[9px] font-mono text-dashboard-accent uppercase mb-2">Technical Leadership</div><h4 class="text-base font-bold text-white mb-2">Architecture as Delivery Enablement</h4><p class="text-xs text-dashboard-muted leading-relaxed">Architecture reframed into accountable delivery leadership.</p></a>
-                <a class="stat-card block" href="case-study-ai-development-framework.html"><div class="text-[9px] font-mono text-dashboard-accent uppercase mb-2">AI Transformation</div><h4 class="text-base font-bold text-white mb-2">AI Development Framework</h4><p class="text-xs text-dashboard-muted leading-relaxed">Developer Directs -> AI Executes -> Developer Validates.</p></a>
-            </div>
+            <div data-pc="cards" data-pc-variant="apex" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4"></div>
         </section>
 
         <section class="py-12" id="skills">
@@ -191,6 +246,7 @@
         document.getElementById('current-year').textContent = new Date().getFullYear();
     </script>
 
+    <script src="portfolio-content.js" defer></script>
     <script>
         const JSON_FILE = 'resume-content.json';
         const EMBEDDED_DATA = {
@@ -203,7 +259,7 @@
             "linkedin": "linkedin.com/in/guillermosalas",
             "linkedinUrl": "https://linkedin.com/in/guillermosalas"
           },
-          "summary": "Guillermo Salas builds engineering organizations with the same discipline he has spent two decades applying to software systems: align talent to real needs, develop leaders deliberately, distribute ownership without losing accountability, and convert ambiguity into durable operating mechanisms. His arc runs from hands-on .NET/SQL Server engineering and enterprise architecture through cloud modernization to VP-level engineering leadership, spanning Fortune 500 consulting, regulated fintech, blockchain-based pharmaceutical compliance, and healthcare SaaS. At Experity, that discipline now spans a 90+ person engineering organization (~40 FTE, 20+ nearshore LATAM, 30+ offshore) across four product areas, where AI-assisted engineering is the newest arena for that leadership, not the whole story.",
+          "summary": "Guillermo Salas builds engineering organizations the way he learned to build software: understand the real need, design for the people who have to operate it, and make ownership explicit enough that it survives without him in the room. That approach starts from two decades as a hands-on builder, an individual contributor across a wide range of languages, platforms, and paradigms before he ever carried a leadership title, and it still shows up in how he leads today: people first, curious by habit, more interested in getting it right than being right about it. That discipline runs from hands-on engineering and enterprise architecture through cloud modernization and into VP-level leadership, across Fortune 500 consulting, regulated fintech, blockchain-based pharmaceutical compliance, and healthcare SaaS. At Experity, he leads a 90+ person engineering organization (~40 FTE, 20+ nearshore LATAM, 30+ offshore) across four product areas. AI-assisted engineering is the newest part of that work, and it sits alongside everything else he's built there.",
           "experience": [
             {
               "company": "Experity",
@@ -421,6 +477,14 @@
                 data = EMBEDDED_DATA;
             }
             window.RESUME_DATA = data;
+            // Portfolio-owned copy (bio, tagline, case-study cards) lives in
+            // portfolio-content.json. Override resume-content.json's top-level
+            // summary so the hero matches the rest of the portfolio family.
+            if (window.PortfolioContent && window.PortfolioContent.whenReady) {
+                try { await window.PortfolioContent.whenReady(); } catch (e) { /* ignore */ }
+                const pc = window.PORTFOLIO_DATA;
+                if (pc && pc.summary) data.summary = pc.summary;
+            }
             render(data);
         }
 

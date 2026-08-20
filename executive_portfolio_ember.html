@@ -59,6 +59,65 @@
 </style>
 </head>
 <body data-variant="ember" class="selection:bg-dashboard-accent/30 selection:text-dashboard-accent">
+<script type="application/json" id="portfolio-data">{
+  "meta": {
+    "name": "Guillermo Salas",
+    "title": "Vice President, Software Engineering",
+    "email": "gsalast@gmail.com",
+    "phone": "+1-414-899-4450",
+    "location": "Elm Grove, Wisconsin",
+    "linkedin": "linkedin.com/in/guillermosalas",
+    "linkedinUrl": "https://linkedin.com/in/guillermosalas"
+  },
+  "summary": "Guillermo Salas is a software engineer who became an enterprise architect and then an executive leader. Two decades in, he still builds people, develops leaders, and pushes engineering execution to a higher standard. That work started hands-on in .NET and cloud architecture, moved through director- and VP-level leadership, and now shows up in how he designs the organization, architecture, and operating model behind Experity's engineering teams. AI-assisted engineering is the newest arena for that same leadership pattern. The pattern itself repeats across CoreLogic, HSA Bank, SafeNet and SysLogic, Chronicled, and Experity: strengthen technical judgment, clarify ownership, and build leaders who can carry the work forward without him in the room.",
+  "hero": {
+    "tagline": "He builds stronger leaders and stronger engineering systems."
+  },
+  "caseStudyCards": [
+    {
+      "category": "Executive Leadership",
+      "title": "Operating Model Transformation",
+      "tagline": "Ownership clarity, escalation design, support model gaps, and product-health investment.",
+      "url": "case-study-operating-model-transformation.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Technical Leadership",
+      "title": "Architecture as Delivery Enablement",
+      "tagline": "Architecture reframed from advisory review into accountable delivery leadership.",
+      "url": "case-study-architecture-delivery-enablement.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "AI Transformation",
+      "title": "AI Development Framework",
+      "tagline": "Developer Directs -> AI Executes -> Developer Validates.",
+      "url": "case-study-ai-development-framework.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Process Innovation",
+      "title": "AI-Native PDLC",
+      "tagline": "Signal -> Context -> Decision -> Execution -> Memory.",
+      "url": "case-study-ai-native-pdlc.html",
+      "variants": ["herald", "cipher", "ember"]
+    },
+    {
+      "category": "Leadership Development",
+      "title": "Leadership Maturation Arc",
+      "tagline": "Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen.",
+      "url": "case-study-leadership-maturation-arc.html",
+      "variants": ["herald", "cipher", "ember"]
+    },
+    {
+      "category": "Agentic Architecture",
+      "title": "Agentic Architecture Discipline",
+      "tagline": "Definition-first, then iteration; cost-to-value before agentic adoption.",
+      "url": "case-study-agentic-architecture-discipline.html",
+      "variants": ["herald", "cipher", "ember"]
+    }
+  ]
+}</script>
 
 <nav class="fixed top-0 w-full z-50 border-b border-dashboard-border bg-dashboard-bg/80 backdrop-blur-md">
 <div class="flex justify-between items-center px-6 py-3 max-w-[1600px] mx-auto">
@@ -95,9 +154,9 @@
 <h1 class="text-5xl md:text-7xl font-bold tracking-tight mb-6 text-white">
   Guillermo Salas
 </h1>
-<p class="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">He builds stronger leaders and stronger engineering systems.</p>
-<p class="text-xl md:text-2xl text-dashboard-muted max-w-2xl leading-relaxed font-light">
-  Guillermo Salas is a software engineer who became an <span class="text-dashboard-text font-medium">enterprise architect and executive leader</span>, spending two decades building people, developing leaders, and raising engineering execution standards-from hands-on .NET and cloud architecture through director- and VP-level leadership to his current role designing the organization, architecture, and operating model behind Experity's engineering teams. <span class="text-dashboard-text font-medium">AI-assisted engineering is his newest arena for that same leadership pattern</span>, not a substitute for it-the same discipline recurs across CoreLogic, HSA Bank, SafeNet and SysLogic, Chronicled, and Experity: strengthen technical judgment, clarify ownership, develop leaders, and turn technology into durable organizational capability.
+<p data-pc="tagline" class="text-2xl md:text-3xl font-bold text-white mb-4 leading-tight">He builds stronger leaders and stronger engineering systems.</p>
+<p data-pc="bio" class="text-xl md:text-2xl text-dashboard-muted max-w-2xl leading-relaxed font-light">
+  Guillermo Salas is a software engineer who became an enterprise architect and then an executive leader. Two decades in, he still builds people, develops leaders, and pushes engineering execution to a higher standard. That work started hands-on in .NET and cloud architecture, moved through director- and VP-level leadership, and now shows up in how he designs the organization, architecture, and operating model behind Experity's engineering teams. AI-assisted engineering is the newest arena for that same leadership pattern. The pattern itself repeats across CoreLogic, HSA Bank, SafeNet and SysLogic, Chronicled, and Experity: strengthen technical judgment, clarify ownership, and build leaders who can carry the work forward without him in the room.
 </p>
 </div>
 </div>
@@ -497,14 +556,7 @@ Case Studies
 </h2>
 <div class="text-[10px] font-mono text-dashboard-muted uppercase">Deep_Dives</div>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="case-studies-grid">
-<a class="stat-card block hover:border-dashboard-accent/60 transition-colors" href="case-study-operating-model-transformation-ember.html"><div class="text-[9px] font-mono text-dashboard-accent uppercase mb-2">Executive Leadership</div><h4 class="text-base font-bold text-white mb-2">Operating Model Transformation</h4><p class="text-xs text-dashboard-muted leading-relaxed">Ownership clarity, escalation design, support model gaps, and product-health investment.</p></a>
-<a class="stat-card block hover:border-dashboard-accent/60 transition-colors" href="case-study-architecture-delivery-enablement-ember.html"><div class="text-[9px] font-mono text-dashboard-accent uppercase mb-2">Technical Leadership</div><h4 class="text-base font-bold text-white mb-2">Architecture as Delivery Enablement</h4><p class="text-xs text-dashboard-muted leading-relaxed">Architecture reframed from advisory review into accountable delivery leadership.</p></a>
-<a class="stat-card block hover:border-dashboard-accent/60 transition-colors" href="case-study-ai-development-framework-ember.html"><div class="text-[9px] font-mono text-dashboard-accent uppercase mb-2">AI Transformation</div><h4 class="text-base font-bold text-white mb-2">AI Development Framework</h4><p class="text-xs text-dashboard-muted leading-relaxed">Developer Directs -> AI Executes -> Developer Validates.</p></a>
-<a class="stat-card block hover:border-dashboard-accent/60 transition-colors" href="case-study-ai-native-pdlc-ember.html"><div class="text-[9px] font-mono text-dashboard-accent uppercase mb-2">Process Innovation</div><h4 class="text-base font-bold text-white mb-2">AI-Native PDLC</h4><p class="text-xs text-dashboard-muted leading-relaxed">Signal -> Context -> Decision -> Execution -> Memory.</p></a>
-<a class="stat-card block hover:border-dashboard-accent/60 transition-colors" href="case-study-leadership-maturation-arc-ember.html"><div class="text-[9px] font-mono text-dashboard-accent uppercase mb-2">Leadership Development</div><h4 class="text-base font-bold text-white mb-2">Leadership Maturation Arc</h4><p class="text-xs text-dashboard-muted leading-relaxed">Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen.</p></a>
-<a class="stat-card block hover:border-dashboard-accent/60 transition-colors" href="case-study-agentic-architecture-discipline-ember.html"><div class="text-[9px] font-mono text-dashboard-accent uppercase mb-2">Agentic Architecture</div><h4 class="text-base font-bold text-white mb-2">Agentic Architecture Discipline</h4><p class="text-xs text-dashboard-muted leading-relaxed">Definition-first, then iteration; cost-to-value before agentic adoption.</p></a>
-</div>
+<div data-pc="cards" data-pc-variant="ember" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="case-studies-grid"></div>
 </section>
 
 <!-- Leadership Frameworks -->
@@ -794,5 +846,6 @@ GS_EMBER_SYSTEM
 })();
 </script>
 
+<script src="portfolio-content.js" defer></script>
 </body>
 </html>

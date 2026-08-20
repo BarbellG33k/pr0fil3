@@ -8,12 +8,13 @@
     "linkedin": "linkedin.com/in/guillermosalas",
     "linkedinUrl": "https://linkedin.com/in/guillermosalas"
   },
-  "summary": "Guillermo Salas builds engineering organizations with the same discipline he has spent two decades applying to software systems: align talent to real needs, develop leaders deliberately, distribute ownership without losing accountability, and convert ambiguity into durable operating mechanisms. His arc runs from hands-on .NET/SQL Server engineering and enterprise architecture through cloud modernization to VP-level engineering leadership, spanning Fortune 500 consulting, regulated fintech, blockchain-based pharmaceutical compliance, and healthcare SaaS. At Experity, that discipline now spans a 90+ person engineering organization (~40 FTE, 20+ nearshore LATAM, 30+ offshore) across four product areas, where AI-assisted engineering is the newest arena for that leadership, not the whole story.",
+  "summary": "Guillermo Salas builds engineering organizations the way he learned to build software: understand the real need, design for the people who have to operate it, and make ownership explicit enough that it survives without him in the room. That approach starts from two decades as a hands-on builder, an individual contributor across a wide range of languages, platforms, and paradigms before he ever carried a leadership title, and it still shows up in how he leads today: people first, curious by habit, more interested in getting it right than being right about it. That discipline runs from hands-on engineering and enterprise architecture through cloud modernization and into VP-level leadership, across Fortune 500 consulting, regulated fintech, blockchain-based pharmaceutical compliance, and healthcare SaaS. At Experity, he leads a 90+ person engineering organization (~40 FTE, 20+ nearshore LATAM, 30+ offshore) across four product areas. AI-assisted engineering is the newest part of that work, and it sits alongside everything else he's built there.",
   "experience": [
     {
       "company": "Experity",
       "title": "Vice President, Software Engineering",
       "period": "Mar 2023 - Present",
+      "tags": ["AI-Augmented Engineering", "AWS", "Kubernetes", "Kafka", "React / Next.js", "Node.js / TypeScript", "Python", "SQL Server", "CI/CD", "HIPAA / HL7 / FHIR"],
       "bullets": [
         "## Role Progression",
         "Promoted three times in three years: Director of Product Development (Mar 2023 - Apr 2024) -> Senior Director of Software Engineering (Apr 2024 - Oct 2025) -> Vice President, Software Engineering (Oct 2025 - Present).",
@@ -38,6 +39,7 @@
       "company": "Chronicled",
       "title": "Implementation Solutions Architect & Head of Customer Success Services",
       "period": "Jul 2022 - Mar 2023",
+      "tags": ["GCP", "Kubernetes", "Blockchain / MediLedger", "Pharma Supply Chain Compliance", "Customer Success"],
       "bullets": [
         "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
         "Served as Head of Customer Success Services (CSS), managing a team of Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
@@ -49,6 +51,7 @@
       "company": "SafeNet Consulting",
       "title": "Director, Solutions Group (Executive Leadership)",
       "period": "Aug 2021 - Jul 2022",
+      "tags": ["AWS", "Azure", "Cloud-Native Architecture", "Fortune 500 Consulting"],
       "bullets": [
         "Held the title of record Director, Solutions Group at the executive-leadership level, while carrying out day-to-day responsibilities acting as Chief Software Architect and customer-facing Solutions Architect.",
         "Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure.",
@@ -59,6 +62,7 @@
       "company": "HealthEquity",
       "title": "Solutions Architect",
       "period": "Mar 2021 - Aug 2021",
+      "tags": ["Solution Architecture", "Technical Code Review", "Benefits Administration"],
       "bullets": [
         "Provided solution architecture and technical code review for benefits administration platform initiatives during a short-term engagement.",
         "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
@@ -68,6 +72,7 @@
       "company": "MoreTalent",
       "title": "Technology Leader & Success Mentor (Part-Time Advisory)",
       "period": "Mar 2020 - Present",
+      "tags": ["Executive Mentorship", "Technical Strategy", "Startup Scaling"],
       "bullets": [
         "Provide part-time executive mentorship to technology leaders and startup founders, advising on engineering leadership, career growth, and organizational scaling.",
         "Support early-stage companies with technical strategy guidance drawn from enterprise architecture and engineering leadership experience."
@@ -77,6 +82,7 @@
       "company": "SysLogic, Inc.",
       "title": "EAA Practice Lead",
       "period": "Jun 2019 - Mar 2021",
+      "tags": ["AWS / Azure", "Docker", "Kubernetes", "ETL / Data Migration", "Cloud Modernization"],
       "bullets": [
         "Championed cloud-first modernization across multiple enterprise engagements, governing solution design and guiding infrastructure adoption for client organizations.",
         "Mentored engineering talent and established repeatable enterprise architecture practices across the consulting practice."
@@ -86,6 +92,7 @@
       "company": "HSA Bank, a division of Webster Bank, N.A.",
       "title": "VP, Enterprise Solutions Architect",
       "period": "May 2014 - May 2019",
+      "tags": [".NET", "SQL Server", "AWS", "Microservices", "Docker", "Regulated Fintech"],
       "bullets": [
         "## Role Progression",
         "Solutions Architect (May 2014 - Jul 2016, initial engagement via Kforce Inc. contract staffing) -> VP, Application Development Manager (Jul 2016 - Sep 2018) -> VP, Enterprise Solutions Architect (Sep 2018 - May 2019).",
@@ -104,6 +111,7 @@
       "company": "CoreLogic",
       "title": "Enterprise Applications Architect",
       "period": "Dec 2011 - May 2014",
+      "tags": ["Enterprise Architecture", "CI Standards", "Agile Adoption", "Distributed Teams"],
       "bullets": [
         "Defined architectural standards for component and application design, code quality, source control strategy, CI, and application structure; enforced compliance with standards and best practices across deliverables.",
         "Worked with product owners on blueprints and annual planning for feature sets spanning multiple platforms and products.",
@@ -116,6 +124,7 @@
       "company": "Health Payment Systems, Inc.",
       "title": "Applications Architect",
       "period": "May 2010 - Dec 2011",
+      "tags": [".NET", "ASP.NET", "SQL Server", "Performance Tuning"],
       "bullets": [
         "Principal architect and lead developer across multi-tier projects on the .NET / Microsoft stack (SQL Server, ASP.NET), owning overall solution design for all delivered work.",
         "Coordinated feature intake, artifact design, backlog grooming, and the release process across the development team.",
@@ -128,6 +137,7 @@
       "title": "Foundational Software Engineering & Consulting Roles",
       "period": "Aug 2000 - May 2010",
       "collapsed": true,
+      "tags": [".NET", "ASP.NET", "WCF", "SOA", "SQL Server", "Scrum"],
       "bullets": [
         "RAIR Technologies, Software Development Manager (Jul 2009 - May 2010): Provided architectural and technical guidance for product development, introduced Scrum as the team's agile framework, and led a virtualization strategy that consolidated hardware investment and improved infrastructure responsiveness.",
         "Zywave, Senior Software Developer -> Manager, Continuous Product Improvement (Jul 2007 - Jun 2009): Led architecture and development for a web portal application on ASP.NET, WCF, and DotNetNuke; contributed to the organization's SOA framework; supervised a team of software engineers across multiple concurrent applications.",
@@ -749,6 +759,7 @@
         "company": "Experity",
         "title": "VP, Software Engineering",
         "period": "Mar 2023 - Present",
+        "tags": ["AWS Lambda / DynamoDB / ECS / Bedrock", "Kubernetes", "Kafka / Debezium", "Redis", "React / Next.js", "TypeScript / Node.js", "Python / FastAPI", "AI-Agent Engineering"],
         "bullets": [
           "## Role Progression",
           "Three promotions in three years: Director of Product Development (Mar 2023 - Apr 2024) -> Senior Director of Software Engineering (Apr 2024 - Oct 2025) -> VP, Software Engineering (Oct 2025 - Present).",
@@ -769,6 +780,7 @@
         "company": "Chronicled",
         "title": "Implementation Solutions Architect & Head of Customer Success Services",
         "period": "Jul 2022 - Mar 2023",
+        "tags": ["GCP", "Kubernetes", "MediLedger Blockchain", "Enterprise Implementation"],
         "bullets": [
           "Led enterprise blockchain solution implementations for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply-chain compliance and track-and-trace regulatory requirements.",
           "Managed a team of Implementation Consultants carrying deep Kubernetes configuration expertise, pairing hands-on platform knowledge with customer-facing solution ownership."
@@ -778,6 +790,7 @@
         "company": "SafeNet Consulting",
         "title": "Director, Solutions Group (Executive Leadership)",
         "period": "Aug 2021 - Jul 2022",
+        "tags": ["AWS", "Azure", "Multi-Tier Cloud-Native Solutions"],
         "bullets": [
           "Held the title of record Director, Solutions Group at the executive-leadership level; day-to-day responsibilities were carried out acting as Chief Software Architect and customer-facing Solutions Architect.",
           "Led an architecture team delivering multi-tier, cloud-native solutions on AWS and Azure for Fortune 500 enterprise clients.",
@@ -788,6 +801,7 @@
         "company": "HealthEquity",
         "title": "Solutions Architect",
         "period": "Mar 2021 - Aug 2021",
+        "tags": ["Solution Architecture", "Code Review", "Security Standards"],
         "bullets": [
           "Provided solution architecture and technical code review for benefits-administration platform initiatives during a short-term engagement bridging SysLogic and SafeNet Consulting.",
           "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
@@ -797,6 +811,7 @@
         "company": "SysLogic, Inc.",
         "title": "Cloud & Enterprise Architecture Lead",
         "period": "May 2019 - Mar 2021",
+        "tags": ["Docker", "Kubernetes", "Azure SQL", "ETL", "AWS / Azure"],
         "bullets": [
           "Developed and deployed Docker containers on Kubernetes; implemented an ETL process migrating legacy on-premises data into an Azure SQL database instance.",
           "Designed the information architecture and asset model for a client organization and delivered the final adopted implementation.",
@@ -807,6 +822,7 @@
         "company": "HSA Bank, a division of Webster Bank, N.A.",
         "title": "VP, Enterprise Solutions Architect",
         "period": "May 2014 - May 2019",
+        "tags": [".NET", "SQL Server", "AWS", "Docker", "Microservices"],
         "bullets": [
           "## Role Progression",
           "Solutions Architect (Kforce Inc. contract staffing, May 2014 - Jul 2016) -> VP, Application Development Manager (Jul 2016 - Sep 2018) -> VP, Enterprise Solutions Architect (Sep 2018 - May 2019).",
