@@ -9,9 +9,13 @@
  * opts: { variant: 'executive' | 'builder', includeEducation: boolean }
  *
  * Design rules (ATS / Workday importer safety):
- * - One role per company: "## subsection" bullets never become standalone
- *   heading lines; they are emitted as bullet lines ("- Role Progression")
- *   so parsers keep them inside the role's description.
+ * - Experience descriptions contain achievements only. Editorial subsection
+ *   labels and nested promotion timelines are omitted because title-like text
+ *   inside a description can be imported as a separate job.
+ * - The synthetic "Early Career" rollup is expanded into its real employers,
+ *   titles, dates, and descriptions under a distinct early-career section.
+ * - Exported titles and descriptions exclude characters rejected by Workday:
+ *   square/curly brackets, angle brackets, and forward slashes.
  * - Certifications are flat "Name - Issuer" lines. Issuer names (e.g.
  *   Microsoft) never appear on their own line, so they cannot be mistaken
  *   for employers or job titles.
@@ -31,12 +35,102 @@ window.ResumeExport = (function () {
     }];
   }
 
-  // Split job bullets into typed lines; "## X" becomes a subhead line that
-  // stays visually and textually inside the role.
-  function typedLines(bullets) {
-    return bullets.map(b => b.startsWith('##')
-      ? { type: 'subhead', text: b.slice(2).trim() }
-      : { type: 'bullet', text: b });
+  function achievementBullets(bullets) {
+    const out = [];
+    let skipProgression = false;
+    bullets.forEach(b => {
+      if (b.startsWith('##')) {
+        skipProgression = b.slice(2).trim().toLowerCase() === 'role progression';
+        return;
+      }
+      if (skipProgression) {
+        skipProgression = false;
+        return;
+      }
+      out.push(b);
+    });
+    return out;
+  }
+
+  function expandEarlyCareer(jobs) {
+    return jobs.flatMap(job => {
+      if (job.company !== 'Early Career') {
+        return [Object.assign({}, job, {
+          careerStage: 'current',
+          bullets: achievementBullets(job.bullets)
+        })];
+      }
+
+      return job.bullets.map(line => {
+        const match = line.match(/^(.+) \(([^()]+)\): (.+)$/);
+        const identity = match && match[1].match(
+          /^(.+?), ((?:Software|Senior|Manager|Integration|\.NET|Technical).+)$/
+        );
+        if (!match || !identity) {
+          return {
+            company: job.company,
+            title: job.title,
+            period: job.period,
+            careerStage: 'early',
+            bullets: [line]
+          };
+        }
+        return {
+          company: identity[1],
+          title: identity[2],
+          period: match[2],
+          careerStage: 'early',
+          bullets: [match[3]]
+        };
+      });
+    });
+  }
+
+  function workdaySafeText(value) {
+    return String(value)
+      .replace(/\s*->\s*/g, ' to ')
+      .replace(/\s*<-\s*/g, ' from ')
+      .replace(/\s*\/\s*/g, ' and ')
+      .replace(/[\[\]{}]/g, '')
+      .replace(/</g, ' less than ')
+      .replace(/>/g, ' greater than ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function sanitizeAtsResume(r) {
+    const safe = workdaySafeText;
+    return Object.assign({}, r, {
+      headline: safe(r.headline),
+      summary: safe(r.summary),
+      jobs: r.jobs.map(job => Object.assign({}, job, {
+        company: safe(job.company),
+        title: safe(job.title),
+        tags: (job.tags || []).map(safe),
+        bullets: job.bullets.map(safe)
+      })),
+      skills: r.skills.map(group => ({
+        category: safe(group.category),
+        items: group.items.map(safe)
+      })),
+      education: r.education.map(item => ({
+        degree: safe(item.degree),
+        institution: safe(item.institution),
+        location: safe(item.location),
+        year: safe(item.year)
+      })),
+      certGroups: r.certGroups.map(group => Object.assign({}, group, {
+        label: safe(group.label),
+        items: group.items.map(safe)
+      })),
+      extra: !r.extra ? null : {
+        title: safe(r.extra.title),
+        intro: r.extra.intro ? safe(r.extra.intro) : null,
+        bullets: (r.extra.bullets || []).map(safe),
+        blocks: (r.extra.blocks || []).map(([label, text]) => [safe(label), safe(text)]),
+        note: r.extra.note ? safe(r.extra.note) : null
+      }
+    });
   }
 
   function normalize(data, variant, includeEducation) {
@@ -50,12 +144,12 @@ window.ResumeExport = (function () {
 
     if (variant === 'builder') {
       const b = data.builderResume;
-      return Object.assign(base, {
+      return sanitizeAtsResume(Object.assign(base, {
         variant,
         fileBase: 'Guillermo_Salas_Resume_Builder',
         headline: b.headline || m.title,
         summary: b.summary,
-        jobs: b.experience,
+        jobs: expandEarlyCareer(b.experience),
         skills: flattenTechnicalRange(b.skills.technicalRange),
         // Builder credentials already carry the issuer inside each item;
         // group labels ("Current", "Historical / Legacy") are safe as
@@ -73,15 +167,15 @@ window.ResumeExport = (function () {
           ],
           note: b.executiveScaleNote || null
         } : null
-      });
+      }));
     }
 
-    return Object.assign(base, {
+    return sanitizeAtsResume(Object.assign(base, {
       variant: 'executive',
       fileBase: 'Guillermo_Salas_Resume',
       headline: m.title,
       summary: data.summary,
-      jobs: data.experience,
+      jobs: expandEarlyCareer(data.experience),
       skills: data.skills,
       // Executive certs are grouped by issuer (Microsoft, Oracle, ...).
       // Issuer names must be inlined per line, never on their own line.
@@ -93,7 +187,7 @@ window.ResumeExport = (function () {
         intro: data.aiPractitioner.intro || null,
         bullets: data.aiPractitioner.bullets || []
       } : null
-    });
+    }));
   }
 
   function certLine(group, item) {
@@ -136,12 +230,18 @@ window.ResumeExport = (function () {
     out.push(...wrapText(r.summary, TXT_WIDTH, 0));
 
     out.push(...sectionTXT('Experience'));
+    let careerStage = 'current';
     r.jobs.forEach((j, i) => {
-      if (i > 0) out.push('');
+      if (j.careerStage === 'early' && careerStage !== 'early') {
+        out.push(...sectionTXT('Early Career'));
+        careerStage = 'early';
+      } else if (i > 0) {
+        out.push('');
+      }
       out.push(j.company + ' | ' + j.period);
       out.push(j.title);
-      typedLines(j.bullets).forEach(l => {
-        wrapText('- ' + l.text, TXT_WIDTH, 2).forEach(wl => out.push(wl));
+      j.bullets.forEach(b => {
+        wrapText('- ' + b, TXT_WIDTH, 2).forEach(wl => out.push(wl));
       });
     });
 
@@ -219,9 +319,7 @@ window.ResumeExport = (function () {
   }
 
   function jobDescriptionXML(bullets) {
-    return bullets.map(b => b.startsWith('##')
-      ? b.slice(2).trim() + ':'
-      : '- ' + b).join('\n');
+    return bullets.map(b => '- ' + b).join('\n');
   }
 
   function buildXML(r) {
@@ -360,13 +458,27 @@ window.ResumeExport = (function () {
     let y = MT;
     const newPage = () => { doc.addPage(); y = MT; };
     const need = h => { if (y + h > PH - MB) newPage(); };
+    const actualTextHex = text => {
+      let hex = 'FEFF';
+      for (let i = 0; i < text.length; i++) {
+        hex += text.charCodeAt(i).toString(16).padStart(4, '0');
+      }
+      return hex.toUpperCase();
+    };
+    const withActualText = (text, draw) => {
+      doc.internal.write('/Span <</ActualText <' + actualTextHex(text) + '>>> BDC');
+      draw();
+      doc.internal.write('EMC');
+    };
 
     const writeWrapped = (text, width, opts) => {
       const o = Object.assign({ font: 'helvetica', style: 'normal', size: 9.5, color: INKL, lineH: 13, x: ML }, opts || {});
       doc.setFont(o.font, o.style); doc.setFontSize(o.size); tc(o.color);
       const lines = doc.splitTextToSize(text, width);
       need(lines.length * o.lineH);
-      lines.forEach((l, i) => doc.text(l, o.x, y + o.size + i * o.lineH - 1));
+      withActualText(text, () => {
+        lines.forEach((l, i) => doc.text(l, o.x, y + o.size + i * o.lineH - 1));
+      });
       y += lines.length * o.lineH;
     };
 
@@ -406,41 +518,51 @@ window.ResumeExport = (function () {
 
     // -- Experience
     heading('Experience');
+    let careerStage = 'current';
     r.jobs.forEach((job, idx) => {
-      if (idx > 0) y += 9;
-      need(52);
+      if (job.careerStage === 'early' && careerStage !== 'early') {
+        heading('Early Career');
+        careerStage = 'early';
+      } else if (idx > 0) {
+        y += 9;
+      }
 
       // Line 1: company (bold, left) + period (right) on one baseline -
       // the adjacency parsers key on. Company wraps if it is long.
       doc.setFont('helvetica', 'bold'); doc.setFontSize(11); tc(INK);
       const periodW = doc.getTextWidth(job.period);
       const companyLines = doc.splitTextToSize(job.company, BODY_W - periodW - 16);
-      companyLines.forEach((l, i) => doc.text(l, ML, y + 10 + i * 13));
-      doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKM);
-      doc.text(job.period, PW - MR, y + 10, { align: 'right' });
-      y += companyLines.length * 13 + 2;
-
-      // Line 2: title
-      doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
       const titleLines = doc.splitTextToSize(job.title, BODY_W);
-      titleLines.forEach((l, i) => doc.text(l, ML, y + 9 + i * 12));
+      const firstBulletLines = job.bullets.length
+        ? doc.splitTextToSize(job.bullets[0], BODY_W - BULLET_INDENT)
+        : [];
+      const headerHeight = companyLines.length * 13 + 2 + titleLines.length * 12 + 3;
+      const firstBulletHeight = firstBulletLines.length * 13 + (firstBulletLines.length ? 1 : 0);
+      // Never orphan an employer/title block at the bottom of a page. At
+      // least the first achievement must remain attached to the job header.
+      need(headerHeight + firstBulletHeight);
+
+      withActualText(job.company + ' | ' + job.period + '\n' + job.title, () => {
+        companyLines.forEach((l, i) => doc.text(l, ML, y + 10 + i * 13));
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKM);
+        doc.text(job.period, PW - MR, y + 10, { align: 'right' });
+        y += companyLines.length * 13 + 2;
+
+        // Line 2: title
+        doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
+        titleLines.forEach((l, i) => doc.text(l, ML, y + 9 + i * 12));
+      });
       y += titleLines.length * 12 + 3;
 
-      // Bullets; "## subsection" stays a bullet line so the role never splits.
-      typedLines(job.bullets).forEach(l => {
-        if (l.type === 'subhead') {
-          need(16);
-          doc.setFont('helvetica', 'bold'); doc.setFontSize(9.5); tc(INK);
-          doc.text('- ' + l.text, ML, y + 9);
-          y += 14;
-          return;
-        }
+      job.bullets.forEach(b => {
         doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
-        const lines = doc.splitTextToSize(l.text, BODY_W - BULLET_INDENT);
+        const lines = doc.splitTextToSize(b, BODY_W - BULLET_INDENT);
         need(lines.length * 13);
-        tc(INKM); doc.text('-', ML, y + 9);
-        tc(INKL);
-        lines.forEach((ln, li) => doc.text(ln, ML + BULLET_INDENT, y + 9 + li * 13));
+        withActualText('- ' + b, () => {
+          tc(INKM); doc.text('-', ML, y + 9);
+          tc(INKL);
+          lines.forEach((ln, li) => doc.text(ln, ML + BULLET_INDENT, y + 9 + li * 13));
+        });
         y += lines.length * 13 + 1;
       });
       y += 2;
@@ -493,61 +615,6 @@ window.ResumeExport = (function () {
       });
     });
 
-    // -- Extra section (AI Practice / Technical Practice)
-    if (r.extra) {
-      heading(r.extra.title);
-      if (r.extra.intro) {
-        writeWrapped(r.extra.intro, BODY_W, { style: 'italic' });
-        y += 6;
-      }
-      (r.extra.bullets || []).forEach(b => {
-        const colon = b.indexOf(':');
-        const hasLabel = colon > 0 && colon < 35;
-        if (hasLabel) {
-          const label = b.slice(0, colon + 1) + ' ';
-          const rest = b.slice(colon + 1).trim();
-          doc.setFont('helvetica', 'bold'); doc.setFontSize(9.5); tc(INK);
-          const labelW = doc.getTextWidth(label);
-          doc.setFont('helvetica', 'normal'); tc(INKL);
-          const lines = doc.splitTextToSize(label + rest, BODY_W - BULLET_INDENT);
-          need(lines.length * 13);
-          tc(INKM); doc.text('-', ML, y + 9);
-          tc(INK);
-          doc.setFont('helvetica', 'bold');
-          doc.text(label, ML + BULLET_INDENT, y + 9);
-          doc.setFont('helvetica', 'normal'); tc(INKL);
-          const firstRest = doc.splitTextToSize(rest, BODY_W - BULLET_INDENT - labelW);
-          doc.text(firstRest[0], ML + BULLET_INDENT + labelW, y + 9);
-          const remaining = firstRest.length - 1;
-          firstRest.slice(1).forEach((ln, i) => doc.text(ln, ML + BULLET_INDENT, y + 9 + (i + 1) * 13));
-          y += (remaining + 1) * 13 + 1;
-        } else {
-          doc.setFont('helvetica', 'normal'); doc.setFontSize(9.5); tc(INKL);
-          const lines = doc.splitTextToSize(b, BODY_W - BULLET_INDENT);
-          need(lines.length * 13);
-          tc(INKM); doc.text('-', ML, y + 9);
-          tc(INKL);
-          lines.forEach((ln, li) => doc.text(ln, ML + BULLET_INDENT, y + 9 + li * 13));
-          y += lines.length * 13 + 1;
-        }
-      });
-      (r.extra.blocks || []).forEach(([label, text]) => {
-        need(18);
-        doc.setFont('helvetica', 'bold'); doc.setFontSize(9.5); tc(INK);
-        doc.text(label + ':', ML, y + 9);
-        y += 14;
-        writeWrapped(text, BODY_W);
-        y += 5;
-      });
-      if (r.extra.note) {
-        need(18);
-        doc.setFont('helvetica', 'bold'); doc.setFontSize(9.5); tc(INK);
-        doc.text('Executive Scale:', ML, y + 9);
-        y += 14;
-        writeWrapped(r.extra.note, BODY_W, { style: 'italic', color: INKM });
-      }
-    }
-
     return doc;
   }
 
@@ -595,6 +662,7 @@ window.ResumeExport = (function () {
       const o = Object.assign({ variant: 'executive', includeEducation: false }, opts);
       const r = normalize(data, o.variant, o.includeEducation);
       saveBlob(buildXML(r), 'application/xml;charset=utf-8', r.fileBase + '.xml');
-    }
+    },
+    _test: { normalize, buildTXT, buildXML }
   };
 })();
