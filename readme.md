@@ -8,6 +8,41 @@ Static resume and portfolio site for Guillermo Salas, deployed via Cloudflare Wo
 - Use absolute favicon paths (`/favicon.svg`) so direct pages and Worker-routed pages resolve the icon consistently.
 - When describing database experience, do not imply that Guillermo's primary or direct Experity RDBMS focus is PostgreSQL. Experity's primary product workflows are SQL Server-backed at scale. PostgreSQL experience should be framed as coming from Chronicled, select Experity products, and personal projects.
 
+## Resume exports and templates
+
+Both resume pages (`resume.html` = executive variant, `resume-alt.html` =
+builder variant) share `resume-export.js` for downloads. All download formats
+are ATS-optimized for resume importers (Workday and similar):
+
+- **PDF** - linear single-column layout, strict top-to-bottom reading order,
+  standard plain-caps section headings, one role per company (the
+  `## subsection` bullets render as bullet lines, never as standalone
+  headings, so role progressions cannot be split into separate jobs), and
+  certifications as flat `Name - Issuer` lines so issuer names (e.g.
+  Microsoft) never appear on their own line and cannot be parsed as
+  employers or titles.
+- **TXT** - the same structure as wrapped plain text with `SECTION` +
+  `=====` markers.
+- **XML** - HR-XML Resume (2.5 subset): one `EmployerOrg` per company with a
+  single `PositionHistory`, `LicensesAndCertifications`, `Qualifications`,
+  and non-standard sections preserved under `UserArea`.
+- **JSON** - the raw `resume-content.json` payload (not ATS-targeted).
+
+`includeEducation` (the owner-only education toggle) is honored by all three
+ATS formats. The Print button still produces the themed visual layout via the
+browser.
+
+Templates: the theme selector controls real layouts, not just palettes.
+`Ledger` is a structural template (left date rail, `Title - Company`
+headlines, mono tech-tag line under each role) modeled on a modern engineer
+CV; it re-renders the page with theme-specific markup. Per-job `tags` arrays
+in `resume-content.json` feed the tag lines - keep them in sync in the
+embedded fallback data in both HTML files when editing content.
+
+`Ledger` is the default for new visitors on both pages, and is the first
+option in the theme selector. Existing visitors keep their previously chosen
+theme via `localStorage`.
+
 ## Resume owner controls
 
 The education section is intentionally excluded by default on resume pages. The visible education toggle is hidden from normal visitors to avoid drawing attention to it.
