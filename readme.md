@@ -9,10 +9,11 @@ Static resume and portfolio site for Guillermo Salas, deployed via Cloudflare Wo
   files, and static executive portfolio variants. `resume-content.json` owns
   resume-flavored copy (exec summary, builder narrative, experience, skills,
   certifications). `portfolio-content.json` owns portfolio-flavored copy
-  (portfolio bio, hero tagline, case-study cards) used by all five portfolio
-  pages. Edit copy in the JSON files, then mirror the same change into the
-  embedded `<script type="application/json" id="…-data">` fallback block in
-  each HTML file that has one.
+  (portfolio bio, hero tagline, case-study cards) delivered to all five
+  portfolio pages. Edit copy in the JSON files, then mirror the same change
+  into the embedded fallback payload of each HTML file (a
+  `<script type="application/json" id="portfolio-data">` block in the
+  portfolio HTML; a JS `EMBEDDED_DATA` constant in the resume HTML).
 - Use absolute favicon paths (`/favicon.svg`) so direct pages and Worker-routed pages resolve the icon consistently.
 - When describing database experience, do not imply that Guillermo's primary or direct Experity RDBMS focus is PostgreSQL. Experity's primary product workflows are SQL Server-backed at scale. PostgreSQL experience should be framed as coming from Chronicled, select Experity products, and personal projects.
 
@@ -22,35 +23,34 @@ The five portfolio pages (`executive_portfolio_herald.html`,
 `executive_portfolio_cipher.html`, `executive_portfolio_ember.html`,
 `portfolio-apex.html`, `portfolio-nova.html`) share one content source:
 
-- `portfolio-content.json` - structured payload with `meta`, `summary` (the
-  portfolio bio, distinct in voice from the resume summary), `hero.tagline`,
-  and `caseStudyCards[]`. Each card declares a `variants` array listing
-  which portfolio pages it should appear on; the loader filters by the
-  current page's `data-pc-variant` attribute (or `body[data-variant]`,
-  defaulting to `all`).
-- `portfolio-content.js` - shared loader. It fetches `portfolio-content.json`
-  live, falls back to a `<script type="application/json" id="portfolio-data">`
-  block embedded in each HTML file (so `file://` previews still render), and
-  exposes `window.Portfolio_DATA` plus a `PortfolioContent.whenReady(cb)`
-  Promise API. It hydrates DOM hooks tagged with
-  `data-pc="tagline|bio|cards"`. Pages with custom JS pipelines
-  (`portfolio-apex.html`, `portfolio-nova.html`) call
-  `PortfolioContent.whenReady()` inside their `loadResume()` and override the
-  resume-content data with portfolio-content fields (bio, tagline) before
-  rendering.
+- `portfolio-content.json` - payload with `meta`, `summary` (the portfolio
+  bio, distinct in voice from the resume summary), `hero.tagline`, and
+  `caseStudyCards[]`. Each card has a `variants` array naming the portfolio
+  pages it should appear on; the loader filters by the page's
+  `data-pc-variant` attribute (falls back to `body[data-variant]`, then
+  `all`).
+- `portfolio-content.js` - the shared loader. It fetches
+  `portfolio-content.json`, falls back to a
+  `<script type="application/json" id="portfolio-data">` block embedded in
+  each portfolio HTML (so `file://` previews still render), and hydrates
+  DOM hooks tagged `data-pc="tagline|bio|cards"`. Pages with custom JS
+  pipelines (`portfolio-apex.html`, `portfolio-nova.html`) call
+  `PortfolioContent.whenReady()` inside their `loadResume()` and override
+  the resume-content fields (bio, headline) with portfolio-content values
+  before rendering.
 
-URL suffix handling: cipher and ember ship themed URL variants of each case
-study (e.g. `case-study-architecture-delivery-enablement-cipher.html`).
-`caseStudyUrl(url, variant)` appends `-cipher`/`-ember` only for those two
-variants and returns the base URL unchanged for herald/apex/nova. Don't bake
-the variant suffix into the JSON - the loader owns it.
+URL suffix handling. Cipher and ember ship themed URL variants of each case
+study (`case-study-…-cipher.html`, `…-ember.html`). The loader appends
+`-cipher` / `-ember` only for those two variants and returns the base URL
+unchanged for herald/apex/nova. Don't bake the suffix into the JSON - the
+loader owns it.
 
-Card templates are variant-specific in the loader's `renderCardHtml()`:
-cipher and ember use `stat-card` (dashboard styling); apex uses inline
+Card templates are per-variant in the loader's `renderCardHtml()`. Cipher
+and ember use `stat-card` (dashboard styling); apex uses inline
 `stat-card`; nova uses editorial `bg-white p-8 editorial-shadow`; herald
-uses rounded editorial `bg-white p-6 rounded-xl`. When adding a card, write
-the copy in `portfolio-content.json`; the loader picks the template at
-render time.
+uses rounded editorial `bg-white p-6 rounded-xl`. Add a card by writing its
+copy in `portfolio-content.json`; the loader picks the template at render
+time.
 
 
 
