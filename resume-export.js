@@ -9,9 +9,10 @@
  * opts: { variant: 'executive' | 'builder', includeEducation: boolean }
  *
  * Design rules (ATS / Workday importer safety):
- * - Experience descriptions contain achievements only. Editorial subsection
- *   labels and nested promotion timelines are omitted because title-like text
- *   inside a description can be imported as a separate job.
+ * - Experience descriptions contain achievements and a narrative promotion-
+ *   progression bullet (phrased without parenthetical date ranges so ATS
+ *   parsers cannot mistake it for a separate job entry). Editorial subsection
+ *   labels (## headings) are omitted because they are visual, not content.
  * - The synthetic "Early Career" rollup is expanded into its real employers,
  *   titles, dates, and descriptions under a distinct early-career section.
  * - Exported titles and descriptions exclude characters rejected by Workday:
@@ -36,20 +37,7 @@ window.ResumeExport = (function () {
   }
 
   function achievementBullets(bullets) {
-    const out = [];
-    let skipProgression = false;
-    bullets.forEach(b => {
-      if (b.startsWith('##')) {
-        skipProgression = b.slice(2).trim().toLowerCase() === 'role progression';
-        return;
-      }
-      if (skipProgression) {
-        skipProgression = false;
-        return;
-      }
-      out.push(b);
-    });
-    return out;
+    return bullets.filter(b => !b.startsWith('##'));
   }
 
   function expandEarlyCareer(jobs) {
@@ -98,6 +86,10 @@ window.ResumeExport = (function () {
       .trim();
   }
 
+  function stripTitleCommas(value) {
+    return workdaySafeText(value).replace(/,\s*/g, ' ');
+  }
+
   function sanitizeAtsResume(r) {
     const safe = workdaySafeText;
     return Object.assign({}, r, {
@@ -105,7 +97,7 @@ window.ResumeExport = (function () {
       summary: safe(r.summary),
       jobs: r.jobs.map(job => Object.assign({}, job, {
         company: safe(job.company),
-        title: safe(job.title),
+        title: stripTitleCommas(job.title),
         tags: (job.tags || []).map(safe),
         bullets: job.bullets.map(safe)
       })),
@@ -196,38 +188,31 @@ window.ResumeExport = (function () {
 
   // -- Plain text helpers -----------------------------------------------------
 
-  const TXT_WIDTH = 92;
-
-  function wrapText(text, width, indent) {
-    const words = String(text).split(/\s+/).filter(Boolean);
-    const lines = [];
-    let line = '';
-    const pad = ' '.repeat(indent);
-    words.forEach(w => {
-      const candidate = line ? line + ' ' + w : pad + w;
-      if (candidate.length > width && line) {
-        lines.push(line);
-        line = pad + w;
-      } else {
-        line = candidate;
-      }
-    });
-    if (line) lines.push(line);
-    return lines;
-  }
-
   function sectionTXT(title) {
     return ['', title.toUpperCase(), '='.repeat(title.length), ''];
   }
 
+  function formatPhone(phone) {
+    const digits = String(phone).replace(/\D/g, '');
+    if (digits.length === 11 && digits.startsWith('1')) {
+      return '(' + digits.slice(1, 4) + ') ' + digits.slice(4, 7) + '-' + digits.slice(7);
+    }
+    if (digits.length === 10) {
+      return '(' + digits.slice(0, 3) + ') ' + digits.slice(3, 6) + '-' + digits.slice(6);
+    }
+    return phone;
+  }
+
   function buildTXT(r) {
     const out = [];
-    out.push(r.name.toUpperCase());
+    out.push(r.name);
     out.push(r.headline);
-    out.push(r.contact.join(' | '));
+    const contact = r.contact.slice();
+    if (contact[1]) contact[1] = formatPhone(contact[1]);
+    out.push(contact.join(' | '));
 
     out.push(...sectionTXT('Summary'));
-    out.push(...wrapText(r.summary, TXT_WIDTH, 0));
+    out.push(r.summary);
 
     out.push(...sectionTXT('Experience'));
     let careerStage = 'current';
@@ -241,13 +226,13 @@ window.ResumeExport = (function () {
       out.push(j.company + ' | ' + j.period);
       out.push(j.title);
       j.bullets.forEach(b => {
-        wrapText('- ' + b, TXT_WIDTH, 2).forEach(wl => out.push(wl));
+        out.push('  - ' + b);
       });
     });
 
     out.push(...sectionTXT('Skills'));
     r.skills.forEach(sg => {
-      wrapText(sg.category + ': ' + sg.items.join(', '), TXT_WIDTH, 2).forEach(wl => out.push(wl));
+      out.push('  ' + sg.category + ': ' + sg.items.join(', '));
       out.push('');
     });
     if (out[out.length - 1] === '') out.pop();
@@ -264,28 +249,28 @@ window.ResumeExport = (function () {
       if (gi > 0 && !g.inlineIssuer) out.push('');
       if (!g.inlineIssuer && r.certGroups.length > 1) out.push(g.label + ':');
       g.items.forEach(item => {
-        wrapText('- ' + certLine(g, item), TXT_WIDTH, 2).forEach(wl => out.push(wl));
+        out.push('  - ' + certLine(g, item));
       });
     });
 
     if (r.extra) {
       out.push(...sectionTXT(r.extra.title));
       if (r.extra.intro) {
-        out.push(...wrapText(r.extra.intro, TXT_WIDTH, 0));
+        out.push(r.extra.intro);
         out.push('');
       }
       (r.extra.bullets || []).forEach(b => {
-        wrapText('- ' + b, TXT_WIDTH, 2).forEach(wl => out.push(wl));
+        out.push('  - ' + b);
       });
       (r.extra.blocks || []).forEach(([label, text], i) => {
         if (i > 0 || r.extra.intro) out.push('');
         out.push(label + ':');
-        out.push(...wrapText(text, TXT_WIDTH, 2));
+        out.push('  ' + text);
       });
       if (r.extra.note) {
         out.push('');
         out.push('Executive Scale:');
-        out.push(...wrapText(r.extra.note, TXT_WIDTH, 2));
+        out.push('  ' + r.extra.note);
       }
     }
 
