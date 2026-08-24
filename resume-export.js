@@ -374,9 +374,13 @@ window.ResumeExport = (function () {
       g.items.forEach(item => {
         let name = item, authority = g.inlineIssuer ? g.label : g.label;
         if (!g.inlineIssuer) {
-          // Builder items often end with "(Issuer)" - split it out.
-          const m = item.match(/^(.*?)\s*\(([^()]+)\)\s*$/);
-          if (m) { name = m[1].replace(/[,\s]+$/, ''); authority = m[2]; }
+          // Builder items carry the issuer in parentheses, optionally followed
+          // by a legacy-status qualifier that remains part of the credential name.
+          const m = item.match(/^(.*)\s*\(([^()]+)\)(\s*-\s*legacy.*)?$/);
+          if (m) {
+            name = (m[1].trimEnd() + (m[3] || '')).replace(/[,\s]+$/, '');
+            authority = m[2];
+          }
         }
         x += '      <LicenseOrCertification>\n';
         x += '        <Name>' + xe(name) + '</Name>\n';

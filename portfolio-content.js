@@ -134,7 +134,11 @@ window.PortfolioContent = (function () {
 
   return {
     data: function () { return data; },
-    whenReady: function (cb) { return ready.then(function () { cb(data); }); },
+    whenReady: function (cb) {
+      return ready.then(function () {
+        return typeof cb === 'function' ? cb(data) : data;
+      });
+    },
     caseStudyUrl: caseStudyUrl,
     esc: esc,
     hydrate: hydrate

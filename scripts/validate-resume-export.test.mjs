@@ -20,8 +20,10 @@ for (const variant of ["executive", "builder"]) {
     assert.equal(resume.jobs.some(job => job.company === "Early Career"), false);
     assert.equal(jobText.includes("##"), false);
     assert.equal(jobText.toLowerCase().includes("role progression"), false);
-    assert.equal(jobText.includes("Promoted three times in three years"), false);
-    assert.equal(jobText.includes("Three promotions in three years"), false);
+    const promotion = variant === "executive"
+      ? "Promoted three times in three years"
+      : "Three promotions in three years";
+    assert.ok(jobText.includes(promotion));
     assert.ok(resume.jobs.every(job => job.company && job.title && job.period));
     assert.ok(resume.jobs.every(job => job.bullets.length > 0));
     assert.equal(workdayForbidden.test(resume.headline), false);
@@ -72,6 +74,16 @@ for (const variant of ["executive", "builder"]) {
       txt.includes("Foundational Software Engineering & Consulting Roles"),
       false
     );
+    if (variant === "builder") {
+      assert.match(
+        xml,
+        /<Name>Microsoft Certified Database Administrator \(MCDBA\), Microsoft Certified Solutions Developer \(MCSD\), Microsoft Certified Systems Engineer \(MCSE\) - legacy, retired program tracks<\/Name>\s*<IssuingAuthority>Microsoft, 2000-2005<\/IssuingAuthority>/
+      );
+      assert.match(
+        xml,
+        /<Name>AWS Certified Solutions Architect - Associate - legacy credential<\/Name>\s*<IssuingAuthority>Amazon, 2021<\/IssuingAuthority>/
+      );
+    }
 
     for (const job of resume.jobs) {
       assert.ok(txt.includes(job.company), job.company);
