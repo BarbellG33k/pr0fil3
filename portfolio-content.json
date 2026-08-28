@@ -54,6 +54,48 @@
       "tagline": "Definition-first, then iteration; cost-to-value before agentic adoption.",
       "url": "case-study-agentic-architecture-discipline.html",
       "variants": ["herald", "cipher", "ember"]
+    },
+    {
+      "category": "AI Transformation",
+      "title": "Agent-Multiplied Delivery",
+      "tagline": "One engineer, many agents - automated PR review with guardrails and human-review fallback.",
+      "url": "case-study-agent-multiplied-delivery.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Process Innovation",
+      "title": "Definition Pipeline",
+      "tagline": "Idea -> PRD -> TRD -> Plan -> Tasks: BMAD lineage, homegrown.",
+      "url": "case-study-definition-pipeline.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "AI Governance",
+      "title": "AI Unit Economics",
+      "tagline": "Model selection, token economics, and unit-of-work cost control for AI at scale.",
+      "url": "case-study-ai-unit-economics.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Security",
+      "title": "Security Rails & AI Security Posture",
+      "tagline": "Early security partnership, measured guardrails, and a posture that got stronger, not riskier.",
+      "url": "case-study-security-rails-ai-security-posture.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Engineering Culture",
+      "title": "Value Delivery Engineering",
+      "tagline": "Ticket-takers -> value-delivery engineers: partner with product, right-size the work, own outcomes.",
+      "url": "case-study-value-delivery-engineering.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+    },
+    {
+      "category": "Platform Strategy",
+      "title": "Platform Initiative",
+      "tagline": "Mercenary architecture turned into reusable components, patterns, knowledge, and standards.",
+      "url": "case-study-platform-initiative.html",
+      "variants": ["herald", "cipher", "ember", "apex", "nova"]
     }
   ]
 }

@@ -1,14 +1,14 @@
 {
   "meta": {
     "name": "Guillermo Salas",
-    "title": "EVP SOFTWARE ENGINEERING / CTO",
+    "title": "VP, SOFTWARE ENGINEERING / CTO",
     "email": "gsalast@gmail.com",
     "phone": "+1-414-899-4450",
     "location": "Elm Grove, Wisconsin",
     "linkedin": "linkedin.com/in/guillermosalas",
     "linkedinUrl": "https://linkedin.com/in/guillermosalas"
   },
-  "summary": "Guillermo Salas builds engineering organizations the way he learned to build software: understand the real need, design for the people who have to operate it, and make ownership explicit enough that it survives without him in the room. That approach starts from two decades as a hands-on builder, an individual contributor across a wide range of languages, platforms, and paradigms before he ever carried a leadership title, and it still shows up in how he leads today: people first, curious by habit, more interested in getting it right than being right about it. That discipline runs from hands-on engineering and enterprise architecture through cloud modernization and into VP-level leadership, across Fortune 500 consulting, regulated fintech, blockchain-based pharmaceutical compliance, and healthcare SaaS. At Experity, he leads a 90+ person engineering organization (~40 FTE, 20+ nearshore LATAM, 30+ offshore) across four product areas. AI-assisted engineering is the newest part of that work, and it sits alongside everything else he's built there.",
+  "summary": "Guillermo Salas builds engineering organizations the way he learned to build software: understand the real need, design for the people who have to operate it, and make ownership explicit enough that it survives without him in the room. That approach starts from two decades as a hands-on builder, an individual contributor across a wide range of languages, platforms, and paradigms before he ever carried a leadership title, and it still shows up in how he leads today: people first, curious by habit, more interested in getting it right than being right about it. That discipline runs from hands-on engineering and enterprise architecture through cloud modernization and into VP-level leadership, across Fortune 500 consulting, regulated fintech, blockchain-based pharmaceutical compliance, and healthcare SaaS. At Experity, a market-leading healthcare SaaS company, he leads a direct engineering organization of 70-100 across seven teams - software engineering, quality engineering, DevOps, and platform - with six direct reports and product partners matrixed alongside. He instituted the organization's AI-augmented SDLC - governance, agentic workflows, and cost discipline - and that governance now underpins production AI products in use across thousands of clinics. He is at his best building and growing: new products, new markets, and new business lines, with engineering organizations constructed to withstand scrutiny from regulators, boards, and eventual acquirers.",
   "experience": [
     {
       "company": "Experity",
@@ -19,20 +19,24 @@
         "## Role Progression",
         "Promoted three times in three years, advancing from Director of Product Development to Senior Director of Software Engineering to Vice President, Software Engineering.",
         "## AI-First Organizational Transformation",
-        "Championed enterprise AI adoption against initial executive resistance-delivering a documented 3-4x increase in meaningful code output (500K -> 1.5-2M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs -> AI Executes -> Developer Validates), and created the AI-Native PDLC-a 5-stage framework feeding curated context to both engineers and AI agents.",
-        "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols-converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC.",
-        "That governance now underpins production AI products: AI Scribe, in use across 1,000+ clinics, 1,600+ providers, and 300+ practices, and Care Agent, in use across 2,000+ clinics and by 200k+ patients. AIM, an insurance-matching agent, is still piloting at 100+ clinics rather than in general release.",
+        "Championed enterprise AI adoption against initial executive resistance-instituting the organization's AI-augmented SDLC and delivering a documented 3-4x increase in meaningful code output (500K -> 1.5-2M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs -> AI Executes -> Developer Validates), and created the AI-Native PDLC-a 5-stage framework feeding curated context to both engineers and AI agents.",
+        "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols-converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC. Defined the security rails with security stakeholders early in adoption, so AI surfaces and remediates previously invisible weaknesses and leaves the security posture materially stronger than before.",
+        "Scaled adoption from individual developer productivity to an agent-multiplied delivery model-multiple agents per engineer, automated LLM-based PR review against guardrails with human review reserved for what falls out, and unit-of-work cost governance keeping AI economics rational at scale.",
+        "That governance now underpins production agentic products-AI Scribe, in use across 1,000+ clinics, 1,600+ providers, and 300+ practices, and Care Agent, in use across 2,000+ clinics and by 200k+ patients-embedding agentic workflows directly into the customer experience. AIM, an insurance-matching agent, is still piloting at 100+ clinics rather than in general release.",
         "## Organizational Scale & Team Operations",
         "Participated in engineering workstreams for a board-sponsored Global Capability Center initiative-contributing to implementation planning, readiness coordination, and cross-functional alignment while the program strategy and ownership remained outside my direct design authority.",
-        "Built and lead a 90+ person multi-disciplinary engineering organization across multiple time zones (~40 FTE, 20+ nearshore LATAM, 30+ offshore) within a PE-backed SaaS scale-up operating on Agile/Scrum delivery cadences-direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
+        "Built and lead a direct engineering organization of 70-100 across seven teams (software engineering, quality engineering, DevOps, platform) with six direct reports and product partners matrixed alongside-inside a PE-backed, market-leading healthcare SaaS serving 5,000+ locations. Direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
+        "Helped steer the strategy for a maturing core market: rationalizing legacy investment, refocusing growth capacity on new products, new markets, and partnership-driven revenue, and standing up new business lines that redistributed the organization around them.",
         "## M&A Integration & Operational Transformation",
-        "Led post-acquisition integration of an acquired healthcare platform engineering team-transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership.",
+        "Led post-acquisition integration of an acquired healthcare platform engineering team-transforming small-shop delivery into enterprise-grade operating standards with CI/CD maturity, quality gates, compliance remediation, and cultural alignment under direct leadership. Continues to support M&A activity, including on-site walk-the-wall integration work for an India-based RCM workflow acquisition.",
         "Converted recurring operational escalations into an executive operating-model transformation discussion-reframing isolated support conflicts as systemic ownership, escalation, key-person dependency, and product-health investment issues across Engineering, Operations, Product, and executive stakeholders.",
         "## Platform Modernization & Engineering Reliability",
         "Led a multi-year transformation of architecture from review-oriented advisory activity into an accountable technical leadership capability-clarifying boundaries between architects, Staff Engineers, managers, and delivery teams while emphasizing delivery enablement, distributed ownership, microservices and distributed-systems modernization alignment, and measurable outcomes.",
+        "Stood up the Platform Initiative-repositioning architecture from mercenary advisory into an engine of delivery: reusable components, patterns, services, cross-cutting layers, and the knowledge, documentation, and standards teams build on, delivered in part through surgical nearshore engagements.",
         "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical latency failure modes and championed Jenkins -> CircleCI migration completed in one day with zero incidents.",
         "## Organizational Leadership & Strategic Operations",
-        "Designed quarterly leadership onsites with progressive maturity arc (Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen the Standard). Served as technical ambassador to PE stakeholders. Championed people-first culture under financial constraint-advocating retention cases against committee pushback while maintaining top 10% performance outcomes."
+        "Shifted engineering culture from ticket-taking to value-delivery engineers who partner with product on the why, right-size the grain of effort, and carry accountability for outcomes-a shift funded by AI-driven efficiency gains.",
+        "Designed quarterly leadership onsites with progressive maturity arc (Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen the Standard). Served as technical ambassador to PE stakeholders, shaping engineering practices with eventual exit scrutiny in mind. Championed people-first culture under financial constraint-advocating retention cases against committee pushback while maintaining top 10% performance outcomes."
       ]
     },
     {
@@ -43,6 +47,7 @@
       "bullets": [
         "Managed a team of 5 Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
         "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
+        "Led customer-facing solution design for multi-party contract management and negotiation workflows on the MediLedger network-a hybrid of healthcare, financial services, and contract-governance domains.",
         "Delivered customer-centric solutions by balancing technical implementation with strategic business value, ensuring alignment between technology capabilities and client objectives.",
         "Guided Implementation Consultants to combine technical configuration skill with customer-facing solution ownership, driving adoption and satisfaction across pharmaceutical supply chain deployments."
       ]
@@ -142,7 +147,7 @@
         "RAIR Technologies, Software Development Manager (Jul 2009 - May 2010): Provided architectural and technical guidance for product development, introduced Scrum as the team's agile framework, and led a virtualization strategy that consolidated hardware investment and improved infrastructure responsiveness.",
         "Zywave, Manager Continuous Product Improvement (Jul 2007 - Jun 2009): Promoted from Senior Software Developer to Manager, Continuous Product Improvement in 2008. Led architecture and development for a web portal application on ASP.NET, WCF, and DotNetNuke; contributed to the organization's SOA framework; supervised a team of software engineers across multiple concurrent applications.",
         "AQS, Inc., Integration Lead Developer (Mar 2006 - Jul 2007): Led development of custom .NET Web Services integration solutions, working directly with clients to deliver custom integration interfaces into core line-of-business applications.",
-        "Markel American Insurance, Senior Software Engineer (Apr 2004 - Mar 2006): Led a development team rewriting underwriting software for policy management, billing, and claims on an ASP.NET/SOA platform; served as SQL Server lead, DBA, and data modeler.",
+        "Markel American Insurance, Senior Software Engineer (Apr 2004 - Mar 2006): Led a development team rewriting underwriting software across the full insurance policy and claims lifecycle-policy management, billing, and claims-on an ASP.NET/SOA platform; served as SQL Server lead, DBA, and data modeler.",
         "IHS, Inc., .NET Architect / Technical Lead (May 2002 - Apr 2004): Led development and architecture for an ASP.NET application, optimized a data access layer of 100+ SQL Server stored procedures, and mentored developers on .NET architecture and object-oriented design."
       ]
     }
@@ -152,24 +157,29 @@
       "category": "Executive Leadership",
       "items": [
         "Org Design & Globally Distributed Team Scaling",
-        "PE-Backed SaaS Scale-Up Leadership",
+        "PE-Backed & Growth-Equity SaaS Leadership",
         "Operating Model Transformation",
         "M&A Integration & Operational Maturity",
+        "Exit Readiness & M&A Diligence",
         "Executive & PE Stakeholder Management",
         "P&L Ownership & Budget Governance",
         "Leadership Development & Talent Advocacy",
-        "Cross-Functional Leadership & Transformation Participation",
+        "Value-Delivery Engineering Culture",
+        "SMB-Scale SaaS Delivery",
         "Product-Led Engineering & Agile/Scrum Delivery"
       ]
     },
     {
       "category": "AI-Augmented Organization Design",
       "items": [
+        "AI-Augmented SDLC Design",
         "AI Governance & Guardrail Architecture",
         "AI-Native PDLC Framework Design",
+        "Agentic Workflow Integration",
         "Agent-Augmented Operating Models",
         "AI Hackathon & Cultural Transformation",
         "LLM Cost Governance & Optimization",
+        "AI Unit Economics & Model Selection",
         "Organizational AI Change Management"
       ]
     },
@@ -257,12 +267,15 @@
   ],
   "aiPractitioner": {
     "title": "AI-Augmented Engineering - Practitioner & Architect Record",
-    "intro": "Built Experity's AI-augmented engineering practice from zero-personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across 90+ engineers. Every policy was grounded in practitioner experience, not delegated from a distance.",
+    "intro": "Built Experity's AI-augmented engineering practice from zero-personally evaluating tooling, defining governance, running the organization's first AI hackathon, and designing the AI-Native PDLC framework before scaling adoption across the 70-100-engineer organization. Every policy was grounded in practitioner experience, not delegated from a distance.",
     "bullets": [
       "AI Transformation Leadership: Championed AI adoption against initial executive resistance-built the business case, ran Experity's first-ever AI Hackathon, and drove cultural shift from skepticism to embedded practice. Delivered documented 3-4x productivity increase (500K -> 1.5-2M lines of meaningful code) with 30%+ cycle time improvement across engineering teams.",
       "AI-Native PDLC Design: Created a 5-stage Product Development Lifecycle (Signal -> Context -> Decision -> Execution -> Memory) with an AI Workspace for Product-feeding curated context packets to both human engineers and AI coding agents. Invented the 'Cold-Read Validation' method proving artifact quality before build begins.",
       "Governance Architecture: Designed the organization's AI adoption framework-LLM usage policies, no-auto-merge standards, code review quality gates for AI-generated output, per-team cost tracking, security guardrails, and HIPAA-adjacent audit protocols. Converted ad-hoc tool experiments into governed, repeatable, audited pipelines.",
       "Operating Model Shift: Led transition from manual code producers to agent-augmented reviewers-establishing that the team's constraint shifted from build capacity to review quality (a fundamentally better bottleneck). Defined the Developer Directs -> AI Executes -> Developer Validates workflow with 80/20 architectural oversight model.",
+      "Agent-Multiplied Delivery: Scaled from individual developer productivity to multi-agent delivery-one engineer orchestrating multiple agents, automated LLM-based PR review against guardrails, and human review concentrated on what automated gates cannot be trusted with-reinforced by knowledge-transfer clinics and an explicit refinement loop.",
+      "AI Unit Economics: Governed the cost of AI at scale-model selection and internal benchmarking, token and fine-tuning economics, unit-of-work cost tracking for product-embedded AI, and self-hosting vs. API evaluation accounting for maintenance, control, and obsolescence risk.",
+      "Security Rails & Posture: Partnered with security stakeholders early to define the rails of AI adoption-guardrails, automated scans, and measured outputs-leveraging AI's tendency to expose previously invisible weaknesses so the security posture ended materially lower-risk than before adoption.",
       "Production AI-Agent Products: Contributed engineering leadership and architecture to three of Experity's production AI-agent products-AI Scribe (1,000+ clinics, 1,600+ providers, 300+ practices), Care Agent (2,000+ clinics, 200k+ patients), and AIM, an insurance-matching agent still piloting at 100+ clinics rather than in general release. Revenue-cycle-management adoption remains a forward target of 1,500+ clinics, not a current figure.",
       "AI-Compressed Incident Response: Deployed AI-assisted runbooks and knowledge retrieval pipelines that compressed initial triage times, automated structured post-incident learning generation, and reduced on-call cognitive load across distributed teams.",
       "Architecture Transformation: Reframed architecture from advisory review into accountable delivery enablement-coaching technical leaders toward outcome ownership while guiding the Architecture Hub vision, five-pillar assessment model, and automated governance approach across security, reliability, maintainability, deployability, and observability.",
@@ -325,6 +338,306 @@
         "Custom governance tooling"
       ],
       "caseStudyUrl": "case-study-ai-development-framework.html"
+    },
+    {
+      "name": "Value Delivery Engineering - From Ticket-Takers to Value Owners",
+      "category": "Engineering Culture / Operating Model",
+      "status": "Active - Scaling",
+      "summary": "Shifted engineering culture from a ticket-taking delivery shop to value-delivery engineers who partner with product on the why, right-size the grain of effort, and own outcomes-with AI-driven efficiency funding the cultural lift.",
+      "narrative": "As AI lifted raw production capacity, the constraint moved from building to judgment. Reframed the engineering identity from order-takers to value-delivery engineers: partnering with product to understand objectives before scoping, keeping effort at the right grain, refusing over-engineering, and holding skin-in-the-game accountability for outcomes. The shift was made affordable by AI-driven efficiency and reinforced through team structure, messaging, and knowledge-transfer clinics.",
+      "role": [
+        "Driver",
+        "Sponsor",
+        "Coach",
+        "Enabler"
+      ],
+      "roleDescription": "Guillermo set the cultural direction, structured teams to reward value ownership, and messaged the shift across the organization and to executive stakeholders. Team leads carry the day-to-day behavior change.",
+      "frameworks": [
+        "Value-Delivery Engineering Model",
+        "Product Partnership Norms",
+        "Right-Grain Effort Sizing",
+        "Accountability-with-Ownership Culture"
+      ],
+      "keyDetails": [
+        "Starting point: a delivery culture operating largely as ticket takers-executing requests without ownership of the why",
+        "Engineers now partner with product to understand objectives before scoping work",
+        "Explicit discipline on effort grain: no over-engineering, no under-delivery",
+        "Accountability and skin-in-the-game expectations set at team and individual level",
+        "AI-driven efficiency gains made the cultural shift affordable-capacity redirected to judgment work"
+      ],
+      "metricHighlights": [
+        {
+          "value": "7",
+          "label": "Teams Aligned"
+        },
+        {
+          "value": "Owners",
+          "label": "Not Ticket-Takers"
+        }
+      ],
+      "metrics": [
+        "Engineering identity shifted from ticket execution to value ownership",
+        "Product partnership embedded ahead of scoping",
+        "Effort-grain discipline adopted across teams",
+        "Cultural shift funded by AI efficiency gains"
+      ],
+      "technologies": [
+        "Operating model design",
+        "Team structuring",
+        "Knowledge-transfer clinics",
+        "AI-driven capacity"
+      ],
+      "caseStudyUrl": "case-study-value-delivery-engineering.html"
+    },
+    {
+      "name": "Agent-Multiplied Delivery Model",
+      "category": "AI Strategy / Delivery Model",
+      "status": "Active - Scaling",
+      "summary": "Scaled AI adoption from individual developer productivity to a multi-agent delivery model: engineers multiply their impact across multiple agents, with automated LLM-based PR review, guardrails, and human review reserved for what falls out.",
+      "narrative": "Individual productivity was the first wave. The second multiplies one contributor's impact across multiple agents: agentic coding, automated PR review by a set of LLMs against defined guardrails, and a human-review fallback for what the automated gates surface. Quality is built into the pipeline rather than bolted on, and the whole model runs a continuous refinement loop-learn, integrate, and ship a better version of the process.",
+      "role": [
+        "Sponsor",
+        "Driver",
+        "Enabler",
+        "Oversight"
+      ],
+      "roleDescription": "With the chief architect and staff/principal engineers, Guillermo defined the model, the guardrails, and the refinement cadence. Delivery teams operate within it.",
+      "frameworks": [
+        "Agent-Multiplied Contribution Model",
+        "Guardrailed Automated PR Review",
+        "Human-Review Fallback Design",
+        "Continuous Process Refinement Loop"
+      ],
+      "keyDetails": [
+        "Evolved from individual developer productivity (Copilot-era) to multi-agent orchestration per engineer",
+        "PRs reviewed automatically by a set of LLMs against guardrails; what falls out routes to human review",
+        "Quality engineering integrated into the pipeline rather than appended after it",
+        "Knowledge-transfer clinics and team feedback continuously refine the process",
+        "The refinement loop is explicit: the current state is trusted while lessons feed the next iteration"
+      ],
+      "metricHighlights": [
+        {
+          "value": "N Agents",
+          "label": "Per Engineer"
+        },
+        {
+          "value": "Auto",
+          "label": "PR Review"
+        }
+      ],
+      "metrics": [
+        "Individual impact multiplied across multiple agents",
+        "Automated LLM-based PR review with guardrails in place",
+        "Human review concentrated on what automated gates cannot be trusted with",
+        "Continuous refinement loop institutionalized"
+      ],
+      "technologies": [
+        "LLM-based PR review",
+        "Agentic coding",
+        "Automated quality gates",
+        "Knowledge-transfer clinics"
+      ],
+      "caseStudyUrl": "case-study-agent-multiplied-delivery.html"
+    },
+    {
+      "name": "AI Unit Economics & Cost Governance",
+      "category": "AI Strategy / Financial Governance",
+      "status": "Active - Scaling",
+      "summary": "Instituted cost discipline for AI at scale-model selection, token and fine-tuning economics, internal benchmarks, and unit-of-work cost control-keeping AI adoption financially rational from workstation to product.",
+      "narrative": "AI is loved by developers, executives, and stakeholders alike-and its costs can outrun its value just as quickly. Built the economic governance layer: model selection and efficiency benchmarking, token and implementation-cost tracking, fine-tuning trade-off analysis, and unit-of-work cost control for AI embedded in products. Evaluated scale paths, including self-hosting options, accounting for first- and second-order consequences-control, IP protection, maintenance burden, and obsolescence risk-before committing.",
+      "role": [
+        "Driver",
+        "Oversight",
+        "Sponsor"
+      ],
+      "roleDescription": "Guillermo set the cost-governance expectations, review cadence, and decision framework for model and scale choices, with the chief architect and staff engineers running the evaluations.",
+      "frameworks": [
+        "Unit-of-Work Cost Model",
+        "Model Selection & Benchmarking",
+        "Self-Host vs. API Decision Framework",
+        "First/Second-Order Consequence Analysis"
+      ],
+      "keyDetails": [
+        "Unit-of-work cost tracked for AI embedded in products-where costs can scale out of control fastest",
+        "Model selection and efficiency benchmarking run internally rather than assumed from vendor claims",
+        "Token economics and fine-tuning trade-offs evaluated per use case",
+        "Self-hosting evaluated for control, IP protection, and cost-then weighed against maintenance burden and obsolescence risk",
+        "Early adoption pursued deliberately: market integration through partnerships generates revenue that funds the learning curve"
+      ],
+      "metricHighlights": [
+        {
+          "value": "Per-Unit",
+          "label": "Cost Control"
+        },
+        {
+          "value": "Scale",
+          "label": "Paths Evaluated"
+        }
+      ],
+      "metrics": [
+        "Unit-of-work cost governance in place for product-embedded AI",
+        "Internal model benchmarks established",
+        "Self-hosting vs. API trade-offs analyzed with second-order consequences",
+        "Adoption costs kept financially rational at scale"
+      ],
+      "technologies": [
+        "Model benchmarking",
+        "Token-cost tracking",
+        "Fine-tuning analysis",
+        "Self-hosting evaluation"
+      ],
+      "caseStudyUrl": "case-study-ai-unit-economics.html"
+    },
+    {
+      "name": "Security Rails & AI Security Posture",
+      "category": "Security / AI Governance",
+      "status": "Active - Scaling",
+      "summary": "Defined security rails early in AI adoption-with security stakeholders at the table-and used AI's tendency to expose hidden weaknesses to drive the security posture materially lower-risk than before AI.",
+      "narrative": "AI adoption initially stalled on security fear. Rather than treating security as a blocker, security stakeholders were brought in early to define objectives and rails, with outputs measured against them. The core insight: AI exposes weaknesses that were always present but invisible-which reads as new risk but is the first honest accounting of it. Guardrails, automated scans, and LLM-based review closed the gaps, leaving the security posture materially stronger than pre-adoption.",
+      "role": [
+        "Driver",
+        "Sponsor",
+        "Cross-Functional Framing"
+      ],
+      "roleDescription": "Guillermo framed security as an early design partner rather than a gate, set the guardrail-and-measurement expectations, and carried the posture narrative to executive stakeholders.",
+      "frameworks": [
+        "Security Rails Definition",
+        "Early Security Partnership",
+        "Measured Guardrail Outputs",
+        "Visibility-as-Risk-Reframe"
+      ],
+      "keyDetails": [
+        "Security objectives and rails defined early in the adoption process, not retrofitted",
+        "Outputs measured against guardrails to provide high confidence in outcomes",
+        "AI exposes previously invisible weaknesses-the unease that follows is awareness, not new risk",
+        "Net effect: security posture materially lower-risk than before AI adoption",
+        "Security rails extend to AI embedded in products, not just internal tooling"
+      ],
+      "metricHighlights": [
+        {
+          "value": "Lower",
+          "label": "Net Risk"
+        },
+        {
+          "value": "Early",
+          "label": "Security Partnered"
+        }
+      ],
+      "metrics": [
+        "Security rails defined before scale adoption",
+        "Previously invisible weaknesses surfaced and remediated",
+        "Security posture materially lower-risk than pre-AI",
+        "Guardrails extended to product-embedded AI"
+      ],
+      "technologies": [
+        "Security guardrails",
+        "Automated security scans",
+        "LLM-based review gates",
+        "Audit protocols"
+      ],
+      "caseStudyUrl": "case-study-security-rails-ai-security-posture.html"
+    },
+    {
+      "name": "Platform Initiative - From Mercenary Architecture to Platform Product",
+      "category": "Platform Strategy / Architecture",
+      "status": "Active - Scaling",
+      "summary": "Stood up the Platform Initiative-turning architecture from mercenary advisory into an engine of delivery: reusable components, patterns, services, cross-cutting layers, and the knowledge base teams build on.",
+      "narrative": "The architecture function had always been called architecture but had rarely behaved like one-mercenary, engagement to engagement. Refocused it on intentionally building the platform: reusable components and artifacts, tooling, patterns, services, and appropriate layering of cross-cutting concerns-alongside the knowledge, documentation, and standards that make reuse stick. Key senior hires anchored the practice, and surgical nearshore engagements accelerated platform delivery without boiling the ocean.",
+      "role": [
+        "Sponsor",
+        "Org Designer",
+        "Driver",
+        "Coach"
+      ],
+      "roleDescription": "Guillermo repositioned the architecture function, brought in the senior technical anchors, set the rational progression, and directed nearshore capacity against surgical platform objectives.",
+      "frameworks": [
+        "Platform-as-Delivery",
+        "Intentional Architecture Practice",
+        "Reusable-First Design",
+        "Knowledge & Standards Codification"
+      ],
+      "keyDetails": [
+        "Architecture repositioned from mercenary advisory to intentional platform building",
+        "Platform scope: reusable components, artifacts, tooling, patterns, services, and cross-cutting layers",
+        "Knowledge, documentation, and standards treated as first-class platform deliverables",
+        "Key senior hires anchored the practice, including a principal engineer and a staff engineer leading a product line",
+        "Nearshore teams engaged surgically against specific platform objectives",
+        "Rational progression favored over boiling the ocean"
+      ],
+      "metricHighlights": [
+        {
+          "value": "Platform",
+          "label": "Initiative"
+        },
+        {
+          "value": "Reuse",
+          "label": "First"
+        }
+      ],
+      "metrics": [
+        "Platform Initiative established as an accountable delivery function",
+        "Reusable components, patterns, and services in active use",
+        "Documentation and standards codified as platform artifacts",
+        "Nearshore capacity applied surgically to platform objectives"
+      ],
+      "technologies": [
+        "Reusable components",
+        "Platform patterns",
+        "Documentation & standards",
+        "Nearshore delivery"
+      ],
+      "caseStudyUrl": "case-study-platform-initiative.html"
+    },
+    {
+      "name": "Definition Pipeline - From BMAD to a Homegrown AI-Native Definition Chain",
+      "category": "Process Innovation",
+      "status": "Active - Scaled",
+      "summary": "Built the intake half of the AI-augmented SDLC: a definition pipeline moving an idea through refinement, PRD, TRD, plan, and tasks-BMAD-influenced, homegrown, and proven in delivery.",
+      "narrative": "AI made execution cheap, but the intake path-from idea to actionable work-remained heavy and slow. Started with BMAD as an early reference and, with the chief architect and staff engineers, evolved a homegrown pipeline: an idea is developed, refined, turned into a PRD, then into more static technical artifacts (TRDs), then a plan, then tasks. Each stage is shaped so a single engineer with an AI workspace can produce what once took a committee-and so the artifacts double as agent context downstream.",
+      "role": [
+        "Ideation",
+        "Creative Force",
+        "Driver",
+        "Enabler"
+      ],
+      "roleDescription": "Guillermo and the chief architect conceived and iterated the pipeline, with staff and principal engineers narrowing the process definitions. Teams operate within it and feed refinements back.",
+      "frameworks": [
+        "Idea -> Refinement -> PRD -> TRD -> Plan -> Tasks",
+        "Artifact-as-Context Design",
+        "Intake Compression",
+        "BMAD Adaptation"
+      ],
+      "keyDetails": [
+        "Problem: intake/definition was the heavy, slow half of the delivery cycle",
+        "BMAD evaluated early as a reference model-adapted rather than adopted wholesale",
+        "Homegrown pipeline: idea -> refined idea -> PRD -> TRD -> plan -> tasks",
+        "Designed so individual contributors with AI workspaces can drive definition end to end",
+        "Technical artifacts (TRDs) kept deliberately static and precise-they feed agents downstream",
+        "Evolved iteratively through chief architect and staff/principal engineer partnership"
+      ],
+      "metricHighlights": [
+        {
+          "value": "6-Stage",
+          "label": "Pipeline"
+        },
+        {
+          "value": "BMAD",
+          "label": "Lineage"
+        }
+      ],
+      "metrics": [
+        "Definition chain compressed from committee intake to single-engineer-plus-agents",
+        "PRD/TRD artifacts standardized as agent-ready context",
+        "BMAD lineage adapted into a homegrown pipeline",
+        "Process refined continuously through team feedback"
+      ],
+      "technologies": [
+        "BMAD (reference)",
+        "PRD/TRD artifacts",
+        "AI workspace",
+        "Agentic context"
+      ],
+      "caseStudyUrl": "case-study-definition-pipeline.html"
     },
     {
       "name": "Global Capability Center - Engineering Workstream Participation",
@@ -651,7 +964,8 @@
         "CI/CD pipelines, quality gates, and compliance frameworks established from near-zero-not inherited",
         "Compliance audit remediation completed-bringing the team to regulated delivery standards required for the platform",
         "Product continuity maintained throughout the integration period despite significant operational change",
-        "Cultural alignment bridged small-shop engineering norms to enterprise operating standards-no talent loss"
+        "Cultural alignment bridged small-shop engineering norms to enterprise operating standards-no talent loss",
+        "Ongoing M&A support includes on-site walk-the-wall integration work for an India-based RCM workflow acquisition (2026)"
       ],
       "metricHighlights": [
         {
@@ -687,11 +1001,12 @@
       "caseStudyUrl": "case-study-ai-development-framework.html"
     },
     {
-      "name": "BMAD Method - AI-Driven Agile Development",
-      "tagline": "Analyst -> PM -> Architect -> Scrum Master -> Developer -> QA",
-      "description": "An agentic software development lifecycle where specialized AI agents handle each phase-Analyst for ideation, PM for requirements, Architect for technical design, Scrum Master for story drafting, Developer for implementation, QA for compliance. Context engineering ensures each agent receives only the precise information needed. Document-driven: the process revolves around creating and refining artifacts that serve as context for each step.",
+      "name": "Definition Pipeline (BMAD Lineage)",
+      "tagline": "Idea -> Refinement -> PRD -> TRD -> Plan -> Tasks",
+      "description": "The intake half of the AI-augmented SDLC. Started from BMAD-an agentic lifecycle where specialized agents handle Analyst, PM, Architect, Scrum Master, Developer, and QA phases-and adapted rather than adopted wholesale into a homegrown definition chain: an idea is developed, refined, turned into a PRD, then static technical artifacts (TRDs), then a plan, then tasks. Context engineering ensures each stage produces artifacts that serve both human reviewers and downstream agents.",
       "icon": "schema",
-      "origin": "Adapted and documented as an organizational framework-bridging the gap between ad-hoc AI tool usage and governed, repeatable agentic delivery pipelines."
+      "origin": "BMAD evaluated as an early reference model, then evolved with the chief architect and staff engineers into the organization's own pipeline-proven on real delivery, refined through team feedback.",
+      "caseStudyUrl": "case-study-definition-pipeline.html"
     },
     {
       "name": "A-D-V-R Cycle - AI Hackathon Workflow",
@@ -720,9 +1035,10 @@
     {
       "name": "Security Design & IP Protection Framework",
       "tagline": "Tiered Access - Context Boundaries - Audit Protocols",
-      "description": "A structured approach to securing AI-augmented engineering workflows in regulated environments. Defines tiered contractor security models, establishes context boundaries for AI tooling (what data AI agents can and cannot access), and implements audit protocols satisfying HIPAA-adjacent compliance requirements. Ensures AI adoption does not compromise the organization's security posture or intellectual property.",
+      "description": "A structured approach to securing AI-augmented engineering workflows in regulated environments. Defines tiered contractor security models, establishes context boundaries for AI tooling (what data AI agents can and cannot access), and implements audit protocols satisfying HIPAA-adjacent compliance requirements. Security rails are defined with security stakeholders early, and AI's tendency to expose previously invisible weaknesses is treated as the first honest accounting of risk-so the posture ends materially lower-risk than before adoption.",
       "icon": "shield",
-      "origin": "Designed to address the organizational risk concerns that initially blocked AI adoption-turning security from a blocker into an enabler through governance architecture."
+      "origin": "Designed to address the organizational risk concerns that initially blocked AI adoption-turning security from a blocker into an enabler through governance architecture.",
+      "caseStudyUrl": "case-study-security-rails-ai-security-posture.html"
     },
     {
       "name": "Operating Model Transformation",
@@ -747,6 +1063,38 @@
       "icon": "rule",
       "origin": "Developed through practitioner evaluation of AI tooling patterns; applied across integration and product transformation initiatives.",
       "caseStudyUrl": "case-study-agentic-architecture-discipline.html"
+    },
+    {
+      "name": "Value Delivery Engineering",
+      "tagline": "Why Before What - Right Grain - Skin in the Game",
+      "description": "The cultural operating model that converts ticket-takers into value-delivery engineers. Engineers partner with product to understand objectives before scoping, keep effort at the right grain (no over-engineering, no under-delivery), and carry accountability for outcomes. AI-driven efficiency funds the shift: freed capacity goes to judgment, partnership, and ownership.",
+      "icon": "handshake",
+      "origin": "Developed as AI lifted raw production capacity and the constraint moved from building to judgment-structured through team design, messaging, and knowledge-transfer clinics.",
+      "caseStudyUrl": "case-study-value-delivery-engineering.html"
+    },
+    {
+      "name": "Agent-Multiplied Delivery Model",
+      "tagline": "One Engineer - Many Agents - Guardrailed Review",
+      "description": "The delivery model that multiplies one contributor's impact across multiple agents: agentic coding, automated LLM-based PR review against guardrails, and human review concentrated on what the automated gates surface. Quality is built into the pipeline, and the whole model runs an explicit refinement loop-learn, integrate, ship a better version of the process.",
+      "icon": "smart_toy",
+      "origin": "Evolved from individual developer productivity (Copilot-era) through chief architect and staff/principal engineer partnership into the organization's standard delivery practice.",
+      "caseStudyUrl": "case-study-agent-multiplied-delivery.html"
+    },
+    {
+      "name": "AI Unit Economics Framework",
+      "tagline": "Model Selection - Token Economics - Unit-of-Work Cost",
+      "description": "Cost governance for AI at scale: model selection and internal benchmarking, token and fine-tuning economics, unit-of-work cost tracking for product-embedded AI, and scale-path evaluation (including self-hosting) that accounts for first- and second-order consequences-control, IP protection, maintenance burden, and obsolescence risk.",
+      "icon": "paid",
+      "origin": "Built on the observation that AI costs can outrun AI value without discipline-practitioner evaluation of models and platforms turned into an organizational decision framework.",
+      "caseStudyUrl": "case-study-ai-unit-economics.html"
+    },
+    {
+      "name": "Platform Initiative",
+      "tagline": "Reusable Components - Patterns - Knowledge - Standards",
+      "description": "Architecture repositioned from mercenary advisory into an engine of delivery: reusable components, artifacts, tooling, patterns, services, and appropriate layering of cross-cutting concerns-alongside the knowledge, documentation, and standards that make reuse stick. Progression is deliberately rational: no boiling the ocean.",
+      "icon": "deployed_code",
+      "origin": "Stood up by repositioning the architecture function, anchoring it with senior technical hires, and directing surgical nearshore engagements against specific platform objectives.",
+      "caseStudyUrl": "case-study-platform-initiative.html"
     }
   ],
   "builderResume": {
@@ -775,14 +1123,15 @@
         ]
       },
       {
-        "company": "Chronicled",
-        "title": "Head of Customer Success Services",
-        "period": "Jul 2022 - Mar 2023",
-        "tags": ["GCP", "Kubernetes", "MediLedger Blockchain", "Enterprise Implementation"],
-        "bullets": [
-          "Managed a team of 5 Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
-          "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
-          "Delivered customer-centric solutions by balancing technical implementation with strategic business value, ensuring alignment between technology capabilities and client objectives.",
+      "company": "Chronicled",
+      "title": "Head of Customer Success Services",
+      "period": "Jul 2022 - Mar 2023",
+      "tags": ["GCP", "Kubernetes", "MediLedger Blockchain", "Enterprise Implementation"],
+      "bullets": [
+        "Managed a team of 5 Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
+        "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
+        "Led customer-facing solution design for multi-party contract management and negotiation workflows on the MediLedger network-a hybrid of healthcare, financial services, and contract-governance domains.",
+        "Delivered customer-centric solutions by balancing technical implementation with strategic business value, ensuring alignment between technology capabilities and client objectives.",
           "Guided Implementation Consultants to combine technical configuration skill with customer-facing solution ownership, driving adoption and satisfaction across pharmaceutical supply chain deployments."
         ]
       },
@@ -855,6 +1204,6 @@
         "RESTful APIs, OpenAPI, OAuth 2.0, JWT", "Microservices & distributed systems architecture", "AI-agent-assisted engineering (Claude Code-class agents, GitHub Copilot, AWS Bedrock)"
       ]
     },
-    "executiveScaleNote": "Guillermo currently leads a 90+ person engineering organization at Experity (~40 FTE, 20+ nearshore LATAM, 30+ offshore). Executive scale is kept as a brief bridge here rather than the emphasis of this document; see the executive resume for the full leadership narrative."
+    "executiveScaleNote": "Guillermo currently leads a direct engineering organization of 70-100 at Experity across seven teams (software engineering, quality engineering, DevOps, platform) with six direct reports and product partners matrixed alongside. Executive scale is kept as a brief bridge here rather than the emphasis of this document; see the executive resume for the full leadership narrative."
   }
 }
