@@ -652,6 +652,8 @@
       font-family: var(--body-font);
     }
 
+    .summary-text + .summary-text { margin-top: 14px; }
+
     /* -- experience -- */
     .job { margin-bottom: 32px; position: relative; }
     .job:last-child { margin-bottom: 0; }
@@ -1081,6 +1083,8 @@
     }
 
     function renderSummary(text) {
+      const paras = String(text).split(/\n\n+/)
+        .map(p => `<p class="summary-text">${p}</p>`).join('');
       return `
     <div class="section-wrap">
       <div class="section-title-wrap">
@@ -1088,7 +1092,7 @@
         <div class="section-divider"></div>
       </div>
       <div class="section-body">
-        <p class="summary-text">${text}</p>
+        ${paras}
       </div>
     </div>
   `;
