@@ -1097,6 +1097,27 @@
       "icon": "deployed_code",
       "origin": "Stood up by repositioning the architecture function, anchoring it with senior technical hires, and directing surgical nearshore engagements against specific platform objectives.",
       "caseStudyUrl": "case-study-platform-initiative.html"
+    },
+    {
+      "name": "Say-Do Operating System",
+      "tagline": "Big Rocks -> Committed Dates -> Say-Do Ratio",
+      "description": "A lightweight initiative-tracking cadence for leadership work: a small set of big rocks, meaningful start and committed dates, and a say-do ratio that tests whether leaders select worthy initiatives, protect focus, surface blockers, and carry commitments to completion. Positioned as a team tool for shared accountability and support, not a private status report.",
+      "icon": "fact_check",
+      "origin": "Built from the SEL Weekly Hour operating cadence: planned, active, paused, and blocked work made visible, aging work questioned, low-conviction items removed."
+    },
+    {
+      "name": "Engineering Maturity & Accountability Manifest",
+      "tagline": "Kill Your Heroes, Stop Doing It Harder",
+      "description": "A written leadership standard separating role-appropriate execution from leadership-level impact. Redirects heroic intervention toward surfacing and fixing systemic gaps: clearer performance calibration, direct conversations, accountability for each team's part in outcomes, and patience for investments that build durable capability rather than only protecting the current sprint.",
+      "icon": "contract",
+      "origin": "Codified with SEL leaders in February 2026 out of the OnePACS hero-dependency recovery; external constraints treated as real without becoming an excuse for avoiding ownership."
+    },
+    {
+      "name": "AI-Era Leadership Platform",
+      "tagline": "Leadership Over Management - Practice Over Mandate - Whole-System Ownership",
+      "description": "Six convictions for leading through generational change: transformational leadership over administrative management, because the routine mechanics of management can be automated and the human work cannot; leading AI adoption by personal use before mandate; sitting with uncertainty without losing direction; owning the whole system including the parts that hurt; flatter organizations concentrated in fewer, stronger leaders; and practitioner depth as leverage a leader never graduates away from.",
+      "icon": "compass_calibration",
+      "origin": "Owner's stated leadership philosophy, carried in the executive summary and lived through the operating model, AI adoption, and role design at Experity."
     }
   ],
   "builderResume": {

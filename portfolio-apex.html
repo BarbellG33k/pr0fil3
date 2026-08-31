@@ -70,7 +70,7 @@
     "linkedin": "linkedin.com/in/guillermosalas",
     "linkedinUrl": "https://linkedin.com/in/guillermosalas"
   },
-  "summary": "An engineer who became an enterprise architect, then an executive leader. Two decades in, still building people, developing leaders, and pushing engineering execution to a higher standard. That work started hands-on, moved through director- and VP-level leadership, and now shows up in designing the organization, architecture, and operating model behind Experity's engineering teams. AI-assisted engineering is the latest version of the same pattern, and it holds across every organization along the way: strengthen technical judgment, clarify ownership, and build leaders who can carry the work forward independently.",
+  "summary": "An engineer who became an enterprise architect, then an executive leader. Two decades in, still building people, developing leaders, and pushing engineering execution to a higher standard. Decisions run on evidence over opinion and get written down. Teams own the whole system, including the parts that hurt. AI-assisted engineering is the latest arena for the same discipline: personal use before mandate, governance before scale, and leaders who stay in the work.",
   "hero": {
     "tagline": "Builds stronger leaders and stronger engineering systems."
   },
@@ -240,6 +240,7 @@
                 <a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#about">Overview</a>
                 <a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#experience">Timeline</a>
                 <a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#skills">Metrics</a>
+                <a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#credentials">Credentials</a>
                 <a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#contact">Terminal</a>
             </div>
             <button onclick="downloadPDF()" class="border border-dashboard-accent text-dashboard-accent px-4 py-1.5 font-mono text-xs uppercase tracking-widest hover:bg-dashboard-accent hover:text-dashboard-bg transition-all">
@@ -291,6 +292,32 @@
             </div>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="skills-container">
                 <!-- Skill Cards Injected Here -->
+            </div>
+        </section>
+
+        <section class="py-12" id="credentials">
+            <div class="flex items-center justify-between mb-8 border-b border-dashboard-border pb-4">
+                <h2 class="text-xs font-mono uppercase tracking-[0.4em] text-dashboard-muted">Credentials</h2>
+                <div class="text-[10px] font-mono text-dashboard-muted uppercase">Certified_Practice</div>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="credentials-grid">
+                <!-- Fallback content - replaced by JS when resume-content.json loads -->
+                <div class="stat-card flex flex-col">
+                    <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-tight">Current</h4>
+                    <ul class="text-xs text-dashboard-muted leading-relaxed space-y-2 list-disc list-inside">
+                        <li>OCI Certified - Cloud Infrastructure 2024 Generative AI Professional (Oracle)</li>
+                        <li>OCI Foundations 2021 Associate (Oracle)</li>
+                        <li>Azure Administrator (AZ-104), Azure Data Fundamentals (DP-900), Azure Fundamentals (AZ-900) (Microsoft)</li>
+                        <li>IBM Cloud-Native and Multicloud Applications (IBM)</li>
+                    </ul>
+                </div>
+                <div class="stat-card flex flex-col">
+                    <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-tight">Historical / Legacy</h4>
+                    <ul class="text-xs text-dashboard-muted leading-relaxed space-y-2 list-disc list-inside">
+                        <li>Microsoft Certified Database Administrator (MCDBA), Microsoft Certified Solutions Developer (MCSD), Microsoft Certified Systems Engineer (MCSE) (Microsoft, 2000-2005) - legacy, retired program tracks</li>
+                        <li>AWS Certified Solutions Architect - Associate (Amazon, 2021) - legacy credential</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
@@ -703,10 +730,26 @@
           }
         };
 
+        function renderCredentials(data) {
+            const grid = document.getElementById('credentials-grid');
+            if (!grid || !data.builderResume || !data.builderResume.skills) return;
+            const s = data.builderResume.skills;
+            const group = (label, items) => `
+                <div class="stat-card flex flex-col">
+                    <h4 class="text-sm font-bold text-white mb-3 uppercase tracking-tight">${label}</h4>
+                    <ul class="text-xs text-dashboard-muted leading-relaxed space-y-2 list-disc list-inside">
+                        ${(items || []).map(i => `<li>${i}</li>`).join('')}
+                    </ul>
+                </div>
+            `;
+            grid.innerHTML = group('Current', s.current) + group('Historical / Legacy', s.historicalLegacy);
+        }
+
         function render(data) {
             renderHero(data.meta, data.summary);
             renderExperience(data.experience);
             renderSkills(data.skills);
+            renderCredentials(data);
             renderContact(data.meta);
             renderFooter(data.meta);
         }
@@ -792,21 +835,18 @@
         function renderSkills(skills) {
             const container = document.getElementById('skills-container');
             const icons = ['leaderboard', 'neurology', 'transform', 'rocket_launch', 'account_balance'];
-            const credentialBadges = { 1: 'OCI GENAI PRO' };
 
             let html = '';
             skills.slice(0, 5).forEach((skill, index) => {
                 const isHighlight = index === 1;
                 const bgClass = isHighlight ? 'bg-dashboard-accent/5 border-dashboard-accent/20' : '';
                 const icon = icons[index % icons.length];
-                const badge = credentialBadges[index];
                 const desc = skill.items.join(', ');
 
                 html += `
                     <div class="stat-card ${bgClass}">
                         <div class="flex items-start justify-between mb-4">
                             <span class="material-symbols-outlined text-dashboard-accent" data-icon="${icon}">${icon}</span>
-                            ${badge ? `<div class="text-[10px] font-mono text-dashboard-accent">${badge}</div>` : ''}
                         </div>
                         <h4 class="text-lg font-bold text-white mb-2 uppercase tracking-tight">${skill.category}</h4>
                         <p class="text-xs text-dashboard-muted leading-relaxed line-clamp-3">${desc}</p>
