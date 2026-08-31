@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html class="scroll-smooth" lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><title>Owning the Whole System | Ember</title><link rel="icon" type="image/svg+xml" href="/favicon.svg"/><script src="https://cdn.tailwindcss.com"></script><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet"/><script>tailwind.config={theme:{extend:{colors:{'dashboard-bg':'#0a0c10','dashboard-card':'#161b22','dashboard-accent':'#e2b170','dashboard-text':'#f8fafc','dashboard-muted':'#8b949e','dashboard-border':'#30363d'},fontFamily:{body:['Inter','sans-serif'],mono:['JetBrains Mono','monospace']}}}}</script><style>body{background:#0a0c10;color:#f8fafc;font-family:Inter,sans-serif}.stat-card{background:#161b22;border:1px solid #30363d;padding:1.5rem}</style></head><body><main class="pt-10 px-6 max-w-[1200px] mx-auto min-h-screen"><nav class="mb-12 flex items-center justify-between text-xs uppercase tracking-[0.25em] text-dashboard-muted font-mono"><a class="hover:text-dashboard-accent transition-colors" href="executive_portfolio_ember.html#case-studies"><- Case Studies</a><span>ember_case</span></nav>
+
+  <header class="mb-16 max-w-4xl">
+    <p class="text-dashboard-accent uppercase tracking-[0.35em] text-xs mb-5">Executive Leadership / Ownership &amp; Systems</p>
+    <h1 class="font-body text-5xl md:text-7xl leading-[0.95] tracking-tight mb-8">Owning the Whole System</h1>
+    <p class="text-xl md:text-2xl text-dashboard-muted leading-relaxed">OnePACS, Kafka, and enterprise SMS: converting hero dependency and name-only ownership into explicit accountability, and naming uncertainty out loud instead of pretending to a settled answer.</p>
+  </header>
+
+  <section class="grid md:grid-cols-3 gap-4 mb-16">
+    <div class="bg-dashboard-card border border-dashboard-border/50 p-6 rounded-lg"><div class="text-xs uppercase tracking-widest text-dashboard-accent mb-2">Pattern</div><p class="text-sm text-dashboard-muted leading-relaxed">Critical systems were owned in name only. OnePACS knowledge concentrated in one person, and engineers held de facto responsibility for Kafka and enterprise SMS without the access, documentation, or authority to maintain them.</p></div>
+    <div class="bg-dashboard-card border border-dashboard-border/50 p-6 rounded-lg"><div class="text-xs uppercase tracking-widest text-dashboard-accent mb-2">Mechanism</div><p class="text-sm text-dashboard-muted leading-relaxed">Reframed a resignation and recurring escalations as system design problems. Defined ownership in practical terms, separated the short-term response from the structural question, and made the uncertainty explicit while the organization worked the answer.</p></div>
+    <div class="bg-dashboard-card border border-dashboard-border/50 p-6 rounded-lg"><div class="text-xs uppercase tracking-widest text-dashboard-accent mb-2">Outcome</div><p class="text-sm text-dashboard-muted leading-relaxed">A Staff Engineer role defined from observable work, a written maturity and accountability standard, and a clearer definition of service ownership with short-term support and an escalation path. The permanent Kafka and SMS ownership model stayed unresolved, and this case study says so.</p></div>
+  </section>
+
+  <section class="bg-dashboard-card border border-dashboard-border/40 rounded-lg p-8 md:p-12 mb-14">
+    <h2 class="font-body text-3xl md:text-4xl mb-6">Executive Summary</h2>
+    <p class="text-dashboard-muted leading-relaxed mb-4">Three pressures exposed the same failure mode. The resignation of the senior OnePACS technical leader showed how much of the platform lived in one head: DICOM gateway behavior, HL7 transformations, routing rules, customer configurations, production troubleshooting. Care Agent's growth made Kafka, Debezium connectors, and the enterprise SMS service critical, while the engineers closest to them lacked the access, documentation, and authority to own them. The default response in both cases was the same: ask the most capable person to work harder.</p>
+    <p class="text-dashboard-muted leading-relaxed">The leadership contribution was to refuse that default. Ownership was defined as something concrete: enough system understanding, documentation, support guidance, production troubleshooting capability, and the ability to shape the changes a system needs. Where the answer was not settled, it was said so out loud, and the organization kept moving while it worked the answer. Sitting with uncertainty and keeping direction turned out to be the same discipline.</p>
+  </section>
+
+  <section class="grid md:grid-cols-2 gap-10 mb-16">
+    <div>
+      <h2 class="font-body text-3xl mb-5">Pattern Recognized</h2>
+      <ul class="space-y-3 text-dashboard-muted leading-relaxed list-disc pl-5">
+        <li>OnePACS work kept ending with one expert, and the fastest path to resolution bypassed every formal path.</li>
+        <li>The role had accumulated people management, sprint coordination, architecture, production problem solving, sales support, and hands-on engineering into one unsustainable seat.</li>
+        <li>Kafka and enterprise SMS were owned in practice by engineers with no access, no documentation, and no authority to change what they supported.</li>
+        <li>Repeated heroics read as strength and hid the risk until someone resigned.</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="font-body text-3xl mb-5">Strategic Reframe</h2>
+      <ul class="space-y-3 text-dashboard-muted leading-relaxed list-disc pl-5">
+        <li>From: hire another Swiss Army knife into the overloaded role.</li>
+        <li>To: documented knowledge, deliberate delegation, automation, and a sustainable technical leadership layer.</li>
+        <li>From: Engineering runs OnePACS, as a slogan that absorbs everything.</li>
+        <li>To: Engineering builds and improves OnePACS while helping define the systems required to operate it.</li>
+        <li>From: pretend the ownership question is settled because the org chart says so.</li>
+        <li>To: name the uncertainty, run the short-term response, and escalate the structural question.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="font-body text-3xl md:text-4xl mb-8">Leadership Mechanisms</h2>
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      <div class="bg-dashboard-card border border-dashboard-border/50 p-6 rounded-lg"><h3 class="font-semibold mb-2">Naming Uncertainty</h3><p class="text-sm text-dashboard-muted leading-relaxed">Made the unresolved ownership of Kafka and enterprise SMS explicit instead of pretending the organization already had an answer, and kept delivery moving while the answer formed.</p></div>
+      <div class="bg-dashboard-card border border-dashboard-border/50 p-6 rounded-lg"><h3 class="font-semibold mb-2">Observable-Work Role Design</h3><p class="text-sm text-dashboard-muted leading-relaxed">Used evidence from how the team actually collaborated to define the Staff Engineer backfill around the work the organization depended on, not the title it had.</p></div>
+      <div class="bg-dashboard-card border border-dashboard-border/50 p-6 rounded-lg"><h3 class="font-semibold mb-2">Written Standards</h3><p class="text-sm text-dashboard-muted leading-relaxed">Codified the Engineering Maturity and Accountability Manifest with SEL leaders: kill your heroes, stop doing it harder, and redirect heroic intervention toward systemic gaps.</p></div>
+      <div class="bg-dashboard-card border border-dashboard-border/50 p-6 rounded-lg"><h3 class="font-semibold mb-2">Contractor-to-Ownership Sequencing</h3><p class="text-sm text-dashboard-muted leading-relaxed">Used external capacity for defined builds while setting the expectation that successful capabilities get ingested, documented, and staffed internally.</p></div>
+      <div class="bg-dashboard-card border border-dashboard-border/50 p-6 rounded-lg"><h3 class="font-semibold mb-2">Practical Ownership Definition</h3><p class="text-sm text-dashboard-muted leading-relaxed">Defined ownership as system understanding, documentation, support guidance, troubleshooting capability, and the ability to shape the changes a system needs.</p></div>
+      <div class="bg-dashboard-card border border-dashboard-border/50 p-6 rounded-lg"><h3 class="font-semibold mb-2">De-Personalized Risk</h3><p class="text-sm text-dashboard-muted leading-relaxed">Treated a resignation as a forcing function for a risk model instead of a replacement requisition, and refused to reproduce the same failure in a new hire.</p></div>
+    </div>
+  </section>
+
+  <section class="bg-dashboard-card text-white rounded-lg p-8 md:p-12 mb-16">
+    <h2 class="font-body text-3xl md:text-4xl mb-6">Transferable Ownership Artifacts</h2>
+    <div class="grid md:grid-cols-2 gap-8 text-sm leading-relaxed text-dashboard-muted">
+      <ul class="space-y-3 list-disc pl-5"><li>Ownership definition: understanding, documentation, support guidance, troubleshooting capability, authority to shape change.</li><li>Observable-work analysis method for role design and backfill justification.</li><li>Written maturity and accountability standard: kill your heroes, stop doing it harder.</li></ul>
+      <ul class="space-y-3 list-disc pl-5"><li>Contractor-to-ownership staffing sequence for validated capabilities.</li><li>Short-term support options with an escalation path into organizational design.</li><li>Risk split between normal application continuity and higher-risk DICOM routing, production diagnosis, legacy configuration, and customer escalation.</li></ul>
+    </div>
+  </section>
+
+  <section class="mb-16">
+    <h2 class="font-body text-3xl md:text-4xl mb-6">Competencies Demonstrated</h2>
+    <div class="flex flex-wrap gap-2">
+      <span class="bg-dashboard-card border border-dashboard-border px-3 py-2 text-xs uppercase tracking-widest text-dashboard-muted">Systems Thinking</span>
+      <span class="bg-dashboard-card border border-dashboard-border px-3 py-2 text-xs uppercase tracking-widest text-dashboard-muted">Organizational Design</span>
+      <span class="bg-dashboard-card border border-dashboard-border px-3 py-2 text-xs uppercase tracking-widest text-dashboard-muted">Technical Leadership</span>
+      <span class="bg-dashboard-card border border-dashboard-border px-3 py-2 text-xs uppercase tracking-widest text-dashboard-muted">Change Leadership</span>
+      <span class="bg-dashboard-card border border-dashboard-border px-3 py-2 text-xs uppercase tracking-widest text-dashboard-muted">Conflict Resolution</span>
+      <span class="bg-dashboard-card border border-dashboard-border px-3 py-2 text-xs uppercase tracking-widest text-dashboard-muted">Evidence-Based Decision Making</span>
+      <span class="bg-dashboard-card border border-dashboard-border px-3 py-2 text-xs uppercase tracking-widest text-dashboard-muted">Coaching</span>
+    </div>
+  </section>
+
+<footer class="border-t border-dashboard-border pt-8 mb-10 flex justify-between text-sm text-dashboard-muted font-mono"><a class="hover:text-dashboard-accent" href="executive_portfolio_ember.html#case-studies">Return to case studies</a><a class="hover:text-dashboard-accent" href="resume.html">View resume</a></footer></main></body></html>
