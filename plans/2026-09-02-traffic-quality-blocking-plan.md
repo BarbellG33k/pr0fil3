@@ -91,6 +91,13 @@ if (HARD_BLOCKED_CLASSES.has(agentClass)) return blocked();
   ("completely block traffic").
 - `request.cf` is absent in local `wrangler dev`; the `|| {}` fallback means
   local dev is never geo-blocked (country is `undefined`).
+- **Routing prerequisite:** Workers Static Assets serve matching files
+  *before* invoking the Worker by default, which would let blocked traffic
+  bypass the gate on every static page (`/`, `/resume.html`, case studies).
+  `assets.run_worker_first = true` in wrangler.jsonc forces all requests
+  through the Worker; unmatched ones fall through to `env.ASSETS.fetch()` as
+  before. Trade-off: asset requests now consume Worker invocations and pick up
+  a hop of latency — negligible at this site's scale.
 
 ### 3. Impression analytics extension (handlePortfolio)
 
@@ -158,3 +165,4 @@ Matching existing `chart-card` styling:
 | `worker.js` | import classifier, gate in fetch(), impression blobs, 2 queries |
 | `admin-dashboard.html` | 2 panels + fetch/render wiring |
 | `scripts/agent-classifier.test.mjs` | new — classifier unit tests |
+| `wrangler.jsonc` | `assets.run_worker_first = true` so the gate covers static pages |
