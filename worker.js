@@ -248,6 +248,8 @@ async function handleAnalytics(env) {
       daily,
       impressionsByCountry,
       impressionsByAgent,
+      // So the dashboard can flag blocked origins without duplicating the list.
+      blockedCountries: BLOCKED_COUNTRIES,
     };
 
     return new Response(JSON.stringify(result), {
