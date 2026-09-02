@@ -4,6 +4,21 @@ A running log of changes to Guillermo's resume and portfolio site.
 
 ---
 
+## 2026-09-02 - Version Footer Badge Regression Fix
+
+### Regression Fix & Stamping Hardening
+- Diagnosed regression from PR #41 (`18c6dfc`) where `#build-version` in `index.html`
+  was hidden by default (`hidden` attribute) and client-side logic suppressed the badge
+  when unstamped or when `/api/version` served the placeholder
+- Restored unhidden `#build-version` markup in `index.html` with default content so
+  it renders statically upon initial load and falls back to `dev (local)` in local preview
+- Wired `predeploy` and `build` hooks in `package.json` to run `stamp-version.sh`,
+  and added `postdeploy` cleanup, ensuring neither manual nor automated deploys can bypass stamping
+- Added comprehensive regression test suite in `scripts/validate-version.test.mjs` (`npm test`)
+  covering badge markup, absence of `hidden`, stamp replacement, deploy hooks, and runtime resolution
+
+---
+
 ## 2026-07-10 - Build Version Badge
 
 ### Deployment Verification

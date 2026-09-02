@@ -267,7 +267,7 @@
             </div>
         </div>
     </div>
-    <div class="build-version-badge" id="build-version" hidden data-static="BUILD_VERSION_PLACEHOLDER"></div>
+    <div class="build-version-badge" id="build-version" data-static="BUILD_VERSION_PLACEHOLDER">BUILD_VERSION_PLACEHOLDER</div>
     <script>
       // Fix portfolio link for local file:// access (Worker handles /portfolio in production)
       (function() {
@@ -283,24 +283,28 @@
       // Build version badge - see readme.md "Versioning" section.
       // Prefers /api/version, which worker.js serves with Cache-Control:
       // no-store, so an edge-cached copy of this page cannot pin the badge to a
-      // stale value. Falls back to the value stamped into data-static. Stays
-      // hidden if neither source was stamped, so the raw placeholder token is
-      // never shown to visitors.
+      // stale value. Falls back to the value stamped into data-static and text.
       (function() {
         var el = document.getElementById('build-version');
         if (!el) return;
         // Split so scripts/stamp-version.sh does not substitute this guard.
         var TOKEN = 'BUILD_VERSION' + '_PLACEHOLDER';
-        function show(value) {
+        function update(value) {
           if (!value || value === TOKEN) return;
           el.textContent = value;
-          el.hidden = false;
         }
-        show(el.getAttribute('data-static'));
+        var staticVal = el.getAttribute('data-static');
+        if (staticVal && staticVal !== TOKEN) {
+          el.textContent = staticVal;
+        } else if (el.textContent === TOKEN) {
+          if (window.location.protocol === 'file:' || window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
+            el.textContent = 'dev (local)';
+          }
+        }
         fetch('/api/version', { cache: 'no-store' })
           .then(function(res) { return res.ok ? res.json() : null; })
-          .then(function(data) { if (data) show(data.version); })
-          .catch(function() { /* offline or file:// - keep static value or stay hidden */ });
+          .then(function(data) { if (data && data.version) update(data.version); })
+          .catch(function() { /* offline or file:// - keep static value */ });
       })();
     </script>
 </body>

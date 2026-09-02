@@ -4,8 +4,13 @@
   "private": true,
   "scripts": {
     "stamp-version": "bash scripts/stamp-version.sh",
+    "build": "bash scripts/stamp-version.sh",
+    "predeploy": "bash scripts/stamp-version.sh",
     "dev": "wrangler dev",
     "deploy": "wrangler deploy",
+    "postdeploy": "git checkout index.html worker.js 2>/dev/null || true",
+    "test": "node --test scripts/*.test.mjs",
+    "test:version": "node --test scripts/validate-version.test.mjs",
     "test:evidence": "node --test scripts/validate-evidence-ledger.test.mjs",
     "test:resume-export": "node --test scripts/validate-resume-export.test.mjs",
     "validate:evidence": "node scripts/validate-evidence-ledger.mjs .private/evidence-ledger.json"
