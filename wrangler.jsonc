@@ -8,7 +8,13 @@
   },
   "assets": {
     "directory": ".",
-    "binding": "ASSETS"
+    "binding": "ASSETS",
+    // By default, requests matching a static asset never reach the Worker,
+    // which would let blocked countries/bots bypass the traffic-quality gate
+    // in worker.js for every static page. Running the Worker first puts the
+    // gate in front of ALL paths; unmatched requests fall through to
+    // env.ASSETS.fetch() as before.
+    "run_worker_first": true
   },
   "compatibility_flags": [
     "nodejs_compat"

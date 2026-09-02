@@ -1,11 +1,18 @@
 import { EmailMessage } from "cloudflare:email";
 
+import { HARD_BLOCKED_CLASSES, classifyAgent } from "./agent-classifier.mjs";
+
 const FROM_ADDRESS = "info@guillermosalas.dev";
 const TO_ADDRESS = "gsalast@gmail.com";
 
 const VARIANTS = ["herald", "cipher", "ember"];
 const COOKIE_NAME = "pv";
 const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
+
+// Traffic from these origins is rejected with 403 before routing - portfolio
+// audience is US/EU/LatAm, and these origins produce only bot/spam volume.
+// Extend here to block more countries.
+const BLOCKED_COUNTRIES = ["RU", "CN"];
 
 // Stamped by scripts/stamp-version.sh in CI immediately before `wrangler
 // deploy`, and served at runtime from /api/version. Serving it from the Worker
@@ -18,12 +25,27 @@ export default {
   async fetch(request, env) {
     const url = new URL(request.url);
 
+    // Traffic-quality gate, applied to every path including /contact and
+    // /admin. request.cf is only populated on the deployed edge (and
+    // `wrangler dev --remote`); the `|| {}` fallback means local dev is never
+    // geo-blocked. Blocked requests are rejected before any analytics write,
+    // so they never count as impressions.
+    const cf = request.cf || {};
+    const agentClass = classifyAgent(request.headers.get("User-Agent"));
+
+    if (BLOCKED_COUNTRIES.includes(cf.country) || HARD_BLOCKED_CLASSES.has(agentClass)) {
+      return new Response("403 Forbidden", {
+        status: 403,
+        headers: { "Content-Type": "text/plain" },
+      });
+    }
+
     if (url.pathname === "/contact" && request.method === "POST") {
       return handleContact(request, env);
     }
 
     if (url.pathname === "/portfolio") {
-      return handlePortfolio(request, env);
+      return handlePortfolio(request, env, { country: cf.country || "??", agentClass });
     }
 
     if (url.pathname === "/admin") {
@@ -64,7 +86,7 @@ function pickVariant() {
   return VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
 }
 
-async function handlePortfolio(request, env) {
+async function handlePortfolio(request, env, { country, agentClass }) {
   let variant = parseVariantCookie(request);
   let isNew = false;
 
@@ -73,10 +95,11 @@ async function handlePortfolio(request, env) {
     isNew = true;
   }
 
-  // Log impression to Analytics Engine
+  // Log impression to Analytics Engine. blob3 = country aligns positionally
+  // with the contact event's country blob; blob4 carries the agent class.
   if (env.ANALYTICS) {
     env.ANALYTICS.writeDataPoint({
-      blobs: ["impression", variant],
+      blobs: ["impression", variant, country, agentClass],
       indexes: [variant],
     });
   }
@@ -114,7 +137,15 @@ async function handleAnalytics(env) {
       "Content-Type": "text/plain",
     };
 
-    const [impressionsRes, contactsRes, dailyRes, byCountryRes, topIspsRes] = await Promise.all([
+    const [
+      impressionsRes,
+      contactsRes,
+      dailyRes,
+      byCountryRes,
+      topIspsRes,
+      impressionsByCountryRes,
+      impressionsByAgentRes,
+    ] = await Promise.all([
       fetch(endpoint, {
         method: "POST",
         headers,
@@ -142,6 +173,16 @@ async function handleAnalytics(env) {
         headers,
         body: `SELECT blob4 as asn, blob5 as isp, count() as count FROM portfolio WHERE blob1 = 'contact' GROUP BY asn, isp ORDER BY count DESC LIMIT 10`,
       }),
+      fetch(endpoint, {
+        method: "POST",
+        headers,
+        body: `SELECT blob3 as country, count() as count FROM portfolio WHERE blob1 = 'impression' GROUP BY country ORDER BY count DESC`,
+      }),
+      fetch(endpoint, {
+        method: "POST",
+        headers,
+        body: `SELECT blob4 as agent_class, count() as count FROM portfolio WHERE blob1 = 'impression' GROUP BY agent_class ORDER BY count DESC`,
+      }),
     ]);
 
     const impressionsData = await impressionsRes.json();
@@ -149,6 +190,8 @@ async function handleAnalytics(env) {
     const dailyData = await dailyRes.json();
     const byCountryData = await byCountryRes.json();
     const topIspsData = await topIspsRes.json();
+    const impressionsByCountryData = await impressionsByCountryRes.json();
+    const impressionsByAgentData = await impressionsByAgentRes.json();
 
     const impressions = { herald: 0, cipher: 0, ember: 0 };
     for (const row of impressionsData.data || []) {
@@ -183,7 +226,31 @@ async function handleAnalytics(env) {
       count: Number(row.count),
     }));
 
-    const result = { impressions, contacts, contactsByCountry, topIsps, daily };
+    // Impression rows written before the traffic-quality deploy have empty
+    // blob3/blob4; surface them as "??" / "empty" rather than dropping them.
+    const impressionsByCountry = {};
+    for (const row of impressionsByCountryData.data || []) {
+      const country = row.country || "??";
+      impressionsByCountry[country] = (impressionsByCountry[country] || 0) + Number(row.count);
+    }
+
+    const impressionsByAgent = {};
+    for (const row of impressionsByAgentData.data || []) {
+      const agentClass = row.agent_class || "empty";
+      impressionsByAgent[agentClass] = (impressionsByAgent[agentClass] || 0) + Number(row.count);
+    }
+
+    const result = {
+      impressions,
+      contacts,
+      contactsByCountry,
+      topIsps,
+      daily,
+      impressionsByCountry,
+      impressionsByAgent,
+      // So the dashboard can flag blocked origins without duplicating the list.
+      blockedCountries: BLOCKED_COUNTRIES,
+    };
 
     return new Response(JSON.stringify(result), {
       headers: {

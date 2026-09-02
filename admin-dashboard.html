@@ -653,6 +653,17 @@
 
         <div class="charts-row">
             <div class="chart-card">
+                <h3>Views by Country</h3>
+                <div id="views-by-country" class="rank-list"><div class="rank-empty">No impression data yet</div></div>
+            </div>
+            <div class="chart-card">
+                <h3>Views by Agent Type</h3>
+                <div id="views-by-agent" class="rank-list"><div class="rank-empty">No impression data yet</div></div>
+            </div>
+        </div>
+
+        <div class="charts-row">
+            <div class="chart-card">
                 <h3>Contacts by Country</h3>
                 <div id="contacts-by-country" class="rank-list"><div class="rank-empty">No contact data yet</div></div>
             </div>
@@ -662,7 +673,7 @@
             </div>
         </div>
 
-        <footer>Data from Cloudflare Analytics Engine - Auto-refreshes every 60s</footer>
+        <footer>Data from Cloudflare Analytics Engine - Auto-refreshes every 60s - Country &amp; agent data collected since 2026-09-02</footer>
     </div>
 
     <div class="modal-overlay hidden" id="drill-modal">
@@ -988,6 +999,49 @@
             }
         }
 
+        const AGENT_LABELS = {
+            'browser': 'Human (browser)',
+            'search-engine': 'Search engine',
+            'ai-crawler': 'AI crawler',
+            'seo-tool': 'SEO tool (blocked)',
+            'scraper': 'Scraper (blocked)',
+            'automation': 'Automation',
+            'empty': 'No user agent',
+        };
+
+        function updateTrafficQuality(data) {
+            const countryEl = document.getElementById('views-by-country');
+            const agentEl = document.getElementById('views-by-agent');
+            const blockedCountries = data.blockedCountries || [];
+
+            const countries = Object.entries(data.impressionsByCountry || {}).sort((a, b) => b[1] - a[1]);
+            const countryTotal = countries.reduce((sum, [, n]) => sum + n, 0);
+            countryEl.innerHTML = countries.length
+                ? countries.map(([code, n]) => {
+                    const blocked = blockedCountries.includes(code);
+                    const share = countryTotal ? ((n / countryTotal) * 100).toFixed(1) : '0.0';
+                    return `<div class="rank-row${blocked ? ' overseas' : ''}">
+                        <span class="rank-label">${code || '??'}${blocked ? ' <span style="color:#666;font-size:12px">(blocked)</span>' : ''}</span>
+                        <span class="rank-count">${n.toLocaleString()} &middot; ${share}%</span>
+                    </div>`;
+                }).join('')
+                : '<div class="rank-empty">No impression data yet</div>';
+
+            const agents = Object.entries(data.impressionsByAgent || {}).sort((a, b) => b[1] - a[1]);
+            const human = (data.impressionsByAgent || {})['browser'] || 0;
+            const agentTotal = agents.reduce((sum, [, n]) => sum + n, 0);
+            const bot = agentTotal - human;
+            agentEl.innerHTML = agents.length
+                ? `<div class="rank-row">
+                    <span class="rank-label">Human vs bot</span>
+                    <span class="rank-count">${human.toLocaleString()} / ${bot.toLocaleString()}</span>
+                </div>` + agents.map(([cls, n]) => `<div class="rank-row${cls === 'browser' ? '' : ' overseas'}">
+                    <span class="rank-label">${AGENT_LABELS[cls] || cls}</span>
+                    <span class="rank-count">${n.toLocaleString()}</span>
+                </div>`).join('')
+                : '<div class="rank-empty">No impression data yet</div>';
+        }
+
         function updateGeo(data) {
             const countryEl = document.getElementById('contacts-by-country');
             const ispsEl = document.getElementById('top-isps');
@@ -1216,6 +1270,7 @@
                 updateDailyChart(data);
                 updateFunnelChart(data);
                 updateGeo(data);
+                updateTrafficQuality(data);
 
                 if (!document.getElementById('drill-modal').classList.contains('hidden') && modalState.variant) {
                     renderModal();
