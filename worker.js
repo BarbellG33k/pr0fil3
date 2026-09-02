@@ -128,7 +128,9 @@ async function handleAnalytics(env) {
       fetch(endpoint, {
         method: "POST",
         headers,
-        body: `SELECT toDate(timestamp) as date, blob2 as variant, count() as count FROM portfolio WHERE blob1 = 'impression' AND timestamp > NOW() - INTERVAL '30' DAY GROUP BY date, variant ORDER BY date, variant`,
+        // 95 days covers the full 3-month Analytics Engine retention window,
+        // feeding the monthly grid and the per-portfolio drill-down modal.
+        body: `SELECT toDate(timestamp) as date, blob2 as variant, count() as count FROM portfolio WHERE blob1 = 'impression' AND timestamp > NOW() - INTERVAL '95' DAY GROUP BY date, variant ORDER BY date, variant`,
       }),
       fetch(endpoint, {
         method: "POST",
