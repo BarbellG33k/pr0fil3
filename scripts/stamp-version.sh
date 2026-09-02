@@ -16,7 +16,7 @@ set -euo pipefail
 
 cd "$(dirname "$0")/.."
 
-SHORT_SHA=$(git rev-parse --short HEAD)
+SHORT_SHA=$(git rev-parse --short HEAD 2>/dev/null || echo "dev")
 DEPLOYED_AT=$(date -u +"%b %d, %Y %H:%M UTC")
 VERSION_STRING="${SHORT_SHA} - ${DEPLOYED_AT}"
 
