@@ -294,24 +294,30 @@
 
 <nav class="fixed top-0 w-full z-50 border-b border-dashboard-border bg-dashboard-bg/80 backdrop-blur-md">
 <div class="flex justify-between items-center px-6 py-3 max-w-[1600px] mx-auto">
-<div class="flex items-center space-x-3">
+<div class="flex items-center space-x-3 shrink-0">
 <div class="w-8 h-8 bg-dashboard-accent rounded flex items-center justify-center">
 <span class="material-symbols-outlined text-dashboard-bg text-xl" style="font-variation-settings: 'FILL' 1;">analytics</span>
 </div>
 <div class="text-sm font-bold tracking-tighter uppercase font-mono">GS_EMBER_v1.0</div>
 </div>
-<a href="index.html" class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors"><- Back</a>
-<div class="hidden md:flex items-center space-x-8">
-<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#about">Overview</a>
-<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#experience">Timeline</a>
-<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#skills">Metrics</a>
-<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#initiatives">Initiatives</a>
-<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#case-studies">Case Studies</a>
-<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#frameworks">Frameworks</a>
-<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#credentials">Credentials</a>
-<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors" href="#contact">Terminal</a>
+<a href="index.html" class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors whitespace-nowrap"><- Back</a>
+<!-- Links appear only from xl. The full mono link set needs ~1231px on one
+     line; at md (768px) it overflowed and the row collapsed into a wrapped,
+     colliding nav. Below xl the brand, back link and button stand alone,
+     matching how this design system already drops the links on small
+     screens. Spacing and tracking are left untouched - the terminal look
+     depends on them, and moving the breakpoint costs nothing. -->
+<div class="hidden xl:flex items-center space-x-8">
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors whitespace-nowrap" href="#about">Overview</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors whitespace-nowrap" href="#experience">Timeline</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors whitespace-nowrap" href="#skills">Metrics</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors whitespace-nowrap" href="#initiatives">Initiatives</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors whitespace-nowrap" href="#case-studies">Case Studies</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors whitespace-nowrap" href="#frameworks">Frameworks</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors whitespace-nowrap" href="#credentials">Credentials</a>
+<a class="text-xs font-mono uppercase tracking-widest text-dashboard-muted hover:text-dashboard-accent transition-colors whitespace-nowrap" href="#contact">Terminal</a>
 </div>
-<button class="border border-dashboard-accent text-dashboard-accent px-4 py-1.5 font-mono text-xs uppercase tracking-widest hover:bg-dashboard-accent hover:text-dashboard-bg transition-all">
+<button class="border border-dashboard-accent text-dashboard-accent px-4 py-1.5 font-mono text-xs uppercase tracking-widest hover:bg-dashboard-accent hover:text-dashboard-bg transition-all whitespace-nowrap shrink-0">
   Export_PDF
 </button>
 </div>
