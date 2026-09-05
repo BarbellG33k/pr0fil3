@@ -8,13 +8,24 @@
     "linkedin": "linkedin.com/in/guillermosalas",
     "linkedinUrl": "https://linkedin.com/in/guillermosalas"
   },
-  "summary": "Builds engineering organizations with the confidence that comes from applying a strong yet simple discipline based on understanding the real need, designing for the people who have to operate it, and making ownership explicit enough to survive without direct oversight. This is a habit built and strengthened over more than two decades of work spanning IC contributions across a diverse swath of technologies, all the way through technical leadership growth into leadership responsibilities, and it is still the foundation of how work is led to this day.\n\nLeads multidisciplinary engineering organizations, working alongside matrixed product partners, and has instituted the governance an AI-augmented engineering practice needs to run safely in production. Strongest when building: new products, new markets, new business lines, understood and mapped before committing to them, with organizations built to hold up under scrutiny from regulators, boards, and eventual acquirers.\n\nThe pattern that has carried over and delivered results through architecture calls, vendor decisions and technical direction has been to decide on evidence over opinion and ensure it is written down clearly enough that someone else can follow the same reasoning without a meeting.\n\nAs a people leader, starts from a people-first perspective, approachable and patient, a steady listener who lets the team own its goals and its wins. Stays curious, hungry for growth, and guided by getting it right as fundamentally more important than being right. And this same discipline carries through hands-on engineering, enterprise architecture, cloud modernization, and VP-level leadership, across regulated industries where mistakes reach patients, regulators, or the budget.",
+  "summary": "Builds engineering organizations with the confidence that comes from applying a strong yet simple discipline based on understanding the real need, designing for the people who have to operate it, and making ownership explicit enough to survive without direct oversight. Designs so that no individual is structurally required, treating a key-person dependency as a defect to engineer out rather than a strength to celebrate. This is a habit built and strengthened over more than two decades of work spanning IC contributions across a diverse swath of technologies, all the way through technical leadership growth into leadership responsibilities, and it is still the foundation of how work is led to this day.\n\nLeads multidisciplinary engineering organizations, working alongside matrixed product partners, and has instituted the governance an AI-augmented engineering practice needs to run safely in production. Strongest when building: new products, new markets, new business lines, understood and mapped before committing to them, with organizations built to hold up under scrutiny from regulators, boards, and eventual acquirers.\n\nThe pattern that has carried over and delivered results through architecture calls, vendor decisions and technical direction has been to decide on evidence over opinion and ensure it is written down clearly enough that someone else can follow the same reasoning without a meeting. Applies that same evidentiary gate to his own initiatives first. Treats communication as a quality mechanism rather than announcement, on the view that a standard nobody is aware of effectively does not exist and that alignment decays without deliberate repetition.\n\nAs a people leader, starts from a people-first perspective, approachable and patient, a steady listener who lets the team own its goals and its wins. Stays curious, hungry for growth, and guided by getting it right as fundamentally more important than being right. And this same discipline carries through hands-on engineering, enterprise architecture, cloud modernization, and VP-level leadership, across regulated industries where mistakes reach patients, regulators, or the budget.",
   "experience": [
     {
       "company": "Experity",
       "title": "Vice President, Software Engineering",
       "period": "Mar 2023 - Present",
-      "tags": ["AI-Augmented Engineering", "AWS", "Kubernetes", "Kafka", "React / Next.js", "Node.js / TypeScript", "Python", "SQL Server", "CI/CD", "HIPAA / HL7 / FHIR"],
+      "tags": [
+        "AI-Augmented Engineering",
+        "AWS",
+        "Kubernetes",
+        "Kafka",
+        "React / Next.js",
+        "Node.js / TypeScript",
+        "Python",
+        "SQL Server",
+        "CI/CD",
+        "HIPAA / HL7 / FHIR"
+      ],
       "bullets": [
         "## Role Progression",
         "Promoted three times in three years, advancing from Director of Product Development to Senior Director of Software Engineering to Vice President, Software Engineering.",
@@ -22,30 +33,38 @@
         "Championed enterprise AI adoption against initial executive resistance-instituting the organization's AI-augmented SDLC and delivering a documented 3-4x increase in meaningful code output (500K -> 1.5-2M lines) with 30%+ productivity improvement. Conceived and led the organization's first AI Hackathon, designed the AI Development Framework (Developer Directs -> AI Executes -> Developer Validates), and created the AI-Native PDLC-a 5-stage framework feeding curated context to both engineers and AI agents.",
         "Built an AI Governance Architecture satisfying HIPAA-adjacent compliance: usage policies, security guardrails, cost governance, and audit protocols-converting ad-hoc experiments into governed, repeatable pipelines across the full SDLC. Defined the security rails with security stakeholders early in adoption, so AI surfaces and remediates previously invisible weaknesses and leaves the security posture materially stronger than before.",
         "Scaled adoption from individual developer productivity to an agent-multiplied delivery model-multiple agents per engineer, automated LLM-based PR review against guardrails with human review reserved for what falls out, and unit-of-work cost governance keeping AI economics rational at scale.",
-        "That governance now underpins production agentic products-AI Scribe, in use across 1,000+ clinics, 1,600+ providers, and 300+ practices, and Care Agent, in use across 2,000+ clinics and by 200k+ patients-embedding agentic workflows directly into the customer experience. AIM, an insurance-matching agent, is still piloting at 100+ clinics rather than in general release.",
+        "That governance now underpins production agentic products-an AI clinical scribe, in use across 1,000+ clinics, 1,600+ providers, and 300+ practices, and an agentic patient assistant, in use across 2,000+ clinics and by 200k+ patients-embedding agentic workflows directly into the customer experience. An automated insurance-matching agent is still piloting at 100+ clinics rather than in general release.",
         "## Organizational Scale & Team Operations",
-        "Participated in engineering workstreams for a board-sponsored Global Capability Center initiative-contributing to implementation planning, readiness coordination, and cross-functional alignment while the program strategy and ownership remained outside my direct design authority.",
+        "Helped shape the engineering strategy for a board-sponsored Global Capability Center initiative-framing it as a long-term engineering capability build rather than a cost-arbitrage play, with a phased rollout, standards calibrated to market rather than lowered, and onboarding engineered for scale. Program ownership and final design authority remained outside the role.",
         "Built and lead a direct engineering organization of 70-100 across seven teams (software engineering, quality engineering, DevOps, platform) with six direct reports and product partners matrixed alongside-inside a PE-backed, market-leading healthcare SaaS serving 5,000+ locations. Direct P&L accountability for $4.8M in strategic investments within a $23M R&D budget, delivering 35%+ efficiency improvement.",
         "Helped steer the strategy for a maturing core market: rationalizing legacy investment, refocusing growth capacity on new products, new markets, and partnership-driven revenue, and standing up new business lines that redistributed the organization around them.",
+        "Established a DevOps center of excellence and consolidated DevOps leadership to convert expert-held knowledge into documented, standardized, shared practice-explicitly to eliminate single-person dependency.",
         "## M&A Integration & Operational Transformation",
         "Led post-acquisition integration of an acquired healthcare platform engineering team, building small-shop delivery up to enterprise-grade operating standards through documented CI/CD maturity, quality gates, and compliance remediation, established methodically rather than mandated overnight. Continues to support M&A activity, including on-site walk-the-wall integration work for an India-based RCM workflow acquisition.",
         "Converted recurring operational escalations into an executive operating-model transformation discussion-reframing isolated support conflicts as systemic ownership, escalation, key-person dependency, and product-health investment issues across Engineering, Operations, Product, and executive stakeholders.",
         "## Platform Modernization & Engineering Reliability",
         "Led a multi-year transformation of architecture from review-oriented advisory activity into an accountable technical leadership capability-clarifying boundaries between architects, Staff Engineers, managers, and delivery teams while emphasizing delivery enablement, distributed ownership, microservices and distributed-systems modernization alignment, and measurable outcomes.",
         "Stood up the Platform Initiative-repositioning architecture from mercenary advisory into an engine of delivery: reusable components, patterns, services, cross-cutting layers, and the knowledge, documentation, and standards teams build on, delivered in part through surgical nearshore engagements.",
-        "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical latency failure modes and championed Jenkins -> CircleCI migration completed in one day with zero incidents.",
+        "Led engineering for a Healthcare SaaS platform serving 5,000+ urgent care providers; coached and guided the creation of the Architecture Hub (repo-based compliance scoring across security, reliability, maintainability, deployability, observability); shaped reliability strategy that eliminated critical latency failure modes and championed Jenkins -> CircleCI migration completed in one day with zero incidents. Builds the rails before accelerating-testing, safeguards, and rollback capability first-then defaults to rolling forward rather than reflexively reverting, and removes gates that have become ritual rather than protection.",
         "## Organizational Leadership & Strategic Operations",
         "Shifted engineering culture from ticket-taking to value-delivery engineers who partner with product on the why, right-size the grain of effort, and carry accountability for outcomes-a shift funded by AI-driven efficiency gains.",
         "Designed quarterly leadership onsites with a progressive maturity arc (Identity to Excellence to Focus to Growth to Recalibration to Sharpen the Standard), a deliberately paced, multi-quarter build rather than a single training event. Served as technical ambassador to PE stakeholders, backing engineering decisions with data rather than opinion, with eventual exit scrutiny in mind. Championed people-first culture under financial constraint, advocating retention cases against committee pushback with documented evidence of individual contribution, while maintaining top 10% performance outcomes.",
-        "Leads AI adoption from the front, personally evaluating and using the tooling before institutionalizing policy, and staying directly engaged with the engineering, the details, and customers rather than managing through layers and summaries.",
-        "Treats AI as a magnifier of whatever an organization already is, shaping the human organization deliberately by consolidating effort onto fewer things done well, co-locating accountability and authority, and making ownership explicit, so multiplied speed compounds instead of fragmenting into local optimizations and duplicated dysfunction."
+        "Leads AI adoption from the front, personally evaluating and using the tooling before institutionalizing policy, and staying directly engaged with the engineering, the details, and customers rather than managing through layers and summaries. Measures adoption by an ambition test-it is working when commitments get bigger, not merely when the same work finishes faster.",
+        "Treats AI as a magnifier of whatever an organization already is, shaping the human organization deliberately by consolidating effort onto fewer things done well, co-locating accountability and authority, and making ownership explicit, so multiplied speed compounds instead of fragmenting into local optimizations and duplicated dysfunction.",
+        "Diagnosed and intervened on a misaligned hiring chain-recruiters, job descriptions, interviewers, and engineering expectations each encoding a different standard-instituting consistent competency frameworks, structured assessment for disputed candidates, and explicit guardrails against title inflation and referral-driven hiring."
       ]
     },
     {
       "company": "Chronicled",
       "title": "Head of Customer Success Services",
       "period": "Jul 2022 - Mar 2023",
-      "tags": ["GCP", "Kubernetes", "Blockchain / MediLedger", "Pharma Supply Chain Compliance", "Customer Success"],
+      "tags": [
+        "GCP",
+        "Kubernetes",
+        "Blockchain / MediLedger",
+        "Pharma Supply Chain Compliance",
+        "Customer Success"
+      ],
       "bullets": [
         "Managed a team of 5 Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
         "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
@@ -58,7 +77,12 @@
       "company": "SafeNet Consulting",
       "title": "Director of Solutions Group",
       "period": "Aug 2021 - Jul 2022",
-      "tags": ["AWS", "Azure", "Cloud-Native Architecture", "Fortune 500 Consulting"],
+      "tags": [
+        "AWS",
+        "Azure",
+        "Cloud-Native Architecture",
+        "Fortune 500 Consulting"
+      ],
       "bullets": [
         "Contributed to strategy, short and long term planning at the executive-leadership level, while carrying out day-to-day responsibilities acting as Chief Software Architect and customer-facing Solutions Architect.",
         "Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure.",
@@ -69,7 +93,11 @@
       "company": "HealthEquity",
       "title": "Solutions Architect",
       "period": "Mar 2021 - Aug 2021",
-      "tags": ["Solution Architecture", "Technical Code Review", "Benefits Administration"],
+      "tags": [
+        "Solution Architecture",
+        "Technical Code Review",
+        "Benefits Administration"
+      ],
       "bullets": [
         "Provided solution architecture and technical code review for benefits administration platform initiatives during a short-term contract engagement through Kforce.",
         "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
@@ -79,7 +107,11 @@
       "company": "MoreTalent",
       "title": "Technology Leader & Success Mentor (Part-Time Advisory)",
       "period": "Mar 2020 - Present",
-      "tags": ["Executive Mentorship", "Technical Strategy", "Startup Scaling"],
+      "tags": [
+        "Executive Mentorship",
+        "Technical Strategy",
+        "Startup Scaling"
+      ],
       "bullets": [
         "Provide part-time executive mentorship to technology leaders and startup founders, advising on engineering leadership, career growth, and organizational scaling.",
         "Support early-stage companies with technical strategy guidance drawn from enterprise architecture and engineering leadership experience."
@@ -89,7 +121,13 @@
       "company": "SysLogic, Inc.",
       "title": "Enterprise Architecture Practice Lead",
       "period": "Jun 2019 - Mar 2021",
-      "tags": ["AWS / Azure", "Docker", "Kubernetes", "ETL / Data Migration", "Cloud Modernization"],
+      "tags": [
+        "AWS / Azure",
+        "Docker",
+        "Kubernetes",
+        "ETL / Data Migration",
+        "Cloud Modernization"
+      ],
       "bullets": [
         "Championed cloud-first modernization across multiple enterprise engagements, governing solution design and guiding infrastructure adoption for client organizations.",
         "Mentored engineering talent and established repeatable enterprise architecture practices across the consulting practice."
@@ -99,7 +137,14 @@
       "company": "HSA Bank, a division of Webster Bank, N.A.",
       "title": "VP, Enterprise Solutions Architect",
       "period": "May 2014 - May 2019",
-      "tags": [".NET", "SQL Server", "AWS", "Microservices", "Docker", "Regulated Fintech"],
+      "tags": [
+        ".NET",
+        "SQL Server",
+        "AWS",
+        "Microservices",
+        "Docker",
+        "Regulated Fintech"
+      ],
       "bullets": [
         "## Role Progression",
         "Advanced from Solutions Architect (initial engagement via Kforce Inc. contract staffing) to VP, Application Development Manager to VP, Enterprise Solutions Architect over a five-year tenure.",
@@ -118,7 +163,12 @@
       "company": "CoreLogic",
       "title": "Enterprise Applications Architect",
       "period": "Dec 2011 - May 2014",
-      "tags": ["Enterprise Architecture", "CI Standards", "Agile Adoption", "Distributed Teams"],
+      "tags": [
+        "Enterprise Architecture",
+        "CI Standards",
+        "Agile Adoption",
+        "Distributed Teams"
+      ],
       "bullets": [
         "Defined architectural standards for component and application design, code quality, source control strategy, CI, and application structure; enforced compliance with standards and best practices across deliverables.",
         "Worked with product owners on blueprints and annual planning for feature sets spanning multiple platforms and products.",
@@ -131,7 +181,12 @@
       "company": "Health Payment Systems, Inc.",
       "title": "Applications Architect",
       "period": "May 2010 - Dec 2011",
-      "tags": [".NET", "ASP.NET", "SQL Server", "Performance Tuning"],
+      "tags": [
+        ".NET",
+        "ASP.NET",
+        "SQL Server",
+        "Performance Tuning"
+      ],
       "bullets": [
         "Principal architect and lead developer across multi-tier projects on the .NET / Microsoft stack (SQL Server, ASP.NET), owning overall solution design for all delivered work.",
         "Coordinated feature intake, artifact design, backlog grooming, and the release process across the development team.",
@@ -144,7 +199,14 @@
       "title": "Foundational Software Engineering & Consulting Roles",
       "period": "Aug 2000 - May 2010",
       "collapsed": true,
-      "tags": [".NET", "ASP.NET", "WCF", "SOA", "SQL Server", "Scrum"],
+      "tags": [
+        ".NET",
+        "ASP.NET",
+        "WCF",
+        "SOA",
+        "SQL Server",
+        "Scrum"
+      ],
       "bullets": [
         "RAIR Technologies, Software Development Manager (Jul 2009 - May 2010): Provided architectural and technical guidance for product development, introduced Scrum as the team's agile framework, and led a virtualization strategy that consolidated hardware investment and improved infrastructure responsiveness.",
         "Zywave, Manager Continuous Product Improvement (Jul 2007 - Jun 2009): Promoted from Senior Software Developer to Manager, Continuous Product Improvement in 2008. Led architecture and development for a web portal application on ASP.NET, WCF, and DotNetNuke; contributed to the organization's SOA framework; supervised a team of software engineers across multiple concurrent applications.",
@@ -278,10 +340,12 @@
       "Agent-Multiplied Delivery: Scaled from individual developer productivity to multi-agent delivery-one engineer orchestrating multiple agents, automated LLM-based PR review against guardrails, and human review concentrated on what automated gates cannot be trusted with-reinforced by knowledge-transfer clinics and an explicit refinement loop.",
       "AI Unit Economics: Governed the cost of AI at scale-model selection and internal benchmarking, token and fine-tuning economics, unit-of-work cost tracking for product-embedded AI, and self-hosting vs. API evaluation accounting for maintenance, control, and obsolescence risk.",
       "Security Rails & Posture: Partnered with security stakeholders early to define the rails of AI adoption-guardrails, automated scans, and measured outputs-leveraging AI's tendency to expose previously invisible weaknesses so the security posture ended materially lower-risk than before adoption.",
-      "Production AI-Agent Products: Contributed engineering leadership and architecture to three of Experity's production AI-agent products-AI Scribe (1,000+ clinics, 1,600+ providers, 300+ practices), Care Agent (2,000+ clinics, 200k+ patients), and AIM, an insurance-matching agent still piloting at 100+ clinics rather than in general release. Revenue-cycle-management adoption remains a forward target of 1,500+ clinics, not a current figure.",
+      "Production AI-Agent Products: Contributed engineering leadership and architecture to three of Experity's production AI-agent products-an AI clinical scribe (1,000+ clinics, 1,600+ providers, 300+ practices), an agentic patient assistant (2,000+ clinics, 200k+ patients), and an automated insurance-matching agent still piloting at 100+ clinics rather than in general release. Revenue-cycle-management adoption remains a forward target of 1,500+ clinics, not a current figure.",
       "AI-Compressed Incident Response: Deployed AI-assisted runbooks and knowledge retrieval pipelines that compressed initial triage times, automated structured post-incident learning generation, and reduced on-call cognitive load across distributed teams.",
       "Architecture Transformation: Reframed architecture from advisory review into accountable delivery enablement-coaching technical leaders toward outcome ownership while guiding the Architecture Hub vision, five-pillar assessment model, and automated governance approach across security, reliability, maintainability, deployability, and observability.",
-      "Practitioner Certification: OCI Certified - Cloud Infrastructure 2024 Generative AI Professional-hands-on credential covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design. Used to inform architecture decisions and lead AI enablement conversations with credibility."
+      "Practitioner Certification: OCI Certified - Cloud Infrastructure 2024 Generative AI Professional-hands-on credential covering prompt engineering, RAG architectures, fine-tuning, and responsible GenAI system design. Used to inform architecture decisions and lead AI enablement conversations with credibility.",
+      "Adoption Maturity: Measures AI adoption by an ambition test-it is working when the organization commits to bigger things, not merely when the same work finishes faster. Set measurable usage goals for agent workflows rather than leaving adoption to individual curiosity, and pushed for repeatable business-value systems over isolated experiments.",
+      "Engineering vs. Coding: Works from an explicit hierarchy separating coding as an implementation activity from software engineering as the understanding of systems, constraints, tradeoffs, and outcomes. As code production commoditizes, judgment and communication are what remain differentiating, and the engineer's role is to guide both people and the tools."
     ]
   },
   "strategicInitiatives": [
@@ -312,7 +376,9 @@
         "Embedded AI directly into customer-facing product offerings, not just internal engineering tooling",
         "Surfaced structural gap: engineering velocity began outpacing product definition capacity-prompted redesign of the product-to-engineering handoff model",
         "Applied 'definition-first, then iteration' discipline-evaluating cost-to-value ratios before recommending agentic approaches, avoiding trend-following",
-        "Governance now underpins production AI products: AI Scribe (1,000+ clinics/1,600+ providers/300+ practices) and Care Agent (2,000+ clinics/200k+ patients); AIM (insurance matching) remains in pilot at 100+ clinics"
+        "Governance now underpins production AI products: an AI clinical scribe (1,000+ clinics/1,600+ providers/300+ practices) and an agentic patient assistant (2,000+ clinics/200k+ patients); an automated insurance-matching agent remains in pilot at 100+ clinics",
+        "Adoption measured by an ambition test: it is working when commitments get bigger, not merely when the same work finishes faster",
+        "Measurable usage goals set for agent workflows rather than leaving adoption to curiosity"
       ],
       "metricHighlights": [
         {
@@ -513,7 +579,10 @@
         "Outputs measured against guardrails to provide high confidence in outcomes",
         "AI exposes previously invisible weaknesses-the unease that follows is awareness, not new risk",
         "Net effect: security posture materially lower-risk than before AI adoption",
-        "Security rails extend to AI embedded in products, not just internal tooling"
+        "Security rails extend to AI embedded in products, not just internal tooling",
+        "Rails built before acceleration-testing, safeguards, and rollback capability precede speed",
+        "Roll-forward default for incidents where CI/CD and regression coverage exist; rollback treated as a tool, not a posture",
+        "Symmetric discipline: gates that became ritual rather than protection are removed, not accumulated"
       ],
       "metricHighlights": [
         {
@@ -642,48 +711,143 @@
       "caseStudyUrl": "case-study-definition-pipeline.html"
     },
     {
-      "name": "Global Capability Center - Engineering Workstream Participation",
-      "category": "Cross-Functional Transformation Exposure",
-      "status": "Participating",
-      "summary": "Participated in engineering workstreams for an executive-sponsored Global Capability Center initiative, contributing to readiness planning, implementation coordination, and cross-functional alignment without claiming program ownership or design authority.",
-      "narrative": "The Global Capability Center was an executive/board-sponsored initiative, not Guillermo's design or owned strategy. His role was participative: contributing engineering context, supporting implementation planning, coordinating readiness inputs, and helping align engineering considerations with broader cross-functional workstreams. The experience is relevant as exposure to global delivery transformation and cross-functional execution, but should not be positioned as a primary leadership achievement.",
+      "name": "Global Capability Center - Engineering Capability Build",
+      "category": "Global Engineering Strategy",
+      "status": "Shaping",
+      "summary": "Helped shape the engineering strategy for a board-sponsored Global Capability Center initiative, framing it as a long-term engineering capability build rather than a cost-arbitrage play, with a phased rollout, standards calibrated to market, and onboarding engineered for scale.",
+      "narrative": "The Global Capability Center was a board-sponsored initiative whose ownership and final design authority sat outside the role. Within that boundary, the engineering position was consistent and repeated across leadership meetings and one-on-ones over five months: the office was to be staffed as full-time team members rather than treated as outsourced or offshore resources, the rollout phased so each stage could be learned from, the hiring bar held against cost pressure, and onboarding designed so that new engineers could reach a first contribution quickly at scale. The summaries record this as sustained direction and operational follow-through, not as a completed and measured program result.",
       "role": [
-        "Participant",
-        "Engineering Input",
-        "Readiness Support",
-        "Cross-Functional Coordination"
+        "Engineering Strategy Input",
+        "Capability Framing",
+        "Hiring Bar",
+        "Onboarding Design"
       ],
-      "roleDescription": "Participative contribution only. Guillermo provided engineering context and readiness support within a broader executive-sponsored program owned outside his direct authority.",
+      "roleDescription": "Helped shape engineering strategy within a board-sponsored program owned outside the role. Not positioned as owned strategy or final design authority.",
       "frameworks": [
-        "Engineering Readiness Input",
-        "Cross-Functional Workstream Participation",
-        "Global Delivery Exposure"
+        "Capability Build over Cost Arbitrage",
+        "Phased Rollout",
+        "Calibrated Hiring Bar",
+        "Onboarding at Scale"
       ],
       "keyDetails": [
-        "Executive/board-sponsored initiative; not originated, designed, or owned by Guillermo",
-        "Contributed engineering perspective and readiness inputs to broader implementation planning",
-        "Participated in cross-functional coordination where appropriate without claiming program leadership",
-        "Relevant as global delivery transformation exposure, not as a primary accomplishment"
+        "Framed as a long-term engineering capability build, explicitly not a cost-arbitrage play",
+        "Office staffed as full team members rather than outsourced or offshore resources",
+        "Phased rollout with deliberate learning stages rather than a single cutover",
+        "Hiring bar calibrated to market and held against cost pressure",
+        "Onboarding engineered so new engineers reach a first contribution at scale",
+        "Board-sponsored program; ownership and final design authority remained outside the role"
       ],
       "metricHighlights": [
         {
-          "value": "Support",
-          "label": "Role"
+          "value": "Capability",
+          "label": "Not Cost"
         },
         {
-          "value": "X-Func",
-          "label": "Exposure"
+          "value": "Phased",
+          "label": "Rollout"
         }
       ],
       "metrics": [
-        "Engineering readiness inputs contributed",
-        "Cross-functional workstream participation",
-        "Global delivery transformation exposure"
+        "Capability-build framing sustained across five months of leadership forums",
+        "Hiring bar held against budget pressure",
+        "Onboarding designed for scale"
       ],
       "technologies": [
-        "Cross-functional coordination",
-        "Engineering readiness",
-        "Global delivery exposure"
+        "Global delivery strategy",
+        "Engineering onboarding",
+        "Competency frameworks"
+      ]
+    },
+    {
+      "name": "DevOps Center of Excellence",
+      "category": "Organizational Design",
+      "status": "Active - Establishing",
+      "summary": "Established a DevOps center of excellence and consolidated DevOps leadership to convert expert-held knowledge into documented, standardized, shared practice-explicitly to eliminate single-person dependency.",
+      "narrative": "Critical operational knowledge had concentrated in a small number of individuals, making delivery quietly dependent on specific people. Rather than treating that as a staffing problem, it was treated as a design defect: a center of excellence was stood up with defined responsibilities, standards, and governance, and DevOps leadership was consolidated so the practice had a single accountable structure. The change was framed deliberately as capability building rather than a reporting-line rearrangement, and was restated in a company-facing organizational-change forum so the intent was understood rather than inferred. The record documents the decision and its rationale; incident-rate, knowledge-transfer, and staffing outcomes are not measured in the available sources.",
+      "role": [
+        "Established",
+        "Structure Definition",
+        "Standards & Governance",
+        "Leadership Consolidation"
+      ],
+      "roleDescription": "Directed the creation of the center of excellence and the consolidation of DevOps leadership, defining responsibilities, standards, and governance.",
+      "frameworks": [
+        "No Key-Person Dependency",
+        "Center of Excellence",
+        "Knowledge Institutionalization"
+      ],
+      "keyDetails": [
+        "Center of excellence created with defined responsibilities, standards, and governance",
+        "DevOps leadership consolidated under a single accountable structure",
+        "Expert-held knowledge converted to documented, standardized, shared practice",
+        "Framed as capability building, not a reporting-line change",
+        "Motive stated explicitly: eliminate dependency on individual experts"
+      ],
+      "metricHighlights": [
+        {
+          "value": "CoE",
+          "label": "Structure"
+        },
+        {
+          "value": "Shared",
+          "label": "Knowledge"
+        }
+      ],
+      "metrics": [
+        "Responsibilities, standards, and governance defined",
+        "DevOps leadership consolidated",
+        "Knowledge institutionalized rather than concentrated"
+      ],
+      "technologies": [
+        "DevOps practice design",
+        "Engineering standards",
+        "Operational governance"
+      ]
+    },
+    {
+      "name": "Hiring Chain Alignment",
+      "category": "Organizational Design",
+      "status": "Active - Intervening",
+      "summary": "Diagnosed and intervened on a misaligned hiring chain-recruiters, job descriptions, interviewers, and engineering expectations each encoding a different standard-instituting consistent competency frameworks and guardrails against title inflation and referral-driven hiring.",
+      "narrative": "Hiring quality was inconsistent, and the diagnosis was that each link of the chain encoded a different standard: recruiters screened against one bar, job descriptions described another, interviewers applied a third, and engineering expected a fourth. The intervention named the disconnect explicitly and aligned the chain on shared competency frameworks, required structured multi-signal assessment where a candidate was contested rather than letting the loudest opinion decide, and set explicit guardrails against title inflation and referral-driven hiring. The bar was held against both cost pressure and personal-connection pressure. The record documents the diagnosis and the directives across three independent counterpart settings; quality-of-hire, pass-rate, and time-to-fill outcomes are not measured in the available sources.",
+      "role": [
+        "Diagnosed",
+        "Intervened",
+        "Competency Frameworks",
+        "Bar Discipline"
+      ],
+      "roleDescription": "Identified the chain-wide misalignment and directed consistent competency frameworks and assessment structure across it.",
+      "frameworks": [
+        "Competency Frameworks",
+        "Structured Assessment",
+        "Anti-Title-Inflation Guardrails"
+      ],
+      "keyDetails": [
+        "Hiring chain diagnosed as a system, not as individual bad hires",
+        "Recruiters, job descriptions, interviewers, and engineering expectations aligned on shared competency frameworks",
+        "Structured multi-signal assessment required for contested candidates",
+        "Explicit guardrails against title inflation and referral-driven hiring",
+        "Bar held against both budget pressure and personal-connection pressure"
+      ],
+      "metricHighlights": [
+        {
+          "value": "Chain",
+          "label": "Realigned"
+        },
+        {
+          "value": "Competency",
+          "label": "Frameworks"
+        }
+      ],
+      "metrics": [
+        "Four-link hiring chain aligned on one standard",
+        "Structured assessment instituted for disputed candidates",
+        "Title-inflation and referral-hiring guardrails set"
+      ],
+      "technologies": [
+        "Competency frameworks",
+        "Structured interviewing",
+        "Hiring governance"
       ]
     },
     {
@@ -814,12 +978,12 @@
         "Core insight: 'Implementation has gotten cheap. The product process is not as compressible.'-reframing the organization's true constraint",
         "5-stage pipeline defines how product documentation becomes AI agent context, not just human specification",
         "Cold-Read Validation method: prove artifact quality before build begins, independent of the author",
-        "78% Day 1 readiness score achieved in the structured proving onsite-validated the framework's practicality",
+        "69% Day 1 readiness score achieved in the structured proving onsite-validated the framework's practicality",
         "Surfaces organizational need to redesign the product-to-engineering handoff at a structural level"
       ],
       "metricHighlights": [
         {
-          "value": "78%",
+          "value": "69%",
           "label": "Readiness"
         },
         {
@@ -828,7 +992,7 @@
         }
       ],
       "metrics": [
-        "78% Day 1 readiness score",
+        "69% Day 1 readiness score",
         "Cold-read validation method invented",
         "5-stage pipeline defined",
         "Compressed handoff-to-delivery cycle"
@@ -916,7 +1080,10 @@
         "Coaching mechanism: shifted engineering leadership from heroics-based execution toward systems-based thinking and sustainable boundaries",
         "Executive framing: moved the discussion from who responded correctly to what operating model produced repeated friction",
         "Strategy: document ownership, escalation responsibilities, support capability gaps, operational noise, and opportunity cost to product health",
-        "Outcome: executive alignment that the organization needed to address the underlying system rather than continue relying on individual intervention"
+        "Outcome: executive alignment that the organization needed to address the underlying system rather than continue relying on individual intervention",
+        "Motive made explicit: outcomes depending on individual heroics treated as a design defect, fixed structurally through ownership, documentation, and role design",
+        "Constituent moves included a principal engineer role redefined from operational owner to consultative multiplier, with ownership handed to designated teams",
+        "See also: DevOps Center of Excellence, the same pattern applied to operational knowledge"
       ],
       "metricHighlights": [
         {
@@ -997,7 +1164,7 @@
     {
       "name": "AI Development Framework",
       "tagline": "Developer Directs -> AI Executes -> Developer Validates",
-      "description": "The operating model that shifted the engineering organization from manual code production to agent-augmented review. Engineers provide context, intent, and architectural direction; AI agents generate first-draft code, PR descriptions, test cases, and documentation; engineers validate, refine, and own the output. The bottleneck moves from build capacity to review quality-a fundamentally better constraint. Four core principles: Provide Blueprints, Iterate in Cycles, Delegate Systematics, Shift Your Skills.",
+      "description": "The operating model that shifted the engineering organization from manual code production to agent-augmented review. Engineers provide context, intent, and architectural direction; AI agents generate first-draft code, PR descriptions, test cases, and documentation; engineers validate, refine, and own the output. The bottleneck moves from build capacity to review quality-a fundamentally better constraint. Four core principles: Provide Blueprints, Iterate in Cycles, Delegate Systematics, Shift Your Skills. Underpinned by a stated hierarchy: coding is an implementation activity, while software engineering is the understanding of systems, constraints, tradeoffs, and outcomes. As code production commoditizes, judgment, understanding, and communication remain the differentiators, and the engineer's job becomes guiding both people and tools.",
       "icon": "neurology",
       "origin": "Designed from practitioner experience-personally evaluated AI tooling before institutionalizing as governance policy. Documented as an interactive infographic with data visualizations showing the 80/20 oversight shift.",
       "caseStudyUrl": "case-study-ai-development-framework.html"
@@ -1023,7 +1190,7 @@
       "tagline": "Signal -> Context -> Decision -> Execution -> Memory",
       "description": "A 5-stage PDLC that treats AI agents as first-class participants alongside human engineers. Each stage produces curated context packets consumed by both humans and AI coding agents. Addresses the structural insight that AI has made implementation cheap-shifting the true organizational constraint to product definition quality. Includes the Cold-Read Validation method proving artifact quality before build begins.",
       "icon": "account_tree",
-      "origin": "Created and piloted through a structured 2-day onsite proving session with the product and engineering teams. 78% Day 1 readiness score validated the framework's practicality.",
+      "origin": "Created and piloted through a structured 2-day onsite proving session with the product and engineering teams. 69% Day 1 readiness score validated the framework's practicality.",
       "caseStudyUrl": "case-study-ai-native-pdlc.html"
     },
     {
@@ -1101,16 +1268,16 @@
     {
       "name": "Say-Do Operating System",
       "tagline": "Big Rocks -> Committed Dates -> Say-Do Ratio",
-      "description": "A lightweight initiative-tracking cadence for leadership work: a small set of big rocks, meaningful start and committed dates, and a say-do ratio that tests whether leaders select worthy initiatives, protect focus, surface blockers, and carry commitments to completion. Positioned as a team tool for shared accountability and support, not a private status report.",
+      "description": "A lightweight initiative-tracking cadence for leadership work: a small set of big rocks, meaningful start and committed dates, and a say-do ratio that tests whether leaders select worthy initiatives, protect focus, surface blockers, and carry commitments to completion. Positioned as a team tool for shared accountability and support, not a private status report. Paired with a standing evidentiary gate: a proposal is not ready when it is persuasive, only when it is evidenced-problem, friction, benefits, risks, mitigation, and return-with logs and demonstrated steps expected before an escalation, and the same standard applied upward and to his own initiatives.",
       "icon": "fact_check",
-      "origin": "Built from the SEL Weekly Hour operating cadence: planned, active, paused, and blocked work made visible, aging work questioned, low-conviction items removed."
+      "origin": "Built from the engineering leadership team's weekly operating cadence: planned, active, paused, and blocked work made visible, aging work questioned, low-conviction items removed."
     },
     {
       "name": "Engineering Maturity & Accountability Manifest",
       "tagline": "Kill Your Heroes, Stop Doing It Harder",
-      "description": "A written leadership standard separating role-appropriate execution from leadership-level impact. Redirects heroic intervention toward surfacing and fixing systemic gaps: clearer performance calibration, direct conversations, accountability for each team's part in outcomes, and patience for investments that build durable capability rather than only protecting the current sprint.",
+      "description": "A written leadership standard separating role-appropriate execution from leadership-level impact. Redirects heroic intervention toward surfacing and fixing systemic gaps: clearer performance calibration, direct conversations, accountability for each team's part in outcomes, and patience for investments that build durable capability rather than only protecting the current sprint. The same standard generalizes beyond its origin: across the wider organization, key-person dependency is treated as a defect to be designed out, whether it shows up in operational knowledge or in a role that has become load-bearing alone.",
       "icon": "contract",
-      "origin": "Codified with SEL leaders in February 2026 out of the OnePACS hero-dependency recovery; external constraints treated as real without becoming an excuse for avoiding ownership."
+      "origin": "Codified with the engineering leadership team in February 2026 out of an acquired platform's hero-dependency recovery; external constraints treated as real without becoming an excuse for avoiding ownership."
     },
     {
       "name": "AI-Era Leadership Platform",
@@ -1118,17 +1285,54 @@
       "description": "Six convictions for leading through generational change: transformational leadership over administrative management, because the routine mechanics of management can be automated and the human work cannot; leading AI adoption by personal use before mandate; sitting with uncertainty without losing direction; owning the whole system including the parts that hurt; flatter organizations concentrated in fewer, stronger leaders; and practitioner depth as leverage a leader never graduates away from.",
       "icon": "compass_calibration",
       "origin": "Owner's stated leadership philosophy, carried in the executive summary and lived through the operating model, AI adoption, and role design at Experity."
+    },
+    {
+      "name": "Engineering Operating Model",
+      "tagline": "Exploration - Improvement - Industrialization",
+      "description": "One operating model with three delivery modes matched to the type of work: exploration validates fast and light, improvement tightens feedback loops on what already works, and industrialization scales what is proven with real rigor. Underneath all three sit WIP limits, small batches, dependency reduction as a design goal, SLO-driven prioritization, and DORA-grounded delivery. Architecture acts as a force multiplier-paved roads, reference implementations, decision records-and AI governance is built into the model rather than bolted on.",
+      "icon": "workflow",
+      "origin": "Designed and directed within the engineering leadership team. Organization-wide implementation and measured gains are not yet confirmed."
+    },
+    {
+      "name": "Staff Engineer / TSAL Model",
+      "tagline": "One accountable technical leader - defined ramp - explicit boundaries",
+      "description": "A defined role, not a title bump: hands-on, single-accountable technical leadership spanning architecture and delivery, with explicit scope boundaries-product partnership, technical roadmap, cross-functional coordination, contractor leadership, PR quality, standards, and mentorship-and a ramp plan built into onboarding rather than assumed. Applied with the same shape in two separate product areas. The philosophy underneath: senior technical roles multiply the organization; they do not absorb whatever breaks.",
+      "icon": "assignment_ind",
+      "origin": "Applied consistently in two separate product areas. Organization-wide standardization is not confirmed."
+    },
+    {
+      "name": "Nine-Pillar Well-Architected Framework",
+      "tagline": "Nine pillars for a regulated healthcare platform",
+      "description": "A Well-Architected standard built for the healthcare context instead of a generic cloud checklist: security with HIPAA as a design input, reliability by design, performance against real usage, operations as part of architecture, cost at design time, maintainability for the team that inherits the code, testability as a design property, scalability before growth forces it, and extensibility from the start. Designed as a shared vocabulary for technical decisions and to plug into self-service assessment-application-level grading, risk scoring, required artifacts-so architecture visibility scales without a central bottleneck.",
+      "icon": "domain_verification",
+      "origin": "Designed and directed with the architecture team, developed with engineering-wide input. Final pillar definitions and production rollout were named as next steps."
+    },
+    {
+      "name": "Leadership Operating Principles",
+      "tagline": "Structure Over Heroics - Evidence Over Assertion - Repetition Over Announcement",
+      "description": "A consistent operating philosophy expressed the same way whether the subject is hiring, architecture, a departure, or a security policy. Three principles carry the weight. No individual should be structurally required, so a key-person dependency is engineered out rather than celebrated. Nothing advances on assertion: proposals state problem, friction, benefits, risks, mitigation, and return, and the same gate applies to his own initiatives first. Communication is a quality mechanism, because a standard nobody is aware of effectively does not exist and alignment decays without deliberate repetition.",
+      "icon": "menu_book",
+      "origin": "Observed consistently across four direct working relationships with senior engineering managers and technical leaders, plus a broader engineering-leadership forum, spanning eight-plus months. The strength of the evidence is that the same principles surface independently across different people and unrelated topics, without coordination."
     }
   ],
   "builderResume": {
     "headline": "Software Engineering Practitioner & Architect - Concept to Production, Now With AI-Agent Leverage",
-    "summary": "An engineer who never stopped writing, architecting, and shipping systems while taking on progressively larger scope, from deep technical execution to distributed, AI-agent-assisted platform architecture. Moves the full distance from concept through architecture, implementation, deployment, and operation, in regulated, high-stakes environments where mistakes carry real consequences. That hands-on depth, built over more than a decade of lead-developer and architect roles, is what makes the leadership judgment that follows it trustworthy: building the team, the operating cadence, and the technical-lead structure a system needs once it has traction. AI-agent-assisted engineering is the newest expression of that same pattern, a development method whose value depends on pairing agent execution with human architecture and validation.",
+    "summary": "An engineer who never stopped writing, architecting, and shipping systems while taking on progressively larger scope, from deep technical execution to distributed, AI-agent-assisted platform architecture. Moves the full distance from concept through architecture, implementation, deployment, and operation, in regulated, high-stakes environments where mistakes carry real consequences. That hands-on depth, built over more than a decade of lead-developer and architect roles, is what makes the leadership judgment that follows it trustworthy: building the team, the operating cadence, and the technical-lead structure a system needs once it has traction. Holds coding as an implementation activity and engineering as the understanding of systems, constraints, and tradeoffs-so as code production commoditizes, the judgment is what remains worth paying for. Runs delivery on rails built before acceleration, with a roll-forward default once CI/CD and regression coverage are real. AI-agent-assisted engineering is the newest expression of that same pattern, a development method whose value depends on pairing agent execution with human architecture and validation.",
     "experience": [
       {
         "company": "Experity",
         "title": "VP, Software Engineering",
         "period": "Mar 2023 - Present",
-        "tags": ["AWS Lambda / DynamoDB / ECS / Bedrock", "Kubernetes", "Kafka / Debezium", "Redis", "React / Next.js", "TypeScript / Node.js", "Python / FastAPI", "AI-Agent Engineering"],
+        "tags": [
+          "AWS Lambda / DynamoDB / ECS / Bedrock",
+          "Kubernetes",
+          "Kafka / Debezium",
+          "Redis",
+          "React / Next.js",
+          "TypeScript / Node.js",
+          "Python / FastAPI",
+          "AI-Agent Engineering"
+        ],
         "bullets": [
           "## Role Progression",
           "Three promotions in three years, advancing from Director of Product Development to Senior Director of Software Engineering to VP, Software Engineering.",
@@ -1137,8 +1341,8 @@
           "Designed and ran a guardrailed, two-day agentic-coding hackathon (greenfield-only scope, individual repos, private AWS sandbox) and built the companion Architecture-Design-Vision-Requirements (ADVR) framework requiring system/component/data/deployment/security architecture, user journeys, API contracts, and functional/nonfunctional requirements before any team wrote code.",
           "Personally architected two healthcare proof-of-concept reference solutions to anchor the hackathon: a Medication Adherence Tracker (React PWA, serverless Node.js on AWS Lambda/DynamoDB, Redis session state) and an AI-Powered Symptom Journal (Next.js frontend, Python FastAPI backend, AWS Comprehend, Kafka processing queues, ECS deployment).",
           "Co-created a nine-pillar, Experity-specific Well-Architected Framework (security, reliability, performance, operations, cost, maintainability, testability, scalability, extensibility) and directed the design of a self-service architecture-assessment portal.",
-          "Established a single-accountable technical-lead model for the Care Agent product-hands-on ownership across frontend, backend, AWS infrastructure, DevOps, and production-grade agentic patterns in a PHI-sensitive context.",
-          "Contributed engineering leadership and architecture to three of Experity's production AI-agent products: AI Scribe (1,000+ clinics, 1,600+ providers, 300+ practices), Care Agent (2,000+ clinics, 200k+ patients), and AIM, an insurance-matching agent still piloting at 100+ clinics.",
+          "Established a single-accountable technical-lead model for an agentic patient-assistant product-hands-on ownership across frontend, backend, AWS infrastructure, DevOps, and production-grade agentic patterns in a PHI-sensitive context.",
+          "Contributed engineering leadership and architecture to three of Experity's production AI-agent products: an AI clinical scribe (1,000+ clinics, 1,600+ providers, 300+ practices), an agentic patient assistant (2,000+ clinics, 200k+ patients), and an automated insurance-matching agent still piloting at 100+ clinics.",
           "Directed the architecture behind a Core EMR platform-recovery plan: sequencing multi-region resilience, scoping a bounded offshore workstream for REST-API migration and a .NET 9 upgrade, and setting architectural guardrails for revenue-cycle workflows.",
           "Diagnosed and directed remediation of a clinical-workflow async-messaging latency defect (channel separation plus polling-configuration correction), internally reported as reducing message-latency failures from roughly 6% to 0% within about 24 hours of the root-cause fix.",
           "## Technical Practice Foundation",
@@ -1146,15 +1350,20 @@
         ]
       },
       {
-      "company": "Chronicled",
-      "title": "Head of Customer Success Services",
-      "period": "Jul 2022 - Mar 2023",
-      "tags": ["GCP", "Kubernetes", "MediLedger Blockchain", "Enterprise Implementation"],
-      "bullets": [
-        "Managed a team of 5 Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
-        "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
-        "Led customer-facing solution design for multi-party contract management and negotiation workflows on the MediLedger network-a hybrid of healthcare, financial services, and contract-governance domains.",
-        "Delivered customer-centric solutions by balancing technical implementation with strategic business value, ensuring alignment between technology capabilities and client objectives.",
+        "company": "Chronicled",
+        "title": "Head of Customer Success Services",
+        "period": "Jul 2022 - Mar 2023",
+        "tags": [
+          "GCP",
+          "Kubernetes",
+          "MediLedger Blockchain",
+          "Enterprise Implementation"
+        ],
+        "bullets": [
+          "Managed a team of 5 Implementation Consultants with deep Kubernetes configuration expertise and strong business acumen.",
+          "Led enterprise blockchain solution design for Fortune 100 pharmaceutical customers on the GCP-hosted MediLedger platform, addressing supply chain compliance and track-and-trace regulatory requirements.",
+          "Led customer-facing solution design for multi-party contract management and negotiation workflows on the MediLedger network-a hybrid of healthcare, financial services, and contract-governance domains.",
+          "Delivered customer-centric solutions by balancing technical implementation with strategic business value, ensuring alignment between technology capabilities and client objectives.",
           "Guided Implementation Consultants to combine technical configuration skill with customer-facing solution ownership, driving adoption and satisfaction across pharmaceutical supply chain deployments."
         ]
       },
@@ -1162,7 +1371,11 @@
         "company": "SafeNet Consulting",
         "title": "Director of Solutions Group",
         "period": "Aug 2021 - Jul 2022",
-        "tags": ["AWS", "Azure", "Multi-Tier Cloud-Native Solutions"],
+        "tags": [
+          "AWS",
+          "Azure",
+          "Multi-Tier Cloud-Native Solutions"
+        ],
         "bullets": [
           "Contributed to strategy, short and long term planning at the executive-leadership level, while carrying out day-to-day responsibilities acting as Chief Software Architect and customer-facing Solutions Architect.",
           "Led an architecture team delivering multi-tier, cloud-native solutions for Fortune 500 enterprise clients across AWS and Azure.",
@@ -1173,7 +1386,11 @@
         "company": "HealthEquity",
         "title": "Solutions Architect",
         "period": "Mar 2021 - Aug 2021",
-        "tags": ["Solution Architecture", "Code Review", "Security Standards"],
+        "tags": [
+          "Solution Architecture",
+          "Code Review",
+          "Security Standards"
+        ],
         "bullets": [
           "Provided solution architecture and technical code review for benefits-administration platform initiatives during a short-term contract engagement through Kforce, bridging SysLogic and SafeNet Consulting.",
           "Partnered with delivery teams to evaluate technical designs against enterprise architecture and security standards."
@@ -1183,7 +1400,13 @@
         "company": "SysLogic, Inc.",
         "title": "Cloud & Enterprise Architecture Lead",
         "period": "May 2019 - Mar 2021",
-        "tags": ["Docker", "Kubernetes", "Azure SQL", "ETL", "AWS / Azure"],
+        "tags": [
+          "Docker",
+          "Kubernetes",
+          "Azure SQL",
+          "ETL",
+          "AWS / Azure"
+        ],
         "bullets": [
           "Developed and deployed Docker containers on Kubernetes; implemented an ETL process migrating legacy on-premises data into an Azure SQL database instance.",
           "Designed the information architecture and asset model for a client organization and delivered the final adopted implementation.",
@@ -1194,7 +1417,13 @@
         "company": "HSA Bank, a division of Webster Bank, N.A.",
         "title": "VP, Enterprise Solutions Architect",
         "period": "May 2014 - May 2019",
-        "tags": [".NET", "SQL Server", "AWS", "Docker", "Microservices"],
+        "tags": [
+          ".NET",
+          "SQL Server",
+          "AWS",
+          "Docker",
+          "Microservices"
+        ],
         "bullets": [
           "## Role Progression",
           "Advanced from Solutions Architect (Kforce Inc. contract staffing) to VP, Application Development Manager to VP, Enterprise Solutions Architect over a five-year tenure.",
@@ -1222,9 +1451,16 @@
         "AWS Certified Solutions Architect - Associate (Amazon, 2021) - legacy credential"
       ],
       "technicalRange": [
-        "AWS, Azure, GCP", "Docker, Kubernetes, ECS", "Kafka, Debezium, Redis", "React, Next.js, Node.js, TypeScript, Python/FastAPI",
-        "C#, .NET, ASP.NET, WCF, SOA", "SQL Server, PostgreSQL, data modeling and migration", "CI/CD (GitHub Actions; Jenkins-based pipelines)",
-        "RESTful APIs, OpenAPI, OAuth 2.0, JWT", "Microservices & distributed systems architecture", "AI-agent-assisted engineering (Claude Code-class agents, GitHub Copilot, AWS Bedrock)"
+        "AWS, Azure, GCP",
+        "Docker, Kubernetes, ECS",
+        "Kafka, Debezium, Redis",
+        "React, Next.js, Node.js, TypeScript, Python/FastAPI",
+        "C#, .NET, ASP.NET, WCF, SOA",
+        "SQL Server, PostgreSQL, data modeling and migration",
+        "CI/CD (GitHub Actions; Jenkins-based pipelines)",
+        "RESTful APIs, OpenAPI, OAuth 2.0, JWT",
+        "Microservices & distributed systems architecture",
+        "AI-agent-assisted engineering (Claude Code-class agents, GitHub Copilot, AWS Bedrock)"
       ]
     },
     "executiveScaleNote": "Guillermo currently leads a direct engineering organization of 70-100 at Experity across seven teams (software engineering, quality engineering, DevOps, platform) with six direct reports and product partners matrixed alongside. Executive scale is kept as a brief bridge here rather than the emphasis of this document; see the executive resume for the full leadership narrative."

@@ -3,6 +3,10 @@ node_modules/
 .github/
 .wrangler/
 plans/
+sources/
+.private/
+.serena/
+scripts/
 *.jsonc
 *.md
 worker.js

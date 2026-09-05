@@ -8,7 +8,7 @@
     "linkedin": "linkedin.com/in/guillermosalas",
     "linkedinUrl": "https://linkedin.com/in/guillermosalas"
   },
-  "summary": "An engineer who became an enterprise architect, then an executive leader. Two decades in, still building people, developing leaders, and pushing engineering execution to a higher standard. Decisions run on evidence over opinion and get written down. Teams own the whole system, including the parts that hurt. AI-assisted engineering is the latest arena for the same discipline: personal use before mandate, governance before scale, and leaders who stay in the work.",
+  "summary": "An engineer who became an enterprise architect, then an executive leader. Two decades in, still building people, developing leaders, and pushing engineering execution to a higher standard. Decisions run on evidence over opinion and get written down. Teams own the whole system, including the parts that hurt. Organizations get designed so no one person is structurally required, and standards get repeated until they are known, because a standard nobody is aware of does not really exist. AI-assisted engineering is the latest arena for the same discipline: personal use before mandate, governance before scale, and leaders who stay in the work.",
   "hero": {
     "tagline": "Builds stronger leaders and stronger engineering systems."
   },
@@ -18,91 +18,215 @@
       "title": "Operating Model Transformation",
       "tagline": "Ownership clarity, escalation design, support model gaps, and product-health investment.",
       "url": "case-study-operating-model-transformation.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     },
     {
       "category": "Technical Leadership",
       "title": "Architecture as Delivery Enablement",
       "tagline": "Architecture reframed from advisory review into accountable delivery leadership.",
       "url": "case-study-architecture-delivery-enablement.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     },
     {
       "category": "AI Transformation",
       "title": "AI Development Framework",
       "tagline": "Developer Directs -> AI Executes -> Developer Validates.",
       "url": "case-study-ai-development-framework.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     },
     {
       "category": "Process Innovation",
       "title": "AI-Native PDLC",
       "tagline": "Signal -> Context -> Decision -> Execution -> Memory.",
       "url": "case-study-ai-native-pdlc.html",
-      "variants": ["herald", "cipher", "ember"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember"
+      ]
     },
     {
       "category": "Leadership Development",
       "title": "Leadership Maturation Arc",
       "tagline": "Identity -> Excellence -> Focus -> Growth -> Recalibration -> Sharpen.",
       "url": "case-study-leadership-maturation-arc.html",
-      "variants": ["herald", "cipher", "ember"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember"
+      ]
     },
     {
       "category": "Agentic Architecture",
       "title": "Agentic Architecture Discipline",
       "tagline": "Definition-first, then iteration; cost-to-value before agentic adoption.",
       "url": "case-study-agentic-architecture-discipline.html",
-      "variants": ["herald", "cipher", "ember"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember"
+      ]
     },
     {
       "category": "AI Transformation",
       "title": "Agent-Multiplied Delivery",
       "tagline": "One engineer, many agents - automated PR review with guardrails and human-review fallback.",
       "url": "case-study-agent-multiplied-delivery.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     },
     {
       "category": "Process Innovation",
       "title": "Definition Pipeline",
       "tagline": "Idea -> PRD -> TRD -> Plan -> Tasks: BMAD lineage, homegrown.",
       "url": "case-study-definition-pipeline.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     },
     {
       "category": "AI Governance",
       "title": "AI Unit Economics",
       "tagline": "Model selection, token economics, and unit-of-work cost control for AI at scale.",
       "url": "case-study-ai-unit-economics.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     },
     {
       "category": "Security",
       "title": "Security Rails & AI Security Posture",
       "tagline": "Early security partnership, measured guardrails, and a posture that got stronger, not riskier.",
       "url": "case-study-security-rails-ai-security-posture.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     },
     {
       "category": "Engineering Culture",
       "title": "Value Delivery Engineering",
       "tagline": "Ticket-takers -> value-delivery engineers: partner with product, right-size the work, own outcomes.",
       "url": "case-study-value-delivery-engineering.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     },
     {
       "category": "Platform Strategy",
       "title": "Platform Initiative",
       "tagline": "Mercenary architecture turned into reusable components, patterns, knowledge, and standards.",
       "url": "case-study-platform-initiative.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     },
     {
       "category": "Executive Leadership",
       "title": "Owning the Whole System",
-      "tagline": "OnePACS, Kafka, and the ownership of what hurts.",
+      "tagline": "An acquired platform, Kafka, and the ownership of what hurts.",
       "url": "case-study-owning-the-whole-system.html",
-      "variants": ["herald", "cipher", "ember", "apex", "nova"]
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
+    },
+    {
+      "category": "Executive Leadership",
+      "title": "Capability, Not Cost",
+      "tagline": "An offshore office shaped as a long-term capability build rather than a cost-arbitrage play.",
+      "url": "case-study-gcc-capability-not-cost.html",
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
+    },
+    {
+      "category": "Organizational Design",
+      "title": "DevOps Center of Excellence",
+      "tagline": "Expert-held knowledge converted into shared practice, to remove the single-person dependency.",
+      "url": "case-study-devops-center-of-excellence.html",
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
+    },
+    {
+      "category": "Organizational Design",
+      "title": "Hiring-Alignment Intervention",
+      "tagline": "Recruiters, JDs, interviewers, and engineering realigned on one standard.",
+      "url": "case-study-hiring-alignment-intervention.html",
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
+    },
+    {
+      "category": "AI Transformation",
+      "title": "A-D-V-R Cycle",
+      "tagline": "Architect -> Direct -> Validate -> Repeat: the developer as architect, the AI as apprentice.",
+      "url": "case-study-advr-cycle.html",
+      "variants": [
+        "herald",
+        "cipher",
+        "ember",
+        "apex",
+        "nova"
+      ]
     }
   ]
 }
