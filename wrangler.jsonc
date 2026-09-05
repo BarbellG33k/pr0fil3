@@ -3,6 +3,11 @@
   "name": "profile",
   "main": "worker.js",
   "compatibility_date": "2025-09-27",
+  // Runs before every `wrangler deploy` and `wrangler dev`, so the build
+  // version is stamped even when the npm lifecycle is bypassed.
+  "build": {
+    "command": "bash scripts/stamp-version.sh"
+  },
   "observability": {
     "enabled": true
   },

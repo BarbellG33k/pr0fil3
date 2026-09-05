@@ -32,15 +32,39 @@ jobs:
 
       - run: npm install
 
-      - name: Stamp build version
-        run: npm run stamp-version
-
+      # No explicit stamp step: wrangler runs scripts/stamp-version.sh itself
+      # via the build.command hook in wrangler.jsonc, so the stamp cannot be
+      # skipped by invoking wrangler directly. The script fails the build if
+      # the placeholder survives.
       - name: Deploy to Cloudflare Workers
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
         run: npx wrangler deploy --compatibility-date 2025-09-27
-      
+
+      # Verifies what is actually serving, not what we believe we uploaded. A
+      # deploy can report success while an unstamped build is live - that is
+      # exactly the failure this step exists to catch, and it was silent
+      # before. /api/version sits ahead of the traffic-quality gate so this
+      # needs no User-Agent spoofing.
+      - name: Verify deployed version
+        run: |
+          expected="$(git rev-parse --short HEAD)"
+          echo "Expecting /api/version to report: ${expected}"
+          for attempt in 1 2 3 4 5 6; do
+            body="$(curl -fsS --max-time 15 https://guillermosalas.dev/api/version || true)"
+            echo "attempt ${attempt}: ${body:-<no response>}"
+            case "${body}" in
+              *"${expected}"*)
+                echo "Deployed version confirmed live."
+                exit 0
+                ;;
+            esac
+            sleep 10
+          done
+          echo "::error::/api/version never reported ${expected}; the deploy succeeded but the live build is stale or unstamped."
+          exit 1
+
       - name: Show wrangler logs on failure
         if: failure()
         run: cat ~/.config/.wrangler/logs/*.log || echo "No logs found"

@@ -125,9 +125,29 @@ compare it to `git log --oneline -1` on `main`.
   when available, and provides a `dev (local)` fallback when run unstamped in
   local dev. The badge is never hidden with a `hidden` attribute.
 - `scripts/stamp-version.sh` replaces the token in both files with the current
-  `git rev-parse --short HEAD` and a UTC timestamp.
-- `package.json` wires `predeploy` and `build` scripts to run
-  `stamp-version`, and `.github/workflows/deploy.yml` also runs it as a named step
+  `git rev-parse --short HEAD` and a UTC timestamp, then **fails the build** if
+  any placeholder survived. Shipping the literal token makes the badge lie about
+  what is live, and that failure used to be silent.
+- `wrangler.jsonc` declares `build.command`, so wrangler runs the stamp script
+  itself before **every** `wrangler deploy` and `wrangler dev`. This is the
+  guard that matters: `package.json`'s `predeploy` hook only covers
+  `npm run deploy`, and a bare `npx wrangler deploy` bypasses it and publishes
+  the raw placeholder over a good deploy.
+- `/api/version` is served **ahead of** the traffic-quality gate in `worker.js`.
+  It carries only the build string and writes no analytics, and keeping it
+  reachable lets CI and uptime monitors check the live build without spoofing a
+  browser User-Agent (`curl/` classifies as a scraper, which the gate blocks).
+- `.github/workflows/deploy.yml` verifies the deploy after the fact: it polls
+  `/api/version` and fails the job unless the live build reports the short SHA
+  it just deployed. A deploy can report success while a stale or unstamped
+  build is serving - that is precisely what this catches
+
+**Local side effect:** because wrangler now stamps on every invocation, running
+`wrangler dev`, `wrangler deploy` or even `--dry-run` locally leaves `index.html`
+and `worker.js` stamped in your working tree. `npm run deploy` reverts them via
+`postdeploy`; after a bare wrangler command, revert by hand
+(`git checkout index.html worker.js`). You cannot commit a stamped tree by
+accident - `npm test` fails when the placeholder is missing
   immediately before `wrangler deploy`. This guarantees all deployments (CI or
   local `npm run deploy`) are stamped automatically.
 - The stamped value is never committed back to git. Local `npm run deploy`

@@ -23,12 +23,24 @@ VERSION_STRING="${SHORT_SHA} - ${DEPLOYED_AT}"
 FILES=$(grep -l "BUILD_VERSION_PLACEHOLDER" ./*.html ./worker.js 2>/dev/null || true)
 
 if [ -z "$FILES" ]; then
+  # Not an error: wrangler's build hook runs this on every invocation, so a
+  # second run in the same working tree legitimately finds nothing to do.
   echo "No files contain BUILD_VERSION_PLACEHOLDER; nothing to stamp."
-  exit 0
+else
+  for f in $FILES; do
+    sed -i.bak "s/BUILD_VERSION_PLACEHOLDER/${VERSION_STRING}/g" "$f"
+    rm -f "${f}.bak"
+    echo "Stamped ${f} with: ${VERSION_STRING}"
+  done
 fi
 
-for f in $FILES; do
-  sed -i.bak "s/BUILD_VERSION_PLACEHOLDER/${VERSION_STRING}/g" "$f"
-  rm -f "${f}.bak"
-  echo "Stamped ${f} with: ${VERSION_STRING}"
-done
+# Post-condition. A deploy that ships the literal placeholder makes the badge
+# and /api/version lie about what is live, and every previous failure of this
+# kind was silent - the deploy succeeded and nobody found out until someone
+# read the badge. Fail the build instead.
+REMAINING=$(grep -l "BUILD_VERSION_PLACEHOLDER" ./*.html ./worker.js 2>/dev/null || true)
+if [ -n "$REMAINING" ]; then
+  echo "ERROR: BUILD_VERSION_PLACEHOLDER survived stamping in:" >&2
+  echo "$REMAINING" >&2
+  exit 1
+fi
