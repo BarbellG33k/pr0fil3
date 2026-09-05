@@ -16,6 +16,6 @@
     "validate:evidence": "node scripts/validate-evidence-ledger.mjs .private/evidence-ledger.json"
   },
   "devDependencies": {
-    "wrangler": "^4.80.0"
+    "wrangler": "^4.129.0"
   }
 }
