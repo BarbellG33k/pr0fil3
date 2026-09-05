@@ -10,3 +10,6 @@ scripts/
 *.jsonc
 *.md
 worker.js
+package.json
+package-lock.json
+.gitignore
