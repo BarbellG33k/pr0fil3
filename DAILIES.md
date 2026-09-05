@@ -4,6 +4,116 @@ A running log of changes to Guillermo's resume and portfolio site.
 
 ---
 
+## 2026-09-05 - Plan C Completion Pass (Owner Decisions + Wave 6)
+
+### Owner decisions applied
+- GCC case-study card tagline: "steered" -> "shaped" in portfolio-content.json + all 5
+  portfolio-data mirrors (keeps the attribution at the owner-approved "helped shape"
+  ceiling; found in the independent Phase-1 review)
+- AI-Native PDLC readiness figure: 78% -> 69% everywhere public (4 strings in
+  resume-content.json + 3 hardcoded fallback stat tiles), per the July
+  executive-profile analysis correction
+- Initiatives-grid fallback (herald/cipher/ember): added DevOps Center of Excellence
+  and Hiring Chain Alignment cards (fallback now 14 of JSON's 16, curation preserved)
+- Frameworks-grid fallback (herald/cipher/ember): added Operating Model Transformation
+  card and renamed "Architecture Assessment Model" -> "Architecture as Delivery
+  Enablement" to match the JSON card (fallback now 20 of 20 titles)
+
+### Wave 6 enrichment (5 case studies x 3 variants, identical deltas)
+- Security Rails: rails-before-acceleration, roll-forward default, symmetric gate
+  removal (mechanism cards + principles)
+- AI Development Framework: new "Stated Hierarchy & the Ambition Test" section
+  (three-levels framing hedged as stated perspective + adoption ambition test)
+- Agent-Multiplied Delivery: usage goals for agent workflows + active-adoption
+  directive
+- Value Delivery Engineering: protected non-negotiable key-customer contractual
+  commitments
+- Architecture Delivery Enablement: nine-pillar Well-Architected standard +
+  self-service assessment portal, kept distinct from the five-pillar Architecture Hub
+
+### Tooling & hygiene
+- scripts/validate-mirrors.mjs promoted from the handoff checker and wired into
+  `npm test` (now 27 tests) - embedded-blob drift and banned-string regressions fail CI
+- scripts/slop-scan.mjs and scripts/dup-scan.mjs recreated in scripts/ (report-only
+  by default, `--strict` to enforce)
+- .assetsignore: sources/ added (was missing), plus .private/, .serena/, and scripts/
+  as deploy hardening (scripts/ carries the banned-name word list; dev tooling
+  should never deploy, and nothing references it client-side)
+- AGENTS.md: replaced the stale "no formal lint/typecheck pipeline" note with the
+  actual verification commands
+
+---
+
+## 2026-09-04 - Sep 3 Evidence Corpus Integration (Plan C, Waves 1-5)
+
+### Evidence foundation
+- Extended `.private/evidence-ledger.json` 65 -> 78 records: 10 records for the new
+  Sep-3 value clusters (all `directional`, attributed evidence), 3 records backing the
+  new framework cards (Engineering Operating Model, Staff Engineer / TSAL Model,
+  Nine-Pillar Well-Architected Framework), 3 existing records amended (GCC attribution
+  moved to the owner-approved "helped shape" hedge with prior wording preserved in
+  `conflicts[]`)
+- Placement map, drafting inputs, and execution shell recorded in `plans/`
+
+### Resume (`resume-content.json` + resume.html / resume-alt.html mirrors)
+- Executive summary gained three woven-in layers: institutional resilience (no
+  individual structurally required), evidence-gated decisions applied to his own
+  initiatives first, communication as a quality mechanism
+- Experity bullets 23 -> 25: DevOps Center of Excellence, hiring-chain alignment
+  intervention; GCC bullet replaced with hedged "helped shape" capability-build
+  wording; operating-model, AI, security-rails, and value-delivery bullets enriched
+- Strategic initiatives 14 -> 16 (DevOps CoE, Hiring Chain; GCC initiative renamed
+  "Engineering Capability Build", status `Shaping`)
+- AI practitioner record +2 bullets (adoption ambition test, engineering-vs-coding
+  hierarchy / commoditization thesis)
+- Builder resume summary/practice aligned with the same layers
+
+### Executive portfolios (herald / cipher / ember / apex / nova + mirrors)
+- Portfolio bio updated; hero tagline unchanged
+- Case study cards 13 -> 17 (GCC capability-not-cost, DevOps CoE, hiring alignment,
+  ADVR de-orphaned; all five variants)
+- Leadership frameworks 16 -> 20: Leadership Operating Principles (consolidated
+  card for observed operating principles - constructed labels kept internal),
+  Engineering Operating Model, Staff Engineer / TSAL Model, Nine-Pillar
+  Well-Architected Framework; frameworks-grid fallbacks updated in herald/cipher/ember
+- Core competencies grid: additive tags (Institutional Resilience, Talent Systems)
+- 9 new case-study files (3 subjects x base/cipher/ember); consultative role
+  transition folded into Owning the Whole System; departure material kept
+  unpublished per evidence restriction
+
+### Validation
+- Gates green: 26/26 tests, ledger valid, JSON parse, all mirrors deep-equal,
+  79/79 card targets resolve, no broken internal links, anonymization scan clean,
+  no numeric metrics in new case studies
+- Independent Wave 5 review found and fixed one defect: two framework-card
+  descriptions published a restricted departure principle without its mandatory
+  pairing; clauses removed, ledger restriction now consistent with public copy
+- Full report: `plans/2026-09-04-wave5-validation-report.md`
+- Owner ruling on OnePACS: the codename is gone from all published content. The
+  Owning-the-Whole-System case study (x3 variants) now leads with the product- and
+  domain-agnostic pattern - an acquired team, small and nimble, grown fast on
+  fly-by-the-seat-of-your-pants engineering with no formal process, no quality gates
+  beyond opinions and random checks, and no awareness of its maturity-curve position.
+  Card tagline, five portfolio mirrors, and two framework origin lines updated to
+  match; DICOM/HL7 specifics and remaining internal names generalized in that artifact
+- Owner ruling on product names: internal names removed from all published content and
+  replaced with generic category terms - AI Scribe -> "an AI clinical scribe", Care
+  Agent -> "an agentic patient assistant", AIM -> "an automated insurance-matching
+  agent". Applied across resume content (5 strings), both resume pages, apex/nova
+  embedded copies, and the executive-portfolio narratives; adoption figures unchanged;
+  ledger approved wording updated to match
+- Found and fixed stale mirrors the earlier sync gate missed: apex/nova embedded
+  resume copies were pre-refresh (21 bullets, old GCC "participated" wording, old
+  summary) and are now regenerated from resume-content.json; the hardcoded executive
+  portfolio narrative and initiatives-grid fallback carried the old GCC attribution
+  and named products - both moved to the hedged "helped shape" wording and generic
+  product terms. All nine embedded blobs verified deep-equal; apex and nova
+  render-checked in browser
+- Carried for owner decision: optional Wave 6 enrichment of existing case studies;
+  persisting the QA scanners into scripts/; nothing committed
+
+---
+
 ## 2026-09-02 - Version Footer Badge Regression Fix
 
 ### Regression Fix & Stamping Hardening
