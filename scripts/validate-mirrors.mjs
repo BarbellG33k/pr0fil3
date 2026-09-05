@@ -31,9 +31,31 @@ const EMBEDDED_DATA_PAGES = [
 const BANNED = [
   [/OnePACS|DICOM|AI Scribe|Care Agent|\bAIM\b|BigSKI|iDoc|Patient Fusion/i, "codename/product"],
   [/Participated in (engineering workstreams|Global Capability)/, "old GCC wording"],
-  [/No-Heroes Standard|Departure as Design Signal|Perception Becomes Reality/i, "constructed doctrine label"],
+  // "Show Me Your Work" was missing here while the other three INV-4 names were
+  // listed - the gate guarded three quarters of its own invariant.
+  [/No-Heroes Standard|Show Me Your Work|Departure as Design Signal|Perception Becomes Reality/i, "constructed doctrine label"],
   [/departure is read as information|departure that reveals/, "restricted departure doctrine"],
+  // F6: the GCC card tagline shipped reading "steered as a long-term capability
+  // build", one notch above the D-6/INV-6 "helped shape" ceiling. The name and
+  // old-wording scans could not see it because it was neither.
+  [/steered as a long-term/i, "GCC verb above the INV-6 ceiling"],
+  // F7: internal evidence-ledger vocabulary reached published copy in 12 files.
+  // It is meaningless to a reader who has no access to the ledger, and together
+  // these phrases disclose that the profile derives from summaries of private
+  // 1:1s. Public copy states what was done and what was not measured - never how
+  // well corroborated the underlying record is.
+  [
+    /the record documents|the summaries record|the available sources|the underlying record|independent counterpart|counterpart setting|counterpart series|corroborated across|strength of the evidence|per the record/i,
+    "evidence-ledger vocabulary in public copy",
+  ],
 ];
+
+// F9: all three GCC case-study files shipped to production with literal agent
+// tool-call markup ("</content></invoke>") trailing </html>. Browsers discard
+// bytes after </html>, so a rendered-DOM check cannot see it - only View Source
+// can. Nothing may follow the closing tag.
+const TRAILING_GARBAGE = /<\/html>\s*\S/i;
+const AGENT_MARKUP = /<\/(?:antml:)?(?:invoke|content|function_calls|parameter)>/i;
 
 export function runChecks() {
   const failures = [];
@@ -100,6 +122,9 @@ export function runChecks() {
   for (const f of publicFiles) {
     const s = read(f);
     for (const [re, label] of BANNED) if (re.test(s)) bad(`${f}: ${label} (${re})`);
+    if (AGENT_MARKUP.test(s)) bad(`${f}: agent tool-call markup in published file`);
+    if (f.endsWith(".html") && TRAILING_GARBAGE.test(s))
+      bad(`${f}: content after </html>`);
   }
 
   // 4. card link targets exist

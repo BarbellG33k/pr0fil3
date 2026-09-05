@@ -4,7 +4,7 @@
 resumable cold by any agent, including a different agent product or a fresh session with
 no conversation history. Update it at every task transition — never batch updates.
 
-**Last updated:** 2026-09-05 (Phase-2 completion pass: owner decisions applied, Wave 6 executed) · **Current wave:** done through 6 · **Overall:** 7 of 7 waves complete
+**Last updated:** 2026-09-05 (final pre-publish review: shipped via PR #57, now live; F7/F8 remediated) · **Current wave:** done through 6 · **Overall:** 7 of 7 waves complete · **Status: PUBLISHED** — see the publish record in §6 before treating this file as describing an unpushed tree
 
 ---
 
@@ -272,6 +272,62 @@ shared `resume-content.json` writer lock.
 
 Free-text scratch for anything a resuming agent needs that the tables don't capture.
 
+### PUBLISH RECORD — Plan C is live (added 2026-09-05 by the final pre-publish review)
+
+**Read this before assuming anything in this file describes an unpushed tree.** It does not.
+
+- The four Plan C commits were pushed on branch `docs/linkedin-thread-plan`, together
+  with a fifth commit `fdb53b6` that **did** add the three 2026-09-05 LinkedIn plan
+  docs (reversing the "left untracked" note above).
+- **PR #57** merged all of it to `main` at 2026-09-05T20:03:39Z as merge commit
+  `8e1cbdb` — **55 files**. Its title, *"docs: add LinkedIn people-first/Deming thread
+  plan and drafts"*, describes only 3 of those files. The Plan C content refresh has
+  no PR of its own accurately describing it. Do not repeat this: give a content
+  change its own PR.
+- `.github/workflows/deploy.yml` auto-deploys on push to `main`. The run for `8e1cbdb`
+  completed successfully and **the work is live at guillermosalas.dev**. Verified:
+  live `resume-content.json` was byte-identical to the tree at `8e1cbdb`
+  (16 initiatives, 20 frameworks, 25 bullets, `Helped shape` present, `78%` /
+  `OnePACS` / `AI Scribe` absent). `.assetsignore` exclusions confirmed in
+  production — `/scripts/*`, `/plans/*`, `/.private/*`, `/sources/*`, `/*.md`,
+  `/worker.js` all return 404.
+
+### Final pre-publish review findings and remediation (2026-09-05)
+
+An independent cold review re-derived every gate and invariant. All gates green, all
+§3 owner rulings adhered to, no identity leak, no codename, no fabricated metric.
+Two content defects found, both since fixed on branch `fix/strip-evidence-provenance-vocabulary`:
+
+- **F7 — evidence-ledger vocabulary in published copy.** Internal provenance language
+  ("the record documents", "the summaries record", "the available sources", "the
+  underlying record", "N independent counterpart settings", "corroborated across two
+  counterpart series", "the strength of the evidence is", "per the record") shipped
+  in 12 public files. It is meaningless to a hiring audience and collectively
+  discloses that the profile derives from AI summaries of private 1:1s. The sharpest
+  instance was the Leadership Operating Principles `origin`, which renders live in
+  the frameworks grid on all three executive portfolios. Removed everywhere; the
+  substantive no-metrics hedges were kept. **The invariant scans never caught this
+  because they grep for names and old wording, not for ledger vocabulary — the same
+  blind spot that let F6 through.** `scripts/validate-mirrors.mjs` now bans this
+  class so it cannot regress.
+- **F8 — GCC disclaimer repetition.** The non-ownership hedge appeared four times on
+  one page, including one instance parked in the "Transferable Operating Model
+  Artifacts" list (a disclaimer is not an artifact) and one as a "Bounded
+  Contribution" mechanism card (a disclaimer is not a leadership mechanism). Owner
+  ruling: state the boundary **once**, in the Outcome card, and keep the mechanism
+  verbs strong — D-6's ceiling governs the strategy claim, not every sub-action.
+
+Also corrected in the same pass: three new instances of "his own initiatives" that
+broke the document's pronoun-free elided-third-person voice; flabby closing/opening
+sentences in summary paragraphs 1, 3 and 4; and the pre-existing agreement error
+"Built and lead" → "Built and leads" in `experience[0].bullets[9]`.
+
+Carried, not fixed (pre-existing, outside Plan C, each needs its own ticket):
+`/api/version` and the index badge serve the literal `BUILD_VERSION_PLACEHOLDER` in
+production despite CI reporting a successful stamp; `/api/analytics` and
+`/admin-dashboard` are unauthenticated; `/package.json`, `/package-lock.json` and
+`/.gitignore` are served publicly.
+
 - Baseline is green. Any gate failure after Wave 1 begins is introduced by this work.
 - `normalize()` in `resume-export.js` strips `/` from bullets — ATS `workdayForbidden`
   regex is a non-issue for new bullet punctuation. Do not re-investigate.
@@ -303,7 +359,10 @@ suggested split approved (LinkedIn 2026-09-05 plan docs **excluded**, left untra
   Assessment Model"→"Architecture as Delivery Enablement" with JSON-aligned
   tagline/description). Curation otherwise preserved per owner choice.
 - **D-5 superseded:** Wave 6 executed 2026-09-05 (owner flipped "defer" → "run").
-- Commit split executed per handoff §4 (3 commits), LinkedIn plans excluded.
+- Commit split executed per handoff §4 as **4 commits** (the suggested 3 plus a
+  `test:` commit for the promoted scanners): `872911f` feat(content), `736fa96` test,
+  `5109630` docs(plans), `15e4c44` chore. LinkedIn plans excluded **at this point** —
+  see the 2026-09-05 publish record below for what happened after.
 
 ### Phase-1 independent review (completion agent, 2026-09-05)
 
