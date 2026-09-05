@@ -82,6 +82,54 @@ test("package.json ensures deploy cannot run without stamping version", async ()
   );
 });
 
+// The npm predeploy hook only guards `npm run deploy`. A bare
+// `npx wrangler deploy` bypasses it entirely and publishes the literal
+// placeholder - which is how a stale build indicator reached production. The
+// wrangler build hook is the guard that covers every wrangler entry point.
+test("wrangler.jsonc stamps the build version on every wrangler invocation", async () => {
+  // Asserted against the raw text rather than JSON.parse: wrangler.jsonc is
+  // JSONC and carries trailing commas, which JSON.parse rejects.
+  const raw = await readFile(new URL("wrangler.jsonc", root), "utf8");
+
+  const buildBlock = raw.match(/"build"\s*:\s*\{[^}]*\}/);
+  assert.ok(buildBlock, "wrangler.jsonc must declare a build hook");
+  assert.match(
+    buildBlock[0],
+    /"command"\s*:\s*"[^"]*stamp-version[^"]*"/,
+    "wrangler build.command must run stamp-version so no deploy path can skip it"
+  );
+});
+
+test("stamp-version.sh fails the build if the placeholder survives", async () => {
+  const script = await readFile(new URL("scripts/stamp-version.sh", root), "utf8");
+
+  assert.match(
+    script,
+    /REMAINING=/,
+    "stamp-version.sh must re-check for the placeholder after stamping"
+  );
+  assert.match(
+    script,
+    /exit 1/,
+    "stamp-version.sh must exit non-zero when the placeholder survives"
+  );
+});
+
+test("/api/version is served ahead of the traffic-quality gate", async () => {
+  const workerJs = await readFile(new URL("worker.js", root), "utf8");
+
+  const versionRoute = workerJs.indexOf('url.pathname === "/api/version"');
+  const gate = workerJs.indexOf("BLOCKED_COUNTRIES.includes");
+
+  assert.ok(versionRoute > -1, "worker.js must route /api/version");
+  assert.ok(gate > -1, "worker.js must apply the traffic-quality gate");
+  assert.ok(
+    versionRoute < gate,
+    "/api/version must be handled before the gate so CI and uptime monitors " +
+      "can verify the live build without spoofing a browser User-Agent"
+  );
+});
+
 test("index.html runtime script updates badge text properly without hiding it", async () => {
   const indexHtml = await readFile(new URL("index.html", root), "utf8");
 

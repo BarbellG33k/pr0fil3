@@ -14,16 +14,28 @@ const COOKIE_MAX_AGE = 60 * 60 * 24 * 30; // 30 days
 // Extend here to block more countries.
 const BLOCKED_COUNTRIES = ["RU", "CN"];
 
-// Stamped by scripts/stamp-version.sh in CI immediately before `wrangler
-// deploy`, and served at runtime from /api/version. Serving it from the Worker
-// rather than from stamped HTML means an edge-cached index.html can no longer
-// pin the badge to a stale value. Stays as the literal placeholder in git - see
-// the "Versioning" section in readme.md.
+// Stamped by scripts/stamp-version.sh, which wrangler runs automatically via
+// the `build.command` hook in wrangler.jsonc before every deploy - so the value
+// is stamped even when the npm lifecycle is bypassed (`npx wrangler deploy`).
+// Served at runtime from /api/version: serving it from the Worker rather than
+// from stamped HTML means an edge-cached index.html can no longer pin the badge
+// to a stale value. Stays as the literal placeholder in git - see the
+// "Versioning" section in readme.md.
 const BUILD_VERSION = "BUILD_VERSION_PLACEHOLDER";
 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+
+    // Deliberately ahead of the traffic-quality gate. /api/version is a
+    // deployment-health endpoint carrying nothing but the build string, and
+    // keeping it reachable lets CI and uptime monitors verify what is actually
+    // live without spoofing a browser User-Agent (`curl/` classifies as
+    // SCRAPER, which the gate hard-blocks). It writes no analytics, so an
+    // unblocked request here still never counts as an impression.
+    if (url.pathname === "/api/version") {
+      return handleVersion();
+    }
 
     // Traffic-quality gate, applied to every path including /contact and
     // /admin. request.cf is only populated on the deployed edge (and
@@ -40,30 +52,35 @@ export default {
       });
     }
 
-    if (url.pathname === "/contact" && request.method === "POST") {
-      return handleContact(request, env);
-    }
-
-    if (url.pathname === "/portfolio") {
-      return handlePortfolio(request, env, { country: cf.country || "??", agentClass });
-    }
-
-    if (url.pathname === "/admin") {
-      const assetUrl = new URL("/admin-dashboard.html", request.url);
-      return env.ASSETS.fetch(new Request(assetUrl, request));
-    }
-
-    if (url.pathname === "/api/analytics") {
-      return handleAnalytics(env);
-    }
-
-    if (url.pathname === "/api/version") {
-      return handleVersion();
-    }
-
-    return env.ASSETS.fetch(request);
+    return routeGatedRequest(request, env, url, {
+      country: cf.country || "??",
+      agentClass,
+    });
   },
 };
+
+// Routes that sit behind the traffic-quality gate. Split out of fetch() so the
+// gate and the routing table stay independently readable.
+function routeGatedRequest(request, env, url, visitor) {
+  if (url.pathname === "/contact" && request.method === "POST") {
+    return handleContact(request, env);
+  }
+
+  if (url.pathname === "/portfolio") {
+    return handlePortfolio(request, env, visitor);
+  }
+
+  if (url.pathname === "/admin") {
+    const assetUrl = new URL("/admin-dashboard.html", request.url);
+    return env.ASSETS.fetch(new Request(assetUrl, request));
+  }
+
+  if (url.pathname === "/api/analytics") {
+    return handleAnalytics(env);
+  }
+
+  return env.ASSETS.fetch(request);
+}
 
 function handleVersion() {
   return new Response(JSON.stringify({ version: BUILD_VERSION }), {
