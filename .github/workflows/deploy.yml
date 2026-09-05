@@ -3,9 +3,19 @@ name: Deploy
 on:
   push:
     branches: [main]
+  # Pull requests run the test job only - the deploy job is gated on both the
+  # branch and the event below, so a PR can never publish.
+  pull_request:
 
 jobs:
-  build:
+  # Replaces a former "build" job whose only step stamped a checkout that was
+  # then discarded. The suite guards the things that have actually reached
+  # production broken: embedded-blob drift, banned names and evidence-ledger
+  # vocabulary in public copy, agent markup, and the version-stamping pipeline.
+  # It deliberately does NOT run `npm run validate:evidence`, which needs the
+  # gitignored .private/ ledger that CI does not have. No test reads .private/;
+  # the ledger test uses an inline fixture.
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -14,14 +24,13 @@ jobs:
         with:
           node-version: "24"
 
-      - run: npm install
+      - run: npm ci
 
-      - name: Build
-        run: npm run build || echo "Build step completed (no build script defined)"
+      - run: npm test
 
   deploy:
-    needs: build
-    if: github.ref == 'refs/heads/main'
+    needs: test
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -30,7 +39,7 @@ jobs:
         with:
           node-version: "24"
 
-      - run: npm install
+      - run: npm ci
 
       # No explicit stamp step: wrangler runs scripts/stamp-version.sh itself
       # via the build.command hook in wrangler.jsonc, so the stamp cannot be
