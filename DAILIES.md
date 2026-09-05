@@ -4,6 +4,54 @@ A running log of changes to Guillermo's resume and portfolio site.
 
 ---
 
+## 2026-09-05 - Plan C Shipped, Then Copy Remediation (PR #57 + follow-up)
+
+### Shipped
+- Plan C (4 commits) merged to main via PR #57 along with the LinkedIn plan docs -
+  55 files, merge `8e1cbdb`. CI deployed successfully; the refresh is live on
+  guillermosalas.dev (verified: live resume-content.json byte-identical to the
+  merged tree; scripts/, plans/, .private/, sources/ and *.md all 404 in production)
+- Note for next time: PR #57's title covers only the three LinkedIn markdown files
+  while the merge landed the entire content refresh. Content changes get their own
+  accurately-titled PR
+
+### Independent pre-publish review
+- All gates re-derived cold and green: 27/27 tests, 78 ledger records, mirrors +
+  scans + links clean, no codenames, no doctrine labels, no departure doctrine, no
+  figures in the nine new case studies, fallback parity 14/16 and 20/20, cipher-ember
+  prose diff zero on all nine subjects, headless render of herald and the variants clean
+- Every settled owner ruling verified adhered to (GCC "helped shape" ceiling and card
+  tagline, PDLC 69%, consolidated Leadership Operating Principles card, Nine-Pillar
+  kept distinct from the five-pillar Architecture Hub, departure doctrine unpublished)
+
+### Copy remediation (F7, F8)
+- F7: removed internal evidence-ledger vocabulary from 12 public files - "the record
+  documents", "the summaries record", "the available sources", "the underlying
+  record", "N independent counterpart settings", "corroborated across two counterpart
+  series", "the strength of the evidence is", "per the record". The phrasing meant
+  nothing to a reader and collectively disclosed that the profile derives from
+  summaries of private one-on-ones. Substantive no-metrics hedges kept
+- F8: the GCC case study stated its non-ownership disclaimer four times, including one
+  parked in the Transferable Artifacts list and one dressed as a "Bounded
+  Contribution" leadership mechanism. Boundary now stated once, in the Outcome card;
+  mechanism verbs left strong per owner ruling
+- Voice: removed three new instances of "his own initiatives" that broke the
+  document's pronoun-free elided-third-person voice
+- Prose: tightened the flabby closing sentence of summary paragraph 1, the 40-word
+  run-up in paragraph 3, and the echoed opener in paragraph 4
+- Grammar: "Built and lead" -> "Built and leads" (pre-existing agreement error)
+- Gate hardening: scripts/validate-mirrors.mjs now bans the evidence-ledger
+  vocabulary class outright, plus two patterns the banned list was missing
+  ("Show Me Your Work", "steered as a long-term") - the F6/F7 blind spot is closed
+
+### Carried (pre-existing, each needs its own ticket)
+- /api/version and the index badge serve the literal BUILD_VERSION_PLACEHOLDER in
+  production even though CI reports a successful stamp
+- /api/analytics and /admin-dashboard are unauthenticated
+- /package.json, /package-lock.json and /.gitignore are served publicly
+
+---
+
 ## 2026-09-05 - Plan C Completion Pass (Owner Decisions + Wave 6)
 
 ### Owner decisions applied
