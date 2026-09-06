@@ -4,7 +4,7 @@
 **Status:** Candidates for owner review. No public artifact modified.
 **Target:** the `.description` paragraph at `index.html:247`.
 **Decision required:** pick one (or direct a hybrid) in the Decision block at the bottom.
-**Revision:** v5 — owner-supplied options added as §5; new banned expressions in §7.
+**Revision:** v6 — F and G (unslopped from owner Options 3 and 4) are the leading candidates.
 
 ---
 
@@ -54,6 +54,10 @@ the site that is hardcoded rather than read from `portfolio-content.json` /
   `resume-content.json.summary` — *regulated environments where a mistake reaches a
   patient, a regulator, or the budget.*
 - **No compression of the career** into recent-employer or recent-technology shorthand.
+- **Format: two paragraphs, 200+ words.** Owner directive, 2026-09-05: the longer form
+  communicates better because it does not try to do too much in one space and avoids
+  concept crowding. Candidates F and G are the format; A–E are retained as source material
+  for lines rather than as shippable options.
 
 **Never appears in any candidate:** employer names · tech-stack shorthand · "three decades"
 · org size, headcount, direct reports, team counts, employer performance metrics · the
@@ -263,6 +267,101 @@ the evidence.
 
 ---
 
+### F — The pragmatic craftsman at scale *(217 words, two paragraphs)*
+
+Unslopped from owner Option 3 (§5). **Leading candidate.**
+
+```
+I began as a software engineer, moved into enterprise architecture, and have led
+engineering organizations ever since. Staying anchored to the work across more
+than two decades taught me that technical failures are almost always
+organizational design flaws in disguise. What accumulates from that is a
+particular kind of judgment. I recognize what a system will demand in
+maintenance and operational overhead long before it ever sees production
+traffic. I can tell when the constraint a team is fighting is organizational
+rather than technical. And I notice when crucial domain knowledge has quietly
+concentrated into a handful of engineers, creating fragile dependencies that
+nobody has factored into the risk model.
+
+My response to that risk is structural. I do not build bloated org charts; I
+develop leaders who understand their mandate and can act on it without me. I
+expect technical decisions to be reasoned through on evidence and written down
+clearly enough that teams move forward without waiting for permission or an
+explanatory meeting. When I bring in new capability, from distributed
+architectures to AI-assisted workflows, I set the operational boundaries first
+and measure utility rather than chasing industry novelty. It is a philosophy
+formed in regulated environments, where a mistake is never an abstract metric -
+it reaches a patient, an auditor, or the balance sheet.
+```
+
+**Claims used:** C1, C2, C3, C4, C5, C9, C12.
+
+**Unslop change log** — what was cut from Option 3 and why. Everything not listed is the
+owner's wording, unchanged.
+
+| Change | Reason |
+|---|---|
+| Cut *"That progression was deliberate."* | Announces significance instead of demonstrating it — the same move as the newly banned phrase. |
+| *"an instinctive, hard-won judgment"* → *"a particular kind of judgment"* | "Hard-won" is a cliché intensifier, and "instinctive" contradicts the clause before it: judgment that accumulates over two decades is the opposite of instinctive. |
+| Cut *"over that tenure"* | Corporate-flat filler; "what accumulates from that" already points at the two decades. |
+| *"Just as critically,"* → *"And"* | Stock connective that rates the item instead of stating it. |
+| *"transitioned into"* → *"moved into"* | Résumé verb in a paragraph that is otherwise plain speech. |
+| *"with genuine autonomy"* → *"and can act on it without me"* | Replaces an empty intensifier with the actual test of autonomy, and puts it in first person. |
+| *"written down with absolute clarity, and made accessible enough that teams move forward"* → *"written down clearly enough that teams move forward"* | "Absolute clarity" is an empty intensifier, and the two clauses were saying the same thing twice. |
+| *"modern capabilities"* → *"new capability"*; *"measure real utility"* → *"measure utility"* | "Modern" and "real" are filler adjectives doing no work. |
+| *"an oversight is never an abstract metric"* → *"a mistake is never an abstract metric"* | "Oversight" is ambiguous — a lapse or a supervisory function — in the one sentence where precision matters most. |
+| **Added:** *"I can tell when the constraint a team is fighting is organizational rather than technical."* | Restores the length the cuts removed with a sourced claim (C2, C3) rather than padding, and completes the diagnostic triad the paragraph was building. |
+
+---
+
+### G — Systems, people, and accountability *(208 words, two paragraphs)*
+
+Unslopped from owner Option 4 (§5). **Leading candidate.**
+
+```
+Over more than two decades I have worked at every level of this discipline:
+writing production code, designing multi-system enterprise architectures, and
+directing engineering organizations. I stayed close enough to the day-to-day
+work to know that you cannot fix an architecture without fixing how teams
+collaborate, and you cannot repair an organization with empty process. Both live
+in the same place, which is where I work: I can dissect an architectural
+bottleneck alongside staff engineers in the morning and weigh capital
+allocation, organizational topology, and risk posture with the executive team in
+the afternoon.
+
+Sustainable engineering does not depend on individual rescue; it depends on how
+deliberately the work is structured. I make domain ownership explicit, turn
+private expertise into common practice, repeat a standard until it is genuinely
+known rather than merely published, and see that key technical choices are
+documented with enough rigor that anyone can act on them without a scheduled
+alignment session. When something like AI tooling arrives, I look past the
+enthusiasm, set the operational boundaries, and judge the tools on evidence and
+security posture rather than on momentum. Every standard I hold was built under
+the pressure of regulated environments, where a mistake reaches a patient, a
+regulator, or the operating margin.
+```
+
+**Claims used:** C1, C2, C3, C4, C5, C9, C12.
+
+**Unslop change log** — what was cut from Option 4 and why. Everything not listed is the
+owner's wording, unchanged. "Capital allocation" is retained per the owner decision in §5.
+
+| Change | Reason |
+|---|---|
+| Cut *"in technology"*; *"every tier of the discipline"* → *"every level of this discipline"* | "In technology" is redundant after "writing production code"; "tier" is jargon where "level" is plain. |
+| Cut *"modern"* from *"directing modern engineering organizations"* | Filler adjective. |
+| *"nor can you repair"* → *"and you cannot repair"* | The "nor" inversion is stilted in a first-person paragraph. |
+| *"The real work sits at the intersection. That background gives me a distinct vantage point:"* → *"Both live in the same place, which is where I work:"* | Two stock phrases plus an announcement of value before delivering it. The morning/afternoon sentence proves the range on its own and does not need to be introduced. |
+| Cut *"I hold a straightforward view of leadership."* | Throat-clearing by definition — a sentence announcing that the next sentence is a view. |
+| *"individual heroics"* → *"individual rescue"* | Banned word family (§7); "rescue" carries the identical meaning without it. |
+| *"common organizational practice"* → *"common practice"* | Filler. |
+| *"When navigating shifts like the emergence of AI tooling"* → *"When something like AI tooling arrives"* | "Navigating shifts" is slop; the plain verb is stronger and shorter. |
+| *"judging tools by verifiable throughput and security"* → *"judge the tools on evidence and security posture"* | "Throughput" invites association with the code-output figures, which are restricted directional metrics — a claim this sentence should not imply. "Evidence" is the actual standard and is sourced (C5). |
+| *"mistakes have immediate, tangible consequences—reaching a patient"* → *"a mistake reaches a patient"* | Two filler adjectives standing in front of the consequence that is already doing the work. |
+| **Added:** *"repeat a standard until it is genuinely known rather than merely published"* | Restores length with a sourced claim (C4) rather than padding. |
+
+---
+
 ## 5. Owner-supplied options (2026-09-05)
 
 Four further options supplied by Guillermo, held here verbatim as drafting input while he
@@ -271,17 +370,19 @@ are the owner's, not drafted from the evidence sources in this repo**, so the re
 checks them against the same gates and ledger constraints rather than assuming compliance.
 
 All four pass `slop-scan.mjs` and every `validate-mirrors.mjs` banned regex. Four findings
-to resolve before any of this wording ships:
+were raised; **all four are now resolved by owner decision (2026-09-05)**, and Options 3 and
+4 have been carried into §4 as candidates F and G with the agreed edits applied. Options 1
+and 2 are retained below as a source of lines, not as shippable drafts.
 
-| Finding | Where | Detail |
+| Finding | Where | Resolution |
 |---|---|---|
-| **"heroics"** | Options 2, 4 | Same word family rejected in v1. The ban now covers every inflection (§7). The idea survives fine without it — Option 4's own next clause, "it depends on how deliberately the work is structured," already carries it. |
-| **"capital allocation"** | Option 4 | Overstates what the record supports. `pe-backed-financial-operating-authority` confirms **qualitative budget, forecast, hiring, and vendor authority with no dollar figures**; investment authority and the $4.8M/$23M figures are an open ledger gap, and P&L ownership is a standing never-use. Substitute the supported scope — "budget, vendor, and hiring decisions" — or drop the clause. |
-| **"proven"** | Option 1 | "All of it was proven in regulated environments" claims verification the record does not carry; the material documents decisions and positions, not measured outcomes. "Formed," "built," or "shaped" is the honest verb and costs nothing rhetorically. |
-| **Length and format** | Options 3, 4 | 210 and 207 words, in two paragraphs, against a live paragraph of 97. On a 600px card with a 40px gutter that is roughly a full screen of text before any link is visible. Either is publishable, but it turns the page from an introduction card into an essay the visitor must read before seeing a link — a layout decision, not just a copy one. |
+| **"heroics"** | Options 2, 4 | **Accepted — removed.** Owner agreed the flag was correct. Candidate G uses "individual rescue"; the ban now covers every inflection (§7). |
+| **"proven"** | Option 1 | **Accepted — removed.** Owner: "'proven' is slop, remove." It claimed verification the material does not carry — the record documents decisions and positions, not measured outcomes. Not carried into F or G. |
+| **"capital allocation"** | Option 4 | **Overruled — retained.** Owner decision: it tracks and fits in context. No dollar figures appear, and the activity, influence, and responsibility justify the phrase. Kept verbatim in candidate G. The standing never-use on **P&L ownership** and on the $4.8M/$23M figures is unaffected. |
+| **Length and format** | Options 3, 4 | **Overruled — the format is now the requirement.** Owner: the 200+ word, two-paragraph form "allows to communicate better without trying to do too much in one space and avoids concept crowding." Recorded as a directive in §2; F and G are 217 and 208 words. |
 
 Minor: Options 1, 3, and 4 use em dashes (—); the current site copy uses spaced hyphens
-( - ) throughout. Pick one convention when the final version is assembled.
+( - ) throughout. Candidates F and G follow the site convention.
 
 ### Option 1 — the diagnostic and operating weight *(146 words)*
 
@@ -496,13 +597,17 @@ at 600px with a 40px gutter.
 
 | Candidate | Emphasis | Length | Pick |
 |---|---|---|---|
+| **F** | **The pragmatic craftsman at scale** — unslopped Option 3 | **217 words, 2 paras** | ☐ |
+| **G** | **Systems, people, and accountability** — unslopped Option 4 | **208 words, 2 paras** | ☐ |
 | A | The arc, where each stage teaches the next | 140 words | ☐ |
 | B | Strengths first, stated with authority | 136 words | ☐ |
 | C | Lessons, and what they actually cost | 135 words | ☐ |
 | D | The synthesis — judgment as what the years produced | 148 words | ☐ |
 | E | Compact | 92 words | ☐ |
 
-For reference, the live paragraph being replaced is 97 words.
+F and G meet the two-paragraph, 200+ word directive in §2 and are the shippable options.
+A–E predate that directive and are kept as a source of lines for a hybrid. The live
+paragraph being replaced is 97 words.
 
 **Owner notes / hybrid direction:**
 
