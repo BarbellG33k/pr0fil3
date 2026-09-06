@@ -97,6 +97,13 @@
             color: #a0a0a0;
             margin-bottom: 40px;
             font-weight: 300;
+            /* The identity statement runs several paragraphs, which is
+               unreadable centered - the heading block above stays centered. */
+            text-align: left;
+        }
+
+        .description p + p {
+            margin-top: 16px;
         }
 
         .resume-link {
@@ -243,9 +250,23 @@
 
             <div class="divider"></div>
 
-            <p class="description">
-                Guillermo Salas is a software engineer who grew into an enterprise architect and engineering executive, and who builds people, leaders, technical systems, and operating models that raise the standard of engineering execution. He leads through leaders - aligning talent to real needs, distributing ownership, and turning ambiguity and hero dependency into durable systems - across healthcare, fintech, and enterprise platforms. His technical foundation spans three decades of hands-on architecture, from early .NET and SQL Server engineering through cloud modernization to today's AI-assisted engineering practice at Experity, where AI is the newest arena for that leadership, not the whole story.
-            </p>
+            <div class="description">
+                <p>
+                    I began as a software engineer, transitioned into enterprise architecture, and have led engineering organizations ever since, staying anchored and connected to the work at every level for more than two decades.
+                </p>
+                <p>
+                    I build secure, scalable distributed platforms using modern technology whenever it serves the problem, because I stay in perpetual growth mode myself. I do not expect engineers to clone my exact style or cadence, but I carry the technical standard forward. I coach and mentor to build that mindset across teams, because a genuine pursuit of engineering excellence is contagious when lived in practice.
+                </p>
+                <p>
+                    Being connected and embedded has led me to observe that technical failures are almost always organizational design flaws. I bring forth an instinctive, earned judgment from that multi-decade experience. I recognize what a system will demand in operational overhead before it reaches production traffic. Just as quickly, I notice when critical domain knowledge has slowly, and through the fallacy of knowledge, concentrated into a handful of contributors, creating fragility and dependencies that I, as a leader, now factor into the model as key risk.
+                </p>
+                <p>
+                    I intentionally avoid building teams that rely on raw headcount as proxy for value creation; I develop leaders who understand their mandate and can operate with genuine autonomy. I expect technical decisions to be reasoned through on evidence, written down plainly, and made accessible enough that teams move forward without waiting for permission or an explanatory meeting.
+                </p>
+                <p>
+                    When navigating shifts like the emergence of AI and related tooling, I look past the eager adoption and enthusiasm, define and provide operational boundaries, and judge it on demonstrated value, on consistent, repeatable, understandable implementation, and on security posture rather than on industry momentum. Every standard I hold was built under the pressure of regulated environments, where mistakes have immediate, tangible consequences.
+                </p>
+            </div>
 
             <a href="resume.html" class="resume-link">View Full Resume</a>
 

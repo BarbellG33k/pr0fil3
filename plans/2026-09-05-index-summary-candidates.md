@@ -1,14 +1,76 @@
 # `index.html` Identity Statement — Candidate Set
 
 **Date:** 2026-09-05
-**Status:** Candidates for owner review. No public artifact modified.
+**Status:** SELECTED AND APPLIED. The owner's final copy is live in `index.html` as of
+2026-09-06; the candidate history below is retained as the record of how it was arrived at.
 **Target:** the `.description` paragraph at `index.html:247`.
 **Decision required:** pick one (or direct a hybrid) in the Decision block at the bottom.
-**Revision:** v6 — F and G (unslopped from owner Options 3 and 4) are the leading candidates.
+**Revision:** v7 — owner authored the final copy (§0) after drawing from this set. Applied.
 
 ---
 
-## 1. Why the current line is being replaced
+## 0. SELECTED — applied to `index.html` on 2026-09-06
+
+Authored by Guillermo, drawing on this candidate set. Five paragraphs, 299 words, first
+person. **Only mechanical cleanup was applied** — no wording changes, per owner instruction:
+
+| Fix | Kind |
+|---|---|
+| "has lead me to observe" -> "has **led** me to observe" | Grammar |
+| "multi decade" -> "multi-decade" | Hyphenation |
+| "has slowly and through the fallacy of knowledge, concentrated" -> "has slowly**,** and through the fallacy of knowledge, concentrated" | Comma — the parenthetical opened but never closed |
+| "that I as a leader now factor as key risk into the model" -> "that I**,** as a leader**,** now factor **into the model as key risk**" | Commas, plus the split "factor X into Y" verb phrase reordered |
+| "I look past ..., **defining and providing** operational boundaries **and judge** it on" -> "I look past ..., **define and provide** operational boundaries, **and judge** it on" | Broken parallel — a participle and a finite verb sharing one subject |
+| "on demonstrated value and consistent, repeatable, understandable implementation and security posture" -> "on demonstrated value, **on** consistent, repeatable, understandable implementation, **and on** security posture" | List disambiguation — two bare "and"s made the grouping unreadable |
+
+```
+I began as a software engineer, transitioned into enterprise architecture, and
+have led engineering organizations ever since, staying anchored and connected to
+the work at every level for more than two decades.
+
+I build secure, scalable distributed platforms using modern technology whenever
+it serves the problem, because I stay in perpetual growth mode myself. I do not
+expect engineers to clone my exact style or cadence, but I carry the technical
+standard forward. I coach and mentor to build that mindset across teams, because
+a genuine pursuit of engineering excellence is contagious when lived in practice.
+
+Being connected and embedded has led me to observe that technical failures are
+almost always organizational design flaws. I bring forth an instinctive, earned
+judgment from that multi-decade experience. I recognize what a system will demand
+in operational overhead before it reaches production traffic. Just as quickly, I
+notice when critical domain knowledge has slowly, and through the fallacy of
+knowledge, concentrated into a handful of contributors, creating fragility and
+dependencies that I, as a leader, now factor into the model as key risk.
+
+I intentionally avoid building teams that rely on raw headcount as proxy for
+value creation; I develop leaders who understand their mandate and can operate
+with genuine autonomy. I expect technical decisions to be reasoned through on
+evidence, written down plainly, and made accessible enough that teams move
+forward without waiting for permission or an explanatory meeting.
+
+When navigating shifts like the emergence of AI and related tooling, I look past
+the eager adoption and enthusiasm, define and provide operational boundaries, and
+judge it on demonstrated value, on consistent, repeatable, understandable
+implementation, and on security posture rather than on industry momentum. Every
+standard I hold was built under the pressure of regulated environments, where
+mistakes have immediate, tangible consequences.
+```
+
+**Markup change required by the five-paragraph form.** `<p class="description">` became
+`<div class="description">` holding five `<p>` elements, with two CSS additions: the block
+is `text-align: left` (299 words centered is unreadable; the name and heading above stay
+centered) and `.description p + p { margin-top: 16px }`.
+
+**Verified 2026-09-06:** `slop-scan --strict index.html` CLEAN · `validate-mirrors` ALL
+CLEAN · `dup-scan --cross` reports no pair involving `index.html` (the 40 reported pairs are
+pre-existing resume/portfolio JSON echoes) · `npm test` 30/30 · rendered at 390px and 768px
+with no horizontal overflow (`scrollWidth == innerWidth` at both). Page height at 390px goes
+from 992px to 1711px — the expected cost of the longer form. The build-version placeholder
+is untouched. **Not deployed.**
+
+---
+
+## 1. How the previous line came to be replaced
 
 Current copy (`index.html:247`):
 
