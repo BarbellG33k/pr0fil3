@@ -91,10 +91,19 @@
       links.forEach(function (a) {
         a.style.display = "";
       });
+      toggle.hidden = true;
+
       var hidden = [];
-      for (var i = 0; i < ordered.length && overflowing(); i++) {
-        ordered[i].style.display = "none";
-        hidden.push(ordered[i]);
+      if (overflowing()) {
+        // Reveal the menu button before dropping anything. It occupies width
+        // itself, so links have to be measured against the space left once it
+        // is present - otherwise the last link is dropped, the row is declared
+        // to fit, and then the button reappears and overflows it again.
+        toggle.hidden = false;
+        for (var i = 0; i < ordered.length && overflowing(); i++) {
+          ordered[i].style.display = "none";
+          hidden.push(ordered[i]);
+        }
       }
 
       // Rebuild the menu from whatever is currently hidden, in the nav's own
