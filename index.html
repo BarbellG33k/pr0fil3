@@ -19,14 +19,17 @@
             color: #e5e5e5;
             min-height: 100vh;
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
+            padding: 40px 20px;
         }
 
+        /* margin: auto centers the card when it fits the viewport, and
+           collapses to 0 when the card is taller/wider than the viewport -
+           unlike align-items/justify-content: center, it never pushes
+           overflow above the fold where it can't be scrolled to. */
         .container {
-            max-width: 600px;
+            max-width: 640px;
             width: 100%;
+            margin: auto;
         }
 
         .card {
@@ -211,6 +214,29 @@
             .resume-link {
                 padding: 14px 40px;
                 font-size: 14px;
+            }
+        }
+
+        /* Wide viewports have plenty of room in the side margins - use it
+           instead of running the description into a tall single column.
+           Splitting the prose into two columns cuts page height roughly in
+           half without stretching a line past a comfortable reading width. */
+        @media (min-width: 900px) {
+            .container {
+                max-width: 980px;
+            }
+
+            .card {
+                padding: 72px 64px;
+            }
+
+            .description {
+                column-count: 2;
+                column-gap: 56px;
+            }
+
+            .description p {
+                break-inside: avoid;
             }
         }
 
