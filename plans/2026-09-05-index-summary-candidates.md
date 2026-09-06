@@ -4,7 +4,7 @@
 **Status:** Candidates for owner review. No public artifact modified.
 **Target:** the `.description` paragraph at `index.html:247`.
 **Decision required:** pick one (or direct a hybrid) in the Decision block at the bottom.
-**Revision:** v4 — first person, per the perspective decision in §3.
+**Revision:** v5 — owner-supplied options added as §5; new banned expressions in §7.
 
 ---
 
@@ -37,7 +37,7 @@ since, while the record behind it has grown considerably: the Sep 3 evidence ext
 
 **Also structurally significant:** this paragraph is the *only* piece of published copy on
 the site that is hardcoded rather than read from `portfolio-content.json` /
-`resume-content.json`. See §7.
+`resume-content.json`. See §8.
 
 ---
 
@@ -126,8 +126,8 @@ clauses, no epigrams.
 
 ```
 I started as an engineer, became an architect, and have led engineering
-organizations since - and the sequence matters, because each stage taught me
-something the next one needed, and none of it was learned in the abstract.
+organizations since, and each stage taught me something the next one needed.
+None of it was learned in the abstract.
 Writing systems taught me what a design actually costs once somebody has to
 operate it. Architecting them taught me that the binding constraint is almost
 never the technology. Running the organizations that build them taught me the
@@ -142,8 +142,8 @@ patient, a regulator, or the budget.
 **Claims used:** C1, C2, C3, C4, C12.
 **Why it works:** the progression *is* the argument, so nothing has to be asserted, and the
 repeated "taught me" gives first person a natural spine instead of a run of I-statements.
-The anti-concentration principle lands in the final clause as something the career produced
-rather than a slogan the reader is asked to accept.
+The anti-concentration principle arrives in the final clause as something the career
+produced rather than a slogan the reader is asked to accept.
 **Trade-off to weigh:** the most conventional structure of the five. It earns every claim;
 it does not surprise.
 
@@ -263,7 +263,141 @@ the evidence.
 
 ---
 
-## 5. Claim sourcing
+## 5. Owner-supplied options (2026-09-05)
+
+Four further options supplied by Guillermo, held here verbatim as drafting input while he
+combines the strongest portions of the full set into his own version. **Provenance: these
+are the owner's, not drafted from the evidence sources in this repo**, so the review below
+checks them against the same gates and ledger constraints rather than assuming compliance.
+
+All four pass `slop-scan.mjs` and every `validate-mirrors.mjs` banned regex. Four findings
+to resolve before any of this wording ships:
+
+| Finding | Where | Detail |
+|---|---|---|
+| **"heroics"** | Options 2, 4 | Same word family rejected in v1. The ban now covers every inflection (§7). The idea survives fine without it — Option 4's own next clause, "it depends on how deliberately the work is structured," already carries it. |
+| **"capital allocation"** | Option 4 | Overstates what the record supports. `pe-backed-financial-operating-authority` confirms **qualitative budget, forecast, hiring, and vendor authority with no dollar figures**; investment authority and the $4.8M/$23M figures are an open ledger gap, and P&L ownership is a standing never-use. Substitute the supported scope — "budget, vendor, and hiring decisions" — or drop the clause. |
+| **"proven"** | Option 1 | "All of it was proven in regulated environments" claims verification the record does not carry; the material documents decisions and positions, not measured outcomes. "Formed," "built," or "shaped" is the honest verb and costs nothing rhetorically. |
+| **Length and format** | Options 3, 4 | 210 and 207 words, in two paragraphs, against a live paragraph of 97. On a 600px card with a 40px gutter that is roughly a full screen of text before any link is visible. Either is publishable, but it turns the page from an introduction card into an essay the visitor must read before seeing a link — a layout decision, not just a copy one. |
+
+Minor: Options 1, 3, and 4 use em dashes (—); the current site copy uses spaced hyphens
+( - ) throughout. Pick one convention when the final version is assembled.
+
+### Option 1 — the diagnostic and operating weight *(146 words)*
+
+```
+I spent my career moving closer to the root of the problem: writing systems,
+designing their architectures, and shaping the organizations that run them. More
+than two decades of staying close to that work taught me that organizational
+friction and technical debt share the same origin. What that produces is an
+earned sense of diagnostic judgment. I can tell when an architecture will strain
+an operating model years down the road, and I spot where capability has quietly
+concentrated into a few key individuals before it turns into institutional risk.
+My focus as an executive is building teams that hold their own weight: making
+ownership unmistakable, putting reasoning into writing so execution never stalls
+on a meeting, and testing modern tooling - including AI - against evidence
+rather than industry momentum. All of it was proven in regulated environments,
+where a failure reaches a patient, a regulator, or the budget.
+```
+
+**Standout:** "organizational friction and technical debt share the same origin" is the
+single best compression of the systems argument produced in any round — it states the
+diagnostic insight as a finding rather than a position. "Teams that hold their own weight"
+is the mature replacement for the hero framing.
+
+### Option 2 — the architect-executive balance *(131 words)*
+
+```
+I am an engineer who learned to architect systems and lead the people who build
+them. Over more than two decades, I never stepped away from the engineering
+reality: understanding code made me a better architect, and architecting complex
+systems taught me how to lead organizations without relying on heroics. I focus
+on the structural mechanics of delivery. I make boundaries clear, convert
+specialized knowledge into shared practice, and insist that technical decisions
+carry written justification robust enough to guide execution without debate.
+When evaluating new practices or emerging capabilities like AI, I establish
+operational safeguards and demand verifiable utility before scaling adoption.
+The standard I set is direct and unpretentious, shaped entirely in regulated
+environments where an unhandled edge case directly impacts a patient, an
+auditor, or the bottom line.
+```
+
+**Standout:** "an unhandled edge case directly impacts a patient, an auditor, or the bottom
+line" is the strongest variant of the consequence clause in the whole set — it names the
+mechanism of failure rather than the abstraction. "Direct and unpretentious" is a rare thing
+to claim credibly and it reads as true here.
+
+### Option 3 — the pragmatic craftsman at scale *(210 words, two paragraphs)*
+
+```
+I began as a software engineer, transitioned into enterprise architecture, and
+have led engineering organizations ever since. That progression was deliberate.
+Staying anchored to the work across more than two decades taught me that
+technical failures are almost always organizational design flaws in disguise.
+What accumulates over that tenure is an instinctive, hard-won judgment. I
+recognize what a system will demand in maintenance and operational overhead long
+before it ever sees production traffic. Just as critically, I notice when crucial
+domain knowledge has quietly concentrated into a handful of engineers, creating
+fragile dependencies that nobody has factored into the risk model.
+
+My response to that risk is practical and structural. I do not build bloated org
+charts; I develop leaders who understand their mandate and can operate with
+genuine autonomy. I expect technical decisions to be reasoned through on
+evidence, written down with absolute clarity, and made accessible enough that
+teams move forward without waiting for permission or an explanatory meeting.
+When bringing in modern capabilities, from distributed architectures to
+AI-assisted workflows, I establish clear safeguards and measure real utility
+rather than chasing industry novelty. It is a philosophy formed in regulated
+environments, where an oversight is never an abstract metric - it reaches a
+patient, an auditor, or the balance sheet.
+```
+
+**Standout:** "technical failures are almost always organizational design flaws in disguise"
+and "fragile dependencies that nobody has factored into the risk model" — both put the
+concentration argument in the vocabulary of risk management rather than of team dynamics,
+which is a more executive register than anything in §4. "I do not build bloated org charts;
+I develop leaders" is the sharpest statement of the leadership philosophy anywhere in the
+set.
+
+*Note: "That progression was deliberate" is doing the same work as the newly banned "and the
+sequence matters," in different words. It is more defensible because it makes a claim about
+intent rather than announcing significance — but it is worth a deliberate keep-or-cut.*
+
+### Option 4 — systems, people, and accountability *(207 words, two paragraphs)*
+
+```
+Over more than two decades in technology, I have worked at every tier of the
+discipline: writing production code, designing multi-system enterprise
+architectures, and directing modern engineering organizations. I stayed close
+enough to the day-to-day work to know that you cannot fix an architecture
+without fixing how teams collaborate, nor can you repair an organization with
+empty process. The real work sits at the intersection. That background gives me
+a distinct vantage point: I can dissect an architectural bottleneck alongside
+staff engineers in the morning, and evaluate capital allocation, organizational
+topology, and risk posture with the executive team in the afternoon.
+
+I hold a straightforward view of leadership. Sustainable engineering does not
+depend on individual heroics; it depends on how deliberately the work is
+structured. I make domain ownership explicit, turn private expertise into common
+organizational practice, and ensure key technical choices are documented with
+sufficient rigor that anyone can act on them without scheduled alignment
+sessions. When navigating shifts like the emergence of AI tooling, I look past
+enthusiasm, instituting operational boundaries and judging tools by verifiable
+throughput and security. Every standard I hold was built under the pressure of
+regulated environments, where mistakes have immediate, tangible consequences -
+reaching a patient, a regulator, or the operating margin.
+```
+
+**Standout:** the morning/afternoon sentence is the most concrete proof of range in any
+candidate — it demonstrates the architect-executive claim by describing a day instead of
+asserting a capability. "You cannot fix an architecture without fixing how teams
+collaborate, nor can you repair an organization with empty process. The real work sits at
+the intersection." is the clearest statement of the through-line that has been written for
+this page.
+
+---
+
+## 6. Claim sourcing
 
 Every claim used above, traced to a repo source with its confidence — so the pick can be
 defended, and so a later editing pass cannot upgrade a verb without new evidence.
@@ -287,7 +421,7 @@ and no v3/v4 candidate needs it.
 
 ---
 
-## 6. Do-not-use list
+## 7. Do-not-use list
 
 Carried forward so a later editing pass cannot silently reintroduce a retired claim:
 
@@ -306,6 +440,16 @@ Carried forward so a later editing pass cannot silently reintroduce a retired cl
 - **Named thinkers, borrowed frameworks, and circulating industry tropes** — Deming,
   missionaries/mercenaries, elite strike teams, and their equivalents. The authority has to
   come from the record, not from a citation (§3).
+- **Banned expressions** (owner, 2026-09-05):
+  - *"and the sequence matters"* in any form — self-congratulatory throat-clearing that
+    announces significance instead of demonstrating it. If the sequence matters, the
+    sentences after it will show that. Removed from candidate A on this pass.
+  - *"clean"* as a quality enhancer — an adjective that asserts craft rather than
+    evidencing it. (Unrelated to `SLOP SCAN: CLEAN`, which is tool output, not copy.)
+  - *"landed"* / *"lands"* as an outcome enhancer — implies a result was achieved without
+    stating what it was. Use the actual outcome, or say nothing.
+  - The **hero family** — `hero`, `heroic`, `heroics`. Rejected in v1 as cheesy; the ban
+    extends to every inflection, not just the noun.
 - **Register:** clipped declarative fragments standing in for arguments; a vivid noun doing
   the work of a sentence; theses about how engineering organizations behave in place of an
   introduction of the person.
@@ -313,7 +457,7 @@ Carried forward so a later editing pass cannot silently reintroduce a retired cl
 
 ---
 
-## 7. Propagation note
+## 8. Propagation note
 
 Whichever candidate is chosen, three follow-on decisions come with it:
 
@@ -348,11 +492,11 @@ at 600px with a 40px gutter.
 
 ---
 
-## 8. Decision
+## 9. Decision
 
 | Candidate | Emphasis | Length | Pick |
 |---|---|---|---|
-| A | The arc, where each stage teaches the next | 145 words | ☐ |
+| A | The arc, where each stage teaches the next | 140 words | ☐ |
 | B | Strengths first, stated with authority | 136 words | ☐ |
 | C | Lessons, and what they actually cost | 135 words | ☐ |
 | D | The synthesis — judgment as what the years produced | 148 words | ☐ |
