@@ -13,6 +13,9 @@
     darkMode: "class",
     theme: {
       extend: {
+        screens: {
+          "xs": "420px"
+        },
         colors: {
           "on-background": "#1a1c1c",
           "on-error": "#ffffff",
@@ -308,16 +311,16 @@
 }</script>
 
 <nav class="fixed top-0 w-full z-50 border-b border-[#747878]/20 glass-nav shadow-sm shadow-[#1a1c1c]/5">
-<div class="flex justify-between items-center px-8 py-4 max-w-7xl mx-auto transition-all duration-500 ease-in-out">
+<div class="flex justify-between items-center gap-4 px-4 sm:px-8 max-w-7xl mx-auto transition-all duration-500 ease-in-out">
 <div class="flex items-center space-x-4 shrink-0">
 <a href="index.html" class="text-xs font-label uppercase tracking-widest text-[#775a19] hover:text-[#000000] transition-colors whitespace-nowrap"><- Back</a>
-<div class="text-xl font-bold text-[#000000] font-headline tracking-tight whitespace-nowrap">Portfolio Herald</div>
+<div class="hidden xs:block text-base sm:text-xl font-bold text-[#000000] font-headline tracking-tight whitespace-nowrap">Portfolio Herald</div>
 </div>
-<!-- Links appear only from lg up. The full set needs ~1100px on one line; at
-     md (768px) it overflowed and wrapped, which is what made the nav collide
-     with the Download button. Below lg the brand and the button stand alone,
-     matching how this design system already drops the links on small screens. -->
-<div class="hidden lg:flex items-center space-x-3 xl:space-x-6">
+<!-- nav-priority.js takes over this container and drops links one at a time
+     from the least important end, moving whatever is hidden into the menu.
+     The Tailwind display classes below are the no-JS fallback. gap-* rather
+     than space-x-* so a hidden link leaves no phantom margin. -->
+<div data-nav-links class="hidden lg:flex items-center gap-3 xl:gap-6 shrink-0">
 <a class="font-headline text-sm xl:text-base tracking-tight text-[#775a19] font-semibold transition-colors duration-500 whitespace-nowrap" href="#about">About</a>
 <a class="font-headline text-sm xl:text-base tracking-tight text-[#1a1c1c] opacity-70 hover:text-[#775a19] transition-colors duration-500 whitespace-nowrap" href="#experience">Experience</a>
 <a class="font-headline text-sm xl:text-base tracking-tight text-[#1a1c1c] opacity-70 hover:text-[#775a19] transition-colors duration-500 whitespace-nowrap" href="#skills">Skills</a>
@@ -327,10 +330,12 @@
 <a class="font-headline text-sm xl:text-base tracking-tight text-[#1a1c1c] opacity-70 hover:text-[#775a19] transition-colors duration-500 whitespace-nowrap" href="#credentials">Credentials</a>
 <a class="font-headline text-sm xl:text-base tracking-tight text-[#1a1c1c] opacity-70 hover:text-[#775a19] transition-colors duration-500 whitespace-nowrap" href="#contact">Contact</a>
 </div>
-<button class="bg-primary text-on-primary px-5 py-2 font-label text-xs uppercase tracking-widest hover:opacity-90 transition-opacity btn-primary-gradient whitespace-nowrap shrink-0">
-  Download PDF
-</button>
+<div class="flex items-center gap-4 shrink-0">
+<button data-nav-toggle hidden type="button" aria-label="Open navigation menu" class="font-label text-xs uppercase tracking-widest text-[#775a19] hover:text-[#000000] transition-colors whitespace-nowrap">Menu</button>
+
 </div>
+</div>
+<div data-nav-panel id="nav-menu-panel" data-link-class="block px-6 py-3 font-headline text-base tracking-tight text-[#1a1c1c] hover:text-[#775a19] hover:bg-[#775a19]/5 transition-colors" hidden class="absolute right-8 top-full min-w-[220px] border border-[#747878]/20 bg-[#faf8f4] shadow-lg shadow-[#1a1c1c]/10 py-2"></div>
 </nav>
 
 <main class="pt-24 overflow-x-hidden">
@@ -1352,5 +1357,6 @@
 </script>
 
 <script src="portfolio-content.js" defer></script>
+<script src="nav-priority.js" defer></script>
 </body>
 </html>
