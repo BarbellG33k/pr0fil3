@@ -4,7 +4,7 @@
 **Status:** Candidates for owner review. No public artifact modified.
 **Target:** the `.description` paragraph at `index.html:247`.
 **Decision required:** pick one (or direct a hybrid) in the Decision block at the bottom.
-**Revision:** v2 — v1's candidates were rewritten after owner feedback on register. See §3.
+**Revision:** v3 — candidates rewritten twice after owner feedback on register. See §3.
 
 ---
 
@@ -29,7 +29,7 @@ since, while the record behind it has grown considerably: the Sep 3 evidence ext
 
 | # | Defect | Detail |
 |---|---|---|
-| 1 | **"three decades"** | Not an accuracy problem — the tenure is real. It is a **positioning** problem, and the owner's call (2026-09-05) is deliberate: *over two decades* reads as significant maturity and continued relevance, where *three decades* invites a reader to age the candidate out of contention before reading the second sentence. Every other artifact already says *more than two decades*; this is now a stated choice rather than an inconsistency to reconcile. |
+| 1 | **"three decades"** | Not an accuracy problem — the tenure is real. It is a **positioning** problem, and the owner's call (2026-09-05) is deliberate: *over two decades* reads as significant maturity and continued relevance, where *three decades* invites a reader to age the candidate out of contention before reading the second sentence. Every other artifact already says *more than two decades*; this is a stated choice, not an inconsistency to reconcile. |
 | 2 | **Names the employer** | `AGENTS.md` requires published output to anonymize company names. The paragraph closes on "at Experity." |
 | 3 | **"arena"** | On the `scripts/slop-scan.mjs` word list. Tolerated today as a pre-existing hit in `portfolio-content.json`; no reason to carry it into a rewrite. |
 | 4 | **Tech stack as shorthand for a career** | ".NET and SQL Server" compresses twenty-plus years into two product names — the specific objection driving this rewrite. `SQL Server` is only `[Recollection]` confidence in executive-profile manuscript §3.7 regardless. |
@@ -44,8 +44,9 @@ the site that is hardcoded rather than read from `portfolio-content.json` /
 
 **Owner directives (confirmed 2026-09-05):**
 
-- **Voice:** subjectless / implied first person — the voice the case-study HTML already
-  uses. Resolves the POV inconsistency between the case studies and the profile fields.
+- **Purpose:** this is an **introduction of the person** — strengths, philosophy, style, and
+  experience, stated with authority. It is not a position paper about engineering.
+- **Voice:** subjectless / implied first person, matching the case-study HTML.
 - **Tenure:** *more than two decades*, as a positioning decision (see defect 1).
 - **Domains:** no industry list. Use the consequence framing already live in
   `resume-content.json.summary` — *regulated environments where a mistake reaches a
@@ -63,235 +64,182 @@ regex on line 36 is case-insensitive and therefore also bans the literal phrase
 
 ---
 
-## 3. Register — what changed in v2, and why
+## 3. Register — two rejected drafts and what they taught
 
-v1 was rejected on voice, not on substance. The specific failures, recorded so they are not
-repeated:
+Both earlier rounds failed on voice, not on substance. Recorded so they are not repeated.
 
-- **"Builds organizations that don't need a hero."** The concept is sound and well
-  evidenced; the word is cheesy, and the sentence is naive to the point of sounding
-  simplistic. The idea has to be carried by the argument, not by a mascot noun.
-- **"Nothing advances on assertion."** Textbook machine-generated cadence — a clipped
-  declarative fragment doing the work a sentence should do.
-- **"Coding is an activity. Engineering is judgment."** Sterile and boxy. Three flat
-  clauses in sequence state a category distinction and then stop, where the value is
-  entirely in what the distinction *costs and buys*.
+**v1 — assertion in place of argument.** "Builds organizations that don't need a hero" was
+naive to the point of sounding simplistic, and "hero" is cheesy; the concept is grounded,
+but a mascot noun cannot carry it. "Nothing advances on assertion" was textbook
+machine-generated cadence — a clipped fragment doing a sentence's work. "Coding is an
+activity. Engineering is judgment." was sterile and boxy: a category distinction stated and
+then abandoned, where the entire value is in what the distinction costs and buys.
 
-**The direction for v2:** full sentences with real subordinate clauses; an idea developed
-rather than asserted; the trade-off named — what the discipline costs, and what it buys.
-Where a strong opening line survives, it is a complete sentence, and the paragraph beneath
-it earns the claim rather than restating it.
+**v2 — the manifesto problem.** The rewrite fixed the cadence and then failed differently.
+Every candidate argued a thesis *about engineering organizations* — how they concentrate
+risk, what commoditizes, how evidence should be gated — and left the subject of the page as
+the implied holder of that opinion. The result reads as an editorial or a conference
+abstract, not as an introduction. Two specific errors underneath it:
 
-**Intellectual anchors now in play** (previously unused on this surface):
+1. **Borrowed frames signal borrowed thinking.** Citing Deming, and reaching for
+   missionaries-and-mercenaries or the elite-strike-team trope, puts the copy inside the
+   same diluted, widely circulated vocabulary that everyone else is already posting as
+   their own. Whatever authority the reference lends is more than spent by the impression
+   that the thinking is secondhand. **No named thinker, no borrowed framework, no
+   circulating trope appears in v3.**
+2. **The page is about a person, not a position.** A reader arriving here wants to know who
+   this is, what he is strong at, and how he works — not to be argued at.
 
-- **Deming — systems over individuals.** The verified line is *"a bad system will beat a
-  good person every time"* (see `plans/2026-09-05-linkedin-people-first-deming-thread-plan.md`,
-  Post 2). Deming said *system*, not *process* — the folk paraphrase is weaker, because
-  system means org design, incentives, and role definition, not merely steps.
-- **Mercenaries and missionaries; the elite strike team.** The prevailing pattern this work
-  argues against: concentrate the hard problems in a small exceptional group, buy velocity
-  that reads as capability, and end up with an organization whose future sits in a handful
-  of calendars.
-- **Judgment as the surviving craft.** Expanded per the owner's own formulation — coding
-  commoditizes, and what does not is systems thinking, mature judgment, and the body of
-  principles the industry has spent decades working out and writing down.
+**The direction for v3:** an authoritative introduction in which the philosophy is *shown
+by* the experience rather than declared alongside it. Principles appear as things the work
+taught and cost, stitched into a progression, not as positions adopted. Systems thinking is
+demonstrated in how the career is read, not announced as a methodology. Full sentences,
+real clauses, no epigrams.
 
 ---
 
 ## 4. Candidates
 
-### A — Systems over individuals, with Deming cited
+### A — The arc, where each stage teaches the next
 
-**Shape:** opening line + paragraph · **Thesis:** results are a property of the design.
+**Shape:** single paragraph · **Emphasis:** experience as the source of the philosophy.
 
 ```
-Excellence that lives in a person leaves when the person does; excellence built
-into a system compounds long after.
-
-The reflex in most engineering organizations is to concentrate - assemble a small
-exceptional group, route everything consequential through it, and call the result
-capability. It buys speed convincingly enough in any given quarter, and it quietly
-relocates the organization's future into a handful of calendars. Deming's actual
-formulation is sharper than the one usually repeated: a bad system will beat a
-good person every time - system, not process, meaning org design, incentives, and
-role definition rather than merely the steps. More than two decades of
-engineering, architecture, and executive leadership have gone into the opposite
-construction: ownership made explicit and deliberately distributed, hard-won
-expertise converted from tribal knowledge into shared practice, and standards
-repeated until they are genuinely known, on the understanding that a standard
-nobody is aware of does not exist. All of it in regulated environments, where a
+An engineer first, an architect next, an executive since - and the sequence
+matters, because each stage taught something the next one needed and none of it
+was learned in the abstract. Writing systems taught what a design actually costs
+once somebody has to operate it. Architecting them taught that the binding
+constraint is almost never the technology. Running engineering organizations
+taught the rest: that results are a property of how the work is arranged - where
+ownership sits, what gets written down, which standards are genuinely known
+rather than merely published - and that the distance between a team that
+performs and one that merely contains strong people is almost entirely a matter
+of design. More than two decades of that, in regulated environments where a
 mistake reaches a patient, a regulator, or the budget.
 ```
 
-**Claims used:** C1, C2, C3, C4, C12, C13.
-**Why it works:** the most heavily evidenced theme in the corpus, argued rather than
-sloganized, with the Deming line supplying both intellectual lineage and a precision point
-(*system*, not *process*) that demonstrates command of the idea rather than familiarity
-with the quote.
-**Trade-off to weigh:** citing another thinker on your own landing card can read as
-borrowed authority — the reader meets Deming before they meet you. Candidate B carries the
-identical argument without the citation, and the choice between them is really a judgment
-about whether the lineage adds credibility or spends attention.
-**Markup:** needs an opening-line element above `.description`.
-
----
-
-### B — Systems over individuals, mercenaries and missionaries
-
-**Shape:** opening line + paragraph · **Thesis:** the same argument, no citation, sharper
-economics.
-
-```
-Mercenaries are hired for a campaign. Missionaries are what an organization gets
-to keep.
-
-Engineering organizations tend to meet their hardest problems by concentration -
-a small elite group, brought in or set apart, through which everything difficult
-is routed. The arithmetic works for a quarter and fails over a decade, because
-the capability never actually becomes the organization's; it stays personal, and
-it leaves when its owner does. The alternative is slower to stand up and
-considerably harder to dislodge: ownership named rather than implied, expertise
-institutionalized rather than held by whoever happens to hold it, and teams
-structured so that no single absence changes what they can be trusted with. More
-than two decades of building it that way - first writing the systems, then
-architecting them, then leading the organizations that own them - in regulated
-environments, where a mistake reaches a patient, a regulator, or the budget.
-```
-
-**Claims used:** C1, C2, C3, C12, C14.
-**Why it works:** the strongest opening in the set, and the second sentence does real
-analytical work — *the arithmetic works for a quarter and fails over a decade* is the whole
-argument in a clause. Carries the systems thesis without leaning on anyone else's name.
-**Trade-off to weigh:** the missionaries/mercenaries framing is borrowed industry
-vocabulary (commonly traced to John Doerr), well circulated but not original. Used as
-allusion it reads as fluency; presented as a coinage it would not survive a reader who
-knows its origin. The copy above alludes, and should stay that way.
-**Markup:** needs an opening-line element above `.description`.
-
----
-
-### C — Judgment as the surviving craft
-
-**Shape:** single paragraph, no opening line · **Thesis:** what commoditizes, what does
-not, and why the difference is the whole job.
-
-```
-Coding is being commoditized. The judgment that decides what to build, what to
-refuse, what a system will cost to operate five years from now, and which
-trade-off is the one that actually matters is not - and that gap is widening
-rather than closing. Judgment of that kind is not innate; it accumulates, out of
-systems thinking, out of having owned the consequences of one's own architecture,
-and out of the body of principles and practices the industry has spent decades
-working out, arguing over, and committing to writing. More than two decades of
-engineering, architecture, and executive leadership rest on treating that
-inheritance as the actual craft: coding is the activity, engineering is the
-understanding of systems, constraints, and trade-offs, and only one of the two
-gets cheaper as the tools get better. It is the same reasoning that makes
-AI-assisted engineering a practice to be governed and validated here rather than
-a headline to be chased - the standard being what it has always been in regulated
-environments, where a mistake reaches a patient, a regulator, or the budget.
-```
-
-**Claims used:** C1, C9, C10, C12.
-**Why it works:** built directly from the owner's own formulation and given room to
-develop. It makes the twenty-plus years *the argument* — the depth is the reason the
-judgment is worth paying for — and disposes of AI in a subordinate clause, which is exactly
-the intended posture.
-**Trade-off to weigh:** the longest candidate. It rewards a reader who stays; it asks for
-four sentences before the payoff lands.
+**Claims used:** C1, C2, C3, C4, C12.
+**Why it works:** the progression *is* the argument, so nothing has to be asserted. The
+anti-concentration principle arrives in the final clause as something the career produced —
+"the distance between a team that performs and one that merely contains strong people is
+almost entirely a matter of design" — rather than as a slogan the reader is asked to accept.
+**Trade-off to weigh:** the most conventional structure of the five. Its strength is that it
+earns every claim; its cost is that it does not surprise.
 **Markup:** none — direct replacement of `index.html:247`.
 
 ---
 
-### D — Evidence discipline, with the cost named
+### B — Strengths first, stated with authority
 
-**Shape:** opening line + paragraph · **Thesis:** what the discipline costs and what it
-buys.
+**Shape:** single paragraph · **Emphasis:** what he is good at and how he works.
 
 ```
-Opinion is faster than evidence, and that difference is precisely what makes
-opinion expensive.
-
-Architecture calls, vendor selections, hiring bars, incident conclusions - each
-one is cheaper to settle on instinct and dramatically more costly to unwind, so
-each one gets the same treatment: the problem stated plainly, the evidence
-produced before the conclusion rather than after it, and the reasoning written
-down clearly enough to be followed later without a meeting and without its author
-in the room. The discipline is worth very little unless it is symmetric, which is
-why it is turned upward at the business narrative and inward at proposals of
-one's own as readily as it is ever turned on anyone else's. More than two decades
-have made that a habit rather than a policy - built in regulated environments,
-where being wrong reaches a patient, a regulator, or the budget.
+Strongest where the problem is organizational and the constraint is technical,
+or the reverse - the two are rarely separable, and mistaking one for the other
+is where most engineering plans quietly fail. Builds leaders before building
+headcount, makes ownership explicit enough to hold without supervision, and
+treats a decision as unfinished until the reasoning behind it is written down
+clearly enough for someone else to act on without a meeting. Depth is not
+decorative in any of this: more than two decades of hands-on engineering and
+architecture are what make the leadership judgment worth trusting, and they are
+the reason an AI-assisted engineering practice gets governed and validated here
+rather than adopted on enthusiasm. All of it formed in regulated environments,
+where a mistake reaches a patient, a regulator, or the budget.
 ```
 
-**Claims used:** C1, C5, C12.
-**Why it works:** names a real trade-off in the first sentence (slower now, cheaper later)
-instead of asserting a virtue, and the symmetry clause — pointed upward and inward, not
-only downward — is the part almost nobody can claim and the part hardest to fake.
-**Trade-off to weigh:** reads as exacting. That is accurate, but on a first impression it
-lands cooler than A, B, or E.
-**Markup:** needs an opening-line element above `.description`.
+**Claims used:** C1, C3, C5, C9, C10, C12.
+**Why it works:** opens on a genuine differentiator rather than a chronology, and the first
+sentence makes a claim of diagnostic skill that most engineering leaders cannot make
+honestly. "Depth is not decorative" answers the seniority question — why the hands-on years
+matter now — without restating the résumé.
+**Trade-off to weigh:** the most self-assured of the five. That is the brief, but it should
+be read once specifically for whether the confidence sits right in your own voice.
+**Markup:** none — direct replacement of `index.html:247`.
 
 ---
 
-### E — Leadership as influence, and what the structure can hold
+### C — Lessons, and what they actually cost
 
-**Shape:** opening line + paragraph · **Thesis:** people-first, expressed structurally.
+**Shape:** single paragraph · **Emphasis:** principles as earned, explicitly not borrowed.
 
 ```
-Leadership is influence rather than authority; management is one expression of
-it, not its definition.
-
-The practical consequence is that the work stops being a question of how much one
-person can personally hold and becomes a question of how much the structure can
-hold without them. Delivery ownership, technical direction, and the infrastructure
-underneath both are each held by someone named and accountable, so continuity
-becomes a property of the design rather than of anyone's availability. Ambiguity
-is absorbed at the top instead of passed downstream; priorities are defended
-against the churn that damages delivery far more reliably than difficult problems
-ever do; and when someone leaves depleted, that is read as a fault in the
-structure rather than a shortfall in the person. More than two decades of
-building it that way - as an engineer, as an architect, and then across
-engineering organizations - where a mistake reaches a patient, a regulator, or
-the budget.
+A career spent moving closer to the source of the problem rather than further
+from it: writing the systems, then designing them, then shaping the
+organizations that decide what gets built and how well. Each move surfaced the
+same pattern one level up. A defect is rarely isolated, and neither are the
+organizational conditions that produced it. Capability concentrated in a few
+people looks like strength in a good quarter and reads as fragility in a bad
+one. Alignment decays unless it is deliberately maintained, which makes
+communication a quality mechanism rather than a courtesy. None of those are
+positions picked up from reading; they are what more than two decades of being
+accountable for the result actually cost - in regulated environments, where a
+mistake reaches a patient, a regulator, or the budget.
 ```
 
-**Claims used:** C1, C6, C7, C8, C12.
-**Why it works:** the most humane candidate, and the only one stating a position about what
-leadership *is* that a reader could disagree with — which is what makes it memorable rather
-than agreeable.
-**Trade-off to weigh:** the depletion clause rests on a single working relationship in the
-source material (C8, `[Directional]`). Defensible as a stated principle, never as a claimed
-outcome — no number, no trend, no "reduced attrition" may ever attach to it.
-**Markup:** needs an opening-line element above `.description`.
+**Claims used:** C1, C2, C4, C11, C12.
+**Why it works:** this is the candidate that does the stitching — three separate lessons
+presented as one recurring pattern seen at three altitudes, which demonstrates systems
+thinking instead of naming it. The closing sentence meets the "shared collective noise"
+objection head-on: these were paid for, not read.
+**Trade-off to weigh:** the line "none of those are positions picked up from reading" is
+pointed. It is the sharpest sentence in the set and the one most worth deciding
+deliberately, since it implicitly characterizes people who did pick them up that way.
+**Markup:** none — direct replacement of `index.html:247`.
 
 ---
 
-### F — Composite, single paragraph, drop-in
+### D — The synthesis
 
-**Shape:** one paragraph, no markup change · **Thesis:** the synthesis.
+**Shape:** single paragraph · **Emphasis:** judgment as the thing the years produced.
 
 ```
-An engineer who learned to architect systems, and then to build the organizations
-that own them - more than two decades of that progression, with one conviction
-underneath all of it: capability that depends on particular people is not
-capability, it is exposure. So ownership is made explicit and distributed,
-hard-won expertise is turned into shared practice rather than left with whoever
-happens to hold it, and decisions run on evidence rather than instinct, written
-down clearly enough to be followed without a meeting. Teams own the whole system,
-including the parts that hurt. The discipline does not change with the subject -
-an architecture call, a hiring bar, an incident, and an AI-assisted engineering
-practice all clear the same bar - and it was formed where a mistake reaches a
-patient, a regulator, or the budget.
+An engineer who learned to architect systems and then to build the
+organizations that own them - more than two decades of it, moving closer to the
+work at each step rather than further from it. What accumulates from that is a
+particular kind of judgment: knowing what a design will cost to operate long
+before anyone operates it, recognizing when the real constraint is
+organizational rather than technical, and seeing early where capability has
+quietly concentrated into a few people and become a risk nobody has priced. The
+practice that follows is deliberate - ownership made explicit, expertise turned
+into shared practice, decisions made on evidence and written down clearly enough
+to be followed without a meeting, standards repeated until they are genuinely
+known. Built in regulated environments, where a mistake reaches a patient, a
+regulator, or the budget.
 ```
 
-**Claims used:** C1, C2, C3, C5, C11, C12.
-**Why it works:** *capability that depends on particular people is not capability, it is
-exposure* is the mature form of the idea v1 fumbled — same argument, no mascot noun. Highest
-substance per candidate, and it drops into the existing `<p class="description">` with zero
-markup change.
-**Trade-off to weigh:** no single line to remember it by. It wins on substance rather than
-impact.
+**Claims used:** C1, C2, C3, C4, C5, C11, C12.
+**Why it works:** the fullest introduction of the five and the most complete answer to "who
+is this." It names three specific perceptual strengths — cost-to-operate foresight,
+constraint diagnosis, concentration risk spotted early — then shows the practice that
+follows from them, so philosophy and method arrive as one thing.
+**Trade-off to weigh:** the longest candidate at 140 words. It rewards a reader who
+stays; it asks for four sentences.
+**Markup:** none — direct replacement of `index.html:247`.
+
+---
+
+### E — Compact
+
+**Shape:** single short paragraph · **Emphasis:** confidence through compression.
+
+```
+More than two decades of engineering, architecture, and executive leadership,
+spent close enough to the work at every level to know what a design costs to
+operate and what an organization costs to run badly. The through-line is systems
+thinking applied to people and delivery with the same seriousness it gets
+applied to architecture: ownership made explicit, expertise made shared,
+decisions made on evidence and written down, standards repeated until they are
+known. Formed in regulated environments, where a mistake reaches a patient, a
+regulator, or the budget.
+```
+
+**Claims used:** C1, C3, C4, C5, C12.
+**Why it works:** 88 words against the current 110, and the brevity itself reads as
+authority — nothing is being oversold. "What an organization costs to run badly" carries the
+whole operating-model argument in seven words.
+**Trade-off to weigh:** states the through-line rather than demonstrating it, which is the
+compromise brevity forces. The resume and portfolio links sit directly beneath it and carry
+the evidence.
 **Markup:** none — direct replacement of `index.html:247`.
 
 ---
@@ -305,21 +253,18 @@ defended, and so a later editing pass cannot upgrade a verb without new evidence
 |---|---|---|---|
 | C1 | Engineer → architect → executive, more than two decades | `resume-content.json` role history; executive-profile manuscript §2 | Verified |
 | C2 | Dependence on particular individuals is a structural defect, not a strength | `sources/frameworks_and_principles/Guillermo_Salas_Leadership_Operating_Principles.md` ("systems over heroics"); evidence extraction §5.1, §6.1 | Verified — multi-source |
-| C3 | Expert-held knowledge converted into shared practice | `case-study-devops-center-of-excellence.html`; evidence extraction §3 | Verified |
-| C4 | A standard nobody is aware of does not exist; alignment decays without repetition | Leadership operating principles ("communication has to be repeated to matter"); evidence extraction §5.4. Already live in `portfolio-content.json.summary` | Verified |
-| C5 | Decisions run on evidence rather than assertion; written down; the gate applied upward and to self-originated proposals | Leadership operating principles ("evidence over assumption"); evidence extraction §5.2, §2 | Verified |
-| C6 | Leadership is influence, not authority; management is one expression of it | Leadership operating principles, opening section | Verified |
-| C7 | Absorbs ambiguity rather than passing it downstream; protects teams from priority churn | Leadership operating principles ("protecting teams from organizational noise") | Verified |
-| C8 | A depleted departure attributed to organizational design, not to the individual | Evidence extraction §5.3 — single working relationship | **Directional — flag** |
-| C9 | Rails built before acceleration | `case-study-security-rails-ai-security-posture.html`; evidence extraction §4 | Verified |
-| C10 | Coding / development / engineering hierarchy; judgment holds value as code production commoditizes | Evidence extraction §4; `resume-content.json.builderResume.summary`; owner formulation 2026-09-05 | **Directional — single series** |
+| C3 | Expert-held knowledge converted into shared practice; ownership made explicit | `case-study-devops-center-of-excellence.html`; `case-study-operating-model-transformation.html`; evidence extraction §3 | Verified |
+| C4 | A standard nobody is aware of does not exist; alignment decays without deliberate repetition | Leadership operating principles ("communication has to be repeated to matter"); evidence extraction §5.4. Already live in `portfolio-content.json.summary` | Verified |
+| C5 | Decisions run on evidence rather than assertion, and are written down | Leadership operating principles ("evidence over assumption"); evidence extraction §5.2, §2 | Verified |
+| C9 | Rails built before acceleration; AI governed rather than adopted on enthusiasm | `case-study-security-rails-ai-security-posture.html`; leadership operating principles ("AI as force multiplier, not mandate"); evidence extraction §4 | Verified |
+| C10 | Hands-on depth is what makes the leadership judgment trustworthy | `resume-content.json.builderResume.summary`; owner formulation 2026-09-05 | Verified |
 | C11 | Teams own the whole system, including the parts that hurt | `case-study-owning-the-whole-system.html`. Already live in `portfolio-content.json.summary` | Verified |
 | C12 | Regulated environments where a mistake reaches a patient, a regulator, or the budget | Already live in `resume-content.json.summary` | Verified |
-| C13 | "A bad system will beat a good person every time" — W. Edwards Deming | Deming Four-Day seminar, Phoenix, Feb 1993, per The Deming Institute; see `plans/2026-09-05-linkedin-people-first-deming-thread-plan.md` Post 2 | Verified as spoken; **not** from his published books — do not cite a book |
-| C14 | Mercenaries / missionaries framing | Borrowed industry vocabulary, commonly traced to John Doerr | **Allusion only** — never present as an original coinage |
 
-**Directional claims (C8, C10) are stated as positions, never as measured outcomes.** That
-is what keeps them publishable. Do not attach a number, a trend, or a result to either.
+**Retired in v3 and deliberately not replaced:** the Deming citation and the
+missionaries/mercenaries framing (v2 claims C13 and C14). Both were borrowed vocabulary; see
+§3. The depletion/departure claim (v2 C8) is also out — it rested on a single working
+relationship and is not needed by any v3 candidate.
 
 ---
 
@@ -339,8 +284,12 @@ Carried forward so a later editing pass cannot silently reintroduce a retired cl
 - Evidence-ledger vocabulary (`validate-mirrors.mjs:47-50`) — public copy states what was
   done, never how well corroborated the underlying material is.
 - `scripts/slop-scan.mjs` words — `arena` included.
+- **Named thinkers, borrowed frameworks, and circulating industry tropes** — Deming,
+  missionaries/mercenaries, elite strike teams, and their equivalents. The authority has to
+  come from the record, not from a citation (§3).
 - **Register:** clipped declarative fragments standing in for arguments; a vivid noun doing
-  the work of a sentence; category distinctions stated and then abandoned. See §3.
+  the work of a sentence; theses about how engineering organizations behave in place of an
+  introduction of the person.
 
 ---
 
@@ -357,6 +306,9 @@ Whichever candidate is chosen, two follow-on decisions come with it:
    `portfolio-content.json.hero.tagline` (currently "Builds stronger leaders and stronger
    engineering systems.").
 
+Every v3 candidate is a single paragraph and drops into the existing
+`<p class="description">` with **no markup change**.
+
 **Gates to run when the pick is applied to `index.html`:**
 
 ```
@@ -367,21 +319,21 @@ npm test
 ```
 
 Then render-check via `npm run dev` or `file://index.html` — the card is width-constrained
-at 600px with a 40px gutter, so the opening-line candidates (A, B, D, E) should be eyeballed
-at mobile width before shipping.
+at 600px with a 40px gutter.
 
 ---
 
 ## 8. Decision
 
-| Candidate | Shape | Thesis | Pick |
+| Candidate | Emphasis | Length | Pick |
 |---|---|---|---|
-| A | Line + paragraph | Systems over individuals, Deming cited | ☐ |
-| B | Line + paragraph | Mercenaries and missionaries | ☐ |
-| C | Single paragraph | Judgment as the surviving craft | ☐ |
-| D | Line + paragraph | Evidence discipline, with the cost named | ☐ |
-| E | Line + paragraph | Leadership as influence; what the structure holds | ☐ |
-| F | Single paragraph (drop-in) | The synthesis | ☐ |
+| A | The arc, where each stage teaches the next | 136 words | ☐ |
+| B | Strengths first, stated with authority | 133 words | ☐ |
+| C | Lessons, and what they actually cost | 134 words | ☐ |
+| D | The synthesis — judgment as what the years produced | 140 words | ☐ |
+| E | Compact | 88 words | ☐ |
+
+For reference, the live paragraph being replaced is 110 words.
 
 **Owner notes / hybrid direction:**
 
